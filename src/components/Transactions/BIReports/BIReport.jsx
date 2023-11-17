@@ -19,11 +19,19 @@ const BIReport = (props) => {
   const [fromMonth, setFromMonth] = useState(false);
   const [toMonth, setToMonth] = useState(false);
 
+  const [fromMonth2, setFromMonth2] = useState(false);
+  const [toMonth2, setToMonth2] = useState(false);
+
   const [reportTypeSet, setReportTypeSet] = useState(true);
   const [monthSet, setMonthSet] = useState(false);
 
+  const [monthSet2, setMonthSet2] = useState(false);
+
   const [fromMonthValue, setFromMonthValue] = useState("");
   const [toMonthValue, setToMonthValue] = useState("");
+
+  const [fromMonthValue2, setFromMonthValue2] = useState("");
+  const [toMonthValue2, setToMonthValue2] = useState("");
 
   const customOpacity = {
     opacity: "0",
@@ -69,6 +77,29 @@ const BIReport = (props) => {
     setMonthSet(true);
     console.log(fromMonth, "yoyoyo");
     console.log(toMonth, "yoyoyoy");
+  };
+
+  const fromMonthValueSetter2 = (e) => {
+    // console.log(e.target.innerText);
+    // console.log("yoyoyoy");
+    setFromMonth2(false);
+    // console.log("hello console");
+    setToMonth2(true);
+    setFromMonthValue2(e.target.innerText);
+
+    // console.log(fromMonth, "yoyoyo");
+    // console.log(toMonth, "yoyoyoy");
+  };
+  const toMonthValueSetter2 = (e) => {
+    // console.log(e.target.innerText);
+    // console.log("yoyoyoy");
+    // setFromMonth(false);
+    // console.log("hello console");
+    setToMonth2(false);
+    setToMonthValue2(e.target.innerText);
+    setMonthSet2(true);
+    // console.log(fromMonth, "yoyoyo");
+    // console.log(toMonth, "yoyoyoy");
   };
 
   return (
@@ -377,32 +408,31 @@ const BIReport = (props) => {
       <section>
         <h3>PAN Level Reports</h3>
         <span>
-          <select name="" id="">
+          <select
+            onChange={() => {
+            return setFromMonth2(true);
+          }} name="" id="">
             <option value="">Select Report Type</option>
-            <option value="">
-              Cancellation Adjustment Report-Consolidated
-            </option>
-            <option value="">Cancellation Adjustment Report-Detailed</option>
-            <option value="">Reversal Adjustment Report</option>
-            <option value="">Credit Note Adjustment Report</option>
-            <option value="">Provision Adjustment Report</option>
-            <option value="">Advance Adjustment Report</option>
             <option value="">
               Vendor-Section Threshold Consumption Report
             </option>
             <option value="">LDC Consumption Report</option>
-            <option value="">Monthly-Liability Report</option>
+            {/* <option value="">Monthly-Liability Report</option> */}
           </select>
-          {/* <p>Cancellation Adjustment Report (Consolidated)</p>
-          <p>Reversal Adjustment Report</p> */}
+          {monthSet2 && <>
+          <p>Vendor-Section Threshold Consumption Report</p>
+          <p>LDC Consumption Report</p>
+          </>}
         </span>
         <p>Select Month Range</p>
         <div>
           <span>
-            Aug <CalendarMonthIcon />
+          {fromMonthValue2 == "" ? "Select From Month" : fromMonthValue2}{" "}
+            <CalendarMonthIcon style={{ fontSize: "2rem" }} />
           </span>
           <span>
-            Oct <CalendarMonthIcon />
+          {toMonthValue2 == "" ? "Select To Month" : toMonthValue2}{" "}
+            <CalendarMonthIcon style={{ fontSize: "2rem" }} />
           </span>
           <PurpleButton>
             <FileDownloadOutlinedIcon
@@ -411,8 +441,9 @@ const BIReport = (props) => {
             Download Report
           </PurpleButton>
         </div>
-        {/* {(fromMonth||toMonth) &&<div className={classes.calenderpopup}>
-          {fromMonth && <section>
+        {(fromMonth2||toMonth2) &&<div className={classes.calenderpopup}>
+          {(fromMonth2 || toMonth2) && 
+          <section style={!fromMonth2 ? customOpacity : {}}>
             <span style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
               2023-2024
               <b>
@@ -421,21 +452,93 @@ const BIReport = (props) => {
               </b>
             </span>
             <main>
-              <p>Apr</p>
-              <p>May</p>
-              <p>Jun</p>
-              <p>Jul</p>
-              <p>Aug</p>
-              <p>Sep</p>
-              <p>Oct</p>
-              <p>Nov</p>
-              <p>Dec</p>
-              <p>Jan</p>
-              <p>Feb</p>
-              <p>Mar</p>
-            </main>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Apr
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    May
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Jun
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Jul
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Aug
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Sep
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Oct
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Nov
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Dec
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Jan
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Feb
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      fromMonthValueSetter2(e);
+                    }}
+                  >
+                    Mar
+                  </p>
+                </main>
           </section>}
-          {toMonth && <section>
+          {toMonth2 && <section>
             <span style={{ paddingLeft: "2rem", paddingRight: "2rem" }}>
               2023-2024
               <b>
@@ -444,21 +547,93 @@ const BIReport = (props) => {
               </b>
             </span>
             <main>
-              <p>Apr</p>
-              <p>May</p>
-              <p>Jun</p>
-              <p>Jul</p>
-              <p>Aug</p>
-              <p>Sep</p>
-              <p>Oct</p>
-              <p>Nov</p>
-              <p>Dec</p>
-              <p>Jan</p>
-              <p>Feb</p>
-              <p>Mar</p>
-            </main>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Apr
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    May
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Jun
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Jul
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Aug
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Sep
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Oct
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Nov
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Dec
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Jan
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Feb
+                  </p>
+                  <p
+                    onClick={(e) => {
+                      toMonthValueSetter2(e);
+                    }}
+                  >
+                    Mar
+                  </p>
+                </main>
           </section>}
-        </div>} */}
+        </div>}
       </section>
     </div>
   );
