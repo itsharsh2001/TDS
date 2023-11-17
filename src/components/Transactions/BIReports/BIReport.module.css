@@ -1,0 +1,260 @@
+.bireport {
+  height: 100% !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column !important;
+  /* margin-bottom: 2rem!important; */
+  background-color: white !important;
+  /* background-color: red!important; */
+}
+
+.bireport >span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 2rem;
+  /* padding-top: 1rem; */
+  margin-top: -2rem;
+  padding-bottom: 4rem;
+  color: #4f2d7f;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  list-style: none;
+  background-color: white;
+  height: 100%;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.bireport >span button {
+  /* height: 100%; */
+  width: 18rem;
+  padding: 0.5rem 2rem;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.4rem;
+}
+
+.righticon {
+  font-size: 2.1rem !important;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.bireport>ul {
+  margin-bottom: 0;
+  
+}
+
+.bireport>ul li {
+  padding: 2rem;
+}
+
+
+.bireport section {
+  width: 96%;
+  margin-left: 2rem!important;
+  margin-right: 2rem!important;
+  
+  height: 215px;
+  min-height: 215px;
+  background-color: #f9f5ff;
+  border-radius: 10px;
+  display: flex;
+  padding: 1.5rem;
+
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: unset!important;
+  margin: 0;
+  margin-bottom: 3rem;
+}
+
+.bireport section h3 {
+  color: var(--GT-Purple, #4f2d7f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 2.3rem;
+  /* line-height: 2.7rem!important; */
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  /* margin: 0!important; */
+  /* margin-bottom: 1.5rem; */
+}
+
+.bireport section span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  padding: 0;
+  /* margin: 0!important; */
+  border: none;
+}
+
+.bireport section span select {
+  padding: 0;
+  margin: 0;
+  height: 40px;
+  margin-right: 1.5rem;
+  width: 33rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bireport section span p {
+  border-radius: 8px;
+  border: 1px solid var(--GT-Purple, #4f2d7f);
+  color: var(--shades-of-gray-jet, #333);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* width: 30rem; */
+  width: unset;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.bireport section > p {
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 350;
+  line-height: normal;
+}
+
+.bireport section div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  padding: 0;
+  /* margin: 0!important; */
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.bireport section div span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  height: 40px;
+  width: 27rem;
+  margin-right: 1.5rem;
+  border-radius: 0;
+
+  color: var(--GT-Purple, #4f2d7f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
+
+.bireport section div button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  color: var(--White, #fff);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 100% */
+  width: 25rem;
+}
+
+.bireport section div section {
+  z-index: 50;
+  width: 270px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 10px #00000016;
+  /* padding: 2rem; */
+  padding: 0;
+  margin-right: 1.5rem;
+}
+
+.bireport section div section span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 1.5rem;
+  /* height: 30px!important; */
+  color: var(--secondary-colors-prussian-blue, #1e375c);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* PARA - 14M */
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.bireport section div section main {
+  width: 100%;
+  height: 85%;
+  background-color: white;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 32% 32% 32%;
+  grid-template-rows: auto auto auto auto;
+  padding: 1rem;
+}
+
+.bireport section div section main p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--Gray-3, #828282);
+  text-align: center;
+  font-family: Abel;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.bireport section div section main p:hover,
+.bireport section div section main p:active {
+  background-color: #4f2d7f;
+  color: white;
+}

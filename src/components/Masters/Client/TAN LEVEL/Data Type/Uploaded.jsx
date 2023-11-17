@@ -1,0 +1,672 @@
+import React, { useState } from "react";
+// import FileDownloadOutlinedIcon from '@mui/icons-material/Download';
+
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+
+import EditIcon from "@mui/icons-material/Edit";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+import DescriptionIcon from "@mui/icons-material/Description";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+import classes from "./Uploaded.module.css";
+import PurpleButton from "../../../../UI/PurpleButton";
+import WhiteButton from "../../../../UI/WhiteButton";
+
+const Uploaded = ({ type }) => {
+  const [fileUpload, setFileUpload] = useState(false);
+  const [mappingManual, setMappingManual] = useState(true);
+  const [templateFileUpload, setTemplateFileUpload] = useState(false);
+
+  const templateUploadMapping = [
+    {
+      File_Name: 'Mapping Template 1',
+      Created_By: 'Deepak Dhawan',
+      Created_On: '5/3/2023'
+    },
+    {
+      File_Name: 'Mapping Template 2',
+      Created_By: 'Harshad Hariharan',
+      Created_On: '5/5/2023'
+    },
+    {
+      File_Name: 'Mapping Template 3',
+      Created_By: 'Deepak Dhawan',
+      Created_On: '6/2/2023'
+    }
+  ];
+
+  const loginData = [
+    {
+      File_Name: "Login_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 8347612950,
+      No_of_Records: 3,
+      Processed_Records: 3,
+      Error_Records: 0,
+    },
+  ];
+
+  const poData = [
+    {
+      File_Name: "PO_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 5276341809,
+      No_of_Records: 19763,
+      Processed_Records: 19763,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_Apr.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1436098572,
+      No_of_Records: 9286,
+      Processed_Records: 9286,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_May.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9703186245,
+      No_of_Records: 2456,
+      Processed_Records: 2456,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_Jun.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1253769480,
+      No_of_Records: 1247,
+      Processed_Records: 1247,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_Jul.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 6942180375,
+      No_of_Records: 4513,
+      Processed_Records: 4513,
+      Error_Records: 0,
+    },
+  ];
+
+  const hsnData = [
+    {
+      File_Name: "HSN_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 4819723065,
+      No_of_Records: 11,
+      Processed_Records: 11,
+      Error_Records: 0,
+    },
+  ];
+
+  const glData = [
+    {
+      File_Name: "GL_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 7326149805,
+      No_of_Records: 19763,
+      Processed_Records: 19763,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_Apr.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 7384912065,
+      No_of_Records: 20,
+      Processed_Records: 20,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_May.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 3625087149,
+      No_of_Records: 14,
+      Processed_Records: 14,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_Jun.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1573029468,
+      No_of_Records: 12,
+      Processed_Records: 12,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_Jul.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9630412578,
+      No_of_Records: 19,
+      Processed_Records: 19,
+      Error_Records: 0,
+    },
+  ];
+
+  let arr = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25,
+  ];
+  let rowStyle = {};
+
+  switch (type) {
+    case "Keyword":
+      rowStyle = {
+        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+      };
+      break;
+    case "Po":
+      rowStyle = {
+        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+      };
+      break;
+    case "GLmaster":
+      rowStyle = {
+        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+      };
+      break;
+    case "Hsnsac":
+      rowStyle = {
+        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+      };
+      break;
+    // Add more cases for other values as needed
+    default:
+      break;
+  }
+
+  return (
+    <>
+      {fileUpload && (
+        <div className={classes.popup2}>
+          <h5>Custom Mapping</h5>
+          <div>
+            <input
+              onClick={() => {
+                return setMappingManual(true);
+              }}
+              checked={mappingManual}
+              type="radio"
+              name="mapping"
+              id="custom"
+            />
+            <label
+              onClick={() => {
+                return setMappingManual(true);
+              }}
+              htmlFor="custom"
+            >
+              Manual Mapping
+            </label>
+            <input
+              onClick={() => {
+                return setMappingManual(false);
+              }}
+              checked={!mappingManual}
+              type="radio"
+              name="mapping"
+              id="template"
+            />
+            <label
+              onClick={() => {
+                return setMappingManual(false);
+              }}
+              htmlFor="template"
+            >
+              Template Upload Mapping
+            </label>
+          </div>
+          <p>
+            <PriorityHighIcon className={classes.highicon} />
+            {mappingManual && (
+              <>Choose user data field to map data with system</>
+            )}
+            {!mappingManual && (
+              <>
+                Download pre-existing template or Upload template to map data
+                <FileDownloadOutlinedIcon className={classes.downloadicon} />{" "}
+                <b> Download Sample Template</b>
+              </>
+            )}
+          </p>
+
+          {mappingManual && (
+            <section>
+              <div>
+                <h2>System Defined Field</h2>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 3</option>
+                </select>
+              </div>
+              <div>
+                <h2>User Data Field</h2>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+                <select name="" id="">
+                  <option value="">User Data Field 1</option>
+                  <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 3</option>
+                </select>
+              </div>
+            </section>
+          )}
+
+          {/* <label htmlFor="">
+            <DescriptionIcon/>
+            <h6>Select file to upload</h6>
+            <p>Or drag and drop file here</p>
+          </label> */}
+          {!mappingManual && (
+            <>
+              <label className={classes.fileUpload}>
+                <div className={classes.uploadIcon}>
+                  {/* <img src="document-icon.png" alt="Document Icon" /> */}
+                  <DescriptionIcon
+                    style={{ color: "#4F2D7F", fontSize: "4rem" }}
+                  />
+
+                  <p className={classes.uploadText1}>Select file to upload</p>
+                  <p className={classes.uploadText2}>
+                    Or drag and drop file here
+                  </p>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    className={classes.fileInput}
+                  />
+                </div>
+              </label>
+              <table className={classes.table}>
+                <tbody>
+                  <tr
+                    style={{
+                      gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
+                    }}
+                  >
+                    <th></th>
+                    <th>File Name</th>
+                    <th>Created By</th>
+                    <th>Created On</th>
+                    <th>Download</th>
+                  </tr>
+                  
+                  {templateUploadMapping.map((val, idx) => {
+                    return (
+                      <tr
+                        style={{
+                          gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
+                        }}
+                        id={idx}
+                      >
+                        <td>
+                          {/* <input type="checkbox" name="" id="" /> */}
+                          <input type="radio" name="" id="" />
+                        </td>
+                        <td>{val.File_Name}</td>
+                        <td>{val.Created_By}</td>
+                        <td>{val.Created_On}</td>
+                        <td>
+                          <FileDownloadOutlinedIcon style={{cursor:'pointer',fontSize:'2.5rem'}}/>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </>
+          )}
+
+          <span>
+            {mappingManual && <PurpleButton onClick={() => {
+                return setFileUpload(false);
+              }}>Save As Template</PurpleButton>}
+            <PurpleButton
+              onClick={() => {
+                return setFileUpload(false);
+              }}
+            >
+              Submit
+            </PurpleButton>
+            <WhiteButton
+              onClick={() => {
+                return setFileUpload(false);
+              }}
+            >
+              Cancel
+            </WhiteButton>
+          </span>
+        </div>
+      )}
+      <div className={classes.uploaded}>
+        <div>
+          <input
+            onClick={() => {
+              return setTemplateFileUpload(false);
+            }}
+            type="radio"
+            name="fileupload"
+            id="custom"
+          />
+          <label
+            onClick={() => {
+              return setTemplateFileUpload(false);
+            }}
+            htmlFor="custom"
+          >
+            Custom File Upload
+          </label>
+          <input
+            onClick={() => {
+              return setTemplateFileUpload(true);
+            }}
+            type="radio"
+            name="fileupload"
+            id="template"
+          />
+          <label
+            onClick={() => {
+              return setTemplateFileUpload(true);
+            }}
+            htmlFor="template"
+          >
+            Template File Upload
+          </label>
+        </div>
+        <span>
+          <label
+            onClick={() => {
+              if(!templateFileUpload){
+                return setFileUpload(true);}
+            }}
+            htmlFor=""
+          >
+            <input
+              onClick={() => {
+                if(!templateFileUpload){
+                  return setFileUpload(true);}
+              }}
+              type="file"
+              name=""
+              id=""
+            />
+          </label>
+          {templateFileUpload && (
+            <button
+              style={{
+                marginRight: "-15rem",
+                marginLeft: "auto",
+              }}
+              className={classes.leftbutton}
+            >
+              <FileDownloadOutlinedIcon className={classes.downloadicon} />
+              Download Template
+            </button>
+          )}
+          <button>
+            <FileDownloadOutlinedIcon className={classes.downloadicon} />
+            Download Consolidated Reports
+          </button>
+        </span>
+
+        <table className={classes.table}>
+          <tbody>
+            <tr style={rowStyle}>
+              <th>
+                <input type="checkbox" name="" id="" />
+              </th>
+              <th>
+                File Name
+                <KeyboardArrowDownIcon />
+              </th>
+              <th>
+                Uploaded By
+                <KeyboardArrowDownIcon />
+              </th>
+              <th>
+                Batch ID
+                <KeyboardArrowDownIcon />
+              </th>
+              <th>
+                No of Records
+                <KeyboardArrowDownIcon />
+              </th>
+              <th>
+                Processed Records
+                <KeyboardArrowDownIcon />
+              </th>
+              <th>
+                Error Records
+                <KeyboardArrowDownIcon />
+              </th>
+              <th>
+                Actions
+                <KeyboardArrowDownIcon/>
+              </th>
+            </tr>
+
+            {type == "Po" &&
+              poData.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <p>File</p> 
+                      <p>Report</p>
+                    </th>
+                  </tr>
+                );
+              })}
+            {type == "Hsnsac" &&
+              hsnData.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <p>File</p> 
+                      <p>Report</p>
+                    </th>
+                  </tr>
+                );
+              })}
+            {type == "GLmaster" &&
+              glData.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <p>File</p> 
+                      <p>Report</p>
+                    </th>
+                  </tr>
+                );
+              })}
+            {type == "Keyword" &&
+              loginData.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <p>File</p> 
+                      <p>Report</p>
+                    </th>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
+
+export default Uploaded;

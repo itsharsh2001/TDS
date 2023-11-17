@@ -1,0 +1,13 @@
+.admin{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin span{
+    flex: 1;  /* Take the remaining vertical space after navbar */
+    display: flex;  /* Horizontal stacking of sidebar and main content */
+    flex-direction: row;
+    width: 100%;
+    height: 90vh;
+}

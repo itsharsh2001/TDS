@@ -1,0 +1,25 @@
+.admin{
+    /* min-height: 100vh; */
+    /* width: auto; */
+    /* height: auto; */
+    /* padding-left: 7.5%; */
+    /* padding-right: 7.5%; */
+    display: flex;
+    /* grid-template-columns: 50% 50%; */
+    /* grid-template-rows: 50% 50%; */
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: #f0f0f0; */
+    /* grid-template-columns: 20% 80%; */
+}
+
+.admin span{
+    /* width: 100%; */
+    /* padding-left: 7.5%; */
+    /* padding-right: 7.5%; */
+    display: flex;
+    /* grid-template-columns: 50% 50%; */
+    /* grid-template-rows: 50% 50%; */
+    flex-direction: row;
+    /* height: 90%; */
+}

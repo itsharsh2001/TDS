@@ -1,0 +1,208 @@
+.helpsupport {
+  width: 77.5%; 
+  /* width: 100%; */
+  margin-left: 1.5rem;
+  height: 97.5%;
+  /* max-height: 100%; */
+  /* background-color: yellow; */
+  /* transition: width 0.3s; */
+  padding-top: 1%;
+  padding-bottom: 1%;
+  /* padding-left: 1%; */
+  padding-right: 1%;
+  /* width: 90%;  */
+  /* height: 95%;  */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  transition: width 0.3s ease-in-out;
+}
+
+.helpsupport::-webkit-scrollbar{
+    display: none;
+}
+
+.helpsupport main {
+  width: 100%;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  height: 270px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 7.5%;
+  padding-right: 5%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  margin-bottom: 1.5%;
+}
+
+.helpsupport main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
+  /* align-items: center; */
+  width: 48%;
+}
+
+.helpsupport main img {
+  height: 100%;
+  margin-right: 12%;
+}
+
+.helpsupport main section h1 {
+  color: #725799;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 3.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.helpsupport main section span {
+  border-radius: 18px;
+  background: #f9f5fe;
+  /* padding-top: 20px; */
+  /* padding-bottom: 20px; */
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 5%;
+}
+
+.helpsupport main section span input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 90%;
+  color: var(--light-theme-color-grey-6, #a3a3a3);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 2rem;
+  /* padding-right: 1rem; */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* margin-top: 2rem; */
+}
+
+.icon {
+  color: #464255;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.helpsupport div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px;
+}
+
+.helpsupport div h5{
+    color: #000;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: 'GT-Walsheim-Pro-Regular';
+font-size: 1.6rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 2.5%;
+}
+
+.helpsupport div h5 a{
+    color: var(--GT-Purple, #4F2D7F);
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: 'GT-Walsheim-Pro-Regular';
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: 16px; /* 100% */
+text-decoration-line: underline;
+}
+
+.helpsupport div section{
+    padding: 1.5%;
+    height: 100%;
+    width: 48%;
+    margin-right: 1.5%;
+    border-radius: 8px;
+background: #FFF;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+display: flex;
+flex-direction: column;
+/* justify-content: space-between; */
+overflow-y: scroll;
+scroll-behavior: smooth;
+}
+
+.helpsupport div section::-webkit-scrollbar{
+    display: none;
+}
+
+.helpsupport div span{
+    height: 100%;
+    padding: 1.5%;
+    /* width: 20.5%!important; */
+    border-radius: 8px;
+background: #FFF;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+display: flex;
+flex-direction: column;
+overflow-y: scroll;
+scroll-behavior: smooth;
+}
+
+.helpsupport div span::-webkit-scrollbar{
+  display: none;
+}
+
+.helpsupport div span h4{
+    fill: #fff;
+  box-shadow: 0 7.5px 10px rgba(0, 0, 0, 0.05);
+  /* filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.05)); */
+  width: 100%;
+  height: 50px;
+  max-height: 200px;
+  padding: 1.5rem !important;
+  margin-bottom: 0.5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  color: var(--Gray-1, #333);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  /* margin-top: 2.5%; */
+  /* margin-bottom: 2.5%; */
+}
+
+
+.icon {
+    margin-right: 1rem;
+    font-size: 2rem !important;
+    /* font-weight: bolder; */
+    cursor: pointer;
+    color: #4F2D7F;
+  }

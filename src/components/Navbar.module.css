@@ -1,0 +1,53 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: white;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    /* margin: 0; */
+    /* padding: 0; */
+}
+
+.nav div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.nav div img{
+    /* height: 100%; */
+    width: 200px;
+}
+
+.nav>section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 20vw!important;
+}
+
+.nav>section img{
+    width: 4rem;
+    border-radius: 50%;
+    /* object-fit: cover; */
+    background-color: #ccc;
+    padding: 0.5rem;
+}
+
+
+.nav>section h4{
+    color:#4F2D7F;
+    font-family: 'GT-Walsheim-Pro-Regular';
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

@@ -1,0 +1,81 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.card img {
+  width: 30%;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #f2f5f9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  /* height: 90%; */
+  /* object-fit: contain; */
+}
+
+.card section {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.card section p {
+  color: var(--shades-of-gray-gray-web, #828282);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+}
+
+.card section span {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.card section span div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card section span div h3 {
+  color: var(--GT-Purple, #4f2d7f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 114.286% */
+}
+
+.card section span div p {
+  color: var(--shades-of-gray-gray-web, #828282);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: 'GT-Walsheim-Pro-Regular';
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  margin: 0;
+}
+
+.addicon {
+  border-radius: 8px;
+  background: var(--GT-Purple, #4f2d7f);
+  color: white;
+  font-size: 3.5rem !important;
+  padding: 0.5rem;
+}
