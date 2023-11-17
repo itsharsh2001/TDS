@@ -20,7 +20,7 @@ const items = [
     { id: 'item-5', content: 'PO Description' },
 ];
 
-const DraggableList = () => {
+const DraggableList = (props) => {
   const [state, setState] = useState({ items });
 
   const onDragEnd = (result) => {
@@ -53,7 +53,7 @@ const DraggableList = () => {
                   >
                     <DensityLargeOutlinedIcon className={classes.icon1}/>
                     {item.content}
-                    <DeleteOutlinedIcon className={classes.icon}/>
+                    {/* <DeleteOutlinedIcon className={classes.icon}/> */}
                   </div>
                 )}
               </Draggable>

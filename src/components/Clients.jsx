@@ -115,6 +115,8 @@ const Clients = ({sidebar}) => {
   const [addNewGroup, setAddNewGroup] = useState(false);
 
   const [popup, setPopup] = useState(false);
+  const [viewClientPopup, setViewClientPopup] = useState(false)
+  const [updateClientPopup, setUpdateClientPopup] = useState(false)
 
   const [tanFieldCount, setTanFieldCount] = useState(3);
 
@@ -136,6 +138,7 @@ const Clients = ({sidebar}) => {
       setAddClientStep3(false);
       setAddClientStep1(true);
       setPopup(false);
+      setViewClientPopup(false);
     }
   };
 
@@ -144,6 +147,7 @@ const Clients = ({sidebar}) => {
     setAddClientStep2(false);
     setAddClientStep3(false);
     setPopup(false);
+    setViewClientPopup(false);
   };
 
   const customNumberStyle = {
@@ -353,7 +357,7 @@ const Clients = ({sidebar}) => {
                 </label>
                 {/* <DropTarget items={items} moveItem={moveItem} /> */}
 
-                {!parameterSelect && <DraggableList/>}
+                {parameterSelect && <DraggableList clickablity = {true}/>}
                 <h6>Is Cancelled Records adjustment required?</h6>
                 <div>
                   <span>
@@ -759,6 +763,1235 @@ const Clients = ({sidebar}) => {
           </div>
         </div>
       )}
+
+      {viewClientPopup && (
+        <div className={classes.popup}>
+          <span>
+            <p
+              style={
+                addClientStep1 || addClientStep2 || addClientStep3
+                  ? customNumberStyle
+                  : {}
+              }
+            >
+              1
+            </p>
+            <hr style={addClientStep2 || addClientStep3 ? customHrStyle : {}} />
+            <p
+              style={addClientStep2 || addClientStep3 ? customNumberStyle : {}}
+            >
+              2
+            </p>
+            <hr style={addClientStep3 ? customHrStyle : {}} />
+            <p style={addClientStep3 ? customNumberStyle : {}}>3</p>
+          </span>
+          {addClientStep1 && <h5>Add Group & Client Details</h5>}
+          {addClientStep2 && (
+            <h5>
+              Add Branch Details{" "}
+              {/* <p
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  return setTanFieldCount((prevState) => {
+                    return prevState + 1;
+                  });
+                }}
+              >
+                <AddIcon />
+                Add Branch/TAN
+              </p> */}
+            </h5>
+          )}
+          {addClientStep3 && <h5>Onboarding Questions</h5>}
+          <main className={classes.popupmainpart}>
+            {addClientStep1 && (
+              <section>
+                <h6>Group Details</h6>
+                {/* {addClientStep2 && <h6>Branch/TAN Details</h6>} */}
+                <div>
+                  <select disabled name="" id="">
+                    
+                    <option value="">Tata</option>
+                    
+                  </select>
+                  <p
+                    style={{ cursor: "pointer" }}
+                    
+                  >
+                    <AddIcon /> Add New Group
+                  </p>
+                </div>
+                
+              </section>
+            )}
+            {addClientStep1 && (
+              <section>
+                <h6>Client Details</h6>
+                <div>
+                  <input
+                  disabled
+                    placeholder="Tata Consultancy Services Limited"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                  <input
+                  disabled
+                    placeholder="BKICA9561K"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                  <input
+                  disabled
+                    placeholder="HR"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                </div>
+                <div>
+                  <input
+                  disabled
+                    placeholder="accounts@tcs.com"
+                    type="email"
+                    name=""
+                    id=""
+                  />
+                </div>
+              </section>
+            )}
+            {addClientStep2 && (
+              <section>
+                <h6>Branch/TAN Details</h6>
+                <div>
+                  <input disabled placeholder="PDMS01068F" type="text" name="" id="" />
+                </div>
+                <h6>Responsible Person's Details</h6>
+                <div>
+                  <input disabled placeholder="Tata Consultancy Services" type="text" name="" id="" />
+                  <input disabled placeholder="BKICA9561K" type="text" name="" id="" />
+                  <input disabled placeholder="Manager" type="text" name="" id="" />
+                </div>
+              </section>
+            )}
+            
+            {addClientStep3 && (
+              <section>
+                <h6>Select the type of Accounting</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="invalidpan"
+                      value="Levy TDs at higher rate"
+                      id="Levy TDs at higher rate"
+                      disabled
+                    />
+                    <label htmlFor="Levy TDs at higher rate">Centralized</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="invalidpan"
+                      value="Error out the transaction"
+                      id="Error out the transaction"
+                    />
+                    <label htmlFor="Error out the transaction">
+                      Decentralized
+                    </label>
+                  </span>
+                </div>
+
+                <h6>Select the parameters for determining TDS section</h6>
+                {/* <select placeholder="Select Parameters" className={classes.standaloneselect} name="" id=""></select> */}
+                <label onClick={()=>{return setParameterSelect((prevState)=>{return !prevState})}} className={classes.standaloneselect} htmlFor="">
+                  <input disabled placeholder="Select Parameters" type="text" name="" id="" />
+                  <KeyboardArrowDownOutlinedIcon/>
+                </label>
+                {/* <DropTarget items={items} moveItem={moveItem} /> */}
+
+                {parameterSelect && <DraggableList clickablity = {false}/>}
+                <h6>Is Cancelled Records adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="provision"
+                      value="Yes"
+                      id="provisionYes"
+                    />
+                    <label htmlFor="provisionYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="provision"
+                      value="No"
+                      id="provisionNo"
+                    />
+                    <label htmlFor="provisionNo">No</label>
+                  </span>
+                </div>
+
+                <h6>Is Reversal Records adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Advance"
+                      value="Yes"
+                      id="AdvanceYes"
+                      onClick={()=>{return setReversalRecord(true)}}
+                    />
+                    <label htmlFor="AdvanceYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Advance"
+                      value="No"
+                      id="AdvanceNo"
+                      onClick={()=>{return setReversalRecord(false)}}
+                    />
+                    <label htmlFor="AdvanceNo">No</label>
+                  </span>
+                </div>
+
+                {reversalRecord && (
+                  <>
+                    <h6>Select the basis for adjustment</h6>
+                    <div>
+                      <span>
+                        <input
+                        disabled
+                          type="radio"
+                          name="Hybrid"
+                          value="Document"
+                          id="Document"
+                        />
+                        <label htmlFor="Document">Document Number</label>
+                      </span>
+                      <span>
+                        <input
+                        disabled
+                        checked
+                          type="radio"
+                          name="Hybrid"
+                          value="Combination"
+                          id="Combination"
+                        />
+                        <label htmlFor="Combination">
+                          Vendor-Section Combination
+                        </label>
+                      </span>
+                      <span>
+                        <input
+                        disabled
+                          type="radio"
+                          name="Hybrid"
+                          value="Hybrid"
+                          id="Hybrid"
+                        />
+                        <label htmlFor="Hybrid">Hybrid</label>
+                      </span>
+                    </div>
+                  </>
+                )}
+
+                <h6>Is Credit Notes-Advance adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="CreditNotes"
+                      value="Yes"
+                      id="CreditNotesYes"
+                    />
+                    <label htmlFor="CreditNotesYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="CreditNotes"
+                      value="No"
+                      id="CreditNotesNo"
+                    />
+                    <label htmlFor="CreditNotesNo">No</label>
+                  </span>
+                </div>
+
+                <h6>Is Provision-Invoice adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Cancellation"
+                      value="Yes"
+                      id="CancellationYes"
+                      onClick={()=>{return setProvisionInvoice(true)}}
+                    />
+                    <label htmlFor="CancellationYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Cancellation"
+                      value="No"
+                      id="CancellationNo"
+                      onClick={()=>{return setProvisionInvoice(false)}}
+                    />
+                    <label htmlFor="CancellationNo">No</label>
+                  </span>
+                </div>
+
+                {provisionInvoice && (
+                  <>
+                    <h6>Select the basis for adjustment</h6>
+                    <div>
+                      <span>
+                        <input
+                        disabled
+
+                          type="radio"
+                          name="Hybrid1"
+                          value="Document1"
+                          id="Document1"
+                        />
+                        <label htmlFor="Document1">PO Number</label>
+                      </span>
+                      <span>
+                        <input
+                        disabled
+                        checked
+                          type="radio"
+                          name="Hybrid1"
+                          value="Combination1"
+                          id="Combination1"
+                        />
+                        <label htmlFor="Combination1">
+                          Vendor-Section Combination
+                        </label>
+                      </span>
+                      <span>
+                        <input
+                        disabled
+                          type="radio"
+                          name="Hybrid1"
+                          value="Hybrid1"
+                          id="Hybrid1"
+                        />
+                        <label htmlFor="Hybrid1">Hybrid</label>
+                      </span>
+                    </div>
+
+                    <h6>Select the look-up period for adjustment</h6>
+                    <div>
+                      <span>
+                        <input
+                        disabled
+                        checked
+                          type="radio"
+                          name="Hybrid20"
+                          value="Combination20"
+                          id="Combination20"
+                        />
+                        <label htmlFor="Combination20">
+                          Adjust Current Month & succeeding month invoices
+                        </label>
+                      </span>
+                      <span>
+                        <input
+                        disabled
+                          type="radio"
+                          name="Hybrid20"
+                          value="Hybrid20"
+                          id="Hybrid20"
+                        />
+                        <label htmlFor="Hybrid20">
+                          Adjust only succeeding month invoices
+                        </label>
+                      </span>
+                    </div>
+
+                    <h6>
+                      Whether tax is deducted on monthly provision(except
+                      March)?"
+                    </h6>
+                    <div>
+                      <span>
+                        <input
+                        disabled
+                          type="radio"
+                          name="Cancellation1"
+                          value="Yes"
+                          id="CancellationYes1"
+                        />
+                        <label htmlFor="CancellationYes1">Yes</label>
+                      </span>
+                      <span>
+                        <input
+                        disabled
+                        checked
+                          type="radio"
+                          name="Cancellation1"
+                          value="No"
+                          id="CancellationNo1"
+                        />
+                        <label htmlFor="CancellationNo1">No</label>
+                      </span>
+                    </div>
+                  </>
+                )}
+                <h6>Is Advance-Invoice adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Cancellation"
+                      value="Yes"
+                      id="CancellationYes"
+                      onClick={()=>{return setAdvanceInvoice(true)}}
+                    />
+                    <label htmlFor="CancellationYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Cancellation"
+                      value="No"
+                      id="CancellationNo"
+                      onClick={()=>{return setAdvanceInvoice(true)}}
+                    />
+                    <label htmlFor="CancellationNo">No</label>
+                  </span>
+                </div>
+                
+               {advanceInvoice && <> <h6>Select the basis for adjustment</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Hybrid1"
+                      value="Document1"
+                      id="Document1"
+                    />
+                    <label htmlFor="Document1">PO Number</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Hybrid1"
+                      value="Combination1"
+                      id="Combination1"
+                    />
+                    <label htmlFor="Combination1">
+                      Vendor-Section Combination
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Hybrid1"
+                      value="Hybrid1"
+                      id="Hybrid1"
+                    />
+                    <label htmlFor="Hybrid1">Hybrid</label>
+                  </span>
+                </div>
+
+                <h6>Select the look-up period for adjustment</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+
+                      type="radio"
+                      name="Hybrid2"
+                      value="Combination2"
+                      id="Combination2"
+                    />
+                    <label htmlFor="Combination2">
+                      Adjust Current Month & succeeding month invoices
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Hybrid2"
+                      value="Hybrid2"
+                      id="Hybrid2"
+                    />
+                    <label htmlFor="Hybrid2">
+                      Adjust invoices only after advance date
+                    </label>
+                  </span>
+                </div></>}
+
+                <h6>Is Threshold Applicable?</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Cancellation"
+                      value="Yes"
+                      id="CancellationYes"
+                      onClick={()=>{return setThresholdApplicable(true)}}
+                    />
+                    <label htmlFor="CancellationYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Cancellation"
+                      value="No"
+                      id="CancellationNo"
+                      onClick={()=>{return setThresholdApplicable(false)}}
+                    />
+                    <label htmlFor="CancellationNo">No</label>
+                  </span>
+                </div>
+
+                {thresholdApplicable&&<><h6>For which sections</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Hybrid3"
+                      value="Combination3"
+                      id="Combination3"
+                    />
+                    <label htmlFor="Combination3">For All Sections</label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Hybrid3"
+                      value="Hybrid3"
+                      id="Hybrid3"
+                    />
+                    <label htmlFor="Hybrid3">For Selected Sections</label>
+                  </span>
+                </div></>}
+
+                <h6>Rounding Off</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Hybrid4"
+                      value="Combination4"
+                      id="Combination4"
+                    />
+                    <label htmlFor="Combination4">
+                      Round up to nearest Paisa
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Hybrid4"
+                      value="Hybrid4"
+                      id="Hybrid4"
+                    />
+                    <label htmlFor="Hybrid4">Round up to nearest Rupee</label>
+                  </span>
+                </div>
+
+                <h6>Select the treatment if Vendor PAN is invalid</h6>
+                <div>
+                  <span>
+                    <input
+                    disabled
+                      type="radio"
+                      name="Hybrid5"
+                      value="Combination5"
+                      id="Combination5"
+                    />
+                    <label htmlFor="Combination5">
+                      Levy TDS at higher rate
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                    disabled
+                    checked
+                      type="radio"
+                      name="Hybrid5"
+                      value="Hybrid5"
+                      id="Hybrid5"
+                    />
+                    <label htmlFor="Hybrid5">Error out the transaction</label>
+                  </span>
+                </div>
+              </section>
+            )}
+
+          </main>
+          <div>
+            <button onClick={nextButtonHandler} className={classes.button}>
+              {addClientStep3?'Done':'Next'}
+            </button>
+            <button onClick={cancelButtonHandler} className={classes.button1}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {updateClientPopup && (
+        <div className={classes.popup}>
+          <span>
+            <p
+              style={
+                addClientStep1 || addClientStep2 || addClientStep3
+                  ? customNumberStyle
+                  : {}
+              }
+            >
+              1
+            </p>
+            <hr style={addClientStep2 || addClientStep3 ? customHrStyle : {}} />
+            <p
+              style={addClientStep2 || addClientStep3 ? customNumberStyle : {}}
+            >
+              2
+            </p>
+            <hr style={addClientStep3 ? customHrStyle : {}} />
+            <p style={addClientStep3 ? customNumberStyle : {}}>3</p>
+          </span>
+          {addClientStep1 && <h5>Add Group & Client Details</h5>}
+          {addClientStep2 && (
+            <h5>
+              Add Branch Details{" "}
+              <p
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  return setTanFieldCount((prevState) => {
+                    return prevState + 1;
+                  });
+                }}
+              >
+                <AddIcon />
+                Add Branch/TAN
+              </p>
+            </h5>
+          )}
+          {addClientStep3 && <h5>Onboarding Questions</h5>}
+          <main className={classes.popupmainpart}>
+            {addClientStep1 && (
+              <section>
+                <h6>Group Details</h6>
+                {/* {addClientStep2 && <h6>Branch/TAN Details</h6>} */}
+                <div>
+                  <select name="" id="">
+                    <option value="">Tata</option>
+                    <option value="">Tata</option>
+                    <option value="">Adani</option>
+                    <option value="">Reliance</option>
+                  </select>
+                  <p
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      return setAddNewGroup(true);
+                    }}
+                  >
+                    <AddIcon /> Add New Group
+                  </p>
+                </div>
+                {addNewGroup && (
+                  <div>
+                    <input
+                      placeholder="Type Group Name"
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                    <button>Create</button>
+                  </div>
+                )}
+              </section>
+            )}
+            {addClientStep1 && (
+              <section>
+                <h6>Client Details</h6>
+                <div>
+                  <input
+                    placeholder="Tata Consultancy Services Limited"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                  <input
+                    placeholder="BKICA9561K"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                  <input
+                    placeholder="HR"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                </div>
+                <div>
+                  <input
+                    placeholder="accounts@tcs.com"
+                    type="email"
+                    name=""
+                    id=""
+                  />
+                </div>
+              </section>
+            )}
+            {addClientStep2 && (
+              <section>
+                <h6>Branch/TAN Details</h6>
+                <div>
+                  <input placeholder="TAN" type="text" name="" id="" />
+                </div>
+                <h6>Responsible Person's Details</h6>
+                <div>
+                  <input placeholder="Name" type="text" name="" id="" />
+                  <input placeholder="PAN" type="text" name="" id="" />
+                  <input placeholder="Designation" type="text" name="" id="" />
+                </div>
+              </section>
+            )}
+            {Array.from({ length: tanFieldCount }, (_, index) => (
+              <>
+                {addClientStep2 && (
+                  <section key={index}>
+                    <h6
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      Branch/TAN Details
+                      <DeleteForeverIcon
+                        onClick={() => {
+                          return setTanFieldCount((prevState) => {
+                            return prevState - 1;
+                          });
+                        }}
+                        style={{
+                          color: "red",
+                          cursor: "pointer",
+                          fontSize: "3rem",
+                        }}
+                      />
+                    </h6>
+                    <div style={{ marginTop: "-1.5em" }}>
+                      <input placeholder="TAN" type="text" name="" id="" />
+                    </div>
+                    <h6>Responsible Person's Details</h6>
+                    <div>
+                      <input placeholder="Name" type="text" name="" id="" />
+                      <input placeholder="PAN" type="text" name="" id="" />
+                      <input
+                        placeholder="Designation"
+                        type="text"
+                        name=""
+                        id=""
+                      />
+                    </div>
+                  </section>
+                )}
+              </>
+            ))}
+            {addClientStep3 && (
+              <section>
+                <h6>Select the type of Accounting</h6>
+                <div>
+                  <span>
+                    <input
+
+                      type="radio"
+                      name="invalidpan"
+                      value="Levy TDs at higher rate"
+                      id="Levy TDs at higher rate"
+                    />
+                    <label htmlFor="Levy TDs at higher rate">Centralized</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="invalidpan"
+                      value="Error out the transaction"
+                      id="Error out the transaction"
+                    />
+                    <label htmlFor="Error out the transaction">
+                      Decentralized
+                    </label>
+                  </span>
+                </div>
+
+                <h6>Select the parameters for determining TDS section</h6>
+                {/* <select placeholder="Select Parameters" className={classes.standaloneselect} name="" id=""></select> */}
+                <label onClick={()=>{return setParameterSelect((prevState)=>{return !prevState})}} className={classes.standaloneselect} htmlFor="">
+                  <input disabled placeholder="Select Parameters" type="text" name="" id="" />
+                  <KeyboardArrowDownOutlinedIcon/>
+                </label>
+                {/* <DropTarget items={items} moveItem={moveItem} /> */}
+
+                {parameterSelect && <DraggableList clickablity = {true}/>}
+                <h6>Is Cancelled Records adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="provision"
+                      value="Yes"
+                      id="provisionYes"
+                    />
+                    <label htmlFor="provisionYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="provision"
+                      value="No"
+                      id="provisionNo"
+                    />
+                    <label htmlFor="provisionNo">No</label>
+                  </span>
+                </div>
+
+                <h6>Is Reversal Records adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Advance"
+                      value="Yes"
+                      id="AdvanceYes"
+                      onClick={()=>{return setReversalRecord(true)}}
+                    />
+                    <label htmlFor="AdvanceYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Advance"
+                      value="No"
+                      id="AdvanceNo"
+                      onClick={()=>{return setReversalRecord(false)}}
+                    />
+                    <label htmlFor="AdvanceNo">No</label>
+                  </span>
+                </div>
+
+                {reversalRecord && (
+                  <>
+                    <h6>Select the basis for adjustment</h6>
+                    <div>
+                      <span>
+                        <input
+                        checked
+                          type="radio"
+                          name="Hybrid"
+                          value="Document"
+                          id="Document"
+                        />
+                        <label htmlFor="Document">Document Number</label>
+                      </span>
+                      <span>
+                        <input
+                          type="radio"
+                          name="Hybrid"
+                          value="Combination"
+                          id="Combination"
+                        />
+                        <label htmlFor="Combination">
+                          Vendor-Section Combination
+                        </label>
+                      </span>
+                      <span>
+                        <input
+                          type="radio"
+                          name="Hybrid"
+                          value="Hybrid"
+                          id="Hybrid"
+                        />
+                        <label htmlFor="Hybrid">Hybrid</label>
+                      </span>
+                    </div>
+                  </>
+                )}
+
+                <h6>Is Credit Notes-Advance adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="CreditNotes"
+                      value="Yes"
+                      id="CreditNotesYes"
+                    />
+                    <label htmlFor="CreditNotesYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="CreditNotes"
+                      value="No"
+                      id="CreditNotesNo"
+                    />
+                    <label htmlFor="CreditNotesNo">No</label>
+                  </span>
+                </div>
+
+                <h6>Is Provision-Invoice adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Cancellation"
+                      value="Yes"
+                      id="CancellationYes"
+                      onClick={()=>{return setProvisionInvoice(true)}}
+                    />
+                    <label htmlFor="CancellationYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Cancellation"
+                      value="No"
+                      id="CancellationNo"
+                      onClick={()=>{return setProvisionInvoice(false)}}
+                    />
+                    <label htmlFor="CancellationNo">No</label>
+                  </span>
+                </div>
+
+                {provisionInvoice && (
+                  <>
+                    <h6>Select the basis for adjustment</h6>
+                    <div>
+                      <span>
+                        <input
+                          type="radio"
+                          name="Hybrid1"
+                          value="Document1"
+                          id="Document1"
+                        />
+                        <label htmlFor="Document1">PO Number</label>
+                      </span>
+                      <span>
+                        <input
+                        checked
+                          type="radio"
+                          name="Hybrid1"
+                          value="Combination1"
+                          id="Combination1"
+                        />
+                        <label htmlFor="Combination1">
+                          Vendor-Section Combination
+                        </label>
+                      </span>
+                      <span>
+                        <input
+                        checked
+                          type="radio"
+                          name="Hybrid1"
+                          value="Hybrid1"
+                          id="Hybrid1"
+                        />
+                        <label htmlFor="Hybrid1">Hybrid</label>
+                      </span>
+                    </div>
+
+                    <h6>Select the look-up period for adjustment</h6>
+                    <div>
+                      <span>
+                        <input
+                          type="radio"
+                          name="Hybrid20"
+                          value="Combination20"
+                          id="Combination20"
+                        />
+                        <label htmlFor="Combination20">
+                          Adjust Current Month & succeeding month invoices
+                        </label>
+                      </span>
+                      <span>
+                        <input
+                        checked
+                          type="radio"
+                          name="Hybrid20"
+                          value="Hybrid20"
+                          id="Hybrid20"
+                        />
+                        <label htmlFor="Hybrid20">
+                          Adjust only succeeding month invoices
+                        </label>
+                      </span>
+                    </div>
+
+                    <h6>
+                      Whether tax is deducted on monthly provision(except
+                      March)?"
+                    </h6>
+                    <div>
+                      <span>
+                        <input
+                          type="radio"
+                          name="Cancellation1"
+                          value="Yes"
+                          id="CancellationYes1"
+                        />
+                        <label htmlFor="CancellationYes1">Yes</label>
+                      </span>
+                      <span>
+                        <input
+                        checked
+                          type="radio"
+                          name="Cancellation1"
+                          value="No"
+                          id="CancellationNo1"
+                        />
+                        <label htmlFor="CancellationNo1">No</label>
+                      </span>
+                    </div>
+                  </>
+                )}
+                <h6>Is Advance-Invoice adjustment required?</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Cancellation"
+                      value="Yes"
+                      id="CancellationYes"
+                      onClick={()=>{return setAdvanceInvoice(true)}}
+                    />
+                    <label htmlFor="CancellationYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Cancellation"
+                      value="No"
+                      id="CancellationNo"
+                      onClick={()=>{return setAdvanceInvoice(true)}}
+                    />
+                    <label htmlFor="CancellationNo">No</label>
+                  </span>
+                </div>
+                
+               {advanceInvoice && <> <h6>Select the basis for adjustment</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Hybrid1"
+                      value="Document1"
+                      id="Document1"
+                    />
+                    <label htmlFor="Document1">PO Number</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Hybrid1"
+                      value="Combination1"
+                      id="Combination1"
+                    />
+                    <label htmlFor="Combination1">
+                      Vendor-Section Combination
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Hybrid1"
+                      value="Hybrid1"
+                      id="Hybrid1"
+                    />
+                    <label htmlFor="Hybrid1">Hybrid</label>
+                  </span>
+                </div>
+
+                <h6>Select the look-up period for adjustment</h6>
+                <div>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Hybrid2"
+                      value="Combination2"
+                      id="Combination2"
+                    />
+                    <label htmlFor="Combination2">
+                      Adjust Current Month & succeeding month invoices
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Hybrid2"
+                      value="Hybrid2"
+                      id="Hybrid2"
+                    />
+                    <label htmlFor="Hybrid2">
+                      Adjust invoices only after advance date
+                    </label>
+                  </span>
+                </div></>}
+
+                <h6>Is Threshold Applicable?</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Cancellation"
+                      value="Yes"
+                      id="CancellationYes"
+                      onClick={()=>{return setThresholdApplicable(true)}}
+                    />
+                    <label htmlFor="CancellationYes">Yes</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Cancellation"
+                      value="No"
+                      id="CancellationNo"
+                      onClick={()=>{return setThresholdApplicable(false)}}
+                    />
+                    <label htmlFor="CancellationNo">No</label>
+                  </span>
+                </div>
+
+                {thresholdApplicable&&<><h6>For which sections</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Hybrid3"
+                      value="Combination3"
+                      id="Combination3"
+                    />
+                    <label htmlFor="Combination3">For All Sections</label>
+                  </span>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Hybrid3"
+                      value="Hybrid3"
+                      id="Hybrid3"
+                    />
+                    <label htmlFor="Hybrid3">For Selected Sections</label>
+                  </span>
+                </div></>}
+
+                <h6>Rounding Off</h6>
+                <div>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Hybrid4"
+                      value="Combination4"
+                      id="Combination4"
+                    />
+                    <label htmlFor="Combination4">
+                      Round up to nearest Paisa
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Hybrid4"
+                      value="Hybrid4"
+                      id="Hybrid4"
+                    />
+                    <label htmlFor="Hybrid4">Round up to nearest Rupee</label>
+                  </span>
+                </div>
+
+                <h6>Select the treatment if Vendor PAN is invalid</h6>
+                <div>
+                  <span>
+                    <input
+                    checked
+                      type="radio"
+                      name="Hybrid5"
+                      value="Combination5"
+                      id="Combination5"
+                    />
+                    <label htmlFor="Combination5">
+                      Levy TDS at higher rate
+                    </label>
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      name="Hybrid5"
+                      value="Hybrid5"
+                      id="Hybrid5"
+                    />
+                    <label htmlFor="Hybrid5">Error out the transaction</label>
+                  </span>
+                </div>
+              </section>
+            )}
+          </main>
+          <div>
+            <button onClick={nextButtonHandler} className={classes.button}>
+              {addClientStep3?'Submit':'Next'}
+            </button>
+            <button onClick={cancelButtonHandler} className={classes.button1}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <section style={sidebar?{width:'77.5%'}:{width:'100%'}} className={classes.clients}>
         <div>
           <section>
@@ -796,14 +2029,25 @@ const Clients = ({sidebar}) => {
                   <td>{val.Onboarded_On}</td>
                   <td>
                     <VisibilityIcon
+                    onClick={() => {
+                      return setViewClientPopup(true);
+                    }}
                       style={{
+                        cursor:'pointer',
                         marginRight: "1.5rem",
                         color: "#00ADA3",
                         fontSize: "2.5rem",
                       }}
                     />
                     <EditIcon
+                    onClick={() => {
+                      setAddClientStep2(true);
+                      setAddClientStep1(false);
+                      setAddClientStep3(false);
+                      return setUpdateClientPopup(true);
+                    }}
                       style={{
+                        cursor:'pointer',
                         marginLeft: "1.5rem",
                         color: "#FFBB59",
                         fontSize: "2.5rem",
