@@ -137,7 +137,7 @@ const ThresholdType = (props) => {
             {/* <th>Select</th> */}
             <th>
               Section
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -145,11 +145,11 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             <th>
               Deductor
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -157,9 +157,10 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
-            <th>Deductee<KeyboardArrowDownIcon
+            <th>Deductee
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -167,8 +168,10 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
-            <th>Nature of Transaction<KeyboardArrowDownIcon
+              /> */}
+              </th>
+            <th>Nature of Transaction
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -176,8 +179,10 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
-            <th>Per Transaction Threshold<KeyboardArrowDownIcon
+              /> */}
+              </th>
+            <th>Per Transaction Threshold
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -185,8 +190,10 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
-            <th>Annual Threshold<KeyboardArrowDownIcon
+              /> */}
+              </th>
+            <th>Annual Threshold
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -194,8 +201,10 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
-            <th>Type of Threshold<KeyboardArrowDownIcon
+              /> */}
+              </th>
+            <th>Type of Threshold
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -203,7 +212,8 @@ const ThresholdType = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
+              /> */}
+              </th>
             {/* <th>Report Download<KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",

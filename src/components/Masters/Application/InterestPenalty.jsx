@@ -43,7 +43,7 @@ const InterestPenalty = (props) => {
             {/* <th>Select</th> */}
             <th>
               Type
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -51,12 +51,12 @@ const InterestPenalty = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             
             <th>
               Interest Rate
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -64,7 +64,7 @@ const InterestPenalty = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             
           </tr>

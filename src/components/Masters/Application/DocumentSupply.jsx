@@ -122,7 +122,7 @@ const DocumentSupply = (props) => {
             {/* <th>Select</th> */}
             <th>
               Document/Supply
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -130,11 +130,11 @@ const DocumentSupply = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             <th>
               Type
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -142,11 +142,11 @@ const DocumentSupply = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             <th>
               Decription
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -154,7 +154,7 @@ const DocumentSupply = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
           </tr>
 

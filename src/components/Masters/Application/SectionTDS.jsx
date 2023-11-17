@@ -113,7 +113,7 @@ const SectionTDS = (props) => {
             {/* <th>Select</th> */}
             <th>
               Nature of Payment
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -121,11 +121,11 @@ const SectionTDS = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             <th>
               TDS-Section
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -133,9 +133,10 @@ const SectionTDS = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
-            <th>Rate<KeyboardArrowDownIcon
+            <th>Rate
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -143,8 +144,10 @@ const SectionTDS = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
-            <th>No PAN Rate<KeyboardArrowDownIcon
+              /> */}
+              </th>
+            <th>No PAN Rate
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -152,8 +155,10 @@ const SectionTDS = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
-            <th>Specified Person Rate<KeyboardArrowDownIcon
+              /> */}
+              </th>
+            <th>Specified Person Rate
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -161,7 +166,8 @@ const SectionTDS = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              /></th>
+              /> */}
+              </th>
             {/* <th>Per Transaction Threshold<KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",

@@ -657,7 +657,7 @@ const NaturePayment = (props) => {
             {/* <th>Select</th> */}
             <th>
               Nature of Payment
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -665,11 +665,11 @@ const NaturePayment = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             <th>
               Section
-              <KeyboardArrowDownIcon
+              {/* <KeyboardArrowDownIcon
                 style={{
                   cursor: "pointer",
                   fontSize: "2rem",
@@ -677,7 +677,7 @@ const NaturePayment = (props) => {
                   // background: "#4f2d7f",
                   // borderRadius: "50%",
                 }}
-              />
+              /> */}
             </th>
             {/* <th>No. of Pages</th> */}
             {/* <th>No. of Records</th>

@@ -110,6 +110,8 @@ const Clients = ({sidebar}) => {
   const [addClientStep2, setAddClientStep2] = useState(false);
   const [addClientStep3, setAddClientStep3] = useState(false);
 
+  const [parameterSelect, setParameterSelect] = useState(false);
+
   const [addNewGroup, setAddNewGroup] = useState(false);
 
   const [popup, setPopup] = useState(false);
@@ -345,13 +347,13 @@ const Clients = ({sidebar}) => {
 
                 <h6>Select the parameters for determining TDS section</h6>
                 {/* <select placeholder="Select Parameters" className={classes.standaloneselect} name="" id=""></select> */}
-                <label className={classes.standaloneselect} htmlFor="">
+                <label onClick={()=>{return setParameterSelect((prevState)=>{return !prevState})}} className={classes.standaloneselect} htmlFor="">
                   <input disabled placeholder="Select Parameters" type="text" name="" id="" />
                   <KeyboardArrowDownOutlinedIcon/>
                 </label>
-                <DropTarget items={items} moveItem={moveItem} />
+                {/* <DropTarget items={items} moveItem={moveItem} /> */}
 
-                <DraggableList/>
+                {!parameterSelect && <DraggableList/>}
                 <h6>Is Cancelled Records adjustment required?</h6>
                 <div>
                   <span>

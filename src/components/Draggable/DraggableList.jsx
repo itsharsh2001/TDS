@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import DensityLargeOutlinedIcon from '@mui/icons-material/DensityLargeOutlined';
+
+import classes from './DraggableList.module.css';
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -9,10 +13,11 @@ const reorder = (list, startIndex, endIndex) => {
 };
 
 const items = [
-  { id: 'item-1', content: 'Item 1' },
-  { id: 'item-2', content: 'Item 2' },
-  { id: 'item-3', content: 'Item 3' },
-  { id: 'item-4', content: 'Item 4' },
+  { id: 'item-1', content: 'HSN/SAC Code' },
+    { id: 'item-2', content: 'Vendor' },
+    { id: 'item-3', content: 'GL Code' },
+    { id: 'item-4', content: 'Invoice Description' },
+    { id: 'item-5', content: 'PO Description' },
 ];
 
 const DraggableList = () => {
@@ -36,20 +41,24 @@ const DraggableList = () => {
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
         {(provided) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
+          <div className={classes.list} {...provided.droppableProps} ref={provided.innerRef}>
             {state.items.map((item, index) => (
               <Draggable key={item.id} draggableId={item.id} index={index}>
                 {(provided) => (
                   <div
+                    className={classes.item}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                   >
+                    <DensityLargeOutlinedIcon className={classes.icon1}/>
                     {item.content}
+                    <DeleteOutlinedIcon className={classes.icon}/>
                   </div>
                 )}
               </Draggable>
             ))}
+            
             {provided.placeholder}
           </div>
         )}

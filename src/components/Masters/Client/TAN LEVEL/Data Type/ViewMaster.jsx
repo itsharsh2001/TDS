@@ -282,15 +282,15 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   Portal User ID
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   User ID
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Password
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}
@@ -298,19 +298,19 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   PO Number
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   PO Description
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Nature Of Payment
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   TDS Section
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}
@@ -318,23 +318,23 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   GL Code
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   GL Description
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   GL Type
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Nature of Payment
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   TDS Section
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}
@@ -342,19 +342,19 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   HSN/SAC Code
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Description
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Nature Of Payment
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   TDS Section
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}

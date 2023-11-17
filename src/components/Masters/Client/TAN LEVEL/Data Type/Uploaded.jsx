@@ -154,22 +154,22 @@ const Uploaded = ({ type }) => {
   switch (type) {
     case "Keyword":
       rowStyle = {
-        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+        gridTemplateColumns: "10% 17% 17% 17% 17% 17% 17% 17%",
       };
       break;
     case "Po":
       rowStyle = {
-        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+        gridTemplateColumns: "10% 17% 17% 17% 17% 17% 17% 17%",
       };
       break;
     case "GLmaster":
       rowStyle = {
-        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+        gridTemplateColumns: "10% 17% 17% 17% 17% 17% 17% 17%",
       };
       break;
     case "Hsnsac":
       rowStyle = {
-        gridTemplateColumns: "5% 17% 17% 17% 17% 17% 17% 17%",
+        gridTemplateColumns: "10% 17% 17% 17% 17% 17% 17% 17%",
       };
       break;
     // Add more cases for other values as needed
@@ -524,35 +524,36 @@ const Uploaded = ({ type }) => {
           <tbody>
             <tr style={rowStyle}>
               <th>
-                <input type="checkbox" name="" id="" />
+                Select
+                {/* <input type="checkbox" name="" id="" /> */}
               </th>
               <th>
                 File Name
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Uploaded By
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Batch ID
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 No of Records
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Processed Records
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Error Records
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Actions
-                <KeyboardArrowDownIcon/>
+                {/* <KeyboardArrowDownIcon/> */}
               </th>
             </tr>
 

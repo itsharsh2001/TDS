@@ -305,15 +305,15 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   Keywords
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Nature Of Payment
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   TDS Section
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}
@@ -321,55 +321,55 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   Company Code
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Company Name
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Company PAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Company TAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor Code
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor Name
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vandor PAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor TAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor GSTIN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor Resident Status
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Nature of Payment
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   TDS Section
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor PAN Status
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}
@@ -377,68 +377,68 @@ const ViewMaster = ({ type }) => {
               <>
                 <th>
                   Company Code
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Company Name
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Company PAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
 
                 <th>
                   Vendor Code
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor Name
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vandor PAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor TAN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Vendor GSTIN
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   LDC Number
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Applicable From
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Applicable To
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   LDC Amount
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   LDC Rate
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Utilised Amount
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   TDS Section
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
                 <th>
                   Description of Service
-                  <KeyboardArrowDownIcon />
+                  {/* <KeyboardArrowDownIcon /> */}
                 </th>
               </>
             )}

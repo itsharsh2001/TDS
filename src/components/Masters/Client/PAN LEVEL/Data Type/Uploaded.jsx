@@ -471,7 +471,8 @@ const Uploaded = ({ type }) => {
           <tbody>
             <tr>
               <th>
-                <input type="checkbox" name="" id="" />
+                Select
+                {/* <input type="checkbox" name="" id="" /> */}
               </th>
               <th>File Name</th>
               <th>Uploaded By</th>
