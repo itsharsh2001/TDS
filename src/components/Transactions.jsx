@@ -85,11 +85,11 @@ const Transactions = () => {
             <option value="">September</option>
           </select>
         )}
-        {activeModule == "bireport" && (
+        {/* {activeModule == "bireport" && (
           <select name="" id="">
             <option value="">July</option>
           </select>
-        )}
+        )} */}
       </div>
 
       {/* {(monthly||quarterly||annually) && 
