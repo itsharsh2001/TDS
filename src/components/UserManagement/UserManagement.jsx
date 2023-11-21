@@ -14,7 +14,7 @@ import PurpleButton from "../UI/PurpleButton";
 import WhiteButton from "../UI/WhiteButton";
 
 const UserManagement = () => {
-  let arr = [1, 2, 3, 4, 5];
+  let arr = [1, 2, 3, 4, 5, 6];
   const [addUser, setAddUser] = useState(false);
   const [updateUser, setUpdateUser] = useState(false);
   const [viewUser, setViewUser] = useState(false);
@@ -636,27 +636,27 @@ const UserManagement = () => {
           <main>
             <span>
               <input type="radio" name="Roles" id="Dashboard" />
-              <label htmlFor="Dashboard">Dashboard</label>
+              <label htmlFor="Dashboard">Admin</label>
             </span>
             <span>
               <input type="radio" name="Roles" id="Clients" />
-              <label htmlFor="Clients">Clients</label>
+              <label htmlFor="Clients">Business User</label>
             </span>
             <span>
               <input type="radio" name="Roles" id="User Management" />
-              <label htmlFor="User Management">User Management</label>
+              <label htmlFor="User Management">COE Lead</label>
             </span>
             <span>
               <input type="radio" name="Roles" id="Masters" />
-              <label htmlFor="Masters">Masters</label>
+              <label htmlFor="Masters">COE Executive</label>
             </span>
             <span>
               <input type="radio" name="Roles" id="Transactions" />
-              <label htmlFor="Transactions">Transactions</label>
+              <label htmlFor="Transactions">Supervisor</label>
             </span>
             <span>
               <input type="radio" name="Roles" id="Others" />
-              <label htmlFor="Others">Others</label>
+              <label htmlFor="Others">Manager</label>
             </span>
             {newRoleCreated && (
               <span>
@@ -684,7 +684,9 @@ const UserManagement = () => {
               {arr.map((val, idx) => {
                 return (
                   <tr id={idx}>
-                    <td>Module {val}</td>
+                    <td>{val==1 && "Dashboard"}{val==2 && "Clients"}
+                    {val==3 && "User Management"}{val==4 && "Masters"}
+                    {val==5 && "Transactions"}{val==6 && "Others"}</td>
                     <td>
                       <input type="checkbox" checked name="" id="" />
                     </td>
@@ -805,7 +807,7 @@ const UserManagement = () => {
         </table>
 
         <section className={classes.pagination}>
-          <p>Showing 10 out of 160 data</p>
+          <p>Showing 10 out of 160 rows</p>
           <div>
             <p>
               <KeyboardDoubleArrowLeftIcon />

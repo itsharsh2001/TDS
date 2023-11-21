@@ -6,12 +6,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
-const Navbar = ({sidebarToggler}) => {
+const Navbar = ({sidebarToggler,setActiveModule}) => {
   return (
     <nav className={classes.nav}>
         <div>
            <MenuIcon onClick={sidebarToggler} style={{cursor:'pointer',fontSize:'3rem',color:'#4F2D7F'}}/>
-           <img src="/Logo.png" alt="" srcSet="" /> 
+           <img onClick={()=>{return setActiveModule('dashboard')}} src="/Logo.png" alt="" srcSet="" /> 
         </div>
         <section>
             <img src="/user.png" alt="" srcSet="" />

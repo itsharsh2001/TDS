@@ -1,102 +1,101 @@
-.sidebar{
-    width: 22.5%;
-    min-width: 22.5%;
-    height: 100%;
-    /* background-color: red; */
-    /* transition: width 0.5s; */
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    font-family: 'GT-Walsheim-Pro-Regular';
-    transition: all 0.3s ease-in-out;
-    /* transition: 'opacity' 0.1s ease; */
-    /* animation: slide-in 0.5s ease-in-out; */
-    /* z-index: 1070; */
-    /* display: none; */
+.sidebar {
+  width: 22.5%;
+  min-width: 22.5%;
+  height: 100%;
+  /* background-color: red; */
+  /* transition: width 0.5s; */
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-family: "GT-Walsheim-Pro-Regular";
+  transition: all 0.3s ease-in-out;
+  /* transition: 'opacity' 0.1s ease; */
+  /* animation: slide-in 0.5s ease-in-out; */
+  /* z-index: 1070; */
+  /* display: none; */
 }
 
 .innerSidebar {
-    width: 95%; 
-    height: 95%; 
-    /* margin: 5px;  */
-    padding: 10px;
-    /* margin-right: 0; */
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  width: 95%;
+  height: 95%;
+  /* margin: 5px;  */
+  padding: 10px;
+  /* margin-right: 0; */
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .innerSidebar ul{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 1rem;
-  }
+.innerSidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
 
-  .innerSidebar ul li{
-    cursor: pointer;
-    width: 100%;
-    color: #4F2D7F;
-    background-color: white;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    font-weight: 500;
-    border-radius: 5px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
+.innerSidebar ul li {
+  cursor: pointer;
+  width: 100%;
+  color: #4f2d7f;
+  background-color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  font-weight: 500;
+  border-radius: 5px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 
-  .innerSidebar ul li:hover{
-    color: white;
-    background-color: #4F2D7F;
-  }
+.innerSidebar ul li:hover {
+  color: white;
+  background-color: #4f2d7f;
+}
 
-  .innerSidebar ul li svg{
-    font-size: 2.25rem;
-  }
+.innerSidebar ul li svg {
+  font-size: 2.25rem;
+}
 
-  .innerSidebar span{
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    align-items: center;
-    width: 100%;
-    /* margin-top: 2.5rem; */
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    color: #4F2D7F;
-    font-weight: 500;
-    font-size: 1.5rem;
-    /* margin-bottom: 1.5rem; */
-    /* height: 40px; */
-    /* margin-bottom: -14rem; */
-    border-radius: 5px;
-    height: 50px;
-    flex: unset!important;
-    /* margin-top: auto!important; */
-  }
+.innerSidebar span {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 100%;
+  /* margin-top: 2.5rem; */
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  color: #4f2d7f;
+  font-weight: 500;
+  font-size: 1.5rem;
+  /* margin-bottom: 1.5rem; */
+  /* height: 40px; */
+  /* margin-bottom: -14rem; */
+  border-radius: 5px;
+  height: 50px;
+  flex: unset !important;
+  /* margin-top: auto!important; */
+}
 
-  .innerSidebar span:hover{
-    color: white;
-    background-color: #4F2D7F;
-  }
-  
-  .innerSidebar span svg{
-    font-size: 2.25rem;
-  }
+.innerSidebar span:hover {
+  color: white;
+  background-color: #4f2d7f;
+}
 
+.innerSidebar span svg {
+  font-size: 2.25rem;
+}
 
 /*   
 @keyframes slide-in {

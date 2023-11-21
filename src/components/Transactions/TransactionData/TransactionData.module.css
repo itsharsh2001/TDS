@@ -194,6 +194,8 @@
   padding-left: 1rem;
   padding-right: 1rem;
   word-break: break-all;
+  display: flex;
+  flex-direction: column;
 }
 
 .table tbody tr td,
@@ -243,7 +245,7 @@
     25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
 
   flex-shrink: 0;
-
+  box-shadow: 0 0 500px 500px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   background: #fff !important;
   overflow-y: scroll;
@@ -302,7 +304,7 @@
     17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
     25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
   flex-shrink: 0;
-
+  box-shadow: 0 0 500px 500px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   background: #fff !important;
   overflow-y: scroll;

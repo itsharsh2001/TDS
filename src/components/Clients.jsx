@@ -114,6 +114,8 @@ const Clients = ({sidebar}) => {
 
   const [addNewGroup, setAddNewGroup] = useState(false);
 
+  const [newGroupValue, setNewGroupValue] = useState('');
+
   const [popup, setPopup] = useState(false);
   const [viewClientPopup, setViewClientPopup] = useState(false)
   const [updateClientPopup, setUpdateClientPopup] = useState(false)
@@ -165,6 +167,11 @@ const Clients = ({sidebar}) => {
         <div className={classes.popup}>
           <span>
             <p
+              onClick={()=>{
+                setAddClientStep1(true);
+                setAddClientStep2(false);
+                return setAddClientStep3(false)
+              }}
               style={
                 addClientStep1 || addClientStep2 || addClientStep3
                   ? customNumberStyle
@@ -175,12 +182,21 @@ const Clients = ({sidebar}) => {
             </p>
             <hr style={addClientStep2 || addClientStep3 ? customHrStyle : {}} />
             <p
+            onClick={()=>{
+              setAddClientStep1(false);
+              setAddClientStep2(true);
+              return setAddClientStep3(false)
+            }}
               style={addClientStep2 || addClientStep3 ? customNumberStyle : {}}
             >
               2
             </p>
             <hr style={addClientStep3 ? customHrStyle : {}} />
-            <p style={addClientStep3 ? customNumberStyle : {}}>3</p>
+            <p onClick={()=>{
+                setAddClientStep1(false);
+                setAddClientStep2(false);
+                return setAddClientStep3(true)
+              }} style={addClientStep3 ? customNumberStyle : {}}>3</p>
           </span>
           {addClientStep1 && <h5>Add Group & Client Details</h5>}
           {addClientStep2 && (
@@ -211,6 +227,7 @@ const Clients = ({sidebar}) => {
                     <option value="">Tata</option>
                     <option value="">Adani</option>
                     <option value="">Reliance</option>
+                    {newGroupValue && <option value="">{newGroupValue}</option>}
                   </select>
                   <p
                     style={{ cursor: "pointer" }}
@@ -228,6 +245,7 @@ const Clients = ({sidebar}) => {
                       type="text"
                       name=""
                       id=""
+                      onChange={(e)=>{return setNewGroupValue(e.target.value)}}
                     />
                     <button>Create</button>
                   </div>
@@ -269,9 +287,10 @@ const Clients = ({sidebar}) => {
             )}
             {addClientStep2 && (
               <section>
-                <h6>Branch/TAN Details</h6>
+                <h6 style={{display:'flex', flexDirection:'row'}}>Branch Name<p style={{marginLeft:'calc(29% - 5rem)'}}>TAN Number</p></h6>
                 <div>
-                  <input placeholder="TAN" type="text" name="" id="" />
+                  <input placeholder="Branch Name" type="text" name="" id="" />
+                  <input placeholder="TAN Number" type="text" name="" id="" />
                 </div>
                 <h6>Responsible Person's Details</h6>
                 <div>
@@ -768,6 +787,11 @@ const Clients = ({sidebar}) => {
         <div className={classes.popup}>
           <span>
             <p
+            onClick={()=>{
+              setAddClientStep1(true);
+              setAddClientStep2(false);
+              return setAddClientStep3(false)
+            }}
               style={
                 addClientStep1 || addClientStep2 || addClientStep3
                   ? customNumberStyle
@@ -778,12 +802,21 @@ const Clients = ({sidebar}) => {
             </p>
             <hr style={addClientStep2 || addClientStep3 ? customHrStyle : {}} />
             <p
+            onClick={()=>{
+              setAddClientStep1(false);
+              setAddClientStep2(true);
+              return setAddClientStep3(false)
+            }}
               style={addClientStep2 || addClientStep3 ? customNumberStyle : {}}
             >
               2
             </p>
             <hr style={addClientStep3 ? customHrStyle : {}} />
-            <p style={addClientStep3 ? customNumberStyle : {}}>3</p>
+            <p onClick={()=>{
+                setAddClientStep1(false);
+                setAddClientStep2(false);
+                return setAddClientStep3(true)
+              }} style={addClientStep3 ? customNumberStyle : {}}>3</p>
           </span>
           {addClientStep1 && <h5>Add Group & Client Details</h5>}
           {addClientStep2 && (
@@ -863,9 +896,10 @@ const Clients = ({sidebar}) => {
             )}
             {addClientStep2 && (
               <section>
-                <h6>Branch/TAN Details</h6>
+                <h6 style={{display:'flex', flexDirection:'row'}}>Branch Name<p style={{marginLeft:'calc(29% - 5rem)'}}>TAN Number</p></h6>
                 <div>
-                  <input disabled placeholder="PDMS01068F" type="text" name="" id="" />
+                  <input placeholder="Branch Name" type="text" name="" id="" />
+                  <input placeholder="TAN Number" type="text" name="" id="" />
                 </div>
                 <h6>Responsible Person's Details</h6>
                 <div>
@@ -1375,6 +1409,11 @@ const Clients = ({sidebar}) => {
         <div className={classes.popup}>
           <span>
             <p
+            onClick={()=>{
+              setAddClientStep1(true);
+              setAddClientStep2(false);
+              return setAddClientStep3(false)
+            }}
               style={
                 addClientStep1 || addClientStep2 || addClientStep3
                   ? customNumberStyle
@@ -1385,12 +1424,21 @@ const Clients = ({sidebar}) => {
             </p>
             <hr style={addClientStep2 || addClientStep3 ? customHrStyle : {}} />
             <p
+            onClick={()=>{
+              setAddClientStep1(false);
+              setAddClientStep2(true);
+              return setAddClientStep3(false)
+            }}
               style={addClientStep2 || addClientStep3 ? customNumberStyle : {}}
             >
               2
             </p>
             <hr style={addClientStep3 ? customHrStyle : {}} />
-            <p style={addClientStep3 ? customNumberStyle : {}}>3</p>
+            <p onClick={()=>{
+                setAddClientStep1(false);
+                setAddClientStep2(false);
+                return setAddClientStep3(true)
+              }} style={addClientStep3 ? customNumberStyle : {}}>3</p>
           </span>
           {addClientStep1 && <h5>Add Group & Client Details</h5>}
           {addClientStep2 && (
@@ -1479,9 +1527,10 @@ const Clients = ({sidebar}) => {
             )}
             {addClientStep2 && (
               <section>
-                <h6>Branch/TAN Details</h6>
+                <h6 style={{display:'flex', flexDirection:'row'}}>Branch Name<p style={{marginLeft:'calc(29% - 5rem)'}}>TAN Number</p></h6>
                 <div>
-                  <input placeholder="TAN" type="text" name="" id="" />
+                  <input placeholder="Branch Name" type="text" name="" id="" />
+                  <input placeholder="TAN Number" type="text" name="" id="" />
                 </div>
                 <h6>Responsible Person's Details</h6>
                 <div>
@@ -2061,7 +2110,7 @@ const Clients = ({sidebar}) => {
         </table>
 
         <section className={classes.pagination}>
-          <p>Showing 10 out of 160 data</p>
+          <p>Showing 10 out of 160 rows</p>
           <div>
             <p>
               <KeyboardDoubleArrowLeftIcon />

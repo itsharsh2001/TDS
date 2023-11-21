@@ -118,6 +118,7 @@
   /* height: 350px; */
   /* width: 44.75%; */
   width: 72vw!important;
+  /* height: 30vh!important; */
   overflow-y: scroll;
 
   overflow-x: scroll;
@@ -135,7 +136,7 @@
 }
 
 .table tbody::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
 .table tbody tr {

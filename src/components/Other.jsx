@@ -146,6 +146,8 @@ function Other() {
   ];
 
   const [othersPopup, setOthersPopup] = useState(false);
+
+  const [newPopup, setNewPopup] = useState(false);
   let arr = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
@@ -225,6 +227,76 @@ function Other() {
               Download Template
             </button>
           </div>
+        </div>
+      )}
+      {newPopup && (
+        <div style={{justifyContent:'unset'}} className={classes.popup}>
+          <CloseIcon
+            onClick={() => {
+              return setNewPopup(false);
+            }}
+            style={{
+              fontSize: "2.5rem",
+              position: "absolute",
+              top: "2.25rem",
+              right: "2.25rem",
+              cursor: "pointer",
+            }}
+          />
+          <h4 style={{marginBottom:'3rem'}}>Request Status</h4>
+          <section>
+            {panValidation && (
+              <>
+                <h6>Choose Portal</h6>
+                <div>
+                  <span>
+                    <input
+                      type="radio"
+                      name="portal"
+                      value="TRACES"
+                      id="TRACES"
+                    />
+                    <label htmlFor="TRACES">TRACES</label>
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      name="portal"
+                      value="Reporting Portal"
+                      id="Reporting Portal"
+                    />
+                    <label htmlFor="Reporting Portal">Reporting Portal</label>
+                  </span>
+                </div>
+              </>
+            )}
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <img src="/Captha.png" alt="" />
+            <input type="text" placeholder="Enter Captcha" />
+            <button
+              onClick={() => {
+                return setOthersPopup(false);
+              }}
+            >
+              Submit
+            </button>
+          </section>
+
+          {/* <div>
+            <button>
+              <FileUploadOutlinedIcon
+                style={{ fontSize: "3rem", marginRight: "1rem" }}
+              />
+              Upload Template
+            </button>
+            <button>
+              <FileDownloadOutlinedIcon
+                style={{ fontSize: "3rem", marginRight: "1rem" }}
+              />
+              Download Template
+            </button>
+          </div> */}
         </div>
       )}
       <div className={classes.other}>
@@ -359,10 +431,24 @@ function Other() {
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          onClick={() => {
+                            return setNewPopup(true);
+                          }}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />{" "}
                         <p>Template</p>
-                        <p>Report</p>
+                        <p
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            return setNewPopup(true);
+                          }}
+                        >
+                          Report
+                        </p>
                       </td>
                     </tr>
                   );
@@ -387,10 +473,24 @@ function Other() {
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          onClick={() => {
+                            return setNewPopup(true);
+                          }}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />{" "}
                         <p>Template</p>
-                        <p>Report</p>
+                        <p
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            return setNewPopup(true);
+                          }}
+                        >
+                          Report
+                        </p>
                       </td>
                     </tr>
                   );
@@ -415,10 +515,24 @@ function Other() {
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          onClick={() => {
+                            return setNewPopup(true);
+                          }}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />{" "}
                         <p>Template</p>
-                        <p>Report</p>
+                        <p
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            return setNewPopup(true);
+                          }}
+                        >
+                          Report
+                        </p>
                       </td>
                     </tr>
                   );

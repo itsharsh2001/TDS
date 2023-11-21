@@ -206,125 +206,246 @@ const Uploaded = ({ type }) => {
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 1</option>
+                  <option value="">System Defined Field 2</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
+                </select>
+                <select name="" id="">
+                  <option value="">System Defined Field 4</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 5</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 6</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 7</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 8</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 9</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 9</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">System Defined Field 10</option>
                   <option value="">System Defined Field 1</option>
                   <option value="">System Defined Field 2</option>
                   <option value="">System Defined Field 3</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
+                  <option value="">System Defined Field 4</option>
+                  <option value="">System Defined Field 5</option>
+                  <option value="">System Defined Field 6</option>
+                  <option value="">System Defined Field 7</option>
+                  <option value="">System Defined Field 8</option>
+                  <option value="">System Defined Field 9</option>
                 </select>
               </div>
               <div>
                 <h2>User Data Field</h2>
                 <select name="" id="">
+                  <option value="">User Data Field 3</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 6</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 5</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 4</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
-                  <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
+                  <option value="">User Data Field 1</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 9</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 10</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 7</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 8</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
                   <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
                 <select name="" id="">
+                  <option value="">User Data Field 3</option>
                   <option value="">User Data Field 1</option>
                   <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
+                  <option value="">User Data Field 4</option>
+                  <option value="">User Data Field 5</option>
+                  <option value="">User Data Field 6</option>
+                  <option value="">User Data Field 7</option>
+                  <option value="">User Data Field 8</option>
+                  <option value="">User Data Field 9</option>
+                  <option value="">User Data Field 10</option>
                 </select>
-                <select name="" id="">
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                </select>
+                
               </div>
             </section>
           )}
@@ -497,9 +618,21 @@ const Uploaded = ({ type }) => {
                     <td>{val.Processed_Records}</td>
 
                     <td>{val.Error_Records}</td>
-                    <td>
-                      
-                      <FileDownloadOutlinedIcon />
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p>File</p>
+                      <p>Error</p>
                     </td>
                   </tr>
                 );
@@ -518,9 +651,21 @@ const Uploaded = ({ type }) => {
                     <td>{val.Processed_Records}</td>
 
                     <td>{val.Error_Records}</td>
-                    <td>
-                      
-                      <FileDownloadOutlinedIcon  style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p>File</p>
+                      <p>Error</p>
                     </td>
                   </tr>
                 );
@@ -539,9 +684,21 @@ const Uploaded = ({ type }) => {
                     <td>{val.Processed_Records}</td>
 
                     <td>{val.Error_Records}</td>
-                    <td>
-                     
-                      <FileDownloadOutlinedIcon  style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p>File</p>
+                      <p>Error</p>
                     </td>
                   </tr>
                 );

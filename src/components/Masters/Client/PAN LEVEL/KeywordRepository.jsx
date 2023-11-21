@@ -18,8 +18,8 @@ const KeywordRepository = (props) => {
     
     <div className={classes.keywordrepository}>
       <span>
-        <a onClick={(e)=>{e.preventDefault(); return props.panMasterSetter(0)}} href="">Client Level Master</a>
-        <ChevronRightIcon className={classes.righticon} />
+        {/* <a onClick={(e)=>{e.preventDefault(); return props.panMasterSetter(0)}} href="">Client Level Master</a>
+        <ChevronRightIcon className={classes.righticon} /> */}
         <a onClick={(e)=>{e.preventDefault(); return props.panMasterSetter(0)}} href="">PAN Level Masters</a>
         <ChevronRightIcon className={classes.righticon} />
         <a onClick={(e)=>{e.preventDefault();}} href="">Keyword Repository Master</a>

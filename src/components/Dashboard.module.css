@@ -302,6 +302,7 @@
   height: 300px;
   border-radius: 28px;
   margin-top: 1.5rem;
+  /* object-fit: contain; */
   /* margin-bottom: 1rem; */
 }
 

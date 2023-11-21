@@ -59,17 +59,19 @@ const Transactions = () => {
       <div>
         <select onChange={()=>{return setVisibleFields({...visibleFields, client: true})}} name="" id="">
           <option value="">Select Client</option>
-          <option value="">Tata</option>
-          <option value="">Adani</option>
-          <option value="">Reliance</option>
+          <option value="">Tata Consultancy Services Limited - BKICA9561K</option>
+          <option value="">Tata Motors Limited - BKICD9828K</option>
+          <option value="">Tata Chemicals Limited - BKICG6641K</option>
+          <option value="">Tata Powers Limited - BKICG6641K</option>
+          <option value="">Tata Steel Limited - BKICM7469K</option>
           {/* <option value="">BKICJ1426K</option> */}
           {/* <option value="">BKICM7469K</option> */}
         </select>
         <select onChange={()=>{return setVisibleFields({...visibleFields, tan: true})}} name="" id="">
           <option value="">Select TAN</option>
-          <option value="">Head Office</option>
-          <option value="">Sahibabad Office</option>
-          <option value="">Faridabad Office</option>
+          <option value="">Head Office - PDMS01068F</option>
+          <option value="">Sahibabad Office - BFES03018Z</option>
+          <option value="">Faridabad Office - RSEX13028F</option>
         </select>
         <select onChange={()=>{return setVisibleFields({...visibleFields, financial: true})}} name="" id="">
           <option value="">Select Fianacial Year</option>
@@ -80,9 +82,9 @@ const Transactions = () => {
         {activeModule == "transactiondata" && (
           <select onChange={()=>{return setMonthSelected(true)}} name="" id="">
             <option value="">Select Month</option>
-            <option value="">November(Current Month)</option>
-            <option value="">October</option>
-            <option value="">September</option>
+            <option value="">July(Current Month)</option>
+            <option value="">June</option>
+            <option value="">May</option>
           </select>
         )}
         {/* {activeModule == "bireport" && (

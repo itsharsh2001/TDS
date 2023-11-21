@@ -82,10 +82,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Cancellation Adjustment</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 10:10</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -96,7 +96,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 10:20</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -112,10 +112,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Reversal Adjustment</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 10:22</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -126,7 +126,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 10:32</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -142,10 +142,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Credit Note Adjustment</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 10:34</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -156,7 +156,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 10:44</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -172,10 +172,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Provision Adjustment</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 10:46</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -186,7 +186,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 10:56</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -202,10 +202,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Advance Adjustment</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 11:00</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -216,7 +216,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 11:10</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -232,10 +232,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Threshold Check</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 11:12</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -246,7 +246,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 11:22</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -262,40 +262,10 @@ const TransactionProcessing = (props) => {
                 <tr>
                   <td>
                     {" "}
-                    <b> Cancellations</b>
+                    <b>Final TDS</b>
                   </td>
                   <td>
-                    Start Time: <p>10 July 2023 10:10</p>
-                  </td>
-                  <td>
-                    No. of Records: <p>300</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Status: <h6>Completed</h6>
-                  </td>
-                  <td>
-                    End Time: <p>10 July 2023 10:20</p>
-                  </td>
-                  <td>
-                    <PurpleButton>
-                      {" "}
-                      <FileDownloadOutlinedIcon /> Download Report
-                    </PurpleButton>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    {" "}
-                    <b> Cancellations</b>
-                  </td>
-                  <td>
-                    Start Time: <p>10 July 2023 10:10</p>
+                    Start Time: <p>6 August 2023 11:25</p>
                   </td>
                   <td>
                     No. of Records: <p>300</p>
@@ -306,7 +276,7 @@ const TransactionProcessing = (props) => {
                     Status: <h6>Completed</h6>
                   </td>
                   <td>
-                    End Time: <p>10 July 2023 10:20</p>
+                    End Time: <p>6 August 2023 11:35</p>
                   </td>
                   <td>
                     <PurpleButton>
@@ -649,7 +619,7 @@ const TransactionProcessing = (props) => {
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
-                  <td>17-08-2023</td>
+                  <td>06-07-2023</td>
                   <td>Ganesh Gupta</td>
                   <td>99753</td>
                   <td>{status == "" ? "Processed" : status}</td>
@@ -684,9 +654,9 @@ const TransactionProcessing = (props) => {
                 return (
                   <tr id={idx}>
                     {/* <td>1.</td> */}
-                    <td>17-08-2023</td>
+                    <td>06-07-2023</td>
                     <td>Ganesh Gupta</td>
-                    <td>23900</td>
+                    <td>99753</td>
                     <td>Processed</td>
                     <td>
                       <PurpleButton>Download Reports</PurpleButton>
@@ -735,9 +705,9 @@ const TransactionProcessing = (props) => {
                   <tr>
                   {" "}
                   {/* <td>1.</td> */}
-                  <td>17-08-2023</td>
+                  <td>06-07-2023</td>
                   <td>Ganesh Gupta</td>
-                  <td>12569</td>
+                  <td>99753</td>
                   <td>Processed</td>
                   <td>
                     {/* <PurpleButton>
@@ -770,7 +740,7 @@ const TransactionProcessing = (props) => {
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
-                  <td>17-08-2023</td>
+                  <td>06-07-2023</td>
                   <td>Ganesh Gupta</td>
                   <td>99753</td>
                   <td>{status == "" ? "Processed" : status}</td>
@@ -805,9 +775,9 @@ const TransactionProcessing = (props) => {
                 return (
                   <tr id={idx}>
                     {/* <td>1.</td> */}
-                    <td>17-08-2023</td>
+                    <td>06-07-2023</td>
                     <td>Ganesh Gupta</td>
-                    <td>23900</td>
+                    <td>99753</td>
                     <td>Processed</td>
                     <td>
                       <PurpleButton>Download Reports</PurpleButton>

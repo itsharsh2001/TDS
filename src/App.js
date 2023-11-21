@@ -30,10 +30,10 @@ let App = () => {
     //   <AdminPanel/>
     // </div>
     <div className='admin'>
-      <Navbar sidebarToggler={sidebarToggler}/>
+      <Navbar sidebarToggler={sidebarToggler} setActiveModule={activeModuleSetter}/>
       <span>
        
-        <Sidebar sidebar={sidebar} setActiveModule={activeModuleSetter}/>
+        <Sidebar activeModule={activeModule} sidebar={sidebar} setActiveModule={activeModuleSetter}/>
         
         {activeModule=='dashboard' && <Dashboard sidebar={sidebar}/>}
         {activeModule=='clients' && <Clients sidebar={sidebar}/>}

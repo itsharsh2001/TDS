@@ -209,7 +209,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 entity: 'Tata Consultancy Services Limited'
-              })}} htmlFor="e1">Tata Consultancy Services Limited</label>
+              })}} htmlFor="e1">Tata Consultancy Services Limited - BKICA9561K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
@@ -219,7 +219,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 entity: 'Tata Motors Limited'
-              })}} htmlFor="e2">Tata Motors Limited</label>
+              })}} htmlFor="e2">Tata Motors Limited - BKICD9828K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
@@ -229,7 +229,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 entity: 'Tata Chemicals Limited'
-              })}} htmlFor="">Tata Chemicals Limited</label>
+              })}} htmlFor="">Tata Chemicals Limited - BKICG6641K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
@@ -239,7 +239,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 entity: 'Tata Powers Limited'
-              })}} htmlFor="">Tata Powers Limited</label>
+              })}} htmlFor="">Tata Powers Limited - BKICG6641K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
@@ -249,7 +249,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 entity: 'Tata Steel Limited'
-              })}} htmlFor="">Tata Steel Limited</label>
+              })}} htmlFor="">Tata Steel Limited - BKICM7469K</label>
             </li>
           </ul>
           <PurpleButton>Apply</PurpleButton>
@@ -268,7 +268,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 tan: 'BKICA9561K'
-              })}} htmlFor="t1">BKICA9561K</label>
+              })}} htmlFor="t1">Head Office - PDMS01068F</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
@@ -278,7 +278,7 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 tan: 'BKICD9828K'
-              })}} htmlFor="t2">BKICD9828K</label>
+              })}} htmlFor="t2">Sahibabad Office - BFES03018Z</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
@@ -288,28 +288,8 @@ const Dashboard = ({sidebar}) => {
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 tan: 'BKICG6641K'
-              })}} htmlFor="">BKICG6641K</label>
-            </li> 
-            <li>
-              <input onClick={()=>{return setChosenParameters({
-                ...chosenParameters,
-                tan: 'BKICJ1426K'
-              })}} type="radio" name="" id="" />
-              <label onClick={()=>{return setChosenParameters({
-                ...chosenParameters,
-                tan: 'BKICJ1426K'
-              })}} htmlFor="">BKICJ1426K</label>
-            </li> 
-            <li>
-              <input onClick={()=>{return setChosenParameters({
-                ...chosenParameters,
-                tan: 'BKICM7469K'
-              })}} type="radio" name="" id="" />
-              <label onClick={()=>{return setChosenParameters({
-                ...chosenParameters,
-                tan: 'BKICM7469K'
-              })}} htmlFor="">BKICM7469K</label>
-            </li>      
+              })}} htmlFor="">Faridabad Office - RSEX13028F</label>
+            </li>   
           </ul>
           <PurpleButton>Apply</PurpleButton>
         </div>
@@ -390,7 +370,8 @@ const Dashboard = ({sidebar}) => {
             <img src="/PANStatus.png" alt="" />
             <img src="/Top5Vendors.png" alt="" />
           </main>
-          <img className={classes.img} src="/tds.png" alt="" />
+          {/* <img className={classes.img} src="/tds.png" alt="" /> */}
+          <img className={classes.img} src="/Monthly Challan Summary.png" alt="" />
           <main className={classes.main}>
               <img style={{width:'66%'}} src="/Variance in TDS.png" alt="" />
               <img src="/TDS Distribution.png" alt="" />

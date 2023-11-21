@@ -14,8 +14,13 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 import { motion } from 'framer-motion';
 
-const Sidebar = ({setActiveModule,sidebar}) => {
+const Sidebar = ({setActiveModule,sidebar, activeModule}) => {
   // const [slideOut, setSlideOut] = useState(false)
+
+  const active = {
+    color: 'white',
+    backgroundColor: '#4f2d7f',
+  }
 
   return (
     <div style={sidebar?{width:'22.5%'}:{opacity:'0',pointerEvents:'none' ,width:'0', minWidth:'0'}} className={classes.sidebar}>
@@ -34,32 +39,32 @@ const Sidebar = ({setActiveModule,sidebar}) => {
         </span> */}
       <div className={classes.innerSidebar}>
         <ul>
-          <li onClick={()=> {return setActiveModule('dashboard')}}>
+          <li style={activeModule=='dashboard'?active:{}} onClick={()=> {return setActiveModule('dashboard')}}>
             <GridViewIcon style={{marginRight:'1.5rem'}} />
             Dashboard
           </li>
-          <li onClick={()=> {return setActiveModule('clients')}}>
+          <li style={activeModule=='clients'?active:{}} onClick={()=> {return setActiveModule('clients')}}>
             <PeopleOutlineIcon style={{marginRight:'1.5rem'}} />
             Clients
           </li>
-          <li onClick={()=> {return setActiveModule('usermanagement')}}>
+          <li style={activeModule=='usermanagement'?active:{}} onClick={()=> {return setActiveModule('usermanagement')}}>
             <PersonOutlineOutlinedIcon style={{marginRight:'1.5rem'}} />
             User Management
           </li>
-          <li onClick={()=> {return setActiveModule('masters')}}>
+          <li style={activeModule=='masters'?active:{}} onClick={()=> {return setActiveModule('masters')}}>
             <ShieldOutlinedIcon style={{marginRight:'1.5rem'}} />
             Masters
           </li>
-          <li onClick={()=> {return setActiveModule('transactions')}}>
+          <li style={activeModule=='transactions'?active:{}} onClick={()=> {return setActiveModule('transactions')}}>
             <ConnectingAirportsIcon style={{marginRight:'1.5rem'}} />
             Transactions
           </li>
-          <li onClick={()=> {return setActiveModule('other')}}>
+          <li style={activeModule=='other'?active:{}} onClick={()=> {return setActiveModule('other')}}>
             <ArticleOutlinedIcon style={{marginRight:'1.5rem'}} />
             Others
           </li>
         </ul>
-        <span onClick={()=> {return setActiveModule('helpandsupport')}}>
+        <span style={activeModule=='helpandsupport'?active:{}} onClick={()=> {return setActiveModule('helpandsupport')}}>
             <HelpOutlineIcon style={{marginRight:'1.5rem'}} />
             Help & Support
         </span>

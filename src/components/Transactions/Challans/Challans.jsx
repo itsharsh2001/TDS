@@ -268,7 +268,7 @@ const Challans = (props) => {
           <option value="">TAN 2</option>
           <option value="">TAN 3</option>
         </select> */}
-          
+
           <PurpleButton
             onClick={() => {
               return setChallanUtilization(true);
@@ -289,6 +289,10 @@ const Challans = (props) => {
         <table className={classes.table}>
           <tbody>
             <tr>
+              <th>
+                Select
+                <KeyboardArrowDownIcon />
+              </th>
               <th>
                 Major Head
                 <KeyboardArrowDownIcon />
@@ -377,6 +381,9 @@ const Challans = (props) => {
             {challans.map((val, idx) => {
               return (
                 <tr id={idx}>
+                  <td>
+                    <input type="checkbox" name="" id="" />
+                  </td>
                   <td>{val.major_head}</td>
                   <td>{val.Challan_Identification_Number}</td>
                   <td>{val.Acknowledgement_Number}</td>
