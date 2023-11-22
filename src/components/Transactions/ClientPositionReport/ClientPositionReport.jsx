@@ -11,13 +11,21 @@ import PurpleButton from "../../UI/PurpleButton";
 import classes from "./ClientPositionReport.module.css";
 
 const ClientPositionReport = (props) => {
+  const today = new Date();
+  const day = today.getDate();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
+
   const [viewData, setViewData] = useState(false);
   const [rowColor, setRowColor] = useState(false);
 
   const [modifySection, setModifySection] = useState(false);
   const [activateReason, setActivateReason] = useState(false);
 
-  const [selectedAction, setSelectedAction] = useState('')
+  const [selectedAction, setSelectedAction] = useState("");
+
+  const [extraRow, setExtraRow] = useState(true);
 
   const hoverStyle = {
     color: "var(--GT-Purple, #4f2d7f)",
@@ -575,7 +583,15 @@ const ClientPositionReport = (props) => {
       </ul>
 
       <div>
-        <PurpleButton customStyle={viewData ? grey : {}}>
+        <PurpleButton
+          onClick={() => {
+            console.log("hello dbsar");
+            if (viewData) {
+              setExtraRow(false);
+            }
+          }}
+          customStyle={viewData && !activateReason ? grey : {}}
+        >
           {!viewData && (
             <>
               <FileUploadOutlinedIcon />
@@ -594,7 +610,9 @@ const ClientPositionReport = (props) => {
       <table className={classes.table}>
         <tbody>
           {!viewData && (
-            <tr style={{ gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% " }}>
+            <tr
+              style={{ gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%" }}
+            >
               <th>Batch ID</th>
               <th>File Name</th>
               <th>Username</th>
@@ -602,14 +620,45 @@ const ClientPositionReport = (props) => {
               <th>Total No. of Records</th>
               <th>Error Records</th>
               <th>Process Records</th>
+              <th>Actions</th>
             </tr>
           )}
-
+          {!viewData && !extraRow && (
+            <tr
+              style={{ gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%" }}
+            >
+              <td>5436271828</td>
+              <td>CPR_Frontend_UI_1.xlsx</td>
+              <td>Ganesh Gupta</td>
+              <td>{formattedDate}</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td
+                style={{
+                  display: "grid",
+                  gridTemplateRows: "1fr 1fr",
+                  gridTemplateColumns: "1fr 1fr",
+                }}
+              >
+                <FileDownloadOutlinedIcon
+                  style={{ margin: "auto", fontSize: "2.5rem" }}
+                />
+                <FileDownloadOutlinedIcon
+                  style={{ margin: "auto", fontSize: "2.5rem" }}
+                />{" "}
+                <p>File</p>
+                <p>Error</p>
+              </td>
+            </tr>
+          )}
           {!viewData &&
             uploadedData.map((val, idx) => {
               return (
                 <tr
-                  style={{ gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14%" }}
+                  style={{
+                    gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
+                  }}
                   id={idx}
                 >
                   <td>{val.Batch_ID}</td>
@@ -619,6 +668,22 @@ const ClientPositionReport = (props) => {
                   <td>{val.Total_No_of_Records}</td>
                   <td>{val.Error_Records}</td>
                   <td>{val.Processed_Records}</td>
+                  <td
+                    style={{
+                      display: "grid",
+                      gridTemplateRows: "1fr 1fr",
+                      gridTemplateColumns: "1fr 1fr",
+                    }}
+                  >
+                    <FileDownloadOutlinedIcon
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />
+                    <FileDownloadOutlinedIcon
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />{" "}
+                    <p>File</p>
+                    <p>Error</p>
+                  </td>
                   {/* <td>20</td>
                 <td>140</td>
                 <td>40</td>
@@ -686,49 +751,8 @@ const ClientPositionReport = (props) => {
               <th>Modified TDS Section</th>
             </tr>
           )}
-          {/* {viewData && (
-            <tr
-              style={{
-                gridTemplateColumns:
-                  "15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15%",
-              }}
-            >
-              {" "}
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>23456</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
-                Dhruv Jain Ltd.
-              </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>5789</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>1</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>194J</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>14%</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>194C</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>2%</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
-                <select
-                  onChange={() => {
-                    setRowColor(true);
-                  }}
-                  name=""
-                  id=""
-                >
-                  <option value="">Select Action</option>
-                  <option value="">Accept</option>
-                  <option value="">
-                    <input type="radio" name="" id="" />
-                    Reject
-                  </option>
-                  <option value="">
-                    <input type="radio" name="" id="" />
-                    Modify
-                  </option>
-                </select>
-              </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>--</td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>194C</td>
-            </tr>
-          )} */}
-          {viewData && (
+
+          {viewData && extraRow && (
             <tr
               style={{
                 gridTemplateColumns:
@@ -844,7 +868,7 @@ const ClientPositionReport = (props) => {
               <td style={rowColor ? { background: "#B9ABCC" } : {}}>
                 <select
                   onChange={(e) => {
-                    setSelectedAction(e.target.value)
+                    setSelectedAction(e.target.value);
                     setActivateReason(true);
                     return setRowColor(true);
                   }}
@@ -867,26 +891,55 @@ const ClientPositionReport = (props) => {
                 </select>
               </td>
               <td style={rowColor ? { background: "#B9ABCC" } : {}}>
-                {activateReason ? <input placeholder="Type Reason" type="text" name="" id="" /> : "--"}
+                {activateReason ? (
+                  <input placeholder="Type Reason" type="text" name="" id="" />
+                ) : (
+                  "--"
+                )}
               </td>
               <td style={rowColor ? { background: "#B9ABCC" } : {}}>
-                {selectedAction=='modify' ? (
-                  <select
-                    name=""
-                    id=""
-                  >
+                {selectedAction == "modify" ? (
+                  <select name="" id="">
                     <option value="">Select Modification</option>
                     <option value="">
                       <input type="radio" name="" id="" />
-                      Acception
+                      194Q
                     </option>
                     <option value="">
                       <input type="radio" name="" id="" />
-                      Rejection
+                      194C
                     </option>
                     <option value="">
                       <input type="radio" name="" id="" />
-                      Modification
+                      192A
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      194
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      194I(A)
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      194I(B)
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      194G
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      194H
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      194O
+                    </option>
+                    <option value="">
+                      <input type="radio" name="" id="" />
+                      193
                     </option>
                   </select>
                 ) : (

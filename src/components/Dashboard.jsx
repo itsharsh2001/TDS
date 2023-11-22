@@ -193,7 +193,7 @@ const Dashboard = ({sidebar}) => {
               })}}  htmlFor="a3">Reliance</label>
             </li>
           </ul>
-          <PurpleButton>Apply</PurpleButton>
+          {/* <PurpleButton>Apply</PurpleButton> */}
         </div>
         <div style={!visibleFields.entity ? opacityStyle : {}}>
           <span>
@@ -252,7 +252,7 @@ const Dashboard = ({sidebar}) => {
               })}} htmlFor="">Tata Steel Limited - BKICM7469K</label>
             </li>
           </ul>
-          <PurpleButton>Apply</PurpleButton>
+          {/* <PurpleButton>Apply</PurpleButton> */}
         </div>
         <div style={!visibleFields.tan ? opacityStyle : {}}>
           <span>
@@ -291,7 +291,7 @@ const Dashboard = ({sidebar}) => {
               })}} htmlFor="">Faridabad Office - RSEX13028F</label>
             </li>   
           </ul>
-          <PurpleButton>Apply</PurpleButton>
+          {/* <PurpleButton>Apply</PurpleButton> */}
         </div>
         <div style={!visibleFields.financial ? opacityStyle : {}}>
           <span>
@@ -330,7 +330,7 @@ const Dashboard = ({sidebar}) => {
               })}} htmlFor="">FY 2021-22</label>
             </li>
           </ul>
-          <PurpleButton>Apply</PurpleButton>
+          {/* <PurpleButton>Apply</PurpleButton> */}
         </div>
       </div>}
 

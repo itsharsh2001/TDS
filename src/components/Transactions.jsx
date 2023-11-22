@@ -7,6 +7,8 @@ import BIReport from "./Transactions/BIReports/BIReport";
 import Challans from "./Transactions/Challans/Challans";
 import ClientPositionReport from "./Transactions/ClientPositionReport/ClientPositionReport";
 import TransactionProcessing from "./Transactions/TransactionProcessing/TransactionProcessing";
+import GLReconciliations from "./Transactions/GLReconciliations/GLReconciliations";
+import DataTransformationModule from "./Transactions/DataTransformationModule/DataTransformationModule";
 
 const Transactions = () => {
   const [monthly, setMonthly] = useState(true);
@@ -145,7 +147,9 @@ const Transactions = () => {
               <p>Client Position Report</p>
               <PeopleIcon className={classes.icon} />
             </span>
-            <span>
+            <span onClick={() => {
+                return activeModuleSetter("datatransformation");
+              }}>
               <p>Data Transformation Module</p>
               <PeopleIcon className={classes.icon} />
             </span>
@@ -167,7 +171,10 @@ const Transactions = () => {
               <p>BI Report</p>
               <PeopleIcon className={classes.icon} />
             </span>
-            <span>
+            <span
+            onClick={() => {
+              return activeModuleSetter("glreconcillations");
+            }}>
               <p>GL Reconciliations</p>
               <PeopleIcon className={classes.icon} />
             </span>
@@ -260,6 +267,22 @@ const Transactions = () => {
           transactionHomeScreen={activeModuleSetter}
         />
       )}
+      {
+        activeModule == "glreconcillations" && (
+          <GLReconciliations 
+            compliancesSetter={compliancesSetter}
+            transactionHomeScreen={activeModuleSetter}
+          />
+        )
+      }
+      {
+        activeModule == "datatransformation" && (
+          <DataTransformationModule 
+            compliancesSetter={compliancesSetter}
+            transactionHomeScreen={activeModuleSetter}
+          />
+        )
+      }
     </div>
   );
 };

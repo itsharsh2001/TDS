@@ -10,7 +10,7 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import DraggableItem from './Draggable/DraggableItem';
 import DropTarget from './Draggable/DropTarget';
 import DraggableList from "./Draggable/DraggableList";
@@ -18,6 +18,10 @@ import DraggableList from "./Draggable/DraggableList";
 
 
 const Clients = ({sidebar}) => {
+  const [popup, setPopup] = useState(false);
+  
+
+
   const clientData = [
     {
       Group_Name: "Tata",
@@ -116,7 +120,7 @@ const Clients = ({sidebar}) => {
 
   const [newGroupValue, setNewGroupValue] = useState('');
 
-  const [popup, setPopup] = useState(false);
+ 
   const [viewClientPopup, setViewClientPopup] = useState(false)
   const [updateClientPopup, setUpdateClientPopup] = useState(false)
 
@@ -150,6 +154,7 @@ const Clients = ({sidebar}) => {
     setAddClientStep3(false);
     setPopup(false);
     setViewClientPopup(false);
+    setUpdateClientPopup(false);
   };
 
   const customNumberStyle = {

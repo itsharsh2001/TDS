@@ -9,6 +9,9 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
+import { Close } from "@mui/icons-material";
+
+
 import classes from "./BIReport.module.css";
 
 const BIReport = (props) => {
@@ -184,8 +187,8 @@ const BIReport = (props) => {
           </select>
           {monthSet && (
             <>
-              <p>Cancellation Adjustment Report (Consolidated)</p>
-              <p>Reversal Adjustment Report</p>
+              <p>Cancellation Adjustment Report (Consolidated)<Close onClick={()=>{return setMonthSet(false)}} style={{color:'red'}}/> </p>
+              {/* <p>Reversal Adjustment Report</p> */}
             </>
           )}
         </span>
@@ -420,8 +423,8 @@ const BIReport = (props) => {
             {/* <option value="">Monthly-Liability Report</option> */}
           </select>
           {monthSet2 && <>
-          <p>Vendor-Section Threshold Consumption Report</p>
-          <p>LDC Consumption Report</p>
+          <p>Vendor-Section Threshold Consumption Report<Close onClick={()=>{return setMonthSet2(false)}} style={{color:'red'}}/> </p>
+          
           </>}
         </span>
         <p>Select Month Range</p>

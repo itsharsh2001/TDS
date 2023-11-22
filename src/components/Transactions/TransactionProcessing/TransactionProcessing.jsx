@@ -11,7 +11,7 @@ import classes from "./TransactionProcessing.module.css";
 import { Close, Download } from "@mui/icons-material";
 
 const TransactionProcessing = (props) => {
-  const [activeMonth, setActiveMonth] = useState('')
+  const [activeMonth, setActiveMonth] = useState("");
 
   const [monthClicked, setMonthClicked] = useState(false);
   const [justProcessedTransactions, setJustProcessedTransactions] =
@@ -25,9 +25,9 @@ const TransactionProcessing = (props) => {
 
   const [warningpopup, setWarningpopup] = useState(false);
 
-  const [redMonthAdditionalRow, setRedMonthAdditionalRow] = useState(false)
+  const [redMonthAdditionalRow, setRedMonthAdditionalRow] = useState(false);
 
-  const [aprilmay, setAprilmay] = useState(false)
+  const [aprilmay, setAprilmay] = useState(false);
 
   const redClassDiv = {
     backgroundColor: "#c241006b",
@@ -88,7 +88,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 10:10</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -118,7 +118,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 10:22</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -148,7 +148,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 10:34</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -178,7 +178,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 10:46</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -208,7 +208,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 11:00</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -238,7 +238,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 11:12</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -268,7 +268,7 @@ const TransactionProcessing = (props) => {
                     Start Time: <p>6 August 2023 11:25</p>
                   </td>
                   <td>
-                    No. of Records: <p>300</p>
+                    No. of Records: <p>99753</p>
                   </td>
                 </tr>
                 <tr>
@@ -350,28 +350,31 @@ const TransactionProcessing = (props) => {
           <a
             onClick={(e) => {
               e.preventDefault();
-              setActiveMonth('');
+              setActiveMonth("");
               setAprilmay(false);
               setJustProcessedTransactions(false);
-              setStatus('');
+              setStatus("");
               setRedMonthAdditionalRow(false);
-              console.log('activemonth', activeMonth);
+              console.log("activemonth", activeMonth);
               return setMonthClicked(false);
             }}
             href=""
           >
             Transaction Processing Center
           </a>
-          {activeMonth!='' && <><ChevronRightIcon className={classes.righticon} />
-          <a
-            onClick={(e) => {
-              e.preventDefault();
-              
-            }}
-            href=""
-          >
-            {activeMonth}
-          </a></>}
+          {activeMonth != "" && (
+            <>
+              <ChevronRightIcon className={classes.righticon} />
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+                href=""
+              >
+                {activeMonth}
+              </a>
+            </>
+          )}
         </span>
 
         {!monthClicked && (
@@ -388,9 +391,9 @@ const TransactionProcessing = (props) => {
             <main>
               <section
                 onClick={() => {
-                  setActiveMonth('April');
-                  setMonthClicked(true)
-                  return setAprilmay(true)
+                  setActiveMonth("April");
+                  setMonthClicked(true);
+                  return setAprilmay(true);
                 }}
                 style={redBorder}
               >
@@ -401,8 +404,8 @@ const TransactionProcessing = (props) => {
               </section>
               <section
                 onClick={() => {
-                  setActiveMonth('May');
-                  setMonthClicked(true)
+                  setActiveMonth("May");
+                  setMonthClicked(true);
                   return setAprilmay(true);
                 }}
                 style={redBorder}
@@ -414,11 +417,15 @@ const TransactionProcessing = (props) => {
               </section>
               <section
                 onClick={() => {
-                  setActiveMonth('June');
+                  setActiveMonth("June");
                   setmonthColor("red");
                   setJustProcessedTransactions(true);
 
-                  console.log(justProcessedTransactions, monthColor, activeMonth);
+                  console.log(
+                    justProcessedTransactions,
+                    monthColor,
+                    activeMonth
+                  );
                   return setMonthClicked(true);
                 }}
                 style={redBorder}
@@ -430,9 +437,9 @@ const TransactionProcessing = (props) => {
               </section>
               <section
                 onClick={() => {
-                  setActiveMonth('July');
+                  setActiveMonth("July");
                   setmonthColor("green");
-                  console.log( monthColor, activeMonth);
+                  console.log(monthColor, activeMonth);
                   return setMonthClicked(true);
                 }}
                 style={greenBorder}
@@ -538,19 +545,19 @@ const TransactionProcessing = (props) => {
           <section>
             <PurpleButton
               onClick={() => {
-                if(monthColor=='red'){
+                if (monthColor == "red") {
                   setRedMonthAdditionalRow(true);
                 }
                 return setStatus("Reverse Processed");
               }}
-              customStyle={justProcessedTransactions ? {} : grey}
+              customStyle={(justProcessedTransactions && status!=='Reverse Processed') ? {} : grey}
             >
               Reverse Compute Process
             </PurpleButton>
 
             <PurpleButton
               customStyle={
-                monthColor == "red" || justProcessedTransactions ? grey : {}
+                ((monthColor == "red" || justProcessedTransactions ) && status!=='Reverse Processed') ? grey : {}
               }
               onClick={() => {
                 return setPopup(true);
@@ -619,7 +626,7 @@ const TransactionProcessing = (props) => {
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
-                  <td>06-07-2023</td>
+                  <td>06-08-2023</td>
                   <td>Ganesh Gupta</td>
                   <td>99753</td>
                   <td>{status == "" ? "Processed" : status}</td>
@@ -654,7 +661,7 @@ const TransactionProcessing = (props) => {
                 return (
                   <tr id={idx}>
                     {/* <td>1.</td> */}
-                    <td>06-07-2023</td>
+                    <td>06-08-2023</td>
                     <td>Ganesh Gupta</td>
                     <td>99753</td>
                     <td>Processed</td>
@@ -668,22 +675,13 @@ const TransactionProcessing = (props) => {
           </table>
         )}
 
-
         {aprilmay && (
           <section>
-            <PurpleButton
-              customStyle={grey}
-            >
+            <PurpleButton customStyle={grey}>
               Reverse Compute Process
             </PurpleButton>
 
-            <PurpleButton
-              customStyle={
-                grey
-              }
-            >
-              Process Transactions
-            </PurpleButton>
+            <PurpleButton customStyle={grey}>Process Transactions</PurpleButton>
           </section>
         )}
 
@@ -699,13 +697,11 @@ const TransactionProcessing = (props) => {
                 <th>Actions</th>
               </tr>
 
-              
               {
-                
-                  <tr>
+                <tr>
                   {" "}
                   {/* <td>1.</td> */}
-                  <td>06-07-2023</td>
+                  <td>06-06-2023</td>
                   <td>Ganesh Gupta</td>
                   <td>99753</td>
                   <td>Processed</td>
@@ -734,42 +730,40 @@ const TransactionProcessing = (props) => {
                     </select>
                   </td>
                 </tr>
-                
               }
-             
-                <tr>
-                  {" "}
-                  {/* <td>1.</td> */}
-                  <td>06-07-2023</td>
-                  <td>Ganesh Gupta</td>
-                  <td>99753</td>
-                  <td>{status == "" ? "Processed" : status}</td>
-                  <td>
-                    {/* <PurpleButton>
+
+              <tr>
+                {" "}
+                {/* <td>1.</td> */}
+                <td>04-06-2023</td>
+                <td>Ganesh Gupta</td>
+                <td>99753</td>
+                <td>{status == "" ? "Reverse Processed" : status}</td>
+                <td>
+                  {/* <PurpleButton>
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                    <select name="" id="">
-                      <option value="">Download Reports</option>
-                      <option value="">
-                        Cancellation Adjustment Report-Consolidated
-                      </option>
-                      <option value="">
-                        Cancellation Adjustment Report-Detailed
-                      </option>
-                      <option value="">Reversal Adjustment Report</option>
-                      <option value="">Credit Note Adjustment Report</option>
-                      <option value="">Provision Adjustment Report</option>
-                      <option value="">Advance Adjustment Report</option>
-                      <option value="">
-                        Vendor-Section Threshold Consumption Report
-                      </option>
-                      <option value="">LDC Consumption Report</option>
-                      <option value="">Monthly-Liability Report</option>
-                    </select>
-                  </td>
-                </tr>
-             
+                  <select name="" id="">
+                    <option value="">Download Reports</option>
+                    <option value="">
+                      Cancellation Adjustment Report-Consolidated
+                    </option>
+                    <option value="">
+                      Cancellation Adjustment Report-Detailed
+                    </option>
+                    <option value="">Reversal Adjustment Report</option>
+                    <option value="">Credit Note Adjustment Report</option>
+                    <option value="">Provision Adjustment Report</option>
+                    <option value="">Advance Adjustment Report</option>
+                    <option value="">
+                      Vendor-Section Threshold Consumption Report
+                    </option>
+                    <option value="">LDC Consumption Report</option>
+                    <option value="">Monthly-Liability Report</option>
+                  </select>
+                </td>
+              </tr>
 
               {arr.map((val, idx) => {
                 return (
