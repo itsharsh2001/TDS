@@ -22,12 +22,13 @@
   display: none;
 }
 
-.management div {
+.management>div {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 4.5rem;
 }
 
 .management div section {
@@ -105,7 +106,7 @@
       overflow-y: scroll;
       background-color: white; */
   width: 100%;
-
+  
   /* margin-left: 1%; */
   /* margin-right: 1%; */
   margin-bottom: 3rem;
@@ -121,6 +122,7 @@
   /* border: 2px solid #522398; */
 
   /* height: 350px; */
+  height: calc(84vh - 14rem)!important;
   /* min-height: 59vh; */
   /* height: 59vh; */
   /* max-height: 90vh; */
@@ -218,8 +220,9 @@
   justify-content: space-between;
   align-items: center;
   /* justify-self: flex-end!important; */
-  /* height: 40px!important; */
+  height: 40px!important;
   background-color: transparent !important;
+
 }
 
 .pagination > p {
@@ -298,6 +301,17 @@
   background-color: #4f2d7f;
   color: white;
   border-radius: 5px;
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for transparency */
+  z-index: 99; /* Ensure the overlay is above other content */
+  animation: pop-in 0.3s ease-in-out;
 }
 
 .popup {
@@ -460,7 +474,7 @@
 }
 
 .popup2 {
-  z-index: 51;
+  z-index: 100;
   position: absolute;
   /* right: 55%; */
   top: calc(15% + 2rem);
@@ -487,7 +501,7 @@
 }
 
 .popup3 {
-  z-index: 51;
+  z-index: 99;
   position: absolute;
   right: 0;
   top: 15%;

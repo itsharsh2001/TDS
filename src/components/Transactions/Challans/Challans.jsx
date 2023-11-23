@@ -202,6 +202,10 @@ const Challans = (props) => {
           </section>
         </div>
       )}
+      {( challanUtilization ) && <div className={classes.overlay} onClick={()=>{
+      
+      return setChallanUtilization(false);
+    }}></div>}
       <div className={classes.challans}>
         {/* <ul>
           <li

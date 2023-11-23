@@ -168,6 +168,11 @@ const Clients = ({sidebar}) => {
 
   return (
     <>
+    {( popup || viewClientPopup || updateClientPopup ) && <div className={classes.overlay} onClick={()=>{
+      setPopup(false);
+      setViewClientPopup(false);
+      return setUpdateClientPopup(false);
+    }}></div>}
       {popup && (
         <div className={classes.popup}>
           <span>

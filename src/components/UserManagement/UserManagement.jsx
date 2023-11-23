@@ -87,8 +87,16 @@ const UserManagement = () => {
 
   const [newRoleAdding, setNewRoleAdding] = useState(false);
   const [newRoleCreated, setNewRoleCreated] = useState(false);
+
+  // const [overlay, setOverlay] = useState(false);
   return (
     <>
+    {( addUser || updateUser || viewUser || roleManagement ) && <div className={classes.overlay} onClick={()=>{
+      setAddUser(false);
+      setViewUser(false);
+      setRoleManagement(false);
+      return setUpdateUser(false);
+    }}></div>}
       {addUser && (
         <div className={classes.popup}>
           <h5>Add User Details</h5>
@@ -580,6 +588,9 @@ const UserManagement = () => {
       <div
         style={roleManagement ? { right: "55%" } : { right: "0" }}
         onClick={() => {
+          // setOverlay((prevState) => {
+          //   return !prevState;
+          // });
           return setRoleManagement((prevState) => {
             return !prevState;
           });

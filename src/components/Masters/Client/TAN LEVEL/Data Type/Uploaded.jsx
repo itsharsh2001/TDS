@@ -570,6 +570,10 @@ const Uploaded = ({ type }) => {
           </span>
         </div>
       )}
+      {( fileUpload ) && <div className={classes.overlay} onClick={()=>{
+      
+      return setFileUpload(false);
+    }}></div>}
       <div className={classes.uploaded}>
         <div>
           <input

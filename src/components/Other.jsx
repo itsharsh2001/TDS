@@ -155,6 +155,10 @@ function Other() {
 
   return (
     <>
+    {( othersPopup || newPopup ) && <div className={classes.overlay} onClick={()=>{
+      setNewPopup(false);
+      return setOthersPopup(false);
+    }}></div>}
       {othersPopup && (
         <div className={classes.popup}>
           <CloseIcon

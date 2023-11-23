@@ -64,6 +64,10 @@ const TransactionProcessing = (props) => {
   let arr = [];
   return (
     <>
+    {( popup || warningpopup ) && <div className={classes.overlay} onClick={()=>{
+      setPopup(false);
+      return setWarningpopup(false);
+    }}></div>}
       {popup && (
         <div className={classes.popup}>
           <h2>

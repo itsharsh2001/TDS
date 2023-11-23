@@ -900,6 +900,11 @@ const TransactionData = (props) => {
           </span>
         </div>
       )}
+
+{( deletedRecords || fileUpload ) && <div className={classes.overlay} onClick={()=>{
+      setDeletedRecords(false);
+      return setFileUpload(false);
+    }}></div>}
       {props.monthSelected && (
         <div className={classes.transactiondata}>
           <span>

@@ -21,12 +21,13 @@
   display: none;
 }
 
-.clients div {
+.clients>div {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: 4.5rem;
 }
 
 .clients div section {
@@ -118,7 +119,8 @@
 
   margin-top: 3.5rem;
   /* border: 2px solid #522398; */
-  height: 350px;
+  /* height: 350px; */
+  height: calc(84vh - 14rem)!important;
   /* width: 900px; */
   width: 100%;
   overflow-y: scroll;
@@ -206,6 +208,7 @@
   justify-content: space-between;
   align-items: center;
   /* height: 40px!important; */
+  height: 40px!important;
   background-color: transparent !important;
 }
 
@@ -280,6 +283,18 @@
   color: white;
   border-radius: 5px;
 }
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for transparency */
+  z-index: 99; /* Ensure the overlay is above other content */
+  animation: pop-in 0.5s ease-in-out;
+}
+
 
 .popup {
   position: fixed;
