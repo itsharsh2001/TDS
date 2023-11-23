@@ -37,11 +37,18 @@ const DraggableList = (props) => {
     setState({ items: reorderedItems });
   };
 
+  const deleteItem = (index) => {
+    const updatedItems = [...state.items];
+    updatedItems.splice(index, 1);
+    setState({ items: updatedItems });
+  };
+
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
         {(provided) => (
-          <div className={classes.list} {...provided.droppableProps} ref={provided.innerRef}>
+          <div style={!props.clickablity?{pointerEvents:'none'}:{}} className={classes.list} {...provided.droppableProps} ref={provided.innerRef}>
             {state.items.map((item, index) => (
               <Draggable key={item.id} draggableId={item.id} index={index}>
                 {(provided) => (
@@ -53,7 +60,7 @@ const DraggableList = (props) => {
                   >
                     <DensityLargeOutlinedIcon className={classes.icon1}/>
                     {item.content}
-                    {/* <DeleteOutlinedIcon className={classes.icon}/> */}
+                    <DeleteOutlinedIcon onClick={() => deleteItem(index)} className={classes.icon}/>
                   </div>
                 )}
               </Draggable>
