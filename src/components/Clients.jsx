@@ -9,6 +9,7 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { useState, useEffect, useRef } from "react";
 import DraggableItem from './Draggable/DraggableItem';
@@ -2070,12 +2071,12 @@ const Clients = ({sidebar}) => {
         <table>
           <tbody>
             <tr>
-              <th>Group Name</th>
-              <th>Client Name</th>
-              <th>Client PAN</th>
-              <th>Email Address</th>
-              <th>Onboarded On</th>
-              <th>Actions</th>
+              <th>Group Name<KeyboardArrowDownIcon /></th>
+              <th>Client Name<KeyboardArrowDownIcon /></th>
+              <th>Client PAN<KeyboardArrowDownIcon /></th>
+              <th>Email Address<KeyboardArrowDownIcon /></th>
+              <th>Onboarded On<KeyboardArrowDownIcon /></th>
+              <th>Actions<KeyboardArrowDownIcon /></th>
             </tr>
             
             {clientData.map((val, idx) => {

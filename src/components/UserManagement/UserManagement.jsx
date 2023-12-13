@@ -778,6 +778,7 @@ const UserManagement = () => {
                     }}
                     style={{ cursor: "pointer", color: "#FFBB59" }}
                   />
+                  <DeleteForeverIcon style={{ cursor: "pointer", color: "red" }}/>
                   {/* <DeleteForeverIcon
                       style={{ cursor: "pointer", color: "#C24200" }}
                     /> */}
@@ -807,6 +808,8 @@ const UserManagement = () => {
                       }}
                       style={{ cursor: "pointer", color: "#FFBB59" }}
                     />
+                    <DeleteForeverIcon style={{ cursor: "pointer", color: "red" }}/>
+                  
                     {/* <DeleteForeverIcon
                       style={{ cursor: "pointer", color: "#C24200" }}
                     /> */}

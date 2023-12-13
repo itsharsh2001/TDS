@@ -187,7 +187,7 @@
   width: 100%;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 10% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15%;
+  grid-template-columns: 10% 15% 15% 15% 15% 15% 15% 15% 15% 25% 15%;
   margin-bottom: 1rem;
   border-radius: 8px;
 }

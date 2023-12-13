@@ -2,6 +2,8 @@ import React, { useState } from "react";
 // import FileDownloadOutlinedIcon from "@mui/icons-material/Download";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import PeopleIcon from "@mui/icons-material/People";
+import CloseIcon from "@mui/icons-material/Close";
 
 import EditIcon from "@mui/icons-material/Edit";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -15,28 +17,31 @@ const ViewMaster = ({ type }) => {
     22, 23, 24, 25,
   ];
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
+  const [othersPopup, setOthersPopup] = useState(false);
 
   const keywordMaster = [
     {
       Keywords: "Manpower",
-      Nature_of_Payment: "Payment or credit to a resident contractor / sub-contractor for work who owns ten or less goods carriages & furnishes a declaration to that effect providing PAN details",
-      TDS_Section: "194C"
+      Nature_of_Payment:
+        "Payment or credit to a resident contractor / sub-contractor for work who owns ten or less goods carriages & furnishes a declaration to that effect providing PAN details",
+      TDS_Section: "194C",
     },
     {
       Keywords: "Raw Material",
       Nature_of_Payment: "Purchase of Goods",
-      TDS_Section: "194Q"
+      TDS_Section: "194Q",
     },
     {
       Keywords: "Goods",
       Nature_of_Payment: "Purchase of Goods",
-      TDS_Section: "194Q"
+      TDS_Section: "194Q",
     },
     {
       Keywords: "Service",
-      Nature_of_Payment: "Payment or credit to a resident contractor / sub-contractor for work who owns ten or less goods carriages & furnishes a declaration to that effect providing PAN details",
-      TDS_Section: "194C"
-    }
+      Nature_of_Payment:
+        "Payment or credit to a resident contractor / sub-contractor for work who owns ten or less goods carriages & furnishes a declaration to that effect providing PAN details",
+      TDS_Section: "194C",
+    },
   ];
 
   const vendorMaster = [
@@ -224,7 +229,7 @@ const ViewMaster = ({ type }) => {
       LDC_Rate: "0.00%",
       Utilised_Amount: "-",
       TDS_Section: "194H",
-      Description_of_Service: "Commission"
+      Description_of_Service: "Commission",
     },
     {
       Company_Code: 1000,
@@ -242,7 +247,7 @@ const ViewMaster = ({ type }) => {
       LDC_Rate: "0.50%",
       Utilised_Amount: "-",
       TDS_Section: "194C",
-      Description_of_Service: "Advertisement"
+      Description_of_Service: "Advertisement",
     },
     {
       Company_Code: 1000,
@@ -260,12 +265,9 @@ const ViewMaster = ({ type }) => {
       LDC_Rate: "5.00%",
       Utilised_Amount: "-",
       TDS_Section: "194J",
-      Description_of_Service: "Professional Services"
-    }
+      Description_of_Service: "Professional Services",
+    },
   ];
- 
-  
-  
 
   let rowStyle = {};
 
@@ -293,215 +295,285 @@ const ViewMaster = ({ type }) => {
   }
 
   return (
-    <div className={classes.viewmaster}>
-      <button>
-        <FileDownloadOutlinedIcon className={classes.downloadicon} />
-        Download Master Data
-      </button>
-      <table className={classes.table}>
-        <tbody>
-          <tr style={rowStyle}>
-            {type == "Keyword" && (
-              <>
-                <th>
-                  Keywords
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Nature Of Payment
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  TDS Section
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-              </>
-            )}
-            {type == "Vendor" && (
-              <>
-                <th>
-                  Company Code
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Company Name
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Company PAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Company TAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor Code
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor Name
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vandor PAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor TAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor GSTIN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor Resident Status
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Nature of Payment
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  TDS Section
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor PAN Status
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-              </>
-            )}
-            {type == "LDC" && (
-              <>
-                <th>
-                  Company Code
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Company Name
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Company PAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
+    <>
+      {othersPopup && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            return setOthersPopup(false);
+          }}
+        ></div>
+      )}
+      {othersPopup && (
+        <div className={classes.popup}>
+          <CloseIcon
+            onClick={() => {
+              return setOthersPopup(false);
+            }}
+            style={{
+              fontSize: "2.5rem",
+              position: "absolute",
+              top: "2.25rem",
+              right: "2.25rem",
+              cursor: "pointer",
+            }}
+          />
+          <h4>
+            {type == "Vendor" && "Specified Person Check"}
+            {type == "LDC" && "LDC Validation"}
+          </h4>
+          <section>
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <img src="/Captha.png" alt="" />
+            <input type="text" placeholder="Enter Captcha" />
+            <button
+              onClick={() => {
+                return setOthersPopup(false);
+              }}
+            >
+              Submit
+            </button>
+          </section>
 
-                <th>
-                  Vendor Code
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor Name
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vandor PAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor TAN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Vendor GSTIN
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  LDC Number
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Applicable From
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Applicable To
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  LDC Amount
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  LDC Rate
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Utilised Amount
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  TDS Section
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-                <th>
-                  Description of Service
-                  {/* <KeyboardArrowDownIcon /> */}
-                </th>
-              </>
-            )}
-          </tr>
+          <div>
+            <button>
+              <FileUploadOutlinedIcon
+                style={{ fontSize: "3rem", marginRight: "1rem" }}
+              />
+              Upload Template
+            </button>
+            <button>
+              <FileDownloadOutlinedIcon
+                style={{ fontSize: "3rem", marginRight: "1rem" }}
+              />
+              Download Template
+            </button>
+          </div>
+        </div>
+      )}
+      <div className={classes.viewmaster}>
+        <button>
+          <FileDownloadOutlinedIcon className={classes.downloadicon} />
+          Download Master Data
+        </button>
 
-          {type == "Keyword" &&
-            keywordMaster.map((val, idx) => {
-              return (
-                <tr style={rowStyle} id={idx}>
-                  <td>{val.Keywords}</td>
-                  <td>{val.Nature_of_Payment}</td>
-                  <td>{val.TDS_Section}</td>
-                </tr>
-              );
-            })}
-   
-          {type == "Vendor" &&
-            vendorMaster.map((val, idx) => {
-              return (
-                <tr style={rowStyle} id={idx}>
-                  <td>{val.Company_Code}</td>
-                  <td>{val.Company_Name}</td>
-                  <td>{val.Company_PAN}</td>
-                  <td>{val.Company_TAN}</td>
-                  <td>{val.Vendor_Code}</td>
-                  <td>{val.Vendor_Name}</td>
-                  <td>{val.Vendor_PAN}</td>
-                  <td>{val.Vendor_TAN}</td>
-                  <td>{val.Vendor_GSTIN}</td>
-                  <td>{val.Vendor_Res_Status}</td>
-                  <td>{val.Nature_of_Payment}</td>
-                  <td>{val.TDS_Section}</td>
-                  <td>{val.Vendor_PAN_Status}</td>
-                </tr>
-              );
-            })}
+        {(type == "Vendor" || type == "LDC") && (
+          <button
+            onClick={() => {
+              return setOthersPopup(true);
+            }}
+          >
+            <PeopleIcon className={classes.downloadicon} />
+            {type=='Vendor' && 'Specified Person'}
+            {type=='LDC' && 'LDC Validations'}
+          </button>
+        )}
+        <table className={classes.table}>
+          <tbody>
+            <tr style={rowStyle}>
+              {type == "Keyword" && (
+                <>
+                  <th>
+                    Keywords
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Nature Of Payment
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    TDS Section
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                </>
+              )}
+              {type == "Vendor" && (
+                <>
+                  <th>
+                    Company Code
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Company Name
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Company PAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Company TAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor Code
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor Name
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vandor PAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor TAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor GSTIN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor Resident Status
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Nature of Payment
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    TDS Section
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor PAN Status
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                </>
+              )}
+              {type == "LDC" && (
+                <>
+                  <th>
+                    Company Code
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Company Name
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Company PAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
 
-          {type == "LDC" &&
-            LDCMaster.map((val, idx) => {
-              return (
-                <tr style={rowStyle} id={idx}>
-                  <td>{val.Company_Code}</td>
-                  <td>{val.Company_Name}</td>
-                  <td>{val.Company_PAN}</td>
-                  <td>{val.Vendor_Code}</td>
-                  <td>{val.Vendor_Name}</td>
-                  <td>{val.Vendor_PAN}</td>
-                  <td>{val.Vendor_TAN}</td>
-                  <td>{val.Vendor_GSTIN}</td>
-                  <td>{val.LDC_Number}</td>
-                  <td>{val.Applicable_From}</td>
-                  <td>{val.Applicable_To}</td>
-                  <td>{val.LDC_Amount}</td>
-                  <td>{val.LDC_Rate}</td>
-                  <td>{val.Utilised_Amount}</td>
-                  <td>{val.TDS_Section}</td>
-                  <td>{val.Description_of_Service}</td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
-    </div>
+                  <th>
+                    Vendor Code
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor Name
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vandor PAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor TAN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Vendor GSTIN
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    LDC Number
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Applicable From
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Applicable To
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    LDC Amount
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    LDC Rate
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Utilised Amount
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    TDS Section
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                  <th>
+                    Description of Service
+                    {/* <KeyboardArrowDownIcon /> */}
+                  </th>
+                </>
+              )}
+            </tr>
+
+            {type == "Keyword" &&
+              keywordMaster.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>{val.Keywords}</td>
+                    <td>{val.Nature_of_Payment}</td>
+                    <td>{val.TDS_Section}</td>
+                  </tr>
+                );
+              })}
+
+            {type == "Vendor" &&
+              vendorMaster.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>{val.Company_Code}</td>
+                    <td>{val.Company_Name}</td>
+                    <td>{val.Company_PAN}</td>
+                    <td>{val.Company_TAN}</td>
+                    <td>{val.Vendor_Code}</td>
+                    <td>{val.Vendor_Name}</td>
+                    <td>{val.Vendor_PAN}</td>
+                    <td>{val.Vendor_TAN}</td>
+                    <td>{val.Vendor_GSTIN}</td>
+                    <td>{val.Vendor_Res_Status}</td>
+                    <td>{val.Nature_of_Payment}</td>
+                    <td>{val.TDS_Section}</td>
+                    <td>{val.Vendor_PAN_Status}</td>
+                  </tr>
+                );
+              })}
+
+            {type == "LDC" &&
+              LDCMaster.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>{val.Company_Code}</td>
+                    <td>{val.Company_Name}</td>
+                    <td>{val.Company_PAN}</td>
+                    <td>{val.Vendor_Code}</td>
+                    <td>{val.Vendor_Name}</td>
+                    <td>{val.Vendor_PAN}</td>
+                    <td>{val.Vendor_TAN}</td>
+                    <td>{val.Vendor_GSTIN}</td>
+                    <td>{val.LDC_Number}</td>
+                    <td>{val.Applicable_From}</td>
+                    <td>{val.Applicable_To}</td>
+                    <td>{val.LDC_Amount}</td>
+                    <td>{val.LDC_Rate}</td>
+                    <td>{val.Utilised_Amount}</td>
+                    <td>{val.TDS_Section}</td>
+                    <td>{val.Description_of_Service}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 

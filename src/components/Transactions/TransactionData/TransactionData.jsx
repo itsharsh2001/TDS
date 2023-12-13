@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import DescriptionIcon from "@mui/icons-material/Description";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 import classes from "./TransactionData.module.css";
 import PurpleButton from "../../UI/PurpleButton";
@@ -1110,11 +1111,25 @@ const TransactionData = (props) => {
                       <td>{val.Error_Records}</td>
                       <td>{val.Mismatch_Records}</td>
                       <td>{val.Out_of_TDS_Scope_Records}</td>
-                      <td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
                         <FileDownloadOutlinedIcon
-                          style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        Report
+                        <FileDownloadOutlinedIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
                       </td>
                       {/* <td>
                     <button>Download</button>
@@ -1151,11 +1166,25 @@ const TransactionData = (props) => {
                     <RemoveRedEyeIcon className={classes.icon2} />
                     <EditIcon className={classes.icon2} />
                   </td> */}
-                      <td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
                         <FileDownloadOutlinedIcon
-                          style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        Report
+                        <FileDownloadOutlinedIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
                       </td>
                     </tr>
                   );
@@ -1184,11 +1213,25 @@ const TransactionData = (props) => {
                     <RemoveRedEyeIcon className={classes.icon2} />
                     <EditIcon className={classes.icon2} />
                   </td> */}
-                      <td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
                         <FileDownloadOutlinedIcon
-                          style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        Report
+                        <FileDownloadOutlinedIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
                       </td>
                     </tr>
                   );

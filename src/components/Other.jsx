@@ -333,6 +333,16 @@ function Other() {
                 <PeopleIcon className={classes.icon} />
               </span>
             </section>
+            <section>
+              <span
+                onClick={() => {
+                  return setGstin(true);
+                }}
+              >
+                <p>LDC Validations</p>
+                <PeopleIcon className={classes.icon} />
+              </span>
+            </section>
             <h5>MIS</h5>
             <section>
               <span>

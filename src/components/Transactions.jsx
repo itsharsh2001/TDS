@@ -76,7 +76,7 @@ const Transactions = () => {
           <option value="">Faridabad Office - RSEX13028F</option>
         </select>
         <select onChange={()=>{return setVisibleFields({...visibleFields, financial: true})}} name="" id="">
-          <option value="">Select Fianacial Year</option>
+          <option value="">Select Financial Year</option>
           <option value="">FY 2023-24</option>
           <option value="">FY 2022-23</option>
           <option value="">FY 2021-22</option>
@@ -160,7 +160,7 @@ const Transactions = () => {
                 return activeModuleSetter("transactionprocessing");
               }}
             >
-              <p>Transaction Procesing Center</p>
+              <p>Transaction Processing Center</p>
               <PeopleIcon className={classes.icon} />
             </span>
             <span
