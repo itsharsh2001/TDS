@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import DescriptionIcon from "@mui/icons-material/Description";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 import classes from "./TransactionData.module.css";
@@ -390,6 +391,39 @@ const TransactionData = (props) => {
       Error_Records: 64,
       Mismatch_Records: 41,
       Out_of_TDS_Scope_Records: 29,
+    },
+  ];
+
+  const enrichmentData = [
+    {
+      File_Name: "Data_Enrichment_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 4836710295,
+      No_of_Records: 12,
+      Processed_Records: 11,
+      Error_Records: 5,
+      Mismatch_Records: 5,
+      Out_of_TDS_Scope_Records: 1,
+    },
+    {
+      File_Name: "Data_Enrichment_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 3627589420,
+      No_of_Records: 9,
+      Processed_Records: 7,
+      Error_Records: 3,
+      Mismatch_Records: 3,
+      Out_of_TDS_Scope_Records: 1,
+    },
+    {
+      File_Name: "Data_Enrichment_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 8839730992,
+      No_of_Records: 7,
+      Processed_Records: 4,
+      Error_Records: 2,
+      Mismatch_Records: 1,
+      Out_of_TDS_Scope_Records: 1,
     },
   ];
 
@@ -953,8 +987,16 @@ const TransactionData = (props) => {
             >
               Provision Data
             </li>
+            <li
+              style={datatype == "enrichment" ? hoverStyle : {}}
+              onClick={() => {
+                return setDatatype("enrichment");
+              }}
+            >
+              Data Enrichment
+            </li>
           </ul>
-          <div>
+          {datatype!='enrichment' && <><div>
             <input
               onClick={() => {
                 return setTemplateFileUpload(false);
@@ -1047,7 +1089,29 @@ const TransactionData = (props) => {
                 className={classes.downloadicon}
               />
             </button>
-          </main>
+          </main></>}
+
+          {datatype=='enrichment' && <section>
+            <PurpleButton customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileUploadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}}/>
+             Upload Enrichment Template</PurpleButton>
+            <PurpleButton customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileDownloadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}} />
+             Download Common Pool</PurpleButton>
+            <button
+            className={classes.reports}
+              onClick={() => {
+                return setReportType((prevState) => {
+                  return !prevState;
+                });
+              }}
+              style={{ marginLeft: "auto" }}
+            >
+              <FileDownloadOutlinedIcon className={classes.downloadicon} />
+              Download Reports
+              <KeyboardArrowDownIcon
+                style={{ borderLeft: "1px solid white" }}
+                className={classes.downloadicon}
+              />
+            </button> </section>}
 
           {reportType && (
             <section className={classes.specialsection}>
@@ -1077,7 +1141,7 @@ const TransactionData = (props) => {
             className={classes.table}
           >
             <tbody>
-              <tr>
+              <tr style={datatype=='enrichment'?{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 25% 15%'}:{}}>
                 <th>
                   <input type="checkbox" name="" id="" />
                 </th>
@@ -1087,8 +1151,8 @@ const TransactionData = (props) => {
                 <th>No. of Records</th>
                 <th>Processed Records</th>
                 <th>Error Records</th>
-                <th>Mismatch Records</th>
-                <th>Out of TDS Scope Records</th>
+                {datatype!='enrichment' && <><th>Mismatch Records</th>
+                <th>Out of TDS Scope Records</th></>}
                 <th>Actions</th>
                 {/* <th>Report Download</th>
               <th>Type</th>
@@ -1205,6 +1269,54 @@ const TransactionData = (props) => {
                       <td>{val.Error_Records}</td>
                       <td>{val.Mismatch_Records}</td>
                       <td>{val.Out_of_TDS_Scope_Records}</td>
+                      {/* <td>
+                    <button>Download</button>
+                  </td>
+                  <td>Static</td>
+                  <td>
+                    <RemoveRedEyeIcon className={classes.icon2} />
+                    <EditIcon className={classes.icon2} />
+                  </td> */}
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <FileDownloadOutlinedIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
+                      </td>
+                    </tr>
+                  );
+                })}
+
+              {datatype == "enrichment" &&
+                enrichmentData.map((val, idx) => {
+                  return (
+                    <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 25% 15%'}} id={idx}>
+                      <td>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Uploaded_By}</td>
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.No_of_Records}</td>
+                      <td>{val.Processed_Records}</td>
+
+                      <td>{val.Error_Records}</td>
+                      {/* <td>{val.Mismatch_Records}</td>
+                      <td>{val.Out_of_TDS_Scope_Records}</td> */}
                       {/* <td>
                     <button>Download</button>
                   </td>

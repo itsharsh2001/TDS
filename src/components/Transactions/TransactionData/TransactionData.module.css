@@ -87,6 +87,34 @@
   padding-right: 0.8rem;
 }
 
+.reports{
+  height: 4rem;
+  /* width: 25%; */
+  width: 25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center!important;
+  justify-content: space-between !important;
+  color: var(--White, #fff);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  background-color: #4f2d7f;
+  border: none;
+  outline: none;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem;
+  border-radius: 5px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.reports svg{
+  margin-left: 0;
+}
+
 .transactiondata > main button svg {
   margin-left: 0;
 }
@@ -672,6 +700,11 @@ input[type="file"]::-webkit-file-upload-button {
   font-style: normal;
   font-weight: 600;
   line-height: 16px; /* 114.286% */
+}
+
+.specialbutton{
+  margin-right: 5rem;
+  text-align: center;
 }
 
 @keyframes pop-in {
