@@ -398,30 +398,30 @@ const TransactionData = (props) => {
     {
       File_Name: "Data_Enrichment_July_1_10.xlsx",
       Uploaded_By: "Ganesh Gupta",
-      Batch_ID: 4836710295,
+      Batch_ID: 5556710295,
       No_of_Records: 12,
       Processed_Records: 11,
-      Error_Records: 5,
+      Error_Records: 1,
       Mismatch_Records: 5,
       Out_of_TDS_Scope_Records: 1,
     },
     {
-      File_Name: "Data_Enrichment_July_1_10.xlsx",
+      File_Name: "Data_Enrichment_July_2_10.xlsx",
       Uploaded_By: "Ganesh Gupta",
-      Batch_ID: 3627589420,
+      Batch_ID: 9627589420,
       No_of_Records: 9,
       Processed_Records: 7,
-      Error_Records: 3,
+      Error_Records: 2,
       Mismatch_Records: 3,
       Out_of_TDS_Scope_Records: 1,
     },
     {
-      File_Name: "Data_Enrichment_July_1_10.xlsx",
+      File_Name: "Data_Enrichment_July_3_10.xlsx",
       Uploaded_By: "Ganesh Gupta",
       Batch_ID: 8839730992,
       No_of_Records: 7,
       Processed_Records: 4,
-      Error_Records: 2,
+      Error_Records: 3,
       Mismatch_Records: 1,
       Out_of_TDS_Scope_Records: 1,
     },
@@ -1141,7 +1141,7 @@ const TransactionData = (props) => {
             className={classes.table}
           >
             <tbody>
-              <tr style={datatype=='enrichment'?{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 25% 15%'}:{}}>
+              <tr style={datatype=='enrichment'?{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}:{}}>
                 <th>
                   <input type="checkbox" name="" id="" />
                 </th>
@@ -1304,7 +1304,7 @@ const TransactionData = (props) => {
               {datatype == "enrichment" &&
                 enrichmentData.map((val, idx) => {
                   return (
-                    <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 25% 15%'}} id={idx}>
+                    <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}} id={idx}>
                       <td>
                         <input type="checkbox" name="" id="" />
                       </td>
@@ -1326,24 +1326,24 @@ const TransactionData = (props) => {
                     <EditIcon className={classes.icon2} />
                   </td> */}
                       <td
-                        style={{
-                          display: "grid",
-                          gridTemplateRows: "1fr 1fr",
-                          gridTemplateColumns: "1fr 1fr 1fr",
-                        }}
+                        // style={{
+                        //   display: "grid",
+                        //   gridTemplateRows: "1fr 1fr",
+                        //   gridTemplateColumns: "1fr 1fr 1fr",
+                        // }}
                       >
                         <FileDownloadOutlinedIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <FileDownloadOutlinedIcon
+                        {/* <FileDownloadOutlinedIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
                         <DeleteForeverIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
-                        />
+                        /> */}
                         <p>Report</p>
-                        <p>Reprocess</p>
-                        <p>Delete</p>
+                        {/* <p>Reprocess</p>
+                        <p>Delete</p> */}
                       </td>
                     </tr>
                   );
