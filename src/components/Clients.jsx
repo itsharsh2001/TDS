@@ -116,6 +116,7 @@ const Clients = ({sidebar}) => {
   const [addClientStep3, setAddClientStep3] = useState(false);
 
   const [parameterSelect, setParameterSelect] = useState(false);
+  const [tanSelect, setTanSelect] = useState(false)
 
   const [addNewGroup, setAddNewGroup] = useState(false);
 
@@ -355,6 +356,26 @@ const Clients = ({sidebar}) => {
             ))}
             {addClientStep3 && (
               <section>
+                {/* <h5 style={{justifyContent:"flex-start"}}>Select TAN <KeyboardArrowDownIcon style={{marginLeft:'0.5rem', fontSize:'2rem'}}/></h5> */}
+                <label onClick={()=>{return setParameterSelect((prevState)=>{return !prevState})}} className={classes.standaloneselect} htmlFor="">
+                  <input disabled placeholder="Select TANs" type="text" name="" id="" />
+                  <KeyboardArrowDownOutlinedIcon/>
+                </label>
+                <section>
+                  <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">Select All</label>
+                  </span>
+                  <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">TAN 1</label>
+                  </span>
+                  <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">TAN 2</label>
+                  </span>
+                </section>
+
                 <h6>Select the type of Accounting</h6>
                 <div>
                   <span>

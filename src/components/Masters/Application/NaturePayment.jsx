@@ -618,6 +618,32 @@ const NaturePayment = (props) => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
   ];
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/assets/Partners.pdf');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch file');
+      }
+     
+      // Use the response object to get the file content
+      const fileContent = await response.blob({ type: 'application/pdf' });
+
+      // Now you can process the file content as needed
+      console.log('File content:', fileContent);
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(fileContent);
+      link.download = 'downloadedFiless.pdf';
+
+      // Trigger the click event
+      link.click();
+    } catch (error) {
+        console.error('Error fetching file:', error);
+    }
+  };
+
   return (
     <div className={classes.naturepayment}>
       <span>
@@ -645,7 +671,7 @@ const NaturePayment = (props) => {
           <FileUploadOutlinedIcon className={classes.buttonicon} />
           Upload Template File
         </button>
-        <button>
+        <button onClick={handleDownload}>
           <FileDownloadOutlinedIcon className={classes.buttonicon} />
           Download Template File
         </button>
