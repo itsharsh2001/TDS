@@ -467,6 +467,32 @@ const TransactionData = (props) => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
   ];
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch file');
+      }
+     
+      // Use the response object to get the file content
+      const fileContent = await response.blob({ type: 'application/xlsx' });
+
+      // Now you can process the file content as needed
+      console.log('File content:', fileContent);
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(fileContent);
+      link.download = 'downloadedFiless.xlsx';
+
+      // Trigger the click event
+      link.click();
+    } catch (error) {
+        console.error('Error fetching file:', error);
+    }
+  };
+
   return (
     <>
       {deletedRecords && (
@@ -517,13 +543,15 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
-                        <p>File</p>
-                        <p>Report</p>
+                        <p onClick={handleDownload}>File</p>
+                        <p onClick={handleDownload}>Report</p>
                       </td>
                     </tr>
                   );
@@ -897,6 +925,7 @@ const TransactionData = (props) => {
                         <td>{val.Created_On}</td>
                         <td>
                           <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
                             style={{ cursor: "pointer", fontSize: "2.5rem" }}
                           />
                         </td>
@@ -1068,6 +1097,7 @@ const TransactionData = (props) => {
                   marginLeft: "auto",
                 }}
                 className={classes.leftbutton}
+                onClick={handleDownload}
               >
                 <FileDownloadOutlinedIcon className={classes.downloadicon} />
                 Download Template
@@ -1094,7 +1124,7 @@ const TransactionData = (props) => {
           {datatype=='enrichment' && <section>
             <PurpleButton customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileUploadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}}/>
              Upload Enrichment Template</PurpleButton>
-            <PurpleButton customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileDownloadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}} />
+            <PurpleButton onClick={handleDownload} customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileDownloadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}} />
              Download Common Pool</PurpleButton>
             <button
             className={classes.reports}
@@ -1115,19 +1145,19 @@ const TransactionData = (props) => {
 
           {reportType && (
             <section className={classes.specialsection}>
-              <p>
+              <p onClick={handleDownload}>
                 Error Report{" "}
                 <FileDownloadOutlinedIcon
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
                 />{" "}
               </p>
-              <p>
+              <p onClick={handleDownload}>
                 Section Mismatch Report{" "}
                 <FileDownloadOutlinedIcon
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
                 />{" "}
               </p>
-              <p>
+              <p onClick={handleDownload}>
                 Out of TDS Scope Report{" "}
                 <FileDownloadOutlinedIcon
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
@@ -1183,6 +1213,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
@@ -1191,7 +1222,7 @@ const TransactionData = (props) => {
                         <DeleteForeverIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <p>Report</p>
+                        <p onClick={handleDownload}>Report</p>
                         <p>Reprocess</p>
                         <p>Delete</p>
                       </td>
@@ -1238,6 +1269,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
@@ -1246,7 +1278,7 @@ const TransactionData = (props) => {
                         <DeleteForeverIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <p>Report</p>
+                        <p onClick={handleDownload}>Report</p>
                         <p>Reprocess</p>
                         <p>Delete</p>
                       </td>
@@ -1285,6 +1317,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
@@ -1293,7 +1326,7 @@ const TransactionData = (props) => {
                         <DeleteForeverIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <p>Report</p>
+                        <p onClick={handleDownload}>Report</p>
                         <p>Reprocess</p>
                         <p>Delete</p>
                       </td>
@@ -1333,6 +1366,7 @@ const TransactionData = (props) => {
                         // }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         {/* <FileDownloadOutlinedIcon
@@ -1341,7 +1375,7 @@ const TransactionData = (props) => {
                         <DeleteForeverIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         /> */}
-                        <p>Report</p>
+                        <p onClick={handleDownload}>Report</p>
                         {/* <p>Reprocess</p>
                         <p>Delete</p> */}
                       </td>

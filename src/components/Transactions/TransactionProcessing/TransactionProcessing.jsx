@@ -62,6 +62,32 @@ const TransactionProcessing = (props) => {
     pointerEvents: "none",
   };
   let arr = [];
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch file');
+      }
+     
+      // Use the response object to get the file content
+      const fileContent = await response.blob({ type: 'application/xlsx' });
+
+      // Now you can process the file content as needed
+      console.log('File content:', fileContent);
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(fileContent);
+      link.download = 'downloadedFiless.xlsx';
+
+      // Trigger the click event
+      link.click();
+    } catch (error) {
+        console.error('Error fetching file:', error);
+    }
+  };
+
   return (
     <>
     {( popup || warningpopup ) && <div className={classes.overlay} onClick={()=>{
@@ -103,7 +129,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 10:20</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -133,7 +159,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 10:32</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -163,7 +189,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 10:44</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -193,7 +219,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 10:56</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -223,7 +249,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 11:10</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -253,7 +279,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 11:22</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -283,7 +309,7 @@ const TransactionProcessing = (props) => {
                     End Time: <p>6 August 2023 11:35</p>
                   </td>
                   <td>
-                    <PurpleButton>
+                    <PurpleButton onClick={handleDownload}>
                       {" "}
                       <FileDownloadOutlinedIcon /> Download Report
                     </PurpleButton>
@@ -639,7 +665,7 @@ const TransactionProcessing = (props) => {
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                    <select name="" id="">
+                    <select onChange={handleDownload} name="" id="">
                       <option value="">Download Reports</option>
                       <option value="">
                         Cancellation Adjustment Report-Consolidated
@@ -670,7 +696,7 @@ const TransactionProcessing = (props) => {
                     <td>99753</td>
                     <td>Processed</td>
                     <td>
-                      <PurpleButton>Download Reports</PurpleButton>
+                      <PurpleButton onClick={handleDownload}>Download Reports</PurpleButton>
                     </td>
                   </tr>
                 );
@@ -714,7 +740,7 @@ const TransactionProcessing = (props) => {
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                    <select name="" id="">
+                    <select onChange={handleDownload} name="" id="">
                       <option value="">Download Reports</option>
                       <option value="">
                         Cancellation Adjustment Report-Consolidated
@@ -748,7 +774,7 @@ const TransactionProcessing = (props) => {
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                  <select name="" id="">
+                  <select onChange={handleDownload} name="" id="">
                     <option value="">Download Reports</option>
                     <option value="">
                       Cancellation Adjustment Report-Consolidated
@@ -778,7 +804,7 @@ const TransactionProcessing = (props) => {
                     <td>99753</td>
                     <td>Processed</td>
                     <td>
-                      <PurpleButton>Download Reports</PurpleButton>
+                      <PurpleButton onChange={handleDownload}>Download Reports</PurpleButton>
                     </td>
                   </tr>
                 );

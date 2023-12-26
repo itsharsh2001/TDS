@@ -16,6 +16,7 @@ function Other() {
   const [panValidation, setPanValidation] = useState(false);
   const [specifiedPerson, setSpecifiedPerson] = useState(false);
   const [gstin, setGstin] = useState(false);
+  const [ldcValidations, setLdcValidations] = useState(false);
 
   const specifiedPersonData = [
     {
@@ -145,6 +146,30 @@ function Other() {
     },
   ];
 
+  const ldcData = [
+    {
+      Tracking_ID: 1237238501,
+      Creation_Date: "29-07-2023",
+      Creation_Time: "12:18:07",
+      Portal: "TRACES",
+      Request_Status: "Request Processed",
+    },
+    {
+      Tracking_ID: 9905729836,
+      Creation_Date: "02-06-2023",
+      Creation_Time: "17:27:50",
+      Portal: "TRACES",
+      Request_Status: "Request Processed",
+    },
+    {
+      Tracking_ID: 3338351240,
+      Creation_Date: "07-06-2023",
+      Creation_Time: "03:44:56",
+      Portal: "TRACES",
+      Request_Status: "Request Processed",
+    },
+  ];
+
   const [othersPopup, setOthersPopup] = useState(false);
 
   const [newPopup, setNewPopup] = useState(false);
@@ -152,6 +177,31 @@ function Other() {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
   ];
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch file');
+      }
+     
+      // Use the response object to get the file content
+      const fileContent = await response.blob({ type: 'application/xlsx' });
+
+      // Now you can process the file content as needed
+      console.log('File content:', fileContent);
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(fileContent);
+      link.download = 'downloadedFiless.xlsx';
+
+      // Trigger the click event
+      link.click();
+    } catch (error) {
+        console.error('Error fetching file:', error);
+    }
+  };
 
   return (
     <>
@@ -224,7 +274,7 @@ function Other() {
               />
               Upload Template
             </button>
-            <button>
+            <button onClick={handleDownload}>
               <FileDownloadOutlinedIcon
                 style={{ fontSize: "3rem", marginRight: "1rem" }}
               />
@@ -280,7 +330,8 @@ function Other() {
             <input type="text" placeholder="Enter Captcha" />
             <button
               onClick={() => {
-                return setOthersPopup(false);
+                setNewPopup(false);
+                return handleDownload();
               }}
             >
               Submit
@@ -304,7 +355,7 @@ function Other() {
         </div>
       )}
       <div className={classes.other}>
-        {!panValidation && !specifiedPerson && !gstin && (
+        {!panValidation && !specifiedPerson && !gstin && !ldcValidations && (
           <main>
             <h5>Validations</h5>
             <section>
@@ -336,7 +387,7 @@ function Other() {
             <section>
               <span
                 onClick={() => {
-                  return setGstin(true);
+                  return setLdcValidations(true);
                 }}
               >
                 <p>LDC Validations</p>
@@ -372,12 +423,13 @@ function Other() {
           </main>
         )}
 
-        {(panValidation || specifiedPerson || gstin) && (
+        {(panValidation || specifiedPerson || gstin || ldcValidations) && (
           <div className={classes.tablediv}>
             <section>
               <a
                 onClick={(e) => {
                   e.preventDefault();
+                  setLdcValidations(false)
                   setGstin(false);
                   setSpecifiedPerson(false);
                   return setPanValidation(false);
@@ -396,6 +448,7 @@ function Other() {
                 {panValidation && "PAN Validation"}
                 {specifiedPerson && "Specified Person Check"}
                 {gstin && "GSTIN Check"}
+                {ldcValidations && "LDC Validations"}
               </a>
             </section>
 
@@ -409,7 +462,7 @@ function Other() {
             </button>
           </div>
         )}
-        {(panValidation || specifiedPerson || gstin) && (
+        {(panValidation || specifiedPerson || gstin || ldcValidations) && (
           <table className={classes.table}>
             <tbody>
               <tr>
@@ -442,11 +495,13 @@ function Other() {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
-                            return setNewPopup(true);
+                            setNewPopup(true);
+                            return handleDownload;
                           }}
                           style={{
                             margin: "auto",
@@ -454,14 +509,15 @@ function Other() {
                             cursor: "pointer",
                           }}
                         />{" "}
-                        <p>Template</p>
+                        <p onClick={handleDownload}>Template</p>
                         <p
                           style={{ cursor: "pointer" }}
                           onClick={() => {
-                            return setNewPopup(true);
+                            setNewPopup(true);
+                            return handleDownload;
                           }}
                         >
-                          Report
+                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
                         </p>
                       </td>
                     </tr>
@@ -484,11 +540,13 @@ function Other() {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
-                            return setNewPopup(true);
+                            setNewPopup(true);
+                            return handleDownload;
                           }}
                           style={{
                             margin: "auto",
@@ -496,14 +554,15 @@ function Other() {
                             cursor: "pointer",
                           }}
                         />{" "}
-                        <p>Template</p>
+                        <p onClick={handleDownload}>Template</p>
                         <p
                           style={{ cursor: "pointer" }}
                           onClick={() => {
-                            return setNewPopup(true);
+                            setNewPopup(true);
+                            return handleDownload;
                           }}
                         >
-                          Report
+                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
                         </p>
                       </td>
                     </tr>
@@ -526,11 +585,13 @@ function Other() {
                         }}
                       >
                         <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
-                            return setNewPopup(true);
+                            setNewPopup(true);
+                            return handleDownload;
                           }}
                           style={{
                             margin: "auto",
@@ -538,14 +599,60 @@ function Other() {
                             cursor: "pointer",
                           }}
                         />{" "}
-                        <p>Template</p>
+                        <p onClick={handleDownload}>Template</p>
                         <p
                           style={{ cursor: "pointer" }}
                           onClick={() => {
-                            return setNewPopup(true);
+                            setNewPopup(true);
+                            return handleDownload;
                           }}
                         >
-                          Report
+                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
+                        </p>
+                      </td>
+                    </tr>
+                  );
+                })}
+              {ldcValidations &&
+                ldcData.map((val, idx) => {
+                  return (
+                    <tr id={idx}>
+                      <td>{val.Tracking_ID}</td>
+                      <td>{val.Creation_Date}</td>
+                      <td>{val.Creation_Time}</td>
+                      <td>{val.Portal}</td>
+                      <td>{val.Request_Status}</td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <FileDownloadOutlinedIcon
+                          onClick={() => {
+                            setNewPopup(true);
+                            return handleDownload;
+                          }}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
+                        />{" "}
+                        <p onClick={handleDownload}>Template</p>
+                        <p
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            setNewPopup(true);
+                            return handleDownload;
+                          }}
+                        >
+                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
                         </p>
                       </td>
                     </tr>

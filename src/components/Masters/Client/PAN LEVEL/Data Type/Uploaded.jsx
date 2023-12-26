@@ -143,6 +143,31 @@ const Uploaded = ({ type }) => {
     default:
       break;
   }
+
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch file');
+      }
+     
+      // Use the response object to get the file content
+      const fileContent = await response.blob({ type: 'application/xlsx' });
+
+      // Now you can process the file content as needed
+      console.log('File content:', fileContent);
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(fileContent);
+      link.download = 'downloadedFiless.xlsx';
+
+      // Trigger the click event
+      link.click();
+    } catch (error) {
+        console.error('Error fetching file:', error);
+    }
+  };
   return (
     <>
       {fileUpload && (
@@ -505,7 +530,7 @@ const Uploaded = ({ type }) => {
                         <td>{val.File_Name}</td>
                         <td>{val.Created_By}</td>
                         <td>{val.Created_On}</td>
-                        <td>
+                        <td onClick={handleDownload}>
                           <FileDownloadOutlinedIcon style={{cursor:'pointer',fontSize:'2.5rem'}}/>
                         </td>
                       </tr>
@@ -581,12 +606,13 @@ const Uploaded = ({ type }) => {
                 // marginLeft: "auto",
               }}
               className={classes.leftbutton}
+              onClick={handleDownload}
             >
               <FileDownloadOutlinedIcon className={classes.downloadicon} />
               Download Template
             </button>
           )}
-          <button>
+          <button onClick={handleDownload}>
             <FileDownloadOutlinedIcon className={classes.downloadicon} />
             Download Consolidated Reports
           </button>
@@ -630,13 +656,15 @@ const Uploaded = ({ type }) => {
                       }}
                     >
                       <FileDownloadOutlinedIcon
+                      onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />
                       <FileDownloadOutlinedIcon
+                      onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />{" "}
-                      <p>File</p>
-                      <p>Error</p>
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
                     </td>
                   </tr>
                 );
@@ -663,13 +691,15 @@ const Uploaded = ({ type }) => {
                       }}
                     >
                       <FileDownloadOutlinedIcon
+                      onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />
                       <FileDownloadOutlinedIcon
+                      onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />{" "}
-                      <p>File</p>
-                      <p>Error</p>
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
                     </td>
                   </tr>
                 );
@@ -696,13 +726,15 @@ const Uploaded = ({ type }) => {
                       }}
                     >
                       <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />
                       <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />{" "}
-                      <p>File</p>
-                      <p>Error</p>
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
                     </td>
                   </tr>
                 );

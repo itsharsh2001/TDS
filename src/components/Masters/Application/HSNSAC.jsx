@@ -98,6 +98,31 @@ const HSNSAC = (props) => {
     22, 23, 24, 25,
   ];
 
+  const handleDownload = async () => {
+    try {
+      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch file');
+      }
+     
+      // Use the response object to get the file content
+      const fileContent = await response.blob({ type: 'application/xlsx' });
+
+      // Now you can process the file content as needed
+      console.log('File content:', fileContent);
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(fileContent);
+      link.download = 'downloadedFiless.xlsx';
+
+      // Trigger the click event
+      link.click();
+    } catch (error) {
+        console.error('Error fetching file:', error);
+    }
+  };
+
   return (
     <div className={classes.hsnsac}>
       <span>
@@ -110,7 +135,7 @@ const HSNSAC = (props) => {
           <FileUploadOutlinedIcon className={classes.buttonicon} />
           Upload Template File
         </button>
-        <button>
+        <button className={handleDownload}>
           <FileDownloadOutlinedIcon className={classes.buttonicon} />
           Download Template File
         </button>
