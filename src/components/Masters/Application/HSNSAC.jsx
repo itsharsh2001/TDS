@@ -135,7 +135,7 @@ const HSNSAC = (props) => {
           <FileUploadOutlinedIcon className={classes.buttonicon} />
           Upload Template File
         </button>
-        <button className={handleDownload}>
+        <button onClick={handleDownload}>
           <FileDownloadOutlinedIcon className={classes.buttonicon} />
           Download Template File
         </button>
