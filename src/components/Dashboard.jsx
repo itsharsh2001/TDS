@@ -165,32 +165,32 @@ const Dashboard = ({sidebar}) => {
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                group: 'TATA'
+                group: 'ABC'
               })}} type="radio" name="group" id="a1" />
               <label onClick={(e)=>{return setChosenParameters({
                 ...chosenParameters,
-                group: 'TATA'
-              })}}  htmlFor="a1">TATA</label>
+                group: 'ABC'
+              })}}  htmlFor="a1">ABC</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                group: 'ADANI'
+                group: 'DEF'
               })}}  type="radio" name="group" id="a2" />
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                group: 'ADANI'
-              })}}  htmlFor="a2">ADANI</label>
+                group: 'DEF'
+              })}}  htmlFor="a2">DEF</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                group: 'Reliance'
+                group: 'GHI'
               })}}  type="radio" name="group" id="a3" />
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                group: 'Reliance'
-              })}}  htmlFor="a3">Reliance</label>
+                group: 'GHI'
+              })}}  htmlFor="a3">GHI</label>
             </li>
           </ul>
           {/* <PurpleButton>Apply</PurpleButton> */}
@@ -204,53 +204,54 @@ const Dashboard = ({sidebar}) => {
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Consultancy Services Limited'
+                entity: 'ABC Consultancy Limited'
               })}} type="radio" name="" id="e1" />
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Consultancy Services Limited'
-              })}} htmlFor="e1">Tata Consultancy Services Limited - BKICA9561K</label>
+                entity: 'ABC Consultancy Limited'
+              })}} htmlFor="e1">ABC Consultancy Limited - BKICA9561K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Motors Limited'
+                entity: 'ABC Motors Limited'
               })}} type="radio" name="" id="e2" />
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Motors Limited'
-              })}} htmlFor="e2">Tata Motors Limited - BKICD9828K</label>
+                entity: 'ABC Motors Limited'
+              })}} htmlFor="e2">ABC Motors Limited - BKICD9828K</label>
+            </li>
+            
+            {/* <li>
+              <input onClick={()=>{return setChosenParameters({
+                ...chosenParameters,
+                entity: 'ABC Chemicals Limited'
+              })}} type="radio" name="" id="" />
+              <label onClick={()=>{return setChosenParameters({
+                ...chosenParameters,
+                entity: 'ABC Chemicals Limited'
+              })}} htmlFor="">ABC Chemicals Limited - BKICG6641K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Chemicals Limited'
+                entity: 'ABC Powers Limited'
               })}} type="radio" name="" id="" />
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Chemicals Limited'
-              })}} htmlFor="">Tata Chemicals Limited - BKICG6641K</label>
+                entity: 'ABC Powers Limited'
+              })}} htmlFor="">ABC Powers Limited - BKICG6641K</label>
             </li>
             <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Powers Limited'
+                entity: 'ABC Steel Limited'
               })}} type="radio" name="" id="" />
               <label onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
-                entity: 'Tata Powers Limited'
-              })}} htmlFor="">Tata Powers Limited - BKICG6641K</label>
-            </li>
-            <li>
-              <input onClick={()=>{return setChosenParameters({
-                ...chosenParameters,
-                entity: 'Tata Steel Limited'
-              })}} type="radio" name="" id="" />
-              <label onClick={()=>{return setChosenParameters({
-                ...chosenParameters,
-                entity: 'Tata Steel Limited'
-              })}} htmlFor="">Tata Steel Limited - BKICM7469K</label>
-            </li>
+                entity: 'ABC Steel Limited'
+              })}} htmlFor="">ABC Steel Limited - BKICM7469K</label>
+            </li> */}
           </ul>
           {/* <PurpleButton>Apply</PurpleButton> */}
         </div>
@@ -270,7 +271,7 @@ const Dashboard = ({sidebar}) => {
                 tan: 'BKICA9561K'
               })}} htmlFor="t1">Head Office - PDMS01068F</label>
             </li>
-            <li>
+            {chosenParameters.entity=='ABC Consultancy Limited' && <><li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 tan: 'BKICD9828K'
@@ -289,7 +290,7 @@ const Dashboard = ({sidebar}) => {
                 ...chosenParameters,
                 tan: 'BKICG6641K'
               })}} htmlFor="">Faridabad Office - RSEX13028F</label>
-            </li>   
+            </li></>}   
           </ul>
           {/* <PurpleButton>Apply</PurpleButton> */}
         </div>
@@ -309,7 +310,7 @@ const Dashboard = ({sidebar}) => {
                 financial: 'FY 2023-24'
               })}} htmlFor="">FY 2023-24</label>
             </li>
-            <li>
+            {/* <li>
               <input onClick={()=>{return setChosenParameters({
                 ...chosenParameters,
                 financial: 'FY 2022-23'
@@ -328,7 +329,7 @@ const Dashboard = ({sidebar}) => {
                 ...chosenParameters,
                 financial: 'FY 2021-22'
               })}} htmlFor="">FY 2021-22</label>
-            </li>
+            </li> */}
           </ul>
           {/* <PurpleButton>Apply</PurpleButton> */}
         </div>

@@ -28,7 +28,7 @@ const VendorMaster = (props) => {
       </ul>
 
       {!viewData && <Uploaded type = 'Vendor' />}
-      {viewData && <ViewMaster type = 'Vendor'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'Vendor'/>}
     </div>
   );
 };

@@ -585,14 +585,16 @@ const Uploaded = ({ type }) => {
           <label
             onClick={() => {
               if(!templateFileUpload){
-              return setFileUpload(true);}
+                setFileUpload(true);
+                return console.log(fileUpload, 'fileupload ki value');}
             }}
             htmlFor=""
           >
             <input
               onClick={() => {
                 if(!templateFileUpload){
-                  return setFileUpload(true);}
+                  setFileUpload(true);
+                  return console.log(fileUpload, 'fileupload ki value');}
               }}
               type="file"
               name=""

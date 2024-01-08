@@ -27,6 +27,10 @@ function Masters({ sidebar }) {
     { TAN_Number: "RSEX13028F", Branch_Name: "Faridabad Office" },
   ];
 
+  const tanBranchData2 = [
+    { TAN_Number: "AVMS01248W", Branch_Name: "Head Office" },
+  ];
+
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
 
   const [panLevelMasters, setPanLevelMasters] = useState(0);
@@ -109,6 +113,8 @@ function Masters({ sidebar }) {
     });
   };
 
+  const [clientIdentity, setClientIdentity] = useState('')
+
   return (
     <div
       style={sidebar ? { width: "77.5%" } : { width: "100%" }}
@@ -138,31 +144,33 @@ function Masters({ sidebar }) {
             <select
               // value={visibleFields.group}
               onChange={() => {
-                return setVisibleFields({ ...visibleFields, group: "Tata" });
+                return setVisibleFields({ ...visibleFields, group: "ABC" });
               }}
               name=""
               id=""
             >
               <option value="">Choose Group</option>
-              <option selected={visibleFields.group!=''?true:false} value="">Tata</option>
-              <option value="">Adani</option>
-              <option value="">Reliance</option>
+              <option selected={visibleFields.group=='ABC'?true:false} value="">ABC</option>
+              <option selected={visibleFields.group=='DEF'?true:false} value="">DEF</option>
+              <option selected={visibleFields.group=='GHI'?true:false} value="">GHI</option>
             </select>
             <select
             // value={visibleFields.client}
-              onChange={() => {
+              onChange={(e) => {
+                console.log(e.target.value);
+                setClientIdentity(e.target.value);
                 return setVisibleFields({
                   ...visibleFields,
-                  client: "Adani Ports Limited",
+                  client: e.target.value,
                 });
               }}
               name=""
               id=""
             >
               <option value="">Choose Client</option>
-              <option value="">Tata Chemicals Limited</option>
-              <option selected={visibleFields.client!=''?true:false} value="">Tata Steel Limited</option>
-              <option value="">Tata Consultancy Services</option>
+              {/* <option value="">ABC Chemicals Limited</option> */}
+              <option selected={visibleFields.client=='ABC Motors Limited'?true:false} value="ABC Motors Limited">ABC Motors Limited</option>
+              <option selected={visibleFields.client=='ABC Consultancy Limited'?true:false} value="ABC Consultancy Limited">ABC Consultancy Limited</option>
             </select>
             <button
               onClick={() => {
@@ -220,12 +228,11 @@ function Masters({ sidebar }) {
             <th>Actions</th> */}
               </tr>
 
-              {tanBranchData.map((val, idx) => {
+              {clientIdentity=='ABC Consultancy Limited'? tanBranchData.map((val, idx) => {
                 return (
+                  
                   <tr id={idx}>
-                    {/* <td>
-                  <input type="checkbox" name="" id="" />
-                </td> */}
+                    
                     <td>{val.TAN_Number}</td>
                     <td>{val.Branch_Name}</td>
                     <td>
@@ -245,21 +252,34 @@ function Masters({ sidebar }) {
                         }}
                       />
                     </td>
-                    {/* <td>140</td>
-                <td>40</td>
-
-                <td>2</td>
-                <td>
-                  <button>Download</button>
-                </td>
-                <td>
-                  <button>Download</button>
-                </td>
-                <td>Static</td>
-                <td>
-                  <RemoveRedEyeIcon className={classes.icon2} />
-                  <EditIcon className={classes.icon2} />
-                </td> */}
+                    
+                  </tr>
+                );
+              }):tanBranchData2.map((val, idx) => {
+                return (
+                  
+                  <tr id={idx}>
+                    
+                    <td>{val.TAN_Number}</td>
+                    <td>{val.Branch_Name}</td>
+                    <td>
+                      <ChevronRightIcon
+                        onClick={() => {
+                          setApplicationMasters(false);
+                          setClientMasters(false);
+                          setTanLevelMasters(true);
+                          setTanLevelMasterType("");
+                        }}
+                        style={{
+                          fontSize: "2rem",
+                          color: "white",
+                          background: "#4f2d7f",
+                          borderRadius: "50%",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </td>
+                    
                   </tr>
                 );
               })}
@@ -331,12 +351,12 @@ function Masters({ sidebar }) {
       )}
 
       {panLevelMasters == 1 && (
-        <VendorMaster panMasterSetter={panMasterSetter} />
+        <VendorMaster clientIdentity={clientIdentity} panMasterSetter={panMasterSetter} />
       )}
       {panLevelMasters == 2 && (
-        <KeywordReposory panMasterSetter={panMasterSetter} />
+        <KeywordReposory clientIdentity={clientIdentity} panMasterSetter={panMasterSetter} />
       )}
-      {panLevelMasters == 3 && <LDC panMasterSetter={panMasterSetter} />}
+      {panLevelMasters == 3 && <LDC clientIdentity={clientIdentity} panMasterSetter={panMasterSetter} />}
 
       {app1 && <NaturePayment transactionHomeScreen={activeAppMasterSetter} />}
       {app2 && <SectionTDS transactionHomeScreen={activeAppMasterSetter} />}

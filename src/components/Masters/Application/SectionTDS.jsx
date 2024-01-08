@@ -122,13 +122,13 @@ const SectionTDS = (props) => {
         <a onClick={(e)=>{e.preventDefault();}} href="">Section-To-TDS Rate</a>
       </span>
       <section>
-        <button>
+        {/* <button>
           <FileUploadOutlinedIcon className={classes.buttonicon} />
           Upload Template File
-        </button>
+        </button> */}
         <button onClick={handleDownload}>
           <FileDownloadOutlinedIcon className={classes.buttonicon} />
-          Download Template File
+          Download Masters
         </button>
       </section>
 

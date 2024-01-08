@@ -652,13 +652,48 @@ const TransactionProcessing = (props) => {
                 </tr>
                 )
               } */}
-              {justProcessedTransactions && (
+              {(justProcessedTransactions && props.clientIdentity=='ABC Consultancy Limited') && (
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
                   <td>06-08-2023</td>
                   <td>Ganesh Gupta</td>
                   <td>99753</td>
+                  <td>{status == "" ? "Processed" : status}</td>
+                  <td>
+                    {/* <PurpleButton>
+                      Download Reports
+                      <KeyboardArrowDownIcon className={classes.down} />
+                    </PurpleButton> */}
+                    <select onChange={handleDownload} name="" id="">
+                      <option value="">Download Reports</option>
+                      <option value="">
+                        Cancellation Adjustment Report-Consolidated
+                      </option>
+                      <option value="">
+                        Cancellation Adjustment Report-Detailed
+                      </option>
+                      <option value="">Reversal Adjustment Report</option>
+                      <option value="">Credit Note Adjustment Report</option>
+                      <option value="">Provision Adjustment Report</option>
+                      <option value="">Advance Adjustment Report</option>
+                      <option value="">
+                        Vendor-Section Threshold Consumption Report
+                      </option>
+                      <option value="">LDC Consumption Report</option>
+                      <option value="">Monthly-Liability Report</option>
+                    </select>
+                  </td>
+                </tr>
+              )}
+
+              {(justProcessedTransactions && props.clientIdentity=='ABC Motors Limited') && (
+                <tr>
+                  {" "}
+                  {/* <td>1.</td> */}
+                  <td>06-08-2023</td>
+                  <td>Pranav Kapoor</td>
+                  <td>29753</td>
                   <td>{status == "" ? "Processed" : status}</td>
                   <td>
                     {/* <PurpleButton>
@@ -727,7 +762,7 @@ const TransactionProcessing = (props) => {
                 <th>Actions</th>
               </tr>
 
-              {
+              {props.clientIdentity=='ABC Consultancy Limited' &&
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
@@ -762,7 +797,42 @@ const TransactionProcessing = (props) => {
                 </tr>
               }
 
-              <tr>
+              {props.clientIdentity=='ABC Motors Limited' &&
+                <tr>
+                  {" "}
+                  {/* <td>1.</td> */}
+                  <td>06-06-2023</td>
+                  <td>Pranav Kapoor</td>
+                  <td>69753</td>
+                  <td>Processed</td>
+                  <td>
+                    {/* <PurpleButton>
+                      Download Reports
+                      <KeyboardArrowDownIcon className={classes.down} />
+                    </PurpleButton> */}
+                    <select onChange={handleDownload} name="" id="">
+                      <option value="">Download Reports</option>
+                      <option value="">
+                        Cancellation Adjustment Report-Consolidated
+                      </option>
+                      <option value="">
+                        Cancellation Adjustment Report-Detailed
+                      </option>
+                      <option value="">Reversal Adjustment Report</option>
+                      <option value="">Credit Note Adjustment Report</option>
+                      <option value="">Provision Adjustment Report</option>
+                      <option value="">Advance Adjustment Report</option>
+                      <option value="">
+                        Vendor-Section Threshold Consumption Report
+                      </option>
+                      <option value="">LDC Consumption Report</option>
+                      <option value="">Monthly-Liability Report</option>
+                    </select>
+                  </td>
+                </tr>
+              }
+
+              {props.clientIdentity=='ABC Consultancy Limited' && <tr>
                 {" "}
                 {/* <td>1.</td> */}
                 <td>04-06-2023</td>
@@ -793,7 +863,40 @@ const TransactionProcessing = (props) => {
                     <option value="">Monthly-Liability Report</option>
                   </select>
                 </td>
-              </tr>
+              </tr>}
+
+              {props.clientIdentity=='ABC Motors Limited' && <tr>
+                {" "}
+                {/* <td>1.</td> */}
+                <td>04-06-2023</td>
+                <td>Pranav Kapoor</td>
+                <td>59753</td>
+                <td>{status == "" ? "Reverse Processed" : status}</td>
+                <td>
+                  {/* <PurpleButton>
+                      Download Reports
+                      <KeyboardArrowDownIcon className={classes.down} />
+                    </PurpleButton> */}
+                  <select onChange={handleDownload} name="" id="">
+                    <option value="">Download Reports</option>
+                    <option value="">
+                      Cancellation Adjustment Report-Consolidated
+                    </option>
+                    <option value="">
+                      Cancellation Adjustment Report-Detailed
+                    </option>
+                    <option value="">Reversal Adjustment Report</option>
+                    <option value="">Credit Note Adjustment Report</option>
+                    <option value="">Provision Adjustment Report</option>
+                    <option value="">Advance Adjustment Report</option>
+                    <option value="">
+                      Vendor-Section Threshold Consumption Report
+                    </option>
+                    <option value="">LDC Consumption Report</option>
+                    <option value="">Monthly-Liability Report</option>
+                  </select>
+                </td>
+              </tr>}
 
               {arr.map((val, idx) => {
                 return (

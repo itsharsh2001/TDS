@@ -28,7 +28,7 @@ const LDC = (props) => {
       </ul>
 
       {!viewData && <Uploaded type = 'LDC' />}
-      {viewData && <ViewMaster type = 'LDC'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'LDC'/>}
     </div>
   )
 }

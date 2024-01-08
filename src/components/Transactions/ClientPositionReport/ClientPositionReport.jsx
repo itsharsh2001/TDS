@@ -482,7 +482,500 @@ const ClientPositionReport = (props) => {
     },
   ];
 
+  const viewDataTable2 = [
+    {
+      PostingDate: "4/1/2023",
+      VendorCode: "VEN000032123",
+      VendorName: "Aditi Arora",
+      DocumentNumber: "010423000001",
+      DocumentDate: "4/1/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV/23-24/002",
+      OriginalDocumentDate: "4/1/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "9982",
+      Description: "Doc Review",
+      GLAccountCode: "GL00071228",
+      GLAccountName: "Legal Fees",
+      PONumber: "PO0000014272",
+      PODescription: "Lawyer Fees for case against ZZZ Limited",
+      TaxableValue: "5000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "450",
+      SGSTAmount: "450",
+      IGSTAmount: "0",
+      TotalGST: "900",
+      InvoiceValue: "5900",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "50",
+      HSN_SAC_Code: "194J",
+      Vendor: "194J",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194J",
+      SystemDeterminedSection: "194J",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/30/2023",
+      VendorCode: "VEN000064548",
+      VendorName: "BSK & Associates LLP",
+      DocumentNumber: "010423000029",
+      DocumentDate: "4/30/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV/Apr/2023/0009",
+      OriginalDocumentDate: "4/5/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "997212",
+      Description: "Rent for April 2023",
+      GLAccountCode: "GL00089459",
+      GLAccountName: "Office Rent",
+      PONumber: "PO0000011635",
+      PODescription: "Noida Office Rent",
+      TaxableValue: "80000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "7200",
+      SGSTAmount: "7200",
+      IGSTAmount: "0",
+      TotalGST: "14400",
+      InvoiceValue: "94400",
+      TDSTaxCodeERP: "194I(a)",
+      TDSRate: "10.00%",
+      TDSAmount: "8000",
+      HSN_SAC_Code: "194I(b)",
+      Vendor: "194I(b)",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194I(b)",
+      SystemDeterminedSection: "194I(b)",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/4/2023",
+      VendorCode: "VEN000067792",
+      VendorName: "Aarav Ahuja",
+      DocumentNumber: "010423000004",
+      DocumentDate: "4/4/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "20230401006",
+      OriginalDocumentDate: "4/1/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "997212",
+      Description: "Rent for April 2023",
+      GLAccountCode: "GL00089459",
+      GLAccountName: "Office Rent",
+      PONumber: "PO0000011640",
+      PODescription: "Lucknow Office Rent",
+      TaxableValue: "18000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "1620",
+      SGSTAmount: "1620",
+      IGSTAmount: "0",
+      TotalGST: "3240",
+      InvoiceValue: "21240",
+      TDSTaxCodeERP: "194I(a)",
+      TDSRate: "10.00%",
+      TDSAmount: "1800",
+      HSN_SAC_Code: "194I(b)",
+      Vendor: "194I(b)",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194I(b)",
+      SystemDeterminedSection: "194I(b)",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/23/2023",
+      VendorCode: "VEN000039015",
+      VendorName: "EFGH Limtied",
+      DocumentNumber: "010423000017",
+      DocumentDate: "4/23/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "57342434245",
+      OriginalDocumentDate: "4/15/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "84672200",
+      Description: "Bosch GTS 254 1800W 4300rpm Professional Table Saw",
+      GLAccountCode: "GL00097823",
+      GLAccountName: "Table Saw",
+      PONumber: "PO0000012826",
+      PODescription:
+        "Table Saw - Bosch GTS 254 1800W 4300rpm Professional Table Saw",
+      TaxableValue: "74997",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "6749.73",
+      SGSTAmount: "6749.73",
+      IGSTAmount: "0",
+      TotalGST: "13499.46",
+      InvoiceValue: "88496.46",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "749.97",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/11/2023",
+      VendorCode: "VEN000045590",
+      VendorName: "MNOP Limited",
+      DocumentNumber: "010423000011",
+      DocumentDate: "4/11/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV/2023/April/00145",
+      OriginalDocumentDate: "4/10/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "4407",
+      Description: "Oakwood Planks",
+      GLAccountCode: "GL00031497",
+      GLAccountName: "Wood",
+      PONumber: "PO0000023884",
+      PODescription: "Oakwook Planks",
+      TaxableValue: "11500000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "1035000",
+      SGSTAmount: "1035000",
+      IGSTAmount: "0",
+      TotalGST: "2070000",
+      InvoiceValue: "13570000",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "115000",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/30/2023",
+      VendorCode: "VEN000045590",
+      VendorName: "MNOP Limited",
+      DocumentNumber: "010423000030",
+      DocumentDate: "4/30/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV/2023/April/00275",
+      OriginalDocumentDate: "4/26/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "4407",
+      Description: "Oakwood Planks",
+      GLAccountCode: "GL00031497",
+      GLAccountName: "Wood",
+      PONumber: "PO0000023884",
+      PODescription: "Oakwook Planks",
+      TaxableValue: "22500000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "2025000",
+      SGSTAmount: "2025000",
+      IGSTAmount: "0",
+      TotalGST: "4050000",
+      InvoiceValue: "26550000",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+
+      TDSAmount: "115000",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/30/2023",
+      VendorCode: "VEN000045590",
+      VendorName: "MNOP Limited",
+      DocumentNumber: "010423000030",
+      DocumentDate: "4/30/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV/2023/April/00275",
+      OriginalDocumentDate: "4/26/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "4407",
+      Description: "Oakwood Planks",
+      GLAccountCode: "GL00031497",
+      GLAccountName: "Wood",
+      PONumber: "PO0000023884",
+      PODescription: "Oakwook Planks",
+      TaxableValue: "22500000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "2025000",
+      SGSTAmount: "2025000",
+      IGSTAmount: "0",
+      TotalGST: "4050000",
+      InvoiceValue: "26550000",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "225000",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/15/2023",
+      VendorCode: "VEN000052557",
+      VendorName: "CSK & Associates LLP",
+      DocumentNumber: "010423000013",
+      DocumentDate: "4/15/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV/2023/April/00024",
+      OriginalDocumentDate: "4/10/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "996111",
+      Description: "Sales Commission for Furniture Sold @ 5%",
+      GLAccountCode: "GL00063342",
+      GLAccountName: "Sales Commission",
+      PONumber: "",
+      PODescription: "",
+      TaxableValue: "400000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "36000",
+      SGSTAmount: "36000",
+      IGSTAmount: "0",
+      TotalGST: "72000",
+      InvoiceValue: "472000",
+      TDSTaxCodeERP: "194J",
+      TDSRate: "10.00%",
+      TDSAmount: "40000",
+      HSN_SAC_Code: "194H",
+      Vendor: "194H",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194H",
+      SystemDeterminedSection: "194H",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/30/2023",
+      VendorCode: "VEN000049276",
+      VendorName: "ABC Private Limited",
+      DocumentNumber: "010423000031",
+      DocumentDate: "4/30/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "INV23523432",
+      OriginalDocumentDate: "4/12/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "70049099",
+      Description: "Glass",
+      GLAccountCode: "GL00063307",
+      GLAccountName: "Glass",
+      PONumber: "PO0000029793",
+      PODescription: "Glass",
+      TaxableValue: "250000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "22500",
+      SGSTAmount: "22500",
+      IGSTAmount: "0",
+      TotalGST: "45000",
+      InvoiceValue: "295000",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "2500",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/30/2023",
+      VendorCode: "VEN000025310",
+      VendorName: "DEF Limited",
+      DocumentNumber: "010423000032",
+      DocumentDate: "4/30/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "20230421056",
+      OriginalDocumentDate: "4/21/2023",
+      DocumentType: "INV",
+      SupplyType: "TAX",
+      HSNorSAC: "9401",
+      Description: "Cushions",
+      GLAccountCode: "GL00041231",
+      GLAccountName: "Cushions",
+      PONumber: "PO0000031023",
+      PODescription: "Cushions",
+      TaxableValue: "570000",
+      CGSTRate: "0.09",
+      SGSTRate: "0.09",
+      IGSTRate: "0",
+      CGSTAmount: "51300",
+      SGSTAmount: "51300",
+      IGSTAmount: "0",
+      TotalGST: "102600",
+      InvoiceValue: "672600",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "5700",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+    {
+      PostingDate: "4/30/2023",
+      VendorCode: "VEN000063391",
+      VendorName: "GHI Limited",
+      DocumentNumber: "040423000001",
+      DocumentDate: "4/30/2023",
+      LineNumber: "1",
+      OriginalDocumentNumber: "",
+      OriginalDocumentDate: "4/12/2023",
+      DocumentType: "PRV",
+      SupplyType: "TAX",
+      HSNorSAC: "70049099",
+      Description: "Provision for Glass",
+      GLAccountCode: "GL00059691",
+      GLAccountName: "Provision for Glass",
+      PONumber: "PO0000029793",
+      PODescription: "Glass",
+      TaxableValue: "150000",
+      CGSTRate: "0",
+      SGSTRate: "0",
+      IGSTRate: "0",
+      CGSTAmount: "0",
+      SGSTAmount: "0",
+      IGSTAmount: "0",
+      TotalGST: "0",
+      InvoiceValue: "150000",
+      TDSTaxCodeERP: "194C",
+      TDSRate: "1.00%",
+      TDSAmount: "1500",
+      HSN_SAC_Code: "194Q",
+      Vendor: "194Q",
+      InvoiceDescription: "NULL",
+      PODescription: "NULL",
+      GLCode: "194Q",
+      SystemDeterminedSection: "194Q",
+      SectionMismatch: "Yes",
+      Action: "",
+      Reason: "",
+      ModifiedTDSSection: "",
+    },
+  ];
+
   const uploadedData = [
+    {
+      Batch_ID: 7596048123,
+      File_Name: "Apr_CPR.xlsx",
+      Username: "Ganesh Gupta",
+      Date: "5/5/2023",
+      Total_No_of_Records: 24,
+      Error_Records: 1,
+      Processed_Records: 23,
+    },
+    {
+      Batch_ID: 7596048363,
+      File_Name: "Apr_CPR1.xlsx",
+      Username: "Ganesh Gupta",
+      Date: "5/6/2023",
+      Total_No_of_Records: 1,
+      Error_Records: 0,
+      Processed_Records: 1,
+    },
+    {
+      Batch_ID: 3826715904,
+      File_Name: "May_CPR.xlsx",
+      Username: "Ganesh Gupta",
+      Date: "6/5/2023",
+      Total_No_of_Records: 6,
+      Error_Records: 0,
+      Processed_Records: 6,
+    },
+    {
+      Batch_ID: 9463851270,
+      File_Name: "Jun_CPR.xlsx",
+      Username: "Ganesh Gupta",
+      Date: "7/5/2023",
+      Total_No_of_Records: 13,
+      Error_Records: 0,
+      Processed_Records: 13,
+    },
+    {
+      Batch_ID: 5201498376,
+      File_Name: "Jul_CPR.xlsx",
+      Username: "Ganesh Gupta",
+      Date: "8/5/2023",
+      Total_No_of_Records: 6,
+      Error_Records: 0,
+      Processed_Records: 6,
+    },
+  ];
+
+  const uploadedData2 = [
     {
       Batch_ID: 7596048123,
       File_Name: "Apr_CPR.xlsx",
@@ -680,8 +1173,64 @@ const ClientPositionReport = (props) => {
               </td>
             </tr>
           )}
-          {!viewData &&
+
+
+          {(!viewData && props.clientIdentity=='ABC Consultancy Limited') &&
             uploadedData.map((val, idx) => {
+              return (
+                <tr
+                  style={{
+                    gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
+                  }}
+                  id={idx}
+                >
+                  <td>{val.Batch_ID}</td>
+                  <td>{val.File_Name}</td>
+                  <td>{val.Username}</td>
+                  <td>{val.Date}</td>
+                  <td>{val.Total_No_of_Records}</td>
+                  <td>{val.Error_Records}</td>
+                  <td>{val.Processed_Records}</td>
+                  <td
+                    style={{
+                      display: "grid",
+                      gridTemplateRows: "1fr 1fr",
+                      gridTemplateColumns: "1fr 1fr",
+                    }}
+                  >
+                    <FileDownloadOutlinedIcon
+                    onClick={handleDownload}
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />
+                    <FileDownloadOutlinedIcon
+                    onClick={handleDownload}
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />{" "}
+                    <p onClick={handleDownload}>File</p>
+                    <p onClick={handleDownload}>Error</p>
+                  </td>
+                  {/* <td>20</td>
+                <td>140</td>
+                <td>40</td>
+
+                <td>2</td>
+                <td>
+                  <button>Download</button>
+                </td>
+                <td>
+                  <button>Download</button>
+                </td>
+                <td>Static</td>
+                <td>
+                  <RemoveRedEyeIcon className={classes.icon2} />
+                  <EditIcon className={classes.icon2} />
+                </td> */}
+                </tr>
+              );
+            })}
+
+          {(!viewData && props.clientIdentity=='ABC Motors Limited') &&
+            uploadedData2.map((val, idx) => {
               return (
                 <tr
                   style={{
@@ -978,8 +1527,86 @@ const ClientPositionReport = (props) => {
               </td>
             </tr>
           )}
-          {viewData &&
+
+
+
+          {(viewData && props.clientIdentity=='ABC Consultancy Limited') &&
             viewDataTable.map((val, idx) => {
+              return (
+                <tr
+                  style={{
+                    gridTemplateColumns:
+                      "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
+                  }}
+                  id={idx}
+                >
+                  <td>{val.VendorCode}</td>
+                  <td>{val.VendorName}</td>
+                  <td>{val.PostingDate}</td>
+                  <td>{val.DocumentNumber}</td>
+                  <td>{val.DocumentDate}</td>
+                  <td>{val.LineNumber}</td>
+                  <td>{val.OriginalDocumentNumber}</td>
+                  <td>{val.OriginalDocumentDate}</td>
+                  <td>{val.DocumentType}</td>
+                  <td>{val.SupplyType}</td>
+                  <td>{val.HSN_SAC_Code}</td>
+                  <td>{val.Description}</td>
+                  <td>{val.GLAccountCode}</td>
+                  <td>{val.GLAccountName}</td>
+                  <td>{val.PONumber}</td>
+                  <td>{val.PODescription}</td>
+                  <td>{val.TaxableValue}</td>
+                  <td>{val.CGSTRate}</td>
+                  <td>{val.SGSTRate}</td>
+                  <td>{val.IGSTRate}</td>
+                  <td>{val.CGSTAmount}</td>
+                  <td>{val.SGSTAmount}</td>
+                  <td>{val.IGSTAmount}</td>
+                  <td>{val.TotalGST}</td>
+                  <td>{val.InvoiceValue}</td>
+                  <td>{val.TDSTaxCodeERP}</td>
+                  <td>{val.TDSRate}</td>
+                  <td>{val.TDSAmount}</td>
+                  <td>{val.HSN_SAC_Code}</td>
+                  <td>{val.Vendor}</td>
+                  <td>{val.InvoiceDescription}</td>
+                  <td>{val.PODescription}</td>
+                  <td>{val.GLCode}</td>
+                  <td>{val.SystemDeterminedSection}</td>
+                  <td>{val.SectionMismatch}</td>
+
+                  <td>
+                    <select
+                      onChange={() => {
+                        return setRowColor(true);
+                      }}
+                      name=""
+                      id=""
+                    >
+                      <option value="">Select Action</option>
+                      <option value="">
+                        <input type="radio" name="" id="" />
+                        Accept
+                      </option>
+                      <option value="">
+                        <input type="radio" name="" id="" />
+                        Reject
+                      </option>
+                      <option value="">
+                        <input type="radio" name="" id="" />
+                        Modify
+                      </option>
+                    </select>
+                  </td>
+                  <td>{val.Reason}</td>
+                  <td>--</td>
+                </tr>
+              );
+            })}
+
+          {(viewData && props.clientIdentity=='ABC Motors Limited') &&
+            viewDataTable2.map((val, idx) => {
               return (
                 <tr
                   style={{

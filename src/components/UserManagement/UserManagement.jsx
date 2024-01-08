@@ -182,25 +182,25 @@ const UserManagement = () => {
                   onClick={(e) => {
                     return setClientsToShow([...clientsToShow, e.target.value]);
                   }}
-                  value="Tata_Chemicals_Limited"
+                  value="ABC_Chemicals_Limited"
                 >
-                  Tata Chemicals Limited
+                  ABC Chemicals Limited
                 </option>
                 <option
                   onClick={(e) => {
                     return setClientsToShow([...clientsToShow, e.target.value]);
                   }}
-                  value="Tata_Steel_Limited"
+                  value="ABC_Steel_Limited"
                 >
-                  Tata Steel Limited
+                  ABC Steel Limited
                 </option>
                 <option
                   onClick={(e) => {
                     return setClientsToShow([...clientsToShow, e.target.value]);
                   }}
-                  value="Adani_Enterprises"
+                  value="DEF_Enterprises"
                 >
-                  Adani Enterprises
+                  DEF Enterprises
                 </option>
               </select>
             </span>
@@ -304,7 +304,7 @@ const UserManagement = () => {
             </span>
             <span>
               <label htmlFor="">Email</label>
-              <input type="text" placeholder="accounts@tcs.com" name="" id="" />
+              <input type="text" placeholder="accounts@abc.com" name="" id="" />
             </span>
             <span>
               <label htmlFor="">Phone Number</label>
@@ -348,25 +348,25 @@ const UserManagement = () => {
                   onClick={(e) => {
                     return setClientsToShow([...clientsToShow, e.target.value]);
                   }}
-                  value="Tata_Chemicals_Limited"
+                  value="ABC_Chemicals_Limited"
                 >
-                  Tata Chemicals Limited
+                  ABC Chemicals Limited
                 </option>
                 <option
                   onClick={(e) => {
                     return setClientsToShow([...clientsToShow, e.target.value]);
                   }}
-                  value="Tata_Steel_Limited"
+                  value="ABC_Steel_Limited"
                 >
-                  Tata Steel Limited
+                  ABC Steel Limited
                 </option>
                 <option
                   onClick={(e) => {
                     return setClientsToShow([...clientsToShow, e.target.value]);
                   }}
-                  value="Adani_Enterprises"
+                  value="DEF_Enterprises"
                 >
-                  Adani Enterprises
+                  DEF Enterprises
                 </option>
               </select>
             </span>
@@ -382,7 +382,7 @@ const UserManagement = () => {
                     return <p id={idx}>{val}</p>;
                   })
                 : ""}
-              <p>Adani_Total_Gas_Ltd</p>
+              <p>DEF_Total_Gas_Ltd</p>
             </span>
             <span style={{ opacity: "0", pointerEvents: "none" }}>
               <label htmlFor="">----</label>
@@ -474,7 +474,7 @@ const UserManagement = () => {
               <input
                 disabled
                 type="text"
-                placeholder="accounts@tcs.com"
+                placeholder="accounts@abc.com"
                 name=""
                 id=""
               />
@@ -530,9 +530,9 @@ const UserManagement = () => {
                 alignItems: "flex-end",
               }}
             >
-              <p>Tata_Chemicals_Limited</p>
-              <p>Adani_Ports_Limited</p>
-              <p>Adani_Enterprises</p>
+              <p>ABC_Chemicals_Limited</p>
+              <p>DEF_Ports_Limited</p>
+              <p>DEF_Enterprises</p>
             </span>
 
             <span style={{ opacity: "0", pointerEvents: "none" }}>

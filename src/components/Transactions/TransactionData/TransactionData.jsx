@@ -10,6 +10,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 import classes from "./TransactionData.module.css";
 import PurpleButton from "../../UI/PurpleButton";
@@ -25,7 +26,131 @@ const TransactionData = (props) => {
   const [reportType, setReportType] = useState(false);
   const [datatype, setDatatype] = useState("invoice");
 
+
   const invoiceData = [
+    // {
+    //   File_Name: 'Invoice_July_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 7529846103,
+    //   No_of_Records: 1853,
+    //   Processed_Records: 1732,
+    //   Error_Records: 14,
+    //   Mismatch_Records: 86,
+    //   Out_of_TDS_Scope_Records: 21
+    // },
+    // {
+    //   File_Name: 'Invoice_April_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 3985712406,
+    //   No_of_Records: 1145,
+    //   Processed_Records: 965,
+    //   Error_Records: 48,
+    //   Mismatch_Records: 79,
+    //   Out_of_TDS_Scope_Records: 53
+    // },
+    // {
+    //   File_Name: 'Invoice_April_21_30.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 4102573698,
+    //   No_of_Records: 1303,
+    //   Processed_Records: 1174,
+    //   Error_Records: 60,
+    //   Mismatch_Records: 54,
+    //   Out_of_TDS_Scope_Records: 15
+    // },
+    // {
+    //   File_Name: 'Invoice_May_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 6291850473,
+    //   No_of_Records: 1940,
+    //   Processed_Records: 1738,
+    //   Error_Records: 45,
+    //   Mismatch_Records: 60,
+    //   Out_of_TDS_Scope_Records: 97
+    // },
+    // {
+    //   File_Name: 'Invoice_May_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 8360749251,
+    //   No_of_Records: 1879,
+    //   Processed_Records: 1628,
+    //   Error_Records: 96,
+    //   Mismatch_Records: 89,
+    //   Out_of_TDS_Scope_Records: 66
+    // },
+    // {
+    //   File_Name: 'Invoice_May_21_31.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 5036924718,
+    //   No_of_Records: 1900,
+    //   Processed_Records: 1787,
+    //   Error_Records: 93,
+    //   Mismatch_Records: 3,
+    //   Out_of_TDS_Scope_Records: 17
+    // },
+    // {
+    //   File_Name: 'Invoice_June_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 1249785630,
+    //   No_of_Records: 1841,
+    //   Processed_Records: 1672,
+    //   Error_Records: 53,
+    //   Mismatch_Records: 48,
+    //   Out_of_TDS_Scope_Records: 68
+    // },
+    // {
+    //   File_Name: 'Invoice_June_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 9850361472,
+    //   No_of_Records: 1575,
+    //   Processed_Records: 1451,
+    //   Error_Records: 55,
+    //   Mismatch_Records: 58,
+    //   Out_of_TDS_Scope_Records: 11
+    // },
+    // {
+    //   File_Name: 'Invoice_June_21_30.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 7468123509,
+    //   No_of_Records: 1678,
+    //   Processed_Records: 1511,
+    //   Error_Records: 51,
+    //   Mismatch_Records: 42,
+    //   Out_of_TDS_Scope_Records: 74
+    // },
+    {
+      File_Name: "Invoice_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 3692578140,
+      No_of_Records: 1292,
+      Processed_Records: 1123,
+      Error_Records: 46,
+      Mismatch_Records: 97,
+      Out_of_TDS_Scope_Records: 26,
+    },
+    {
+      File_Name: "Invoice_July_11_20.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1380247695,
+      No_of_Records: 1899,
+      Processed_Records: 1830,
+      Error_Records: 33,
+      Mismatch_Records: 27,
+      Out_of_TDS_Scope_Records: 9,
+    },
+    {
+      File_Name: "Invoice_July_21_31.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 5824679301,
+      No_of_Records: 1327,
+      Processed_Records: 1189,
+      Error_Records: 27,
+      Mismatch_Records: 62,
+      Out_of_TDS_Scope_Records: 49,
+    },
+  ];
+
+  const invoiceData2 = [
     // {
     //   File_Name: 'Invoice_July_1_10.xlsx',
     //   Uploaded_By: 'Ganesh Gupta',
@@ -270,8 +395,252 @@ const TransactionData = (props) => {
       Out_of_TDS_Scope_Records: 16,
     },
   ];
+  const advanceData2 = [
+    // {
+    //   File_Name: 'Advance_April_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 2461358970,
+    //   No_of_Records: 1960,
+    //   Processed_Records: 1846,
+    //   Error_Records: 84,
+    //   Mismatch_Records: 18,
+    //   Out_of_TDS_Scope_Records: 12
+    // },
+    // {
+    //   File_Name: 'Advance_April_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 8742053169,
+    //   No_of_Records: 1606,
+    //   Processed_Records: 1527,
+    //   Error_Records: 6,
+    //   Mismatch_Records: 59,
+    //   Out_of_TDS_Scope_Records: 14
+    // },
+    // {
+    //   File_Name: 'Advance_April_21_30.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 5203968741,
+    //   No_of_Records: 1055,
+    //   Processed_Records: 941,
+    //   Error_Records: 31,
+    //   Mismatch_Records: 30,
+    //   Out_of_TDS_Scope_Records: 53
+    // },
+    // {
+    //   File_Name: 'Advance_May_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 4036197825,
+    //   No_of_Records: 1971,
+    //   Processed_Records: 1846,
+    //   Error_Records: 58,
+    //   Mismatch_Records: 54,
+    //   Out_of_TDS_Scope_Records: 13
+    // },
+    // {
+    //   File_Name: 'Advance_May_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 6958741203,
+    //   No_of_Records: 1072,
+    //   Processed_Records: 901,
+    //   Error_Records: 62,
+    //   Mismatch_Records: 49,
+    //   Out_of_TDS_Scope_Records: 60
+    // },
+    // {
+    //   File_Name: 'Advance_May_21_31.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 1694270853,
+    //   No_of_Records: 1628,
+    //   Processed_Records: 1434,
+    //   Error_Records: 79,
+    //   Mismatch_Records: 27,
+    //   Out_of_TDS_Scope_Records: 88
+    // },
+    // {
+    //   File_Name: 'Advance_June_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 7350284619,
+    //   No_of_Records: 1947,
+    //   Processed_Records: 1758,
+    //   Error_Records: 16,
+    //   Mismatch_Records: 96,
+    //   Out_of_TDS_Scope_Records: 77
+    // },
+    // {
+    //   File_Name: 'Advance_June_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 3690487521,
+    //   No_of_Records: 1379,
+    //   Processed_Records: 1166,
+    //   Error_Records: 46,
+    //   Mismatch_Records: 73,
+    //   Out_of_TDS_Scope_Records: 94
+    // },
+    // {
+    //   File_Name: 'Advance_June_21_30.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 7824169305,
+    //   No_of_Records: 1210,
+    //   Processed_Records: 1079,
+    //   Error_Records: 41,
+    //   Mismatch_Records: 59,
+    //   Out_of_TDS_Scope_Records: 31
+    // },
+    {
+      File_Name: "Advance_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1047398562,
+      No_of_Records: 1958,
+      Processed_Records: 1863,
+      Error_Records: 16,
+      Mismatch_Records: 44,
+      Out_of_TDS_Scope_Records: 35,
+    },
+    {
+      File_Name: "Advance_July_11_20.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 2560319748,
+      No_of_Records: 1317,
+      Processed_Records: 1123,
+      Error_Records: 75,
+      Mismatch_Records: 19,
+      Out_of_TDS_Scope_Records: 100,
+    },
+    {
+      File_Name: "Advance_July_21_31.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 5896132407,
+      No_of_Records: 1784,
+      Processed_Records: 1651,
+      Error_Records: 26,
+      Mismatch_Records: 91,
+      Out_of_TDS_Scope_Records: 16,
+    },
+  ];
 
   const provisionData = [
+    // {
+    //   File_Name: 'Provision_April_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 4709825613,
+    //   No_of_Records: 1471,
+    //   Processed_Records: 1223,
+    //   Error_Records: 94,
+    //   Mismatch_Records: 80,
+    //   Out_of_TDS_Scope_Records: 74
+    // },
+    // {
+    //   File_Name: 'Provision_April_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 9352047618,
+    //   No_of_Records: 1983,
+    //   Processed_Records: 1756,
+    //   Error_Records: 85,
+    //   Mismatch_Records: 44,
+    //   Out_of_TDS_Scope_Records: 98
+    // },
+    // {
+    //   File_Name: 'Provision_April_21_30.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 1479063825,
+    //   No_of_Records: 1674,
+    //   Processed_Records: 1561,
+    //   Error_Records: 52,
+    //   Mismatch_Records: 30,
+    //   Out_of_TDS_Scope_Records: 31
+    // },
+    // {
+    //   File_Name: 'Provision_May_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 3265987401,
+    //   No_of_Records: 1028,
+    //   Processed_Records: 865,
+    //   Error_Records: 68,
+    //   Mismatch_Records: 21,
+    //   Out_of_TDS_Scope_Records: 74
+    // },
+    // {
+    //   File_Name: 'Provision_May_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 8427051396,
+    //   No_of_Records: 1167,
+    //   Processed_Records: 1081,
+    //   Error_Records: 1,
+    //   Mismatch_Records: 47,
+    //   Out_of_TDS_Scope_Records: 38
+    // },
+    // {
+    //   File_Name: 'Provision_May_21_31.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 6180279543,
+    //   No_of_Records: 1477,
+    //   Processed_Records: 1367,
+    //   Error_Records: 42,
+    //   Mismatch_Records: 52,
+    //   Out_of_TDS_Scope_Records: 16
+    // },
+    // {
+    //   File_Name: 'Provision_June_1_10.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 7045932168,
+    //   No_of_Records: 1777,
+    //   Processed_Records: 1654,
+    //   Error_Records: 75,
+    //   Mismatch_Records: 36,
+    //   Out_of_TDS_Scope_Records: 12
+    // },
+    // {
+    //   File_Name: 'Provision_June_11_20.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 2093487651,
+    //   No_of_Records: 1225,
+    //   Processed_Records: 1077,
+    //   Error_Records: 22,
+    //   Mismatch_Records: 47,
+    //   Out_of_TDS_Scope_Records: 79
+    // },
+    // {
+    //   File_Name: 'Provision_June_21_30.xlsx',
+    //   Uploaded_By: 'Ganesh Gupta',
+    //   Batch_ID: 9563201478,
+    //   No_of_Records: 1919,
+    //   Processed_Records: 1668,
+    //   Error_Records: 99,
+    //   Mismatch_Records: 57,
+    //   Out_of_TDS_Scope_Records: 95
+    // },
+    {
+      File_Name: "Provision_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 4836710295,
+      No_of_Records: 1222,
+      Processed_Records: 1176,
+      Error_Records: 5,
+      Mismatch_Records: 5,
+      Out_of_TDS_Scope_Records: 36,
+    },
+    {
+      File_Name: "Provision_July_11_20.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 7132490865,
+      No_of_Records: 1747,
+      Processed_Records: 1677,
+      Error_Records: 11,
+      Mismatch_Records: 5,
+      Out_of_TDS_Scope_Records: 54,
+    },
+    {
+      File_Name: "Provision_July_21_31.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9283674501,
+      No_of_Records: 1905,
+      Processed_Records: 1771,
+      Error_Records: 64,
+      Mismatch_Records: 41,
+      Out_of_TDS_Scope_Records: 29,
+    },
+  ];
+  const provisionData2 = [
     // {
     //   File_Name: 'Provision_April_1_10.xlsx',
     //   Uploaded_By: 'Ganesh Gupta',
@@ -426,6 +795,38 @@ const TransactionData = (props) => {
       Out_of_TDS_Scope_Records: 1,
     },
   ];
+  const enrichmentData2 = [
+    {
+      File_Name: "Data_Enrichment_July_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 5556710295,
+      No_of_Records: 12,
+      Processed_Records: 11,
+      Error_Records: 1,
+      Mismatch_Records: 5,
+      Out_of_TDS_Scope_Records: 1,
+    },
+    {
+      File_Name: "Data_Enrichment_July_2_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9627589420,
+      No_of_Records: 9,
+      Processed_Records: 7,
+      Error_Records: 2,
+      Mismatch_Records: 3,
+      Out_of_TDS_Scope_Records: 1,
+    },
+    {
+      File_Name: "Data_Enrichment_July_3_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 8839730992,
+      No_of_Records: 7,
+      Processed_Records: 4,
+      Error_Records: 3,
+      Mismatch_Records: 1,
+      Out_of_TDS_Scope_Records: 1,
+    },
+  ];
 
   const deletedInvoice = [
     {
@@ -439,8 +840,37 @@ const TransactionData = (props) => {
       Out_of_TDS_Scope_Records: 21,
     },
   ];
+  const deletedInvoice2 = [
+    {
+      File_Name: "Invoice_April_1_10.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9173468052,
+      No_of_Records: 1853,
+      Processed_Records: 746,
+      Error_Records: 1000,
+      Mismatch_Records: 86,
+      Out_of_TDS_Scope_Records: 21,
+    },
+  ];
 
   const templateUploadMapping = [
+    {
+      File_Name: "Mapping Template 1",
+      Created_By: "Deepak Dhawan",
+      Created_On: "5/3/2023",
+    },
+    {
+      File_Name: "Mapping Template 2",
+      Created_By: "Harshad Hariharan",
+      Created_On: "5/5/2023",
+    },
+    {
+      File_Name: "Mapping Template 3",
+      Created_By: "Deepak Dhawan",
+      Created_On: "6/2/2023",
+    },
+  ];
+  const templateUploadMapping2 = [
     {
       File_Name: "Mapping Template 1",
       Created_By: "Deepak Dhawan",
@@ -522,8 +952,46 @@ const TransactionData = (props) => {
                 <th>Actions</th>
               </tr>
 
-              {datatype == "invoice" ? (
+              {(datatype == "invoice" && props.clientIdentity=='ABC Consultancy Limited') ? (
                 deletedInvoice.map((val, idx) => {
+                  return (
+                    <tr id={idx}>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Uploaded_By}</td>
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.No_of_Records}</td>
+                      <td>{val.Processed_Records}</td>
+
+                      <td>{val.Error_Records}</td>
+                      <td>{val.Mismatch_Records}</td>
+                      <td>{val.Out_of_TDS_Scope_Records}</td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <p onClick={handleDownload}>File</p>
+                        <p onClick={handleDownload}>Report</p>
+                      </td>
+                    </tr>
+                  );
+                })
+              ) : (
+                <div className={classes.emptyDiv}>No Deleted Records</div>
+              )}
+
+              {(datatype == "invoice" && props.clientIdentity=='ABC Motors Limited') ? (
+                deletedInvoice2.map((val, idx) => {
                   return (
                     <tr id={idx}>
                       <td>{val.File_Name}</td>
@@ -908,7 +1376,31 @@ const TransactionData = (props) => {
                     <th>Download</th>
                   </tr>
 
-                  {templateUploadMapping.map((val, idx) => {
+                  {props.clientIdentity=='ABC Consultancy Limited' && templateUploadMapping.map((val, idx) => {
+                    return (
+                      <tr
+                        style={{
+                          gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
+                        }}
+                        id={idx}
+                      >
+                        <td>
+                          {/* <input type="checkbox" name="" id="" /> */}
+                          <input type="radio" name="" id="" />
+                        </td>
+                        <td>{val.File_Name}</td>
+                        <td>{val.Created_By}</td>
+                        <td>{val.Created_On}</td>
+                        <td>
+                          <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {props.clientIdentity=='ABC Motors Limited' && templateUploadMapping2.map((val, idx) => {
                     return (
                       <tr
                         style={{
@@ -1073,7 +1565,9 @@ const TransactionData = (props) => {
             <label
               onClick={() => {
                 if (!templateFileUpload) {
-                  return setFileUpload(true);
+                  console.log('Hello Custom File Upload')
+                  setFileUpload(true);
+                  return console.log(fileUpload, 'fileupload ki value');
                 }
               }}
               htmlFor=""
@@ -1081,7 +1575,9 @@ const TransactionData = (props) => {
               <input
                 onClick={() => {
                   if (!templateFileUpload) {
-                    return setFileUpload(true);
+                    console.log('Hello Custom File Upload')
+                    setFileUpload(true);
+                    return console.log(fileUpload, 'fileupload ki value');
                   }
                 }}
                 type="file"
@@ -1189,7 +1685,7 @@ const TransactionData = (props) => {
               <th>Actions</th> */}
               </tr>
 
-              {datatype == "invoice" &&
+              {datatype == "invoice" && props.clientIdentity == "ABC Consultancy Limited" &&
                 invoiceData.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1216,7 +1712,7 @@ const TransactionData = (props) => {
                         onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <FileDownloadOutlinedIcon
+                        <RestartAltIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
                         <DeleteForeverIcon
@@ -1237,7 +1733,7 @@ const TransactionData = (props) => {
                     </tr>
                   );
                 })}
-              {datatype == "advance" &&
+              {datatype == "advance" && props.clientIdentity == "ABC Consultancy Limited" &&
                 advanceData.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1272,7 +1768,7 @@ const TransactionData = (props) => {
                         onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <FileDownloadOutlinedIcon
+                        <RestartAltIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
                         <DeleteForeverIcon
@@ -1285,7 +1781,7 @@ const TransactionData = (props) => {
                     </tr>
                   );
                 })}
-              {datatype == "provision" &&
+              {datatype == "provision" && props.clientIdentity == "ABC Consultancy Limited" &&
                 provisionData.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1320,7 +1816,7 @@ const TransactionData = (props) => {
                         onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <FileDownloadOutlinedIcon
+                        <RestartAltIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
                         <DeleteForeverIcon
@@ -1334,8 +1830,203 @@ const TransactionData = (props) => {
                   );
                 })}
 
-              {datatype == "enrichment" &&
+              {datatype == "enrichment" && props.clientIdentity == "ABC Consultancy Limited" &&
                 enrichmentData.map((val, idx) => {
+                  return (
+                    <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}} id={idx}>
+                      <td>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Uploaded_By}</td>
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.No_of_Records}</td>
+                      <td>{val.Processed_Records}</td>
+
+                      <td>{val.Error_Records}</td>
+                      {/* <td>{val.Mismatch_Records}</td>
+                      <td>{val.Out_of_TDS_Scope_Records}</td> */}
+                      {/* <td>
+                    <button>Download</button>
+                  </td>
+                  <td>Static</td>
+                  <td>
+                    <RemoveRedEyeIcon className={classes.icon2} />
+                    <EditIcon className={classes.icon2} />
+                  </td> */}
+                      <td
+                        // style={{
+                        //   display: "grid",
+                        //   gridTemplateRows: "1fr 1fr",
+                        //   gridTemplateColumns: "1fr 1fr 1fr",
+                        // }}
+                      >
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        {/* <FileDownloadOutlinedIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        /> */}
+                        <p onClick={handleDownload}>Report</p>
+                        {/* <p>Reprocess</p>
+                        <p>Delete</p> */}
+                      </td>
+                    </tr>
+                  );
+                })}
+
+
+              {datatype == "invoice" && props.clientIdentity == "ABC Motors Limited" &&
+                invoiceData2.map((val, idx) => {
+                  return (
+                    <tr id={idx}>
+                      <td>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Uploaded_By}</td>
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.No_of_Records}</td>
+                      <td>{val.Processed_Records}</td>
+
+                      <td>{val.Error_Records}</td>
+                      <td>{val.Mismatch_Records}</td>
+                      <td>{val.Out_of_TDS_Scope_Records}</td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <RestartAltIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p onClick={handleDownload}>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
+                      </td>
+                      {/* <td>
+                    <button>Download</button>
+                  </td>
+                  <td>Static</td>
+                  <td>
+                    <RemoveRedEyeIcon className={classes.icon2} />
+                    <EditIcon className={classes.icon2} />
+                  </td> */}
+                    </tr>
+                  );
+                })}
+              {datatype == "advance" && props.clientIdentity == "ABC Motors Limited" &&
+                advanceData2.map((val, idx) => {
+                  return (
+                    <tr id={idx}>
+                      <td>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Uploaded_By}</td>
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.No_of_Records}</td>
+                      <td>{val.Processed_Records}</td>
+
+                      <td>{val.Error_Records}</td>
+                      <td>{val.Mismatch_Records}</td>
+                      <td>{val.Out_of_TDS_Scope_Records}</td>
+                      {/* <td>
+                    <button>Download</button>
+                  </td>
+                  <td>Static</td>
+                  <td>
+                    <RemoveRedEyeIcon className={classes.icon2} />
+                    <EditIcon className={classes.icon2} />
+                  </td> */}
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <RestartAltIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p onClick={handleDownload}>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
+                      </td>
+                    </tr>
+                  );
+                })}
+              {datatype == "provision" && props.clientIdentity == "ABC Motors Limited" &&
+                provisionData2.map((val, idx) => {
+                  return (
+                    <tr id={idx}>
+                      <td>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Uploaded_By}</td>
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.No_of_Records}</td>
+                      <td>{val.Processed_Records}</td>
+
+                      <td>{val.Error_Records}</td>
+                      <td>{val.Mismatch_Records}</td>
+                      <td>{val.Out_of_TDS_Scope_Records}</td>
+                      {/* <td>
+                    <button>Download</button>
+                  </td>
+                  <td>Static</td>
+                  <td>
+                    <RemoveRedEyeIcon className={classes.icon2} />
+                    <EditIcon className={classes.icon2} />
+                  </td> */}
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <RestartAltIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <DeleteForeverIcon
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <p onClick={handleDownload}>Report</p>
+                        <p>Reprocess</p>
+                        <p>Delete</p>
+                      </td>
+                    </tr>
+                  );
+                })}
+
+              {datatype == "enrichment" && props.clientIdentity == "ABC Motors Limited" &&
+                enrichmentData2.map((val, idx) => {
                   return (
                     <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}} id={idx}>
                       <td>

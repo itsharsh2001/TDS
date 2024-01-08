@@ -10,6 +10,8 @@ import TransactionProcessing from "./Transactions/TransactionProcessing/Transact
 import GLReconciliations from "./Transactions/GLReconciliations/GLReconciliations";
 import DataTransformationModule from "./Transactions/DataTransformationModule/DataTransformationModule";
 
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+
 const Transactions = () => {
   const [monthly, setMonthly] = useState(true);
   const [quarterly, setQuarterly] = useState(false);
@@ -56,30 +58,34 @@ const Transactions = () => {
     borderBottom: "2px solid #4f2d7f",
   };
 
+  const [clientIdentity, setClientIdentity] = useState('')
+
   return (
     <div className={classes.transactions}>
       <div>
-        <select onChange={()=>{return setVisibleFields({...visibleFields, client: true})}} name="" id="">
+        <select onChange={(e)=>{setClientIdentity(e.target.value); return setVisibleFields({...visibleFields, client: true})}} name="" id="">
           <option value="">Select Client</option>
-          <option value="">Tata Consultancy Services Limited - BKICA9561K</option>
-          <option value="">Tata Motors Limited - BKICD9828K</option>
-          <option value="">Tata Chemicals Limited - BKICG6641K</option>
-          <option value="">Tata Powers Limited - BKICG6641K</option>
-          <option value="">Tata Steel Limited - BKICM7469K</option>
+          <option value="ABC Consultancy Limited">ABC Consultancy Limited - BKICA9561K</option>
+          <option value="ABC Motors Limited">ABC Motors Limited - BKICD9828K</option>
+          {/* <option value="">ABC Chemicals Limited - BKICG6641K</option>
+          <option value="">ABC Powers Limited - BKICG6641K</option>
+          <option value="">ABC Steel Limited - BKICM7469K</option> */}
           {/* <option value="">BKICJ1426K</option> */}
           {/* <option value="">BKICM7469K</option> */}
         </select>
         <select onChange={()=>{return setVisibleFields({...visibleFields, tan: true})}} name="" id="">
           <option value="">Select TAN</option>
-          <option value="">Head Office - PDMS01068F</option>
+          {clientIdentity=='ABC Consultancy Limited' && <><option value="">Head Office - PDMS01068F</option>
           <option value="">Sahibabad Office - BFES03018Z</option>
-          <option value="">Faridabad Office - RSEX13028F</option>
+          <option value="">Faridabad Office - RSEX13028F</option></>}
+          {clientIdentity=='ABC Motors Limited' && <><option value="">Head Office - AVMS01248W</option>
+          </>}
         </select>
         <select onChange={()=>{return setVisibleFields({...visibleFields, financial: true})}} name="" id="">
           <option value="">Select Financial Year</option>
           <option value="">FY 2023-24</option>
-          <option value="">FY 2022-23</option>
-          <option value="">FY 2021-22</option>
+          {/* <option value="">FY 2022-23</option> */}
+          {/* <option value="">FY 2021-22</option> */}
         </select>
         {activeModule == "transactiondata" && (
           <select onChange={()=>{return setMonthSelected(true)}} name="" id="">
@@ -200,11 +206,11 @@ const Transactions = () => {
               <PeopleIcon className={classes.icon} />
             </span>
             <span>
-              <p>TDS Return Filing</p>
+              <p>TDS Return Filing Via Independent Module</p>
               <PeopleIcon className={classes.icon} />
             </span>
             <span>
-              <p>TDS Return Filing</p>
+              <p>TDS Return Filing Via Integrated Module</p>
               <PeopleIcon className={classes.icon} />
             </span>
           </section>
@@ -238,6 +244,7 @@ const Transactions = () => {
 
       {activeModule == "transactiondata" && (
         <TransactionData
+        clientIdentity={clientIdentity}
         monthSelected={monthSelected}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
@@ -245,24 +252,28 @@ const Transactions = () => {
       )}
       {activeModule == "bireport" && (
         <BIReport
+        clientIdentity={clientIdentity}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
       )}
       {activeModule == "challans" && (
         <Challans
+        clientIdentity={clientIdentity}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
       )}
       {activeModule == "clientpositionreport" && (
         <ClientPositionReport
+        clientIdentity={clientIdentity}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
       )}
       {activeModule == "transactionprocessing" && (
         <TransactionProcessing
+        clientIdentity={clientIdentity}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
