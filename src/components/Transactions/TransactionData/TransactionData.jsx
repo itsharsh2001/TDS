@@ -1528,13 +1528,13 @@ const TransactionData = (props) => {
                       >
                         <FileDownloadOutlinedIcon
                         onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
                         />{" "}
                         <DeleteForeverIcon
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
                         />
                         <p onClick={handleDownload}>Report</p>
                         <p>Reprocess</p>

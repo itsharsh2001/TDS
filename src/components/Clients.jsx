@@ -107,7 +107,9 @@ const Clients = ({ sidebar }) => {
   const [addClientStep3, setAddClientStep3] = useState(false);
 
   const [parameterSelect, setParameterSelect] = useState(false);
+  const [parameterSelect2, setParameterSelect2] = useState(false);
   const [tanSelect, setTanSelect] = useState(false);
+  const [tanSelect2, setTanSelect2] = useState(false);
 
   const [addNewGroup, setAddNewGroup] = useState(false);
 
@@ -389,7 +391,7 @@ const Clients = ({ sidebar }) => {
                 {/* <h5 style={{justifyContent:"flex-start"}}>Select TAN <KeyboardArrowDownIcon style={{marginLeft:'0.5rem', fontSize:'2rem'}}/></h5> */}
                 <label
                   onClick={() => {
-                    return setParameterSelect((prevState) => {
+                    return setParameterSelect2((prevState) => {
                       return !prevState;
                     });
                   }}
@@ -403,42 +405,42 @@ const Clients = ({ sidebar }) => {
                     name=""
                     id=""
                   />
-                  <KeyboardArrowDownOutlinedIcon onClick={()=>{setTanSelect((prevState)=>{return !prevState})}} />
+                  <KeyboardArrowDownOutlinedIcon
+                    onClick={() => {
+                      setTanSelect2((prevState) => {
+                        return !prevState;
+                      });
+                    }}
+                  />
                 </label>
-                {tanSelect && <div
-                  style={{
-                    flexDirection: "column",
-                    alignItems: "baseline",
-                    background: "white",
-                    marginTop: "1rem",
-                    width: "30%",
-                  }}
-                >
-                  {/* <span>
+                {tanSelect2 && (
+                  <div
+                    style={{
+                      flexDirection: "column",
+                      alignItems: "baseline",
+                      background: "white",
+                      marginTop: "1rem",
+                      width: "30%",
+                    }}
+                  >
+                    {/* <span>
                     <input type="checkbox" name="" id="" />
                     <label htmlFor="">Select All</label>
                   </span> */}
-                  <span>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">TAN 1</label>
-                  </span>
-                  <span>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">TAN 2</label>
-                  </span>
-                  <span>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">TAN 3</label>
-                  </span>
-                  <span>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">TAN 4</label>
-                  </span>
-                  <span>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="">TAN 5</label>
-                  </span>
-                </div>}
+                    <span>
+                      <input type="radio" name="" id="" />
+                      <label htmlFor="">PDMS01068F</label>
+                    </span>
+                    <span>
+                      <input type="radio" name="" id="" />
+                      <label htmlFor="">BFES03018Z</label>
+                    </span>
+                    <span>
+                      <input type="radio" name="" id="" />
+                      <label htmlFor="">RSEX13028F</label>
+                    </span>
+                  </div>
+                )}
 
                 <h6>Select the type of Accounting</h6>
                 <div>
@@ -1014,7 +1016,13 @@ const Clients = ({ sidebar }) => {
                     name=""
                     id=""
                   />
-                  <input disabled placeholder="HR" type="text" name="" id="" />
+                  <input
+                    disabled
+                    placeholder="Residential"
+                    type="text"
+                    name=""
+                    id=""
+                  />
                 </div>
                 <div>
                   <input
@@ -1032,69 +1040,163 @@ const Clients = ({ sidebar }) => {
               </section>
             )}
             {addClientStep2 && (
-              <section>
-                <h6 style={{ display: "flex", flexDirection: "row" }}>
-                  Branch Name
-                  <p style={{ marginLeft: "calc(29% - 5rem)" }}>TAN Number</p>
-                </h6>
-                <div>
-                  <input
-                    disabled
-                    placeholder={
-                      clientIdentity == 1
-                        ? "ABC Consultancy Limited"
-                        : "ABC Motors Limited"
-                    }
-                    type="text"
-                    name=""
-                    id=""
-                  />
-                  <input
-                    disabled
-                    placeholder={
-                      clientIdentity == 1 ? "BKICD9828K" : "BKLCD6543K"
-                    }
-                    type="text"
-                    name=""
-                    id=""
-                  />
-                </div>
-                <h6>Responsible Person's Details</h6>
-                <div>
-                  <input
-                    disabled
-                    placeholder={
-                      clientIdentity == 1 ? "Dhruv Jain" : "Abhishek Malan"
-                    }
-                    type="text"
-                    name=""
-                    id=""
-                  />
-                  <input
-                    disabled
-                    placeholder={
-                      clientIdentity == 1 ? "BKIPJ6950K" : "BENPJ6230Q"
-                    }
-                    type="text"
-                    name=""
-                    id=""
-                  />
-                  <input
-                    disabled
-                    placeholder="Accountant"
-                    type="text"
-                    name=""
-                    id=""
-                  />
-                </div>
-              </section>
+              <>
+                <section>
+                  <h6 style={{ display: "flex", flexDirection: "row" }}>
+                    Branch Name
+                    <p style={{ marginLeft: "calc(29% - 5rem)" }}>TAN Number</p>
+                  </h6>
+                  <div>
+                    <input
+                      disabled
+                      placeholder={"Head Office"}
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                    <input
+                      disabled
+                      placeholder={"PDMS01068F"}
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                  </div>
+                  <h6>Responsible Person's Details</h6>
+                  <div>
+                    <input
+                      disabled
+                      placeholder={"Dhruv Jain"}
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                    <input
+                      disabled
+                      placeholder={"BENPJ6230Q"}
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                    <input
+                      disabled
+                      placeholder="Branch Manager"
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                  </div>
+                </section>
+                {clientIdentity == 1 && (
+                  <>
+                    <section>
+                      <h6 style={{ display: "flex", flexDirection: "row" }}>
+                        Branch Name
+                        <p style={{ marginLeft: "calc(29% - 5rem)" }}>
+                          TAN Number
+                        </p>
+                      </h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Sahibabad Office"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={"BFES03018Z"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                      <h6>Responsible Person's Details</h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Abhishek Malan"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={"BKIPJ6950K"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder="Branch Manager"
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                    </section>
+                    <section>
+                      <h6 style={{ display: "flex", flexDirection: "row" }}>
+                        Branch Name
+                        <p style={{ marginLeft: "calc(29% - 5rem)" }}>
+                          TAN Number
+                        </p>
+                      </h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Faridabad Office"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={
+                            clientIdentity == 1 ? "BKICD9828K" : "RSEX13028F"
+                          }
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                      <h6>Responsible Person's Details</h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Harsh Vijaykumar"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={"BKICD9828K"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder="Branch Manager"
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                    </section>
+                  </>
+                )}
+              </>
             )}
 
             {addClientStep3 && (
               <section>
                 <label
                   onClick={() => {
-                    return setParameterSelect((prevState) => {
+                    return setParameterSelect2((prevState) => {
                       return !prevState;
                     });
                   }}
@@ -1108,42 +1210,46 @@ const Clients = ({ sidebar }) => {
                     name=""
                     id=""
                   />
-                  <KeyboardArrowDownOutlinedIcon onClick={()=>{setTanSelect((prevState)=>{return !prevState})}} />
+                  <KeyboardArrowDownOutlinedIcon
+                    onClick={() => {
+                      setTanSelect2((prevState) => {
+                        return !prevState;
+                      });
+                    }}
+                  />
                 </label>
-                {tanSelect && <div
-                  style={{
-                    flexDirection: "column",
-                    alignItems: "baseline",
-                    background: "white",
-                    marginTop: "1rem",
-                    width: "30%",
-                  }}
-                >
-                  {/* <span>
+                {tanSelect2 && (
+                  <div
+                    style={{
+                      flexDirection: "column",
+                      alignItems: "baseline",
+                      background: "white",
+                      marginTop: "1rem",
+                      width: "30%",
+                    }}
+                  >
+                    {/* <span>
                     <input type="checkbox" name="" id="" />
                     <label htmlFor="">Select All</label>
                   </span> */}
-                  <span>
-                    <input disabled type="checkbox" name="" id="" />
-                    <label disabled htmlFor="">TAN 1</label>
-                  </span>
-                  <span>
-                    <input disabled type="checkbox" name="" id="" />
-                    <label disabled htmlFor="">TAN 2</label>
-                  </span>
-                  <span>
-                    <input disabled checked type="checkbox" name="" id="" />
-                    <label disabled htmlFor="">TAN 3</label>
-                  </span>
-                  <span>
-                    <input disabled type="checkbox" name="" id="" />
-                    <label disabled htmlFor="">TAN 4</label>
-                  </span>
-                  <span>
-                    <input disabled checked type="checkbox" name="" id="" />
-                    <label disabled htmlFor="">TAN 5</label>
-                  </span>
-                </div>}
+                    <span>
+                      <input type="radio" name="" id="" />
+                      <label htmlFor="">PDMS01068F</label>
+                    </span>
+                    {clientIdentity == 1 && (
+                      <>
+                        <span>
+                          <input type="radio" name="" id="" />
+                          <label htmlFor="">BFES03018Z</label>
+                        </span>
+                        <span>
+                          <input type="radio" name="" id="" />
+                          <label htmlFor="">RSEX13028F</label>
+                        </span>
+                      </>
+                    )}
+                  </div>
+                )}
                 <h6>Select the type of Accounting</h6>
                 <div>
                   <span>
@@ -1250,46 +1356,44 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    <h6>Select the basis for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid"
-                          value="Document"
-                          id="Document"
-                        />
-                        <label htmlFor="Document">Document Number</label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          checked
-                          type="radio"
-                          name="Hybrid"
-                          value="Combination"
-                          id="Combination"
-                        />
-                        <label htmlFor="Combination">
-                          Vendor-Section Combination
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid"
-                          value="Hybrid"
-                          id="Hybrid"
-                        />
-                        <label htmlFor="Hybrid">Hybrid</label>
-                      </span>
-                    </div>
-                  </>
-                
+                <>
+                  <h6>Select the basis for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid"
+                        value="Document"
+                        id="Document"
+                      />
+                      <label htmlFor="Document">Document Number</label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        checked
+                        type="radio"
+                        name="Hybrid"
+                        value="Combination"
+                        id="Combination"
+                      />
+                      <label htmlFor="Combination">
+                        Vendor-Section Combination
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid"
+                        value="Hybrid"
+                        id="Hybrid"
+                      />
+                      <label htmlFor="Hybrid">Hybrid</label>
+                    </span>
+                  </div>
+                </>
 
                 <h6>Is Credit Notes-Advance adjustment required?</h6>
                 <div>
@@ -1347,103 +1451,101 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    <h6>Select the basis for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid1"
-                          value="Document1"
-                          id="Document1"
-                        />
-                        <label htmlFor="Document1">PO Number</label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          checked
-                          type="radio"
-                          name="Hybrid1"
-                          value="Combination1"
-                          id="Combination1"
-                        />
-                        <label htmlFor="Combination1">
-                          Vendor-Section Combination
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid1"
-                          value="Hybrid1"
-                          id="Hybrid1"
-                        />
-                        <label htmlFor="Hybrid1">Hybrid</label>
-                      </span>
-                    </div>
+                <>
+                  <h6>Select the basis for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid1"
+                        value="Document1"
+                        id="Document1"
+                      />
+                      <label htmlFor="Document1">PO Number</label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        checked
+                        type="radio"
+                        name="Hybrid1"
+                        value="Combination1"
+                        id="Combination1"
+                      />
+                      <label htmlFor="Combination1">
+                        Vendor-Section Combination
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid1"
+                        value="Hybrid1"
+                        id="Hybrid1"
+                      />
+                      <label htmlFor="Hybrid1">Hybrid</label>
+                    </span>
+                  </div>
 
-                    <h6>Select the look-up period for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid20"
-                          value="Combination20"
-                          id="Combination20"
-                        />
-                        <label htmlFor="Combination20">
-                          Adjust Current Month & succeeding month invoices
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          disabled
-                          type="radio"
-                          name="Hybrid20"
-                          value="Hybrid20"
-                          id="Hybrid20"
-                        />
-                        <label htmlFor="Hybrid20">
-                          Adjust only succeeding month invoices
-                        </label>
-                      </span>
-                    </div>
+                  <h6>Select the look-up period for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid20"
+                        value="Combination20"
+                        id="Combination20"
+                      />
+                      <label htmlFor="Combination20">
+                        Adjust Current Month & succeeding month invoices
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        checked
+                        disabled
+                        type="radio"
+                        name="Hybrid20"
+                        value="Hybrid20"
+                        id="Hybrid20"
+                      />
+                      <label htmlFor="Hybrid20">
+                        Adjust only succeeding month invoices
+                      </label>
+                    </span>
+                  </div>
 
-                    <h6>
-                      Whether tax is deducted on monthly provision(except
-                      March)?"
-                    </h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          checked
-                          type="radio"
-                          name="Cancellation1"
-                          value="Yes"
-                          id="CancellationYes1"
-                        />
-                        <label htmlFor="CancellationYes1">Yes</label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Cancellation1"
-                          value="No"
-                          id="CancellationNo1"
-                        />
-                        <label htmlFor="CancellationNo1">No</label>
-                      </span>
-                    </div>
-                  </>
-                
+                  <h6>
+                    Whether tax is deducted on monthly provision(except March)?"
+                  </h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        checked
+                        type="radio"
+                        name="Cancellation1"
+                        value="Yes"
+                        id="CancellationYes1"
+                      />
+                      <label htmlFor="CancellationYes1">Yes</label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Cancellation1"
+                        value="No"
+                        id="CancellationNo1"
+                      />
+                      <label htmlFor="CancellationNo1">No</label>
+                    </span>
+                  </div>
+                </>
+
                 <h6>Is Advance-Invoice adjustment required?</h6>
                 <div>
                   <span>
@@ -1475,75 +1577,73 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    {" "}
-                    <h6>Select the basis for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid11"
-                          value="Document1"
-                          id="Document1"
-                        />
-                        <label htmlFor="Document1">PO Number</label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          checked
-                          type="radio"
-                          name="Hybrid11"
-                          value="Combination1"
-                          id="Combination1"
-                        />
-                        <label htmlFor="Combination1">
-                          Vendor-Section Combination
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid11"
-                          value="Hybrid1"
-                          id="Hybrid1"
-                        />
-                        <label htmlFor="Hybrid1">Hybrid</label>
-                      </span>
-                    </div>
-                    <h6>Select the look-up period for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid22"
-                          value="Combination2"
-                          id="Combination2"
-                        />
-                        <label htmlFor="Combination2">
-                          Adjust Current Month & succeeding month invoices
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          checked
-                          type="radio"
-                          name="Hybrid22"
-                          value="Hybrid2"
-                          id="Hybrid2"
-                        />
-                        <label htmlFor="Hybrid2">
-                          Adjust invoices only after advance date
-                        </label>
-                      </span>
-                    </div>
-                  </>
-               
+                <>
+                  {" "}
+                  <h6>Select the basis for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid11"
+                        value="Document1"
+                        id="Document1"
+                      />
+                      <label htmlFor="Document1">PO Number</label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        checked
+                        type="radio"
+                        name="Hybrid11"
+                        value="Combination1"
+                        id="Combination1"
+                      />
+                      <label htmlFor="Combination1">
+                        Vendor-Section Combination
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid11"
+                        value="Hybrid1"
+                        id="Hybrid1"
+                      />
+                      <label htmlFor="Hybrid1">Hybrid</label>
+                    </span>
+                  </div>
+                  <h6>Select the look-up period for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid22"
+                        value="Combination2"
+                        id="Combination2"
+                      />
+                      <label htmlFor="Combination2">
+                        Adjust Current Month & succeeding month invoices
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        checked
+                        type="radio"
+                        name="Hybrid22"
+                        value="Hybrid2"
+                        id="Hybrid2"
+                      />
+                      <label htmlFor="Hybrid2">
+                        Adjust invoices only after advance date
+                      </label>
+                    </span>
+                  </div>
+                </>
 
                 <h6>Is Threshold Applicable?</h6>
                 <div>
@@ -1576,34 +1676,32 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    <h6>For which sections</h6>
-                    <div>
-                      <span>
-                        <input
-                          disabled
-                          checked
-                          type="radio"
-                          name="Hybrid33"
-                          value="Combination3"
-                          id="Combination3"
-                        />
-                        <label htmlFor="Combination3">For All Sections</label>
-                      </span>
-                      <span>
-                        <input
-                          disabled
-                          type="radio"
-                          name="Hybrid33"
-                          value="Hybrid3"
-                          id="Hybrid3"
-                        />
-                        <label htmlFor="Hybrid3">For Selected Sections</label>
-                      </span>
-                    </div>
-                  </>
-               
+                <>
+                  <h6>For which sections</h6>
+                  <div>
+                    <span>
+                      <input
+                        disabled
+                        checked
+                        type="radio"
+                        name="Hybrid33"
+                        value="Combination3"
+                        id="Combination3"
+                      />
+                      <label htmlFor="Combination3">For All Sections</label>
+                    </span>
+                    <span>
+                      <input
+                        disabled
+                        type="radio"
+                        name="Hybrid33"
+                        value="Hybrid3"
+                        id="Hybrid3"
+                      />
+                      <label htmlFor="Hybrid3">For Selected Sections</label>
+                    </span>
+                  </div>
+                </>
 
                 <h6>Rounding Off</h6>
                 <div>
@@ -1650,7 +1748,6 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       disabled
-                      
                       type="radio"
                       name="Hybrid5"
                       value="Hybrid5"
@@ -1787,7 +1884,7 @@ const Clients = ({ sidebar }) => {
                     name=""
                     id=""
                   />
-                  <input placeholder="HR" type="text" name="" id="" />
+                  <input placeholder="Residential" type="text" name="" id="" />
                 </div>
                 <div>
                   <input
@@ -1884,7 +1981,7 @@ const Clients = ({ sidebar }) => {
                       />
                     </h6>
                     <div style={{ marginTop: "-1.5em" }}>
-                    <input
+                      <input
                         placeholder="Branch Name"
                         type="text"
                         name=""
@@ -1914,10 +2011,67 @@ const Clients = ({ sidebar }) => {
             ))}
             {addClientStep3 && (
               <section>
+                <label
+                  onClick={() => {
+                    return setParameterSelect2((prevState) => {
+                      return !prevState;
+                    });
+                  }}
+                  className={classes.standaloneselect}
+                  htmlFor=""
+                >
+                  <input
+                    disabled
+                    placeholder="Select TANs"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                  <KeyboardArrowDownOutlinedIcon
+                    onClick={() => {
+                      setTanSelect2((prevState) => {
+                        return !prevState;
+                      });
+                    }}
+                  />
+                </label>
+                {tanSelect2 && (
+                  <div
+                    style={{
+                      flexDirection: "column",
+                      alignItems: "baseline",
+                      background: "white",
+                      marginTop: "1rem",
+                      width: "30%",
+                    }}
+                  >
+                    {/* <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">Select All</label>
+                  </span> */}
+                    <span>
+                      <input type="radio" name="" id="" />
+                      <label htmlFor="">PDMS01068F</label>
+                    </span>
+                    {clientIdentity == 1 && (
+                      <>
+                        <span>
+                          <input type="radio" name="" id="" />
+                          <label htmlFor="">BFES03018Z</label>
+                        </span>
+                        <span>
+                          <input type="radio" name="" id="" />
+                          <label htmlFor="">RSEX13028F</label>
+                        </span>
+                      </>
+                    )}
+                  </div>
+                )}
                 <h6>Select the type of Accounting</h6>
                 <div>
                   <span>
                     <input
+                      checked
                       type="radio"
                       name="invalidpan"
                       value="Levy TDs at higher rate"
@@ -1927,7 +2081,6 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input
-                      checked
                       type="radio"
                       name="invalidpan"
                       value="Error out the transaction"
@@ -1966,6 +2119,7 @@ const Clients = ({ sidebar }) => {
                 <div>
                   <span>
                     <input
+                      checked
                       type="radio"
                       name="cancelledrecords"
                       value="Yes"
@@ -1975,7 +2129,6 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input
-                      checked
                       type="radio"
                       name="cancelledrecords"
                       value="No"
@@ -2014,48 +2167,47 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-               
-                  <>
-                    <h6>Select the basis for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid124"
-                          value="Document"
-                          id="Document"
-                        />
-                        <label htmlFor="Document">Document Number</label>
-                      </span>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid124"
-                          value="Combination"
-                          id="Combination"
-                        />
-                        <label htmlFor="Combination">
-                          Vendor-Section Combination
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid124"
-                          value="Hybrid"
-                          id="Hybrid"
-                        />
-                        <label htmlFor="Hybrid">Hybrid</label>
-                      </span>
-                    </div>
-                  </>
-               
+                <>
+                  <h6>Select the basis for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid124"
+                        value="Document"
+                        id="Document"
+                      />
+                      <label htmlFor="Document">Document Number</label>
+                    </span>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="Hybrid124"
+                        value="Combination"
+                        id="Combination"
+                      />
+                      <label htmlFor="Combination">
+                        Vendor-Section Combination
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid124"
+                        value="Hybrid"
+                        id="Hybrid"
+                      />
+                      <label htmlFor="Hybrid">Hybrid</label>
+                    </span>
+                  </div>
+                </>
 
                 <h6>Is Credit Notes-Advance adjustment required?</h6>
                 <div>
                   <span>
                     <input
+                      checked
                       type="radio"
                       name="CreditNotesAdvance"
                       value="Yes"
@@ -2065,7 +2217,6 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input
-                      checked
                       type="radio"
                       name="CreditNotesAdvance"
                       value="No"
@@ -2079,6 +2230,7 @@ const Clients = ({ sidebar }) => {
                 <div>
                   <span>
                     <input
+                      checked
                       type="radio"
                       name="provisioninvoiceadjustment"
                       value="Yes"
@@ -2091,7 +2243,6 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input
-                      checked
                       type="radio"
                       name="provisioninvoiceadjustment"
                       value="No"
@@ -2104,101 +2255,99 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    <h6>Select the basis for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid190"
-                          value="Document1"
-                          id="Document1"
-                        />
-                        <label htmlFor="Document1">PO Number</label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid190"
-                          value="Combination1"
-                          id="Combination1"
-                        />
-                        <label htmlFor="Combination1">
-                          Vendor-Section Combination
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid190"
-                          value="Hybrid1"
-                          id="Hybrid1"
-                        />
-                        <label htmlFor="Hybrid1">Hybrid</label>
-                      </span>
-                    </div>
+                <>
+                  <h6>Select the basis for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid190"
+                        value="Document1"
+                        id="Document1"
+                      />
+                      <label htmlFor="Document1">PO Number</label>
+                    </span>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="Hybrid190"
+                        value="Combination1"
+                        id="Combination1"
+                      />
+                      <label htmlFor="Combination1">
+                        Vendor-Section Combination
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid190"
+                        value="Hybrid1"
+                        id="Hybrid1"
+                      />
+                      <label htmlFor="Hybrid1">Hybrid</label>
+                    </span>
+                  </div>
 
-                    <h6>Select the look-up period for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid2220"
-                          value="Combination20"
-                          id="Combination20"
-                        />
-                        <label htmlFor="Combination20">
-                          Adjust Current Month & succeeding month invoices
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid2220"
-                          value="Hybrid20"
-                          id="Hybrid20"
-                        />
-                        <label htmlFor="Hybrid20">
-                          Adjust only succeeding month invoices
-                        </label>
-                      </span>
-                    </div>
+                  <h6>Select the look-up period for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="Hybrid2220"
+                        value="Combination20"
+                        id="Combination20"
+                      />
+                      <label htmlFor="Combination20">
+                        Adjust Current Month & succeeding month invoices
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid2220"
+                        value="Hybrid20"
+                        id="Hybrid20"
+                      />
+                      <label htmlFor="Hybrid20">
+                        Adjust only succeeding month invoices
+                      </label>
+                    </span>
+                  </div>
 
-                    <h6>
-                      Whether tax is deducted on monthly provision(except
-                      March)?"
-                    </h6>
-                    <div>
-                      <span>
-                        <input
-                          type="radio"
-                          name="taxdeductedmarch1"
-                          value="Yes"
-                          id="CancellationYes1"
-                        />
-                        <label htmlFor="CancellationYes1">Yes</label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="taxdeductedmarch1"
-                          value="No"
-                          id="CancellationNo1"
-                        />
-                        <label htmlFor="CancellationNo1">No</label>
-                      </span>
-                    </div>
-                  </>
-                
+                  <h6>
+                    Whether tax is deducted on monthly provision(except March)?"
+                  </h6>
+                  <div>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="taxdeductedmarch1"
+                        value="Yes"
+                        id="CancellationYes1"
+                      />
+                      <label htmlFor="CancellationYes1">Yes</label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="taxdeductedmarch1"
+                        value="No"
+                        id="CancellationNo1"
+                      />
+                      <label htmlFor="CancellationNo1">No</label>
+                    </span>
+                  </div>
+                </>
+
                 <h6>Is Advance-Invoice adjustment required?</h6>
                 <div>
                   <span>
                     <input
+                      checked
                       type="radio"
                       name="advanceincvoiceadjustment1"
                       value="Yes"
@@ -2211,7 +2360,6 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input
-                      checked
                       type="radio"
                       name="advanceincvoiceadjustment1"
                       value="No"
@@ -2224,75 +2372,76 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    {" "}
-                    <h6>Select the basis for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid169"
-                          value="Document1"
-                          id="Document1"
-                        />
-                        <label htmlFor="Document1">PO Number</label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid169"
-                          value="Combination1"
-                          id="Combination1"
-                        />
-                        <label htmlFor="Combination1">
-                          Vendor-Section Combination
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid169"
-                          value="Hybrid1"
-                          id="Hybrid1"
-                        />
-                        <label htmlFor="Hybrid1">Hybrid</label>
-                      </span>
-                    </div>
-                    <h6>Select the look-up period for adjustment</h6>
-                    <div>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid169"
-                          value="Combination2"
-                          id="Combination2"
-                        />
-                        <label htmlFor="Combination2">
-                          Adjust Current Month & succeeding month invoices
-                        </label>
-                      </span>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid169"
-                          value="Hybrid2"
-                          id="Hybrid2"
-                        />
-                        <label htmlFor="Hybrid2">
-                          Adjust invoices only after advance date
-                        </label>
-                      </span>
-                    </div>
-                  </>
-                
+                <>
+                  {" "}
+                  <h6>Select the basis for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        // checked
+                        type="radio"
+                        name="Hybrid169"
+                        value="Document1"
+                        id="Document1"
+                      />
+                      <label htmlFor="Document1">PO Number</label>
+                    </span>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="Hybrid169"
+                        value="Combination1"
+                        id="Combination1"
+                      />
+                      <label htmlFor="Combination1">
+                        Vendor-Section Combination
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        // checked
+                        type="radio"
+                        name="Hybrid169"
+                        value="Hybrid1"
+                        id="Hybrid1"
+                      />
+                      <label htmlFor="Hybrid1">Hybrid</label>
+                    </span>
+                  </div>
+                  <h6>Select the look-up period for adjustment</h6>
+                  <div>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="Hybrid1690"
+                        value="Combination2"
+                        id="Combination2"
+                      />
+                      <label htmlFor="Combination2">
+                        Adjust Current Month & succeeding month invoices
+                      </label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid1690"
+                        value="Hybrid2"
+                        id="Hybrid2"
+                      />
+                      <label htmlFor="Hybrid2">
+                        Adjust invoices only after advance date
+                      </label>
+                    </span>
+                  </div>
+                </>
 
                 <h6>Is Threshold Applicable?</h6>
                 <div>
                   <span>
                     <input
+                      checked
                       type="radio"
                       name="thresholdapplicable1"
                       value="Yes"
@@ -2305,7 +2454,6 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input
-                      checked
                       type="radio"
                       name="thresholdapplicable1"
                       value="No"
@@ -2318,32 +2466,30 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                
-                  <>
-                    <h6>For which sections</h6>
-                    <div>
-                      <span>
-                        <input
-                          type="radio"
-                          name="Hybrid3330"
-                          value="Combination3"
-                          id="Combination3"
-                        />
-                        <label htmlFor="Combination3">For All Sections</label>
-                      </span>
-                      <span>
-                        <input
-                          checked
-                          type="radio"
-                          name="Hybrid3330"
-                          value="Hybrid3"
-                          id="Hybrid3"
-                        />
-                        <label htmlFor="Hybrid3">For Selected Sections</label>
-                      </span>
-                    </div>
-                  </>
-                
+                <>
+                  <h6>For which sections</h6>
+                  <div>
+                    <span>
+                      <input
+                        checked
+                        type="radio"
+                        name="Hybrid3330"
+                        value="Combination3"
+                        id="Combination3"
+                      />
+                      <label htmlFor="Combination3">For All Sections</label>
+                    </span>
+                    <span>
+                      <input
+                        type="radio"
+                        name="Hybrid3330"
+                        value="Hybrid3"
+                        id="Hybrid3"
+                      />
+                      <label htmlFor="Hybrid3">For Selected Sections</label>
+                    </span>
+                  </div>
+                </>
 
                 <h6>Rounding Off</h6>
                 <div>

@@ -667,6 +667,7 @@ const TransactionProcessing = (props) => {
                     </PurpleButton> */}
                     <select onChange={handleDownload} name="" id="">
                       <option value="">Download Reports</option>
+                      <option value="">All Reports</option>
                       <option value="">
                         Cancellation Adjustment Report-Consolidated
                       </option>
@@ -702,6 +703,7 @@ const TransactionProcessing = (props) => {
                     </PurpleButton> */}
                     <select onChange={handleDownload} name="" id="">
                       <option value="">Download Reports</option>
+                      <option value="">All Reports</option>
                       <option value="">
                         Cancellation Adjustment Report-Consolidated
                       </option>
@@ -777,6 +779,7 @@ const TransactionProcessing = (props) => {
                     </PurpleButton> */}
                     <select onChange={handleDownload} name="" id="">
                       <option value="">Download Reports</option>
+                      <option value="">All Reports</option>
                       <option value="">
                         Cancellation Adjustment Report-Consolidated
                       </option>
@@ -812,6 +815,7 @@ const TransactionProcessing = (props) => {
                     </PurpleButton> */}
                     <select onChange={handleDownload} name="" id="">
                       <option value="">Download Reports</option>
+                      <option value="">All Reports</option>
                       <option value="">
                         Cancellation Adjustment Report-Consolidated
                       </option>
@@ -846,6 +850,7 @@ const TransactionProcessing = (props) => {
                     </PurpleButton> */}
                   <select onChange={handleDownload} name="" id="">
                     <option value="">Download Reports</option>
+                    <option value="">All Reports</option>
                     <option value="">
                       Cancellation Adjustment Report-Consolidated
                     </option>
@@ -879,6 +884,7 @@ const TransactionProcessing = (props) => {
                     </PurpleButton> */}
                   <select onChange={handleDownload} name="" id="">
                     <option value="">Download Reports</option>
+                    <option value="">All Reports</option>
                     <option value="">
                       Cancellation Adjustment Report-Consolidated
                     </option>
