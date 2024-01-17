@@ -28,96 +28,6 @@ const TransactionData = (props) => {
 
 
   const invoiceData = [
-    // {
-    //   File_Name: 'Invoice_July_1_10.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 7529846103,
-    //   No_of_Records: 1853,
-    //   Processed_Records: 1732,
-    //   Error_Records: 14,
-    //   Mismatch_Records: 86,
-    //   Out_of_TDS_Scope_Records: 21
-    // },
-    // {
-    //   File_Name: 'Invoice_April_11_20.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 3985712406,
-    //   No_of_Records: 1145,
-    //   Processed_Records: 965,
-    //   Error_Records: 48,
-    //   Mismatch_Records: 79,
-    //   Out_of_TDS_Scope_Records: 53
-    // },
-    // {
-    //   File_Name: 'Invoice_April_21_30.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 4102573698,
-    //   No_of_Records: 1303,
-    //   Processed_Records: 1174,
-    //   Error_Records: 60,
-    //   Mismatch_Records: 54,
-    //   Out_of_TDS_Scope_Records: 15
-    // },
-    // {
-    //   File_Name: 'Invoice_May_1_10.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 6291850473,
-    //   No_of_Records: 1940,
-    //   Processed_Records: 1738,
-    //   Error_Records: 45,
-    //   Mismatch_Records: 60,
-    //   Out_of_TDS_Scope_Records: 97
-    // },
-    // {
-    //   File_Name: 'Invoice_May_11_20.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 8360749251,
-    //   No_of_Records: 1879,
-    //   Processed_Records: 1628,
-    //   Error_Records: 96,
-    //   Mismatch_Records: 89,
-    //   Out_of_TDS_Scope_Records: 66
-    // },
-    // {
-    //   File_Name: 'Invoice_May_21_31.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 5036924718,
-    //   No_of_Records: 1900,
-    //   Processed_Records: 1787,
-    //   Error_Records: 93,
-    //   Mismatch_Records: 3,
-    //   Out_of_TDS_Scope_Records: 17
-    // },
-    // {
-    //   File_Name: 'Invoice_June_1_10.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 1249785630,
-    //   No_of_Records: 1841,
-    //   Processed_Records: 1672,
-    //   Error_Records: 53,
-    //   Mismatch_Records: 48,
-    //   Out_of_TDS_Scope_Records: 68
-    // },
-    // {
-    //   File_Name: 'Invoice_June_11_20.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 9850361472,
-    //   No_of_Records: 1575,
-    //   Processed_Records: 1451,
-    //   Error_Records: 55,
-    //   Mismatch_Records: 58,
-    //   Out_of_TDS_Scope_Records: 11
-    // },
-    // {
-    //   File_Name: 'Invoice_June_21_30.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 7468123509,
-    //   No_of_Records: 1678,
-    //   Processed_Records: 1511,
-    //   Error_Records: 51,
-    //   Mismatch_Records: 42,
-    //   Out_of_TDS_Scope_Records: 74
-    // },
     {
       File_Name: "Invoice_July_1_10.xlsx",
       Uploaded_By: "Ganesh Gupta",
@@ -151,122 +61,32 @@ const TransactionData = (props) => {
   ];
 
   const invoiceData2 = [
-    // {
-    //   File_Name: 'Invoice_July_1_10.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 7529846103,
-    //   No_of_Records: 1853,
-    //   Processed_Records: 1732,
-    //   Error_Records: 14,
-    //   Mismatch_Records: 86,
-    //   Out_of_TDS_Scope_Records: 21
-    // },
-    // {
-    //   File_Name: 'Invoice_April_11_20.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 3985712406,
-    //   No_of_Records: 1145,
-    //   Processed_Records: 965,
-    //   Error_Records: 48,
-    //   Mismatch_Records: 79,
-    //   Out_of_TDS_Scope_Records: 53
-    // },
-    // {
-    //   File_Name: 'Invoice_April_21_30.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 4102573698,
-    //   No_of_Records: 1303,
-    //   Processed_Records: 1174,
-    //   Error_Records: 60,
-    //   Mismatch_Records: 54,
-    //   Out_of_TDS_Scope_Records: 15
-    // },
-    // {
-    //   File_Name: 'Invoice_May_1_10.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 6291850473,
-    //   No_of_Records: 1940,
-    //   Processed_Records: 1738,
-    //   Error_Records: 45,
-    //   Mismatch_Records: 60,
-    //   Out_of_TDS_Scope_Records: 97
-    // },
-    // {
-    //   File_Name: 'Invoice_May_11_20.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 8360749251,
-    //   No_of_Records: 1879,
-    //   Processed_Records: 1628,
-    //   Error_Records: 96,
-    //   Mismatch_Records: 89,
-    //   Out_of_TDS_Scope_Records: 66
-    // },
-    // {
-    //   File_Name: 'Invoice_May_21_31.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 5036924718,
-    //   No_of_Records: 1900,
-    //   Processed_Records: 1787,
-    //   Error_Records: 93,
-    //   Mismatch_Records: 3,
-    //   Out_of_TDS_Scope_Records: 17
-    // },
-    // {
-    //   File_Name: 'Invoice_June_1_10.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 1249785630,
-    //   No_of_Records: 1841,
-    //   Processed_Records: 1672,
-    //   Error_Records: 53,
-    //   Mismatch_Records: 48,
-    //   Out_of_TDS_Scope_Records: 68
-    // },
-    // {
-    //   File_Name: 'Invoice_June_11_20.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 9850361472,
-    //   No_of_Records: 1575,
-    //   Processed_Records: 1451,
-    //   Error_Records: 55,
-    //   Mismatch_Records: 58,
-    //   Out_of_TDS_Scope_Records: 11
-    // },
-    // {
-    //   File_Name: 'Invoice_June_21_30.xlsx',
-    //   Uploaded_By: 'Ganesh Gupta',
-    //   Batch_ID: 7468123509,
-    //   No_of_Records: 1678,
-    //   Processed_Records: 1511,
-    //   Error_Records: 51,
-    //   Mismatch_Records: 42,
-    //   Out_of_TDS_Scope_Records: 74
-    // },
     {
       File_Name: "Invoice_July_1_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 3692578140,
-      No_of_Records: 1292,
-      Processed_Records: 1123,
+      No_of_Records: 2292,
+      Processed_Records: 2123,
       Error_Records: 46,
       Mismatch_Records: 97,
       Out_of_TDS_Scope_Records: 26,
     },
     {
       File_Name: "Invoice_July_11_20.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 1380247695,
-      No_of_Records: 1899,
-      Processed_Records: 1830,
+      No_of_Records: 2899,
+      Processed_Records: 2830,
       Error_Records: 33,
       Mismatch_Records: 27,
       Out_of_TDS_Scope_Records: 9,
     },
     {
       File_Name: "Invoice_July_21_31.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 5824679301,
-      No_of_Records: 1327,
-      Processed_Records: 1189,
+      No_of_Records: 2327,
+      Processed_Records: 2189,
       Error_Records: 27,
       Mismatch_Records: 62,
       Out_of_TDS_Scope_Records: 49,
@@ -488,30 +308,30 @@ const TransactionData = (props) => {
     // },
     {
       File_Name: "Advance_July_1_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 1047398562,
-      No_of_Records: 1958,
-      Processed_Records: 1863,
+      No_of_Records: 2958,
+      Processed_Records: 2863,
       Error_Records: 16,
       Mismatch_Records: 44,
       Out_of_TDS_Scope_Records: 35,
     },
     {
       File_Name: "Advance_July_11_20.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 2560319748,
-      No_of_Records: 1317,
-      Processed_Records: 1123,
+      No_of_Records: 2317,
+      Processed_Records: 2123,
       Error_Records: 75,
       Mismatch_Records: 19,
       Out_of_TDS_Scope_Records: 100,
     },
     {
       File_Name: "Advance_July_21_31.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 5896132407,
-      No_of_Records: 1784,
-      Processed_Records: 1651,
+      No_of_Records: 2784,
+      Processed_Records: 2651,
       Error_Records: 26,
       Mismatch_Records: 91,
       Out_of_TDS_Scope_Records: 16,
@@ -733,30 +553,30 @@ const TransactionData = (props) => {
     // },
     {
       File_Name: "Provision_July_1_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 4836710295,
-      No_of_Records: 1222,
-      Processed_Records: 1176,
+      No_of_Records: 2222,
+      Processed_Records: 2176,
       Error_Records: 5,
       Mismatch_Records: 5,
       Out_of_TDS_Scope_Records: 36,
     },
     {
       File_Name: "Provision_July_11_20.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 7132490865,
-      No_of_Records: 1747,
-      Processed_Records: 1677,
+      No_of_Records: 2747,
+      Processed_Records: 2677,
       Error_Records: 11,
       Mismatch_Records: 5,
       Out_of_TDS_Scope_Records: 54,
     },
     {
       File_Name: "Provision_July_21_31.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 9283674501,
-      No_of_Records: 1905,
-      Processed_Records: 1771,
+      No_of_Records: 2905,
+      Processed_Records: 2771,
       Error_Records: 64,
       Mismatch_Records: 41,
       Out_of_TDS_Scope_Records: 29,
@@ -798,31 +618,31 @@ const TransactionData = (props) => {
   const enrichmentData2 = [
     {
       File_Name: "Data_Enrichment_July_1_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 5556710295,
       No_of_Records: 12,
-      Processed_Records: 11,
+      Processed_Records: 5,
       Error_Records: 1,
       Mismatch_Records: 5,
       Out_of_TDS_Scope_Records: 1,
     },
     {
       File_Name: "Data_Enrichment_July_2_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 9627589420,
       No_of_Records: 9,
-      Processed_Records: 7,
+      Processed_Records: 3,
       Error_Records: 2,
       Mismatch_Records: 3,
       Out_of_TDS_Scope_Records: 1,
     },
     {
       File_Name: "Data_Enrichment_July_3_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 8839730992,
       No_of_Records: 7,
       Processed_Records: 4,
-      Error_Records: 3,
+      Error_Records: 1,
       Mismatch_Records: 1,
       Out_of_TDS_Scope_Records: 1,
     },
@@ -843,11 +663,11 @@ const TransactionData = (props) => {
   const deletedInvoice2 = [
     {
       File_Name: "Invoice_April_1_10.xlsx",
-      Uploaded_By: "Ganesh Gupta",
+      Uploaded_By: "Pranav Kapoor",
       Batch_ID: 9173468052,
-      No_of_Records: 1853,
+      No_of_Records: 2853,
       Processed_Records: 746,
-      Error_Records: 1000,
+      Error_Records: 2000,
       Mismatch_Records: 86,
       Out_of_TDS_Scope_Records: 21,
     },
@@ -873,17 +693,17 @@ const TransactionData = (props) => {
   const templateUploadMapping2 = [
     {
       File_Name: "Mapping Template 1",
-      Created_By: "Deepak Dhawan",
+      Created_By: "Deepak Anand",
       Created_On: "5/3/2023",
     },
     {
       File_Name: "Mapping Template 2",
-      Created_By: "Harshad Hariharan",
+      Created_By: "Harshad Kapoor",
       Created_On: "5/5/2023",
     },
     {
       File_Name: "Mapping Template 3",
-      Created_By: "Deepak Dhawan",
+      Created_By: "Deepak Hargovind",
       Created_On: "6/2/2023",
     },
   ];
@@ -1457,10 +1277,10 @@ const TransactionData = (props) => {
         </div>
       )}
 
-{( deletedRecords || fileUpload ) && <div className={classes.overlay} onClick={()=>{
+      {( deletedRecords || fileUpload ) && <div className={classes.overlay} onClick={()=>{
       setDeletedRecords(false);
       return setFileUpload(false);
-    }}></div>}
+      }}></div>}
       {props.monthSelected && (
         <div className={classes.transactiondata}>
           <span>
@@ -1647,7 +1467,7 @@ const TransactionData = (props) => {
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
                 />{" "}
               </p>
-              <p onClick={handleDownload}>
+              {datatype!=='enrichment' && <><p onClick={handleDownload}>
                 Section Mismatch Report{" "}
                 <FileDownloadOutlinedIcon
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
@@ -1658,7 +1478,7 @@ const TransactionData = (props) => {
                 <FileDownloadOutlinedIcon
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
                 />{" "}
-              </p>
+              </p></>}
             </section>
           )}
 
@@ -1668,9 +1488,7 @@ const TransactionData = (props) => {
           >
             <tbody>
               <tr style={datatype=='enrichment'?{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}:{}}>
-                <th>
-                  <input type="checkbox" name="" id="" />
-                </th>
+                <th>Select</th>
                 <th>File Name</th>
                 <th>Uploaded By</th>
                 <th>Batch ID</th>

@@ -153,10 +153,10 @@ const Challans = (props) => {
 
   const challans2 = [
     {
-      major_head: "Corporate",
-      Challan_Identification_Number: "051000264202312734",
-      Acknowledgement_Number: "AJ8020854",
-      Bank_Name: "HDFC Bank",
+      major_head: "Non-Corporate",
+      Challan_Identification_Number: "051000264202123734",
+      Acknowledgement_Number: "AJ8021254",
+      Bank_Name: "ICICI Bank",
       Bank_Reference_Number: "K2317603614147",
       Date: "06-04-2023",
       BSR_Code: "0510002",
@@ -173,10 +173,10 @@ const Challans = (props) => {
       Challan_Balance: 839273.0,
     },
     {
-      major_head: "Non-Corporate",
-      Challan_Identification_Number: "051000264202312785",
-      Acknowledgement_Number: "AJ8021182",
-      Bank_Name: "HDFC Bank",
+      major_head: "Corporate",
+      Challan_Identification_Number: "051000212302312785",
+      Acknowledgement_Number: "AJ8012182",
+      Bank_Name: "ICICI Bank",
       Bank_Reference_Number: "K2317603614437",
       Date: "06-04-2023",
       BSR_Code: "0510002",
@@ -193,10 +193,10 @@ const Challans = (props) => {
       Challan_Balance: 556247.0,
     },
     {
-      major_head: "Corporate",
-      Challan_Identification_Number: "051000275202324000",
-      Acknowledgement_Number: "AK11799642",
-      Bank_Name: "HDFC Bank",
+      major_head: "Non-Corporate",
+      Challan_Identification_Number: "051000275202324123",
+      Acknowledgement_Number: "AK11799122",
+      Bank_Name: "ICICI Bank",
       Bank_Reference_Number: "K2330110250621",
       Date: "07-05-2023",
       BSR_Code: "0510002",
@@ -213,10 +213,10 @@ const Challans = (props) => {
       Challan_Balance: 6801359.0,
     },
     {
-      major_head: "Non-Corporate",
-      Challan_Identification_Number: "051000275202324576",
-      Acknowledgement_Number: "AK11799900",
-      Bank_Name: "HDFC Bank",
+      major_head: "Corporate",
+      Challan_Identification_Number: "051000252021023476",
+      Acknowledgement_Number: "AK11791200",
+      Bank_Name: "ICICI Bank",
       Bank_Reference_Number: "K2330110250622",
       Date: "07-05-2023",
       BSR_Code: "0510002",
@@ -233,10 +233,10 @@ const Challans = (props) => {
       Challan_Balance: 2361658.0,
     },
     {
-      major_head: "Corporate",
-      Challan_Identification_Number: "051000266202342786",
-      Acknowledgement_Number: "BJ1421232",
-      Bank_Name: "HDFC Bank",
+      major_head: "Non-Corporate",
+      Challan_Identification_Number: "051000266201232786",
+      Acknowledgement_Number: "BJ1121232",
+      Bank_Name: "ICICI Bank",
       Bank_Reference_Number: "K2330110250553",
       Date: "06-06-2023",
       BSR_Code: "0510002",
@@ -253,10 +253,10 @@ const Challans = (props) => {
       Challan_Balance: 10077556.0,
     },
     {
-      major_head: "Non-Corporate",
-      Challan_Identification_Number: "051000266202342814",
-      Acknowledgement_Number: "BJ1421313",
-      Bank_Name: "HDFC Bank",
+      major_head: "Corporate",
+      Challan_Identification_Number: "051000123202342814",
+      Acknowledgement_Number: "BJ1221313",
+      Bank_Name: "ICICI Bank",
       Bank_Reference_Number: "K2330110250640",
       Date: "06-06-2023",
       BSR_Code: "0510002",
@@ -450,83 +450,83 @@ const Challans = (props) => {
             <tr>
               <th>
                 Select
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Major Head
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Challan Identification No.
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Acknowledgement No.
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
 
               <th>
                 Bank Name
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Bank Reference Number
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Date
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 BSR Code
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
 
               <th>
                 Challan No.
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Income Tax
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Surcharge
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Cess
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Interest
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Penalty
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
 
               <th>
                 Others
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Fee Under Section 234E
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Total
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
 
               <th>
                 Challan Utilised
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Challan Balance
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
 
               {/* <th>Processed Records</th>

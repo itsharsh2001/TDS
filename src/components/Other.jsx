@@ -652,7 +652,7 @@ function Other() {
                             return handleDownload;
                           }}
                         >
-                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
+                          {val.Request_Status=='Request Created' ? 'Check Status' : 'Report'}
                         </p>
                       </td>
                     </tr>

@@ -59,47 +59,50 @@ const BIReport = (props) => {
     }
   };
 
-  const fromMonthValueSetter = (e) => {
-    console.log(e.target.innerText);
-    console.log("yoyoyoy");
+  const fromMonthValueSetter = (month) => {
+    // console.log(e.target.innerText);
+    // console.log("yoyoyoy");
     setFromMonth(false);
     console.log("hello console");
     setToMonth(true);
-    setFromMonthValue(e.target.innerText);
-
+    // setFromMonthValue(e.target.innerText);
+    setFromMonthValue(month);
     console.log(fromMonth, "yoyoyo");
     console.log(toMonth, "yoyoyoy");
   };
-  const toMonthValueSetter = (e) => {
-    console.log(e.target.innerText);
-    console.log("yoyoyoy");
+  const toMonthValueSetter = (month) => {
+    // console.log(e.target.innerText);
+    // console.log("yoyoyoy");
     // setFromMonth(false);
-    console.log("hello console");
+    console.log("hello console.");
     setToMonth(false);
-    setToMonthValue(e.target.innerText);
+    // setToMonthValue(e.target.innerText);
+    setToMonthValue(month);
     setMonthSet(true);
     console.log(fromMonth, "yoyoyo");
     console.log(toMonth, "yoyoyoy");
   };
 
-  const fromMonthValueSetter2 = (e) => {
+  const fromMonthValueSetter2 = (month) => {
     // console.log(e.target.innerText);
     // console.log("yoyoyoy");
     setFromMonth2(false);
     // console.log("hello console");
     setToMonth2(true);
-    setFromMonthValue2(e.target.innerText);
+    // setFromMonthValue2(e.target.innerText);
+    setFromMonthValue2(month);
 
     // console.log(fromMonth, "yoyoyo");
     // console.log(toMonth, "yoyoyoy");
   };
-  const toMonthValueSetter2 = (e) => {
+  const toMonthValueSetter2 = (month) => {
     // console.log(e.target.innerText);
     // console.log("yoyoyoy");
     // setFromMonth(false);
     // console.log("hello console");
     setToMonth2(false);
-    setToMonthValue2(e.target.innerText);
+    // setToMonthValue2(e.target.innerText);
+    setToMonthValue2(month)
     setMonthSet2(true);
     // console.log(fromMonth, "yoyoyo");
     // console.log(toMonth, "yoyoyoy");
@@ -220,11 +223,11 @@ const BIReport = (props) => {
         <p>Select Month Range</p>
         <div>
           <span>
-            {fromMonthValue == "" ? "Select From Month" : fromMonthValue}{" "}
+            {fromMonthValue == "" ? "Select From Month" : `${fromMonthValue}`}
             <CalendarMonthIcon style={{ fontSize: "2rem" }} />
           </span>
           <span>
-            {toMonthValue == "" ? "Select To Month" : toMonthValue}{" "}
+            {toMonthValue == "" ? "Select To Month" : `${toMonthValue}`}{" "}
             <CalendarMonthIcon style={{ fontSize: "2rem" }} />
           </span>
           <PurpleButton onClick={handleDownload}>
@@ -248,84 +251,84 @@ const BIReport = (props) => {
                 <main>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Apr 2023');
                     }}
                   >
                     Apr
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('May 2023');
                     }}
                   >
                     May
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Jun 2023');
                     }}
                   >
                     Jun
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Jul 2023');
                     }}
                   >
                     Jul
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Aug 2023');
                     }}
                   >
                     Aug
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Sep 2023');
                     }}
                   >
                     Sep
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Oct 2023');
                     }}
                   >
                     Oct
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Nov 2023');
                     }}
                   >
                     Nov
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Dec 2023');
                     }}
                   >
                     Dec
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Jan 2024');
                     }}
                   >
                     Jan
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Feb 2024');
                     }}
                   >
                     Feb
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter(e);
+                      fromMonthValueSetter('Mar 2024');
                     }}
                   >
                     Mar
@@ -345,84 +348,84 @@ const BIReport = (props) => {
                 <main>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Apr 2023');
                     }}
                   >
                     Apr
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('May 2023');
                     }}
                   >
                     May
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Jun 2023');
                     }}
                   >
                     Jun
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Jul 2023');
                     }}
                   >
                     Jul
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Aug 2023');
                     }}
                   >
                     Aug
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Sep 2023');
                     }}
                   >
                     Sep
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Oct 2023');
                     }}
                   >
                     Oct
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Nov 2023');
                     }}
                   >
                     Nov
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Dec 2023');
                     }}
                   >
                     Dec
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Jan 2024');
                     }}
                   >
                     Jan
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Feb 2024');
                     }}
                   >
                     Feb
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter(e);
+                      toMonthValueSetter('Mar 2024');
                     }}
                   >
                     Mar
@@ -482,84 +485,84 @@ const BIReport = (props) => {
             <main>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Apr 2023');
                     }}
                   >
                     Apr
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('May 2023');
                     }}
                   >
                     May
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Jun 2023');
                     }}
                   >
                     Jun
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Jul 2023');
                     }}
                   >
                     Jul
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Aug 2023');
                     }}
                   >
                     Aug
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Sep 2023');
                     }}
                   >
                     Sep
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Oct 2023');
                     }}
                   >
                     Oct
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Nov 2023');
                     }}
                   >
                     Nov
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Dec 2023');
                     }}
                   >
                     Dec
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Jan 2024');
                     }}
                   >
                     Jan
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Feb 2024');
                     }}
                   >
                     Feb
                   </p>
                   <p
                     onClick={(e) => {
-                      fromMonthValueSetter2(e);
+                      fromMonthValueSetter2('Mar 2024');
                     }}
                   >
                     Mar
@@ -577,84 +580,84 @@ const BIReport = (props) => {
             <main>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Apr 2023');
                     }}
                   >
                     Apr
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('May 2023');
                     }}
                   >
                     May
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Jun 2023');
                     }}
                   >
                     Jun
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Jul 2023');
                     }}
                   >
                     Jul
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Aug 2023');
                     }}
                   >
                     Aug
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Sep 2023');
                     }}
                   >
                     Sep
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Oct 2023');
                     }}
                   >
                     Oct
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Nov 2023');
                     }}
                   >
                     Nov
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Dec 2023');
                     }}
                   >
                     Dec
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Jan 2024');
                     }}
                   >
                     Jan
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Feb 2024');
                     }}
                   >
                     Feb
                   </p>
                   <p
                     onClick={(e) => {
-                      toMonthValueSetter2(e);
+                      toMonthValueSetter2('Mar 2024');
                     }}
                   >
                     Mar

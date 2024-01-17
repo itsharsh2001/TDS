@@ -14,8 +14,8 @@ const TransactionProcessing = (props) => {
   const [activeMonth, setActiveMonth] = useState("");
 
   const [monthClicked, setMonthClicked] = useState(false);
-  const [justProcessedTransactions, setJustProcessedTransactions] =
-    useState(false);
+  
+  const [justProcessedTransactions, setJustProcessedTransactions] = useState(false);
 
   const [monthColor, setmonthColor] = useState("");
 

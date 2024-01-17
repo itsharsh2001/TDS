@@ -403,9 +403,9 @@ const Clients = ({ sidebar }) => {
                     name=""
                     id=""
                   />
-                  <KeyboardArrowDownOutlinedIcon />
+                  <KeyboardArrowDownOutlinedIcon onClick={()=>{setTanSelect((prevState)=>{return !prevState})}} />
                 </label>
-                <div
+                {tanSelect && <div
                   style={{
                     flexDirection: "column",
                     alignItems: "baseline",
@@ -414,10 +414,10 @@ const Clients = ({ sidebar }) => {
                     width: "30%",
                   }}
                 >
-                  <span>
+                  {/* <span>
                     <input type="checkbox" name="" id="" />
                     <label htmlFor="">Select All</label>
-                  </span>
+                  </span> */}
                   <span>
                     <input type="checkbox" name="" id="" />
                     <label htmlFor="">TAN 1</label>
@@ -428,9 +428,17 @@ const Clients = ({ sidebar }) => {
                   </span>
                   <span>
                     <input type="checkbox" name="" id="" />
-                    <label htmlFor="">TAN 2</label>
+                    <label htmlFor="">TAN 3</label>
                   </span>
-                </div>
+                  <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">TAN 4</label>
+                  </span>
+                  <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">TAN 5</label>
+                  </span>
+                </div>}
 
                 <h6>Select the type of Accounting</h6>
                 <div>
@@ -506,7 +514,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Advance"
+                      name="Reversal"
                       value="Yes"
                       id="AdvanceYes"
                       onClick={() => {
@@ -518,7 +526,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Advance"
+                      name="Reversal"
                       value="No"
                       id="AdvanceNo"
                       onClick={() => {
@@ -593,7 +601,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="ProvisionInvoice"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -605,7 +613,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="ProvisionInvoice"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -685,7 +693,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Cancellation1"
+                          name="taxmarch"
                           value="Yes"
                           id="CancellationYes1"
                         />
@@ -694,7 +702,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Cancellation1"
+                          name="taxmarch"
                           value="No"
                           id="CancellationNo1"
                         />
@@ -708,7 +716,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="advanceinvoice"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -720,7 +728,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="advanceinvoice"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -739,7 +747,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid101"
                           value="Document1"
                           id="Document1"
                         />
@@ -748,7 +756,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid101"
                           value="Combination1"
                           id="Combination1"
                         />
@@ -759,7 +767,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid101"
                           value="Hybrid1"
                           id="Hybrid1"
                         />
@@ -771,7 +779,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid2"
+                          name="Hybrid201"
                           value="Combination2"
                           id="Combination2"
                         />
@@ -782,7 +790,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid2"
+                          name="Hybrid201"
                           value="Hybrid2"
                           id="Hybrid2"
                         />
@@ -799,7 +807,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="threshold"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -811,7 +819,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="threshold"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -829,7 +837,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid3"
+                          name="Hybrid301"
                           value="Combination3"
                           id="Combination3"
                         />
@@ -838,7 +846,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid3"
+                          name="Hybrid301"
                           value="Hybrid3"
                           id="Hybrid3"
                         />
@@ -853,7 +861,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Hybrid4"
+                      name="Hybrid401"
                       value="Combination4"
                       id="Combination4"
                     />
@@ -864,7 +872,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Hybrid4"
+                      name="Hybrid401"
                       value="Hybrid4"
                       id="Hybrid4"
                     />
@@ -877,7 +885,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Hybrid5"
+                      name="Hybrid501"
                       value="Combination5"
                       id="Combination5"
                     />
@@ -888,7 +896,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Hybrid5"
+                      name="Hybrid501"
                       value="Hybrid5"
                       id="Hybrid5"
                     />
@@ -1084,6 +1092,58 @@ const Clients = ({ sidebar }) => {
 
             {addClientStep3 && (
               <section>
+                <label
+                  onClick={() => {
+                    return setParameterSelect((prevState) => {
+                      return !prevState;
+                    });
+                  }}
+                  className={classes.standaloneselect}
+                  htmlFor=""
+                >
+                  <input
+                    disabled
+                    placeholder="Select TANs"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                  <KeyboardArrowDownOutlinedIcon onClick={()=>{setTanSelect((prevState)=>{return !prevState})}} />
+                </label>
+                {tanSelect && <div
+                  style={{
+                    flexDirection: "column",
+                    alignItems: "baseline",
+                    background: "white",
+                    marginTop: "1rem",
+                    width: "30%",
+                  }}
+                >
+                  {/* <span>
+                    <input type="checkbox" name="" id="" />
+                    <label htmlFor="">Select All</label>
+                  </span> */}
+                  <span>
+                    <input disabled type="checkbox" name="" id="" />
+                    <label disabled htmlFor="">TAN 1</label>
+                  </span>
+                  <span>
+                    <input disabled type="checkbox" name="" id="" />
+                    <label disabled htmlFor="">TAN 2</label>
+                  </span>
+                  <span>
+                    <input disabled checked type="checkbox" name="" id="" />
+                    <label disabled htmlFor="">TAN 3</label>
+                  </span>
+                  <span>
+                    <input disabled type="checkbox" name="" id="" />
+                    <label disabled htmlFor="">TAN 4</label>
+                  </span>
+                  <span>
+                    <input disabled checked type="checkbox" name="" id="" />
+                    <label disabled htmlFor="">TAN 5</label>
+                  </span>
+                </div>}
                 <h6>Select the type of Accounting</h6>
                 <div>
                   <span>
@@ -1190,7 +1250,7 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {reversalRecord && (
+                
                   <>
                     <h6>Select the basis for adjustment</h6>
                     <div>
@@ -1229,7 +1289,7 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+                
 
                 <h6>Is Credit Notes-Advance adjustment required?</h6>
                 <div>
@@ -1262,7 +1322,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       disabled
                       type="radio"
-                      name="Cancellation"
+                      name="Cancellation111"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -1276,7 +1336,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       disabled
                       type="radio"
-                      name="Cancellation"
+                      name="Cancellation111"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -1287,7 +1347,7 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {provisionInvoice && (
+                
                   <>
                     <h6>Select the basis for adjustment</h6>
                     <div>
@@ -1383,7 +1443,7 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+                
                 <h6>Is Advance-Invoice adjustment required?</h6>
                 <div>
                   <span>
@@ -1391,7 +1451,7 @@ const Clients = ({ sidebar }) => {
                       checked
                       disabled
                       type="radio"
-                      name="Cancellation"
+                      name="Cancellation123"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -1404,7 +1464,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       disabled
                       type="radio"
-                      name="Cancellation"
+                      name="Cancellation123"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -1415,7 +1475,7 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {advanceInvoice && (
+                
                   <>
                     {" "}
                     <h6>Select the basis for adjustment</h6>
@@ -1424,7 +1484,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           disabled
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid11"
                           value="Document1"
                           id="Document1"
                         />
@@ -1435,7 +1495,7 @@ const Clients = ({ sidebar }) => {
                           disabled
                           checked
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid11"
                           value="Combination1"
                           id="Combination1"
                         />
@@ -1447,7 +1507,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           disabled
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid11"
                           value="Hybrid1"
                           id="Hybrid1"
                         />
@@ -1460,7 +1520,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           disabled
                           type="radio"
-                          name="Hybrid2"
+                          name="Hybrid22"
                           value="Combination2"
                           id="Combination2"
                         />
@@ -1473,7 +1533,7 @@ const Clients = ({ sidebar }) => {
                           disabled
                           checked
                           type="radio"
-                          name="Hybrid2"
+                          name="Hybrid22"
                           value="Hybrid2"
                           id="Hybrid2"
                         />
@@ -1483,7 +1543,7 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+               
 
                 <h6>Is Threshold Applicable?</h6>
                 <div>
@@ -1492,7 +1552,7 @@ const Clients = ({ sidebar }) => {
                       disabled
                       checked
                       type="radio"
-                      name="Cancellation"
+                      name="Cancellation1234"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -1505,7 +1565,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       disabled
                       type="radio"
-                      name="Cancellation"
+                      name="Cancellation1234"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -1516,7 +1576,7 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {thresholdApplicable && (
+                
                   <>
                     <h6>For which sections</h6>
                     <div>
@@ -1525,7 +1585,7 @@ const Clients = ({ sidebar }) => {
                           disabled
                           checked
                           type="radio"
-                          name="Hybrid3"
+                          name="Hybrid33"
                           value="Combination3"
                           id="Combination3"
                         />
@@ -1535,7 +1595,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           disabled
                           type="radio"
-                          name="Hybrid3"
+                          name="Hybrid33"
                           value="Hybrid3"
                           id="Hybrid3"
                         />
@@ -1543,7 +1603,7 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+               
 
                 <h6>Rounding Off</h6>
                 <div>
@@ -1577,6 +1637,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       disabled
+                      checked
                       type="radio"
                       name="Hybrid5"
                       value="Combination5"
@@ -1589,7 +1650,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       disabled
-                      checked
+                      
                       type="radio"
                       name="Hybrid5"
                       value="Hybrid5"
@@ -1906,7 +1967,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="provision"
+                      name="cancelledrecords"
                       value="Yes"
                       id="provisionYes"
                     />
@@ -1916,7 +1977,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="provision"
+                      name="cancelledrecords"
                       value="No"
                       id="provisionNo"
                     />
@@ -1930,7 +1991,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="Advance"
+                      name="reversalrecords1"
                       value="Yes"
                       id="AdvanceYes"
                       onClick={() => {
@@ -1942,7 +2003,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Advance"
+                      name="reversalrecords1"
                       value="No"
                       id="AdvanceNo"
                       onClick={() => {
@@ -1953,7 +2014,7 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {reversalRecord && (
+               
                   <>
                     <h6>Select the basis for adjustment</h6>
                     <div>
@@ -1961,7 +2022,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid"
+                          name="Hybrid124"
                           value="Document"
                           id="Document"
                         />
@@ -1970,7 +2031,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid"
+                          name="Hybrid124"
                           value="Combination"
                           id="Combination"
                         />
@@ -1981,7 +2042,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid"
+                          name="Hybrid124"
                           value="Hybrid"
                           id="Hybrid"
                         />
@@ -1989,14 +2050,14 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+               
 
                 <h6>Is Credit Notes-Advance adjustment required?</h6>
                 <div>
                   <span>
                     <input
                       type="radio"
-                      name="CreditNotes"
+                      name="CreditNotesAdvance"
                       value="Yes"
                       id="CreditNotesYes"
                     />
@@ -2006,7 +2067,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="CreditNotes"
+                      name="CreditNotesAdvance"
                       value="No"
                       id="CreditNotesNo"
                     />
@@ -2019,7 +2080,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="provisioninvoiceadjustment"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -2032,7 +2093,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="Cancellation"
+                      name="provisioninvoiceadjustment"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -2043,14 +2104,14 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {provisionInvoice && (
+                
                   <>
                     <h6>Select the basis for adjustment</h6>
                     <div>
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid190"
                           value="Document1"
                           id="Document1"
                         />
@@ -2060,7 +2121,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid190"
                           value="Combination1"
                           id="Combination1"
                         />
@@ -2072,7 +2133,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid190"
                           value="Hybrid1"
                           id="Hybrid1"
                         />
@@ -2085,7 +2146,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid20"
+                          name="Hybrid2220"
                           value="Combination20"
                           id="Combination20"
                         />
@@ -2097,7 +2158,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid20"
+                          name="Hybrid2220"
                           value="Hybrid20"
                           id="Hybrid20"
                         />
@@ -2115,7 +2176,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Cancellation1"
+                          name="taxdeductedmarch1"
                           value="Yes"
                           id="CancellationYes1"
                         />
@@ -2125,7 +2186,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Cancellation1"
+                          name="taxdeductedmarch1"
                           value="No"
                           id="CancellationNo1"
                         />
@@ -2133,13 +2194,13 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+                
                 <h6>Is Advance-Invoice adjustment required?</h6>
                 <div>
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="advanceincvoiceadjustment1"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -2152,7 +2213,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="Cancellation"
+                      name="advanceincvoiceadjustment1"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -2163,7 +2224,7 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {advanceInvoice && (
+                
                   <>
                     {" "}
                     <h6>Select the basis for adjustment</h6>
@@ -2171,7 +2232,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid169"
                           value="Document1"
                           id="Document1"
                         />
@@ -2181,7 +2242,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid169"
                           value="Combination1"
                           id="Combination1"
                         />
@@ -2192,7 +2253,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid1"
+                          name="Hybrid169"
                           value="Hybrid1"
                           id="Hybrid1"
                         />
@@ -2205,7 +2266,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid2"
+                          name="Hybrid169"
                           value="Combination2"
                           id="Combination2"
                         />
@@ -2216,7 +2277,7 @@ const Clients = ({ sidebar }) => {
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid2"
+                          name="Hybrid169"
                           value="Hybrid2"
                           id="Hybrid2"
                         />
@@ -2226,14 +2287,14 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+                
 
                 <h6>Is Threshold Applicable?</h6>
                 <div>
                   <span>
                     <input
                       type="radio"
-                      name="Cancellation"
+                      name="thresholdapplicable1"
                       value="Yes"
                       id="CancellationYes"
                       onClick={() => {
@@ -2246,7 +2307,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="Cancellation"
+                      name="thresholdapplicable1"
                       value="No"
                       id="CancellationNo"
                       onClick={() => {
@@ -2257,14 +2318,14 @@ const Clients = ({ sidebar }) => {
                   </span>
                 </div>
 
-                {thresholdApplicable && (
+                
                   <>
                     <h6>For which sections</h6>
                     <div>
                       <span>
                         <input
                           type="radio"
-                          name="Hybrid3"
+                          name="Hybrid3330"
                           value="Combination3"
                           id="Combination3"
                         />
@@ -2274,7 +2335,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           checked
                           type="radio"
-                          name="Hybrid3"
+                          name="Hybrid3330"
                           value="Hybrid3"
                           id="Hybrid3"
                         />
@@ -2282,7 +2343,7 @@ const Clients = ({ sidebar }) => {
                       </span>
                     </div>
                   </>
-                )}
+                
 
                 <h6>Rounding Off</h6>
                 <div>
@@ -2290,7 +2351,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="Hybrid4"
+                      name="Hybrid4321"
                       value="Combination4"
                       id="Combination4"
                     />
@@ -2301,7 +2362,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Hybrid4"
+                      name="Hybrid4321"
                       value="Hybrid4"
                       id="Hybrid4"
                     />
@@ -2315,7 +2376,7 @@ const Clients = ({ sidebar }) => {
                     <input
                       checked
                       type="radio"
-                      name="Hybrid5"
+                      name="Hybrid54321"
                       value="Combination5"
                       id="Combination5"
                     />
@@ -2326,7 +2387,7 @@ const Clients = ({ sidebar }) => {
                   <span>
                     <input
                       type="radio"
-                      name="Hybrid5"
+                      name="Hybrid54321"
                       value="Hybrid5"
                       id="Hybrid5"
                     />
@@ -2371,27 +2432,27 @@ const Clients = ({ sidebar }) => {
             <tr>
               <th>
                 Group Name
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Client Name
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Client PAN
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Email Address
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Onboarded On
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
               <th>
                 Actions
-                <KeyboardArrowDownIcon />
+                {/* <KeyboardArrowDownIcon /> */}
               </th>
             </tr>
 
@@ -2407,9 +2468,9 @@ const Clients = ({ sidebar }) => {
                     <VisibilityIcon
                       onClick={() => {
                         if (idx == 0) {
-                          setClientIdentity(0);
-                        } else if (idx == 1) {
                           setClientIdentity(1);
+                        } else if (idx == 1) {
+                          setClientIdentity(0);
                         } else {
                           setClientIdentity(2);
                         }
@@ -2425,9 +2486,9 @@ const Clients = ({ sidebar }) => {
                     <EditIcon
                       onClick={() => {
                         if (idx == 0) {
-                          setClientIdentity(0);
-                        } else if (idx == 1) {
                           setClientIdentity(1);
+                        } else if (idx == 1) {
+                          setClientIdentity(0);
                         } else {
                           setClientIdentity(2);
                         }

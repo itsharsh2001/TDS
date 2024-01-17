@@ -485,9 +485,9 @@ const ClientPositionReport = (props) => {
   const viewDataTable2 = [
     {
       PostingDate: "4/1/2023",
-      VendorCode: "VEN000032123",
+      VendorCode: "VEN000023123",
       VendorName: "Aditi Arora",
-      DocumentNumber: "010423000001",
+      DocumentNumber: "0104230002301",
       DocumentDate: "4/1/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV/23-24/002",
@@ -525,9 +525,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/30/2023",
-      VendorCode: "VEN000064548",
+      VendorCode: "VEN000064238",
       VendorName: "BSK & Associates LLP",
-      DocumentNumber: "010423000029",
+      DocumentNumber: "010423002329",
       DocumentDate: "4/30/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV/Apr/2023/0009",
@@ -565,9 +565,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/4/2023",
-      VendorCode: "VEN000067792",
+      VendorCode: "VEN000062392",
       VendorName: "Aarav Ahuja",
-      DocumentNumber: "010423000004",
+      DocumentNumber: "010423002304",
       DocumentDate: "4/4/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "20230401006",
@@ -605,9 +605,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/23/2023",
-      VendorCode: "VEN000039015",
+      VendorCode: "VEN000023015",
       VendorName: "EFGH Limtied",
-      DocumentNumber: "010423000017",
+      DocumentNumber: "010423023017",
       DocumentDate: "4/23/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "57342434245",
@@ -646,9 +646,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/11/2023",
-      VendorCode: "VEN000045590",
+      VendorCode: "VEN000235590",
       VendorName: "MNOP Limited",
-      DocumentNumber: "010423000011",
+      DocumentNumber: "010423023011",
       DocumentDate: "4/11/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV/2023/April/00145",
@@ -686,9 +686,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/30/2023",
-      VendorCode: "VEN000045590",
+      VendorCode: "VEN000042390",
       VendorName: "MNOP Limited",
-      DocumentNumber: "010423000030",
+      DocumentNumber: "010423023030",
       DocumentDate: "4/30/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV/2023/April/00275",
@@ -727,9 +727,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/30/2023",
-      VendorCode: "VEN000045590",
+      VendorCode: "VEN000043290",
       VendorName: "MNOP Limited",
-      DocumentNumber: "010423000030",
+      DocumentNumber: "010423230030",
       DocumentDate: "4/30/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV/2023/April/00275",
@@ -767,9 +767,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/15/2023",
-      VendorCode: "VEN000052557",
+      VendorCode: "VEN000232557",
       VendorName: "CSK & Associates LLP",
-      DocumentNumber: "010423000013",
+      DocumentNumber: "010423032013",
       DocumentDate: "4/15/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV/2023/April/00024",
@@ -807,9 +807,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/30/2023",
-      VendorCode: "VEN000049276",
+      VendorCode: "VEN000043276",
       VendorName: "ABC Private Limited",
-      DocumentNumber: "010423000031",
+      DocumentNumber: "010423002331",
       DocumentDate: "4/30/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "INV23523432",
@@ -847,9 +847,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/30/2023",
-      VendorCode: "VEN000025310",
+      VendorCode: "VEN000022310",
       VendorName: "DEF Limited",
-      DocumentNumber: "010423000032",
+      DocumentNumber: "010423002332",
       DocumentDate: "4/30/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "20230421056",
@@ -887,9 +887,9 @@ const ClientPositionReport = (props) => {
     },
     {
       PostingDate: "4/30/2023",
-      VendorCode: "VEN000063391",
+      VendorCode: "VEN000063231",
       VendorName: "GHI Limited",
-      DocumentNumber: "040423000001",
+      DocumentNumber: "040423002301",
       DocumentDate: "4/30/2023",
       LineNumber: "1",
       OriginalDocumentNumber: "",
@@ -979,47 +979,47 @@ const ClientPositionReport = (props) => {
     {
       Batch_ID: 7596048123,
       File_Name: "Apr_CPR.xlsx",
-      Username: "Ganesh Gupta",
+      Username: "Alok Anand",
       Date: "5/5/2023",
-      Total_No_of_Records: 24,
-      Error_Records: 1,
+      Total_No_of_Records: 28,
+      Error_Records: 5,
       Processed_Records: 23,
     },
     {
       Batch_ID: 7596048363,
       File_Name: "Apr_CPR1.xlsx",
-      Username: "Ganesh Gupta",
+      Username: "Alok Anand",
       Date: "5/6/2023",
-      Total_No_of_Records: 1,
-      Error_Records: 0,
+      Total_No_of_Records: 11,
+      Error_Records: 10,
       Processed_Records: 1,
     },
     {
       Batch_ID: 3826715904,
       File_Name: "May_CPR.xlsx",
-      Username: "Ganesh Gupta",
+      Username: "Alok Anand",
       Date: "6/5/2023",
-      Total_No_of_Records: 6,
+      Total_No_of_Records: 16,
       Error_Records: 0,
-      Processed_Records: 6,
+      Processed_Records: 16,
     },
     {
       Batch_ID: 9463851270,
       File_Name: "Jun_CPR.xlsx",
-      Username: "Ganesh Gupta",
+      Username: "Alok Anand",
       Date: "7/5/2023",
-      Total_No_of_Records: 13,
+      Total_No_of_Records: 3,
       Error_Records: 0,
-      Processed_Records: 13,
+      Processed_Records: 3,
     },
     {
       Batch_ID: 5201498376,
       File_Name: "Jul_CPR.xlsx",
-      Username: "Ganesh Gupta",
+      Username: "Alok Anand",
       Date: "8/5/2023",
-      Total_No_of_Records: 6,
+      Total_No_of_Records: 16,
       Error_Records: 0,
-      Processed_Records: 6,
+      Processed_Records: 16,
     },
   ];
 
@@ -1114,7 +1114,7 @@ const ClientPositionReport = (props) => {
           {!viewData && (
             <>
               <FileUploadOutlinedIcon />
-              Upload Reponse
+              Upload Response
             </>
           )}
           {viewData && "Submit Response"}
