@@ -1155,7 +1155,7 @@ const Clients = ({ sidebar }) => {
                         <input
                           disabled
                           placeholder={
-                            clientIdentity == 1 ? "BKICD9828K" : "RSEX13028F"
+                            "RSEX13028F"
                           }
                           type="text"
                           name=""
@@ -1901,6 +1901,7 @@ const Clients = ({ sidebar }) => {
               </section>
             )}
             {addClientStep2 && (
+              <>
               <section>
                 <h6 style={{ display: "flex", flexDirection: "row" }}>
                   Branch Name
@@ -1909,9 +1910,7 @@ const Clients = ({ sidebar }) => {
                 <div>
                   <input
                     placeholder={
-                      clientIdentity == 1
-                        ? "ABC Consultancy Limited"
-                        : "ABC Motors Limited"
+                      "Head Office"  
                     }
                     type="text"
                     name=""
@@ -1919,7 +1918,7 @@ const Clients = ({ sidebar }) => {
                   />
                   <input
                     placeholder={
-                      clientIdentity == 1 ? "BKICD9828K" : "BKLCD6543K"
+                      "PDMS01068F"
                     }
                     type="text"
                     name=""
@@ -1930,7 +1929,7 @@ const Clients = ({ sidebar }) => {
                 <div>
                   <input
                     placeholder={
-                      clientIdentity == 1 ? "Dhruv Jain" : "Abhishek Malan"
+                      "Dhruv Jain"
                     }
                     type="text"
                     name=""
@@ -1938,15 +1937,118 @@ const Clients = ({ sidebar }) => {
                   />
                   <input
                     placeholder={
-                      clientIdentity == 1 ? "BKIPJ6950K" : "BENPJ6230Q"
+                      "BENPJ6230Q"
                     }
                     type="text"
                     name=""
                     id=""
                   />
-                  <input placeholder="Accountant" type="text" name="" id="" />
+                  <input placeholder="Branch Manager" type="text" name="" id="" />
                 </div>
               </section>
+              {clientIdentity == 1 && (
+                  <>
+                    <section>
+                      <h6 style={{ display: "flex", flexDirection: "row" }}>
+                        Branch Name
+                        <p style={{ marginLeft: "calc(29% - 5rem)" }}>
+                          TAN Number
+                        </p>
+                      </h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Sahibabad Office"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={"BFES03018Z"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                      <h6>Responsible Person's Details</h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Abhishek Malan"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={"BKIPJ6950K"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder="Branch Manager"
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                    </section>
+                    <section>
+                      <h6 style={{ display: "flex", flexDirection: "row" }}>
+                        Branch Name
+                        <p style={{ marginLeft: "calc(29% - 5rem)" }}>
+                          TAN Number
+                        </p>
+                      </h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Faridabad Office"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={
+                            "RSEX13028F"
+                          }
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                      <h6>Responsible Person's Details</h6>
+                      <div>
+                        <input
+                          disabled
+                          placeholder={"Harsh Vijaykumar"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder={"BKICD9828K"}
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                        <input
+                          disabled
+                          placeholder="Branch Manager"
+                          type="text"
+                          name=""
+                          id=""
+                        />
+                      </div>
+                    </section>
+                  </>
+                )}
+              </>
             )}
             {Array.from({ length: tanFieldCount }, (_, index) => (
               <>

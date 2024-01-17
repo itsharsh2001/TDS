@@ -496,7 +496,7 @@ function Other() {
                       >
                         <FileDownloadOutlinedIcon
                           onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -541,7 +541,7 @@ function Other() {
                       >
                         <FileDownloadOutlinedIcon
                         onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -586,7 +586,7 @@ function Other() {
                       >
                         <FileDownloadOutlinedIcon
                         onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -631,7 +631,7 @@ function Other() {
                       >
                         <FileDownloadOutlinedIcon
                         onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
