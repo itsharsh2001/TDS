@@ -1,10 +1,15 @@
-.overlay{
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for transparency */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust the alpha value for transparency */
   z-index: 99; /* Ensure the overlay is above other content */
   animation: pop-in 0.3s ease-in-out;
 }
@@ -14,7 +19,7 @@
   margin-left: 1.5rem;
   height: 95%;
   border-radius: 8px;
-  background: #fff;
+  background: transparent;
   transition: width 0.3s;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -46,7 +51,7 @@
   margin-top: 1.5%;
   color: var(--GT-Purple, #4f2d7f);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 2.4rem;
   font-style: normal;
   font-weight: 700;
@@ -73,29 +78,50 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-radius: 2.4rem;
-  border: 2px solid var(--GT-Purple, #4f2d7f);
   padding: 5.5%;
   cursor: pointer;
 }
 
+.other main section span:nth-child(n+1) {
+  border-radius: 24px;
+  border: 2px solid #9581b2;
+  background: #d9c5ff;
+}
+
+.other main section span:nth-child(n + 2) {
+  border-radius: 24px;
+  border: 2px solid #ff9792;
+  background: #ffb9b6;
+}
+
+.other main section span:nth-child(n + 3) {
+  border-radius: 24px;
+  border: 2px solid #66c8d1;
+  background: #99dbe1;
+}
+
 .other main section span p {
-  color: var(--GT-Purple, #4f2d7f);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
+  width: 52%;
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  width: 52%;
 }
 
 .icon {
   color: #4f2d7f;
-  font-size: 3rem!important;
+  font-size: 4rem !important;
   /* height: 3rem; */
   /* width: 3rem; */
   margin-right: 5%;
+
+  border-radius: 50%;
+  background:#FDFDFD;
+  padding: 0.65rem;
 }
 
 .icon2 {
@@ -147,6 +173,11 @@
   /* background-color: white; */
   margin-bottom: 1rem;
   border-radius: 8px;
+
+  /* border-radius: 8px; */
+border: 0.5px solid #A3A3A3;
+background: #FFF;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 }
 
 .table tbody tr th {
@@ -154,14 +185,16 @@
   /* background-color: #ccc; */
   /* background-color: white; */
   font-weight: 700 !important;
-  background: #f9f5ff;
+  /* background: #f9f5ff; */
+  color: var(--GT-Purple, #4f2d7f);
 }
 
 .table tbody tr td {
   z-index: 25 !important;
   /* background-color: white; */
   /* line-height: 1rem!important; */
-  background: #f9f5ff;
+  /* background: #f9f5ff; */
+  color: #252525;
 }
 
 .table tbody tr td,
@@ -178,9 +211,9 @@
   /* font-size: 1.5rem; */
   text-align: center;
 
-  color: var(--GT-Purple, #4f2d7f);
+  
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
@@ -191,7 +224,7 @@
   font-size: 1rem;
 }
 
-.table tbody tr td:last-child svg{
+.table tbody tr td:last-child svg {
   font-size: 2.5rem;
   /* font-size: 1rem; */
 }
@@ -221,7 +254,7 @@
 .tablediv section a {
   color: var(--GT-Purple, #4f2d7f);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.9rem;
   font-style: normal;
   font-weight: 400;
@@ -229,7 +262,7 @@
 }
 
 .breadcrumbarrow {
-  font-size: 2.5rem!important;
+  font-size: 2.5rem !important;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   color: #4f2d7f;
@@ -249,7 +282,7 @@
   font-feature-settings: "clig" off, "liga" off;
 
   /* SUBHEAD - 16B */
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -269,7 +302,7 @@
   width: 35%;
   /* height: 90%; */
   height: 540px;
-  top: calc((100% - 540px)/2);
+  top: calc((100% - 540px) / 2);
   /* top: 5%; */
   /* max-height: 85%; */
 
@@ -301,7 +334,7 @@
 .popup h4 {
   color: var(--GT-Purple, #4f2d7f);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -311,7 +344,7 @@
 
 .popup section {
   border-radius: 5px;
-  background: #f9f5ff;
+  /* background: #f9f5ff; */
   width: 100%;
   /* margin-left: 2.5%; */
   /* margin-right: 2.5%; */
@@ -326,7 +359,7 @@
 .popup section h6 {
   color: #000;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
@@ -356,37 +389,47 @@
 .popup section div span label {
   color: var(--shades-of-gray-jet, #333);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   /* margin-right: 0.5rem!important; */
+  border-radius: 8px;
+border: 0.5px solid #A3A3A3;
+background: #FFF;
 }
 
 .popup section div span input {
   height: 15px;
   width: 15px;
   margin-right: 1rem;
+  border-radius: 8px;
+border: 0.5px solid #A3A3A3;
+background: #FFF;
 }
 
 .popup section input {
   border: none;
   outline: none;
   padding: 1.5rem;
-  border-radius: 8px;
-  background: #fff;
+  /* border-radius: 8px; */
+  /* background: #fff; */
   width: 100%;
   height: 3rem;
   color: #747474;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px; /* 125% */
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+
+  border-radius: 8px;
+border: 0.5px solid #A3A3A3;
+background: #FFF;
 }
 
 .popup section img {
@@ -406,7 +449,7 @@
   color: var(--White, #fff);
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -436,7 +479,7 @@
   /* color: var(--White, #FFF); */
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: 'GT-Walsheim-Pro-Regular';
+  font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;

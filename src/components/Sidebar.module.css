@@ -76,7 +76,7 @@
   /* margin-top: 2.5rem; */
   padding-left: 2.5%;
   padding-right: 2.5%;
-  color: #4f2d7f;
+  color: #fff;
   font-weight: 500;
   font-size: 1.5rem;
   /* margin-bottom: 1.5rem; */
@@ -85,12 +85,13 @@
   border-radius: 5px;
   height: 50px;
   flex: unset !important;
+  background: #00A7B5;
   /* margin-top: auto!important; */
 }
 
 .innerSidebar span:hover {
-  color: white;
-  background-color: #4f2d7f;
+  color: #00A7B5;
+  background-color: #fff;
 }
 
 .innerSidebar span svg {

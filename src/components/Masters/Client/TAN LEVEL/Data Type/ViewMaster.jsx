@@ -3,6 +3,9 @@ import React, { useState } from "react";
 
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
+
 
 import EditIcon from "@mui/icons-material/Edit";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -11,6 +14,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import classes from "./ViewMaster.module.css";
 
 const ViewMaster = ({ type }) => {
+  const [popup, setPopup] = useState(false);
   let arr = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
@@ -239,6 +243,89 @@ const ViewMaster = ({ type }) => {
     },
   ];
   
+  const documentSupply = [
+    {
+      document:'Document',
+      typeERP: 'KG',
+      typeApplication: 'CR',
+      description: 'Vendor Credit Memo',
+    },
+    {
+      document:'Document',
+      typeERP: 'KN',
+      typeApplication: 'INV',
+      description: 'Vendor Net Invoice & Credit Memo',
+    },
+    {
+      document:'Document',
+      typeERP: 'KR',
+      typeApplication: 'INV',
+      description: 'Vendor Invoice',
+    },
+    {
+      document:'Document',
+      typeERP: 'KA',
+      typeApplication: 'ADV',
+      description: 'Advance',
+    },
+    {
+      document:'Document',
+      typeERP: 'SA',
+      typeApplication: 'PRV',
+      description: 'Provision',
+    },
+  ]
+
+  const sectionMapping = [
+    {
+      client: '192A',
+      application: '192A',
+    },
+    {
+      client: '193',
+      application: '193',
+    },
+    {
+      client: '194',
+      application: '194',
+    },
+    {
+      client: '94A',
+      application: '94A',
+    },
+    {
+      client: '94B',
+      application: '94B',
+    },
+    {
+      client: '94B-P',
+      application: '94B-P',
+    },
+    {
+      client: '94BA',
+      application: '94BA',
+    },
+    {
+      client: '94BA-P',
+      application: '95BA-P',
+    },
+    {
+      client: '4BB',
+      application: '4BB',
+    },
+    
+  ]
+
+  const balanceData = [
+    {
+      Posting_Date: '9/30/2024',
+      Document_Date: '9/30/2024',
+      Vendor_Code: 'ABCD1',
+      TDS_Section: '194Q',
+      Document_Type: 'ADV',
+      Supply_Type: 'TAX'
+    },
+  ]
 
   let rowStyle = {};
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
@@ -264,9 +351,33 @@ const ViewMaster = ({ type }) => {
         gridTemplateColumns: "1fr 1fr 1fr 1fr",
       };
         break;
-    // Add more cases for other values as needed
+    case "DocumentSupply":
+      rowStyle = {
+        gridTemplateColumns: "1fr 1fr 1fr 1fr",
+      };
+        break;
+    case "SectionMapping":
+      rowStyle = {
+        gridTemplateColumns: "1fr 1fr",
+      };
+        break;
+    case "Balance":
+      rowStyle = {
+        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+      };
+        break;
+        // Add more cases for other values as needed
     default:
       break;
+  }
+
+  const buttonToggler = () => {
+    if(type!='Keyword'){
+      handleDownload();
+    }
+    else{
+      setPopup(true);
+    }
   }
 
   const handleDownload = async () => {
@@ -295,10 +406,53 @@ const ViewMaster = ({ type }) => {
   };
 
   return (
+    <>
+    {popup && <div className={classes.overlay} onClick={()=>{
+      return setPopup(false);
+    }}></div>}
+    {popup && (
+        <div className={classes.popup}>
+          <CloseIcon
+            onClick={() => {
+              return setPopup(false);
+            }}
+            style={{
+              fontSize: "2.5rem",
+              position: "absolute",
+              top: "2.25rem",
+              right: "2.25rem",
+              cursor: "pointer",
+            }}
+          />
+          <h4>
+            Add Credentials
+          </h4>
+          <section>
+            <select name="" id="">
+              <option value="">Select Portal</option>
+              <option value="">Reporting Portal</option>
+              <option value="">GSTIN</option>
+              <option value="">TRACES</option>
+            </select>
+           
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
+            <button
+              onClick={() => {
+                return setPopup(false);
+              }}
+            >
+              Submit
+            </button>
+          </section>
+
+         
+        </div>
+      )}
     <div className={classes.viewmaster}>
-      <button onClick={handleDownload}>
-        <FileDownloadOutlinedIcon className={classes.downloadicon} />
-        Download Master Data
+      <button onClick={buttonToggler}>
+        {type!='Keyword'?<FileDownloadOutlinedIcon className={classes.downloadicon} />:<AddIcon className={classes.downloadicon} />}
+        {type == 'Keyword' ? 'Add User Credentials' : 'Download Master Data'}
       </button>
       <table className={classes.table}>
         <tbody>
@@ -383,7 +537,67 @@ const ViewMaster = ({ type }) => {
                 </th>
               </>
             )}
-            
+            {type == "DocumentSupply" && (
+              <>
+                <th>
+                  Document/Supply
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Document/Supply Type as per ERP
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Document/Supply Type as per Application
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Description
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+              </>
+            )}
+            {type == "SectionMapping" && (
+              <>
+                <th>
+                  TDS Section as per Client ERP
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  TDS Section as per Client Application
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                
+              </>
+            )}
+            {type == "Balance" && (
+              <>
+                <th>
+                  Posting Date
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Document Date
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Vendor Code
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  TDS Section
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Document Type
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+                <th>
+                  Supply Type
+                  {/* <KeyboardArrowDownIcon /> */}
+                </th>
+              </>
+            )}
           </tr>
   
 
@@ -428,9 +642,40 @@ const ViewMaster = ({ type }) => {
               </tr>
             )
           })}
+          {type=='DocumentSupply' && documentSupply.map((val,idx)=>{
+            return (
+              <tr style={rowStyle} id={idx}>
+                <td>{val.document}</td>
+                <td>{val.typeERP}</td>
+                <td>{val.typeApplication}</td>
+                <td>{val.description}</td>
+              </tr>
+            )
+          })}
+          {type=='SectionMapping' && sectionMapping.map((val,idx)=>{
+            return (
+              <tr style={rowStyle} id={idx}>
+                <td>{val.client}</td>
+                <td>{val.application}</td>
+              </tr>
+            )
+          })}
+          {type=='Balance' && balanceData.map((val,idx)=>{
+            return (
+              <tr style={rowStyle} id={idx}>
+                <td>{val.Posting_Date}</td>
+                <td>{val.Document_Date}</td>
+                <td>{val.Vendor_Code}</td>
+                <td>{val.TDS_Section}</td>
+                <td>{val.Document_Type}</td>
+                <td>{val.Supply_Type}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 

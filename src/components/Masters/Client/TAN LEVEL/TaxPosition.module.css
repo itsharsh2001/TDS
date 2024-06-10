@@ -1,0 +1,374 @@
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for transparency */
+  z-index: 99; /* Ensure the overlay is above other content */
+  animation: pop-in 0.3s ease-in-out;
+}
+
+
+  
+.popup {
+  position: fixed;
+
+  /* top: 50%; 
+  transform: translateY(-50%);  */
+  left: 15%;
+  width: 70%!important;
+  /* height: 90%; */
+  height: 540px!important;
+  top: calc((100% - 540px)/2);
+  /* top: 5%; */
+  /* max-height: 85%; */
+
+  z-index: 100;
+  display: flex;
+  flex-direction: column!important;
+  padding: 2rem;
+  justify-content: space-between;
+
+  --shadow-color: 0deg 0% 59%;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
+  /* border-radius: 2rem; */
+
+  box-shadow: 0 0 500px 500px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+
+  border-radius: 6px;
+  background: #fff;
+  animation: pop-in 0.3s ease-in-out;
+}
+
+
+.taxposition {
+  padding: 0 !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column !important;
+}
+
+.popup>span{
+  /* height: 4rem!important; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.popup>span button{
+  height:3.5rem!important;
+  width: 12.5rem;
+  margin-left: 2rem;
+}
+
+.taxposition > span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 2rem;
+  padding-top: 3rem;
+  color: #4f2d7f;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 100% */
+  list-style: none;
+  height: 100%;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* padding-left: 2rem; */
+  padding-right: 2rem;
+  /* padding: 0.5rem; */
+  cursor: pointer;
+}
+
+.righticon {
+  font-size: 2.1rem !important;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.taxposition ul {
+  width: auto;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  /* height: 5rem!important; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f9f5ff;
+  /* background-color: red; */
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.taxposition ul li {
+  color: #b3b3b3;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  list-style: none;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5rem;
+  padding-right: 5rem;
+
+  cursor: pointer;
+}
+
+.taxposition ul li:active,
+.taxposition ul li:hover {
+  color: var(--GT-Purple, #4f2d7f);
+  border-bottom: 2px solid #4f2d7f;
+}
+
+.taxposition section span {
+  color: black;
+}
+
+.taxposition > button {
+  /* height: 4rem!important; */
+  margin-top: 2rem;
+  /* padding-top: 1rem; */
+  /* padding-bottom: 1rem; */
+  width: 20rem !important;
+  padding: 1rem 3rem;
+  margin-left: auto;
+  margin-right: 5rem;
+}
+
+.taxposition main,
+.popup main {
+  padding: 2rem;
+  margin: 2rem;
+  margin-top: 0;
+  border: 0.5px solid #a3a3a3;
+}
+
+.popup main{
+  border: none;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  width: 100%;
+  margin: 0;
+}
+
+.popup main::-webkit-scrollbar{
+  display: none;
+}
+
+
+.div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #f9f5ff;
+  width: 17.5rem;
+  height: 3.5rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-align: left;
+  color: #b3b3b3;
+}
+
+.greyicon{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.taxposition main h6,
+.popup main h6 {
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 0.75rem;
+
+  /* font-size: 12px; */
+  /* line-height: 14.06px; */
+  /* text-align: left; */
+}
+
+.taxposition main label,
+.popup main label {
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 16.52px;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  width: auto;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.taxposition main label input,
+.popup main label input {
+  margin-right: 0.5rem;
+}
+
+
+.table {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table tbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  /* border: 2px solid #522398; */
+  /* height: 350px; */
+  width: 100%;
+  overflow-y: scroll;
+
+  overflow-x: scroll;
+
+  /* --shadow-color: 0deg 0% 59%;
+        box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+        1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+        2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+        4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+        7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+        11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+        17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+        25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
+        border-radius: 2rem; */
+}
+
+.table tbody::-webkit-scrollbar {
+  display: none;
+}
+
+.table tbody tr {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 0.9fr 0.9fr 0.9fr 0.9fr 1.4fr;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+}
+
+
+.table tbody tr th {
+  z-index: 50 !important;
+  border-top: 0.5px solid #a3a3a3;
+  border-bottom: 0.5px solid #a3a3a3;
+  color: #4F2D7F;
+}
+
+.table tbody tr th:nth-child(1) {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-left: 0.5px solid #a3a3a3;
+}
+.table tbody tr th:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-right: 0.5px solid #a3a3a3;
+}
+
+.table tbody tr td {
+  z-index: 25 !important;
+  border-top: 0.5px solid #a3a3a3;
+  border-bottom: 0.5px solid #a3a3a3;
+  color: #252525;
+}
+
+.table tbody tr td:nth-child(1) {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-left: 0.5px solid #a3a3a3;
+}
+.table tbody tr td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-right: 2px solid #a3a3a3;
+}
+
+
+
+.table tbody tr td,
+.table tbody tr th {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+ 
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; 
+
+  word-break: break-all;
+}
+
+.table tbody tr:nth-child(1) {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.table tbody tr button{
+  width: 10rem;
+  margin-left: 1rem;
+  height: 3rem;
+  font-weight: 500;
+}
+
+.table tbody tr button:nth-child(3){
+  color: #4F2D7F;
+  background-color: white;
+  border: 2px solid #4F2D7F;
+}
+
+.closeicon{
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  cursor: pointer;
+  font-size: 2.5rem!important;
+  /* float: right!important; */
+  /* margin-left: auto!important; */
+}

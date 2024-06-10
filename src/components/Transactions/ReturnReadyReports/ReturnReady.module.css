@@ -1,0 +1,48 @@
+.ready {
+    height: 60vh!important;
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    /* justify-content: space-between!important; */
+    background-color: white!important;
+  }
+  
+  .ready section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: unset;
+    /* padding-left: 2rem; */
+    /* padding-top: 4rem; */
+    /* padding-bottom: 4rem; */
+    color: #4f2d7f;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "GT-Walsheim-Pro-Regular";
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    list-style: none;
+    background-color: white;
+    /* height: 100%; */
+    height: 0rem!important;
+    padding-right: 2rem;
+    cursor: pointer;
+    margin-top: 0;
+    padding-top: 3rem;
+  }
+  
+  .righticon {
+    font-size: 2.1rem !important;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  
+  .ready img{
+      /* margin-top: 10rem!important; */
+      /* margin-left: auto; */
+      /* margin-right: auto; */
+      margin: auto;
+      width: 250px;
+      height: 250px;
+  }

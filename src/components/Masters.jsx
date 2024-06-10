@@ -7,7 +7,7 @@ import SectionTDS from "./Masters/Application/SectionTDS";
 import InterestPenalty from "./Masters/Application/InterestPenalty";
 import ThresholdType from "./Masters/Application/ThresholdType";
 import HSNSAC from "./Masters/Application/HSNSAC";
-import DocumentSupply from "./Masters/Application/DocumentSupply";
+// import DocumentSupply from "./Masters/Application/DocumentSupply";
 
 import classes from "./Masters.module.css";
 import TanLevelMasters from "./Masters/Client/TAN LEVEL/TanLevelMasters";
@@ -15,10 +15,14 @@ import KeywordOverriding from "./Masters/Client/TAN LEVEL/KeywordOverriding";
 import GLMaster from "./Masters/Client/TAN LEVEL/GLMaster";
 import HSNSACMaster from "./Masters/Client/TAN LEVEL/HSNSACMaster";
 import PO from "./Masters/Client/TAN LEVEL/PO";
+import DocumentSupply from "./Masters/Client/TAN LEVEL/DocumentSupply"
 
 import VendorMaster from "./Masters/Client/PAN LEVEL/VendorMaster";
 import LDC from "./Masters/Client/PAN LEVEL/LDC";
 import KeywordReposory from "./Masters/Client/PAN LEVEL/KeywordRepository";
+import SectionMapping from "./Masters/Client/TAN LEVEL/SectionMapping";
+import TaxPosition from "./Masters/Client/TAN LEVEL/TaxPosition";
+import TransactionBalance from "./Masters/Client/TAN LEVEL/TransactionBalance";
 
 function Masters({ sidebar }) {
   const tanBranchData = [
@@ -34,7 +38,7 @@ function Masters({ sidebar }) {
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
 
   const [panLevelMasters, setPanLevelMasters] = useState(0);
-  const [clientMasters, setClientMasters] = useState(false);
+  const [clientMasters, setClientMasters] = useState(true);
   const [applicationMasters, setApplicationMasters] = useState(true);
 
   const [tanLevelMasters, setTanLevelMasters] = useState(false);
@@ -53,6 +57,7 @@ function Masters({ sidebar }) {
   const [visibleFields, setVisibleFields] = useState({
     group: "",
     client: "",
+    branch: "",
   });
 
   let arr = [
@@ -113,31 +118,13 @@ function Masters({ sidebar }) {
     });
   };
 
-  const [clientIdentity, setClientIdentity] = useState('')
+  const [clientIdentity, setClientIdentity] = useState("");
 
   return (
     <div
       style={sidebar ? { width: "77.5%" } : { width: "100%" }}
       className={classes.masters}
     >
-      <ul>
-        <li
-          style={applicationMasters ? hoverStyle : {}}
-          onClick={() => {
-            superMastersTypeToggler("application");
-          }}
-        >
-          Application Level Masters
-        </li>
-        <li
-          style={clientMasters ? hoverStyle : {}}
-          onClick={() => {
-            superMastersTypeToggler("client");
-          }}
-        >
-          Client Level Masters
-        </li>
-      </ul>
       {clientMasters && (
         <>
           <div>
@@ -150,12 +137,27 @@ function Masters({ sidebar }) {
               id=""
             >
               <option value="">Choose Group</option>
-              <option selected={visibleFields.group=='ABC'?true:false} value="">ABC</option>
-              <option selected={visibleFields.group=='DEF'?true:false} value="">DEF</option>
-              <option selected={visibleFields.group=='GHI'?true:false} value="">GHI</option>
+              <option
+                selected={visibleFields.group == "ABC" ? true : false}
+                value=""
+              >
+                ABC
+              </option>
+              <option
+                selected={visibleFields.group == "DEF" ? true : false}
+                value=""
+              >
+                DEF
+              </option>
+              <option
+                selected={visibleFields.group == "GHI" ? true : false}
+                value=""
+              >
+                GHI
+              </option>
             </select>
             <select
-            // value={visibleFields.client}
+              // value={visibleFields.client}
               onChange={(e) => {
                 console.log(e.target.value);
                 setClientIdentity(e.target.value);
@@ -169,12 +171,76 @@ function Masters({ sidebar }) {
             >
               <option value="">Choose Client</option>
               {/* <option value="">ABC Chemicals Limited</option> */}
-              <option selected={visibleFields.client=='ABC Motors Limited'?true:false} value="ABC Motors Limited">ABC Motors Limited</option>
-              <option selected={visibleFields.client=='ABC Consultancy Limited'?true:false} value="ABC Consultancy Limited">ABC Consultancy Limited</option>
+              <option
+                selected={
+                  visibleFields.client == "ABC Motors Limited" ? true : false
+                }
+                value="ABC Motors Limited"
+              >
+                ABC Motors Limited
+              </option>
+              <option
+                selected={
+                  visibleFields.client == "ABC Consultancy Limited"
+                    ? true
+                    : false
+                }
+                value="ABC Consultancy Limited"
+              >
+                ABC Consultancy Limited
+              </option>
+            </select>
+
+            <select
+              onChange={(e) => {
+                console.log(e.target.value);
+                // setClientIdentity(e.target.value);
+                return setVisibleFields({
+                  ...visibleFields,
+                  branch: e.target.value,
+                });
+              }}
+              name=""
+              id=""
+            >
+              <option value="">Choose Branch</option>
+              {/* <option value="">ABC Chemicals Limited</option> */}
+              <option
+                // selected={
+                //   visibleFields.client == "ABC Motors Limited" ? true : false
+                // }
+                value="Head Office"
+              >
+                Head Office
+              </option>
+              <option
+                // selected={
+                //   visibleFields.client == "ABC Consultancy Limited"
+                //     ? true
+                //     : false
+                // }
+                value="Sahibabad Office"
+              >
+                Sahibabad Office
+              </option>
+              <option
+                // selected={
+                //   visibleFields.client == "ABC Consultancy Limited"
+                //     ? true
+                //     : false
+                // }
+                value="Faridabad Office"
+              >
+                Faridabad Office
+              </option>
             </select>
             <button
               onClick={() => {
-                if (visibleFields.client != "" && visibleFields.group != "") {
+                if (
+                  visibleFields.client != "" &&
+                  visibleFields.group != "" &&
+                  visibleFields.branch != ""
+                ) {
                   setShowEverything(true);
                 }
               }}
@@ -183,193 +249,247 @@ function Masters({ sidebar }) {
             </button>
           </div>
 
-          {showEverything && <><h5>PAN Level Masters</h5>
-          <section>
-            <span
-              onClick={() => {
-                return panMasterSetter(1);
-              }}
-            >
-              <p>Vendor Master (PAN Level)</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-            <span
-              onClick={() => {
-                return panMasterSetter(2);
-              }}
-            >
-              <p>Keyword Repository</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-            <span
-              onClick={() => {
-                return panMasterSetter(3);
-              }}
-            >
-              <p>LDC Master</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-          </section>
-          <h5>TAN Level Masters</h5>
+          {showEverything && (
+            <>
+              {/* <h5>PAN Level Masters</h5> */}
+              <section style={{ marginTop: "3rem" }}>
+                <span
+                  style={{
+                    border: "2px solid var(--core-purple-60, #9581B2)",
+                    background: "var(--bright-purple-40, #D9C5FF)",
+                  }}
+                  onClick={() => {
+                    return panMasterSetter(1);
+                  }}
+                >
+                  <p>Vendor Master (PAN Level)</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+                <span
+                  style={{
+                    border: "2px solid var(--coral-60, #FF9792)",
+                    background: "var(--coral-40, #FFB9B6)",
+                  }}
+                  onClick={() => {
+                    return panMasterSetter(2);
+                  }}
+                >
+                  <p>Keyword Repository</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+                <span
+                  style={{
+                    border: "2px solid var(--teal-60, #66C8D1)",
+                    background: "var(--teal-40, #99DBE1)",
+                  }}
+                  onClick={() => {
+                    return panMasterSetter(3);
+                  }}
+                >
+                  <p>LDC Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+              </section>
+              <section style={{ marginTop: "3rem" }}>
+                <span
+                  style={{
+                    border: "2px solid var(--yellow-60, #FFDA8B)",
+                    background: "var(--yellow-40, #FFE7B1)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("keyword");
+                  }}
+                >
+                  <p>Government Portal Login Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+                <span
+                  style={{
+                    border: "2px solid var(--dark-grey-80, #D6D0CA)",
+                    background: "var(--dark-grey-60, #E0DCD6)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("gl");
+                  }}
+                >
+                  <p>GL Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+                <span
+                  style={{
+                    border: "2px solid var(--core-purple-60, #9581B2)",
+                    background: "var(--core-purple-40, #B9ABCC)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("hsnsac");
+                  }}
+                >
+                  <p>HSN/SAC Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+              </section>
+              <section>
+                <span
+                  style={{
+                    border: "2px solid var(--dark-purple-60, #807294)",
+                    background: "var(--dark-purple-40, #AAA1B7)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("po");
+                  }}
+                >
+                  <p>PO Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+                <span
+                  style={{
+                    border: "2px solid var(--core-purple-60, #9581B2)",
+                    background: "#D9C5FF",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("taxposition");
+                  }}
+                >
+                  <p>Tax Position Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+                <span
+                  style={{
+                    border: "2px solid var(--coral-60, #FF9792)",
+                    background: "var(--coral-40, #FFB9B6)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("sectionmapping");
+                  }}
+                >
+                  <p>TDS Section Mapping Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+              </section>
+              <section>
+                <span
+                  style={{
+                    border: "2px solid var(--teal-60, #66C8D1)",
+                    background: "var(--teal-40, #99DBE1)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("documentsupply");
+                  }}
+                >
+                  <p>Document & Supply Type Mapping Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
 
-          <table className={classes.table}>
-            <tbody>
-              <tr>
-                {/* <th>Select</th> */}
-                <th>TAN Number</th>
-                <th>Branch Name</th>
-                <th>View Details</th>
-                {/* <th>No. of Records</th>
-            <th>Processed Records</th>
-            <th>Error Records</th>
-            <th>File Download</th>
-            <th>Report Download</th>
-            <th>Type</th>
-            <th>Actions</th> */}
-              </tr>
+                <span
+                  style={{
+                    border: "2px solid var(--coral-60, #FF9792)",
+                    background: "var(--coral-40, #FFB9B6)",
+                  }}
+                  onClick={() => {
+                    setClientMasters(false);
+                    return tanLevelMasterTypeSetter("transactionbalance");
+                  }}
+                >
+                  <p>Transaction Balance Master</p>
+                  <PeopleIcon className={classes.icon} />
+                </span>
+              </section>
+              {/* <h5>TAN Level Masters</h5>
 
-              {clientIdentity=='ABC Consultancy Limited'? tanBranchData.map((val, idx) => {
-                return (
-                  
-                  <tr id={idx}>
+              <table className={classes.table}>
+                <tbody>
+                  <tr>
                     
-                    <td>{val.TAN_Number}</td>
-                    <td>{val.Branch_Name}</td>
-                    <td>
-                      <ChevronRightIcon
-                        onClick={() => {
-                          setApplicationMasters(false);
-                          setClientMasters(false);
-                          setTanLevelMasters(true);
-                          setTanLevelMasterType("");
-                        }}
-                        style={{
-                          fontSize: "2rem",
-                          color: "white",
-                          background: "#4f2d7f",
-                          borderRadius: "50%",
-                          cursor: "pointer",
-                        }}
-                      />
-                    </td>
+                    <th>TAN Number</th>
+                    <th>Branch Name</th>
+                    <th>View Details</th>
                     
                   </tr>
-                );
-              }):tanBranchData2.map((val, idx) => {
-                return (
-                  
-                  <tr id={idx}>
-                    
-                    <td>{val.TAN_Number}</td>
-                    <td>{val.Branch_Name}</td>
-                    <td>
-                      <ChevronRightIcon
-                        onClick={() => {
-                          setApplicationMasters(false);
-                          setClientMasters(false);
-                          setTanLevelMasters(true);
-                          setTanLevelMasterType("");
-                        }}
-                        style={{
-                          fontSize: "2rem",
-                          color: "white",
-                          background: "#4f2d7f",
-                          borderRadius: "50%",
-                          cursor: "pointer",
-                        }}
-                      />
-                    </td>
-                    
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table></>}
-        </>
-      )}
-      {applicationMasters && (
-        <>
-          <section style={{ marginTop: "3rem" }}>
-            <span
-              onClick={() => {
-                setApp1(true);
-                return setApplicationMasters(false);
-              }}
-            >
-              <p>Nature of Payment-To-Section Master</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-            <span
-              onClick={() => {
-                setApp2(true);
-                return setApplicationMasters(false);
-              }}
-            >
-              <p>Section-To-TDS Rate</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-            <span
-              onClick={() => {
-                setApp3(true);
-                return setApplicationMasters(false);
-              }}
-            >
-              <p>Interest & Penalty Master</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-          </section>
-          <section>
-            <span
-              onClick={() => {
-                setApp4(true);
-                return setApplicationMasters(false);
-              }}
-            >
-              <p>Threshold Type & Value Master</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-            <span
-              onClick={() => {
-                setApp5(true);
-                return setApplicationMasters(false);
-              }}
-            >
-              <p>HSN/SAC Master</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-            <span
-              onClick={() => {
-                setApp6(true);
-                return setApplicationMasters(false);
-              }}
-            >
-              <p>Document & Supply Type Masters</p>
-              <PeopleIcon className={classes.icon} />
-            </span>
-          </section>
+
+                  {clientIdentity == "ABC Consultancy Limited"
+                    ? tanBranchData.map((val, idx) => {
+                        return (
+                          <tr id={idx}>
+                            <td>{val.TAN_Number}</td>
+                            <td>{val.Branch_Name}</td>
+                            <td>
+                              <ChevronRightIcon
+                                onClick={() => {
+                                  setApplicationMasters(false);
+                                  setClientMasters(false);
+                                  setTanLevelMasters(true);
+                                  setTanLevelMasterType("");
+                                }}
+                                style={{
+                                  fontSize: "2rem",
+                                  color: "white",
+                                  background: "#4f2d7f",
+                                  borderRadius: "50%",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            </td>
+                          </tr>
+                        );
+                      })
+                    : tanBranchData2.map((val, idx) => {
+                        return (
+                          <tr id={idx}>
+                            <td>{val.TAN_Number}</td>
+                            <td>{val.Branch_Name}</td>
+                            <td>
+                              <ChevronRightIcon
+                                onClick={() => {
+                                  setApplicationMasters(false);
+                                  setClientMasters(false);
+                                  setTanLevelMasters(true);
+                                  setTanLevelMasterType("");
+                                }}
+                                style={{
+                                  fontSize: "2rem",
+                                  color: "white",
+                                  background: "#4f2d7f",
+                                  borderRadius: "50%",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            </td>
+                          </tr>
+                        );
+                      })}
+                </tbody>
+              </table> */}
+            </>
+          )}
         </>
       )}
 
       {panLevelMasters == 1 && (
-        <VendorMaster clientIdentity={clientIdentity} panMasterSetter={panMasterSetter} />
+        <VendorMaster
+          clientIdentity={clientIdentity}
+          panMasterSetter={panMasterSetter}
+        />
       )}
       {panLevelMasters == 2 && (
-        <KeywordReposory clientIdentity={clientIdentity} panMasterSetter={panMasterSetter} />
+        <KeywordReposory
+          clientIdentity={clientIdentity}
+          panMasterSetter={panMasterSetter}
+        />
       )}
-      {panLevelMasters == 3 && <LDC clientIdentity={clientIdentity} panMasterSetter={panMasterSetter} />}
+      {panLevelMasters == 3 && (
+        <LDC
+          clientIdentity={clientIdentity}
+          panMasterSetter={panMasterSetter}
+        />
+      )}
 
-      {app1 && <NaturePayment transactionHomeScreen={activeAppMasterSetter} />}
-      {app2 && <SectionTDS transactionHomeScreen={activeAppMasterSetter} />}
-      {app3 && (
-        <InterestPenalty transactionHomeScreen={activeAppMasterSetter} />
-      )}
-      {app4 && <ThresholdType transactionHomeScreen={activeAppMasterSetter} />}
-      {app5 && <HSNSAC transactionHomeScreen={activeAppMasterSetter} />}
-      {app6 && <DocumentSupply transactionHomeScreen={activeAppMasterSetter} />}
-
-      {tanLevelMasterType == "" && (
-        <TanLevelMasters tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
-      )}
       {tanLevelMasterType == "keyword" && (
         <KeywordOverriding
           tanLevelMasterTypeSetter={tanLevelMasterTypeSetter}
@@ -383,6 +503,18 @@ function Masters({ sidebar }) {
       )}
       {tanLevelMasterType == "po" && (
         <PO tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+      )}
+      {tanLevelMasterType == "documentsupply" && (
+        <DocumentSupply tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+      )}
+      {tanLevelMasterType == "sectionmapping" && (
+        <SectionMapping tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+      )}
+      {tanLevelMasterType == "taxposition" && (
+        <TaxPosition tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+      )}
+      {tanLevelMasterType == "transactionbalance" && (
+        <TransactionBalance tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
     </div>
   );

@@ -76,13 +76,22 @@ const Sidebar = ({ setActiveModule, sidebar, activeModule }) => {
             User Management
           </li>
           <li
+            style={activeModule == "masters2" ? active : {}}
+            onClick={() => {
+              return setActiveModule("masters2");
+            }}
+          >
+            <ShieldOutlinedIcon style={{ marginRight: "1.5rem" }} />
+            Application Masters
+          </li>
+          <li
             style={activeModule == "masters" ? active : {}}
             onClick={() => {
               return setActiveModule("masters");
             }}
           >
             <ShieldOutlinedIcon style={{ marginRight: "1.5rem" }} />
-            Masters
+            Client Masters
           </li>
           <li
             style={activeModule == "transactions" ? active : {}}
@@ -91,7 +100,25 @@ const Sidebar = ({ setActiveModule, sidebar, activeModule }) => {
             }}
           >
             <SwapHorizIcon style={{ marginRight: "1.5rem" }} />
-            Transactions
+            Monthly Compliances
+          </li>
+          <li
+            style={activeModule == "transactions2" ? active : {}}
+            onClick={() => {
+              return setActiveModule("transactions2");
+            }}
+          >
+            <SwapHorizIcon style={{ marginRight: "1.5rem" }} />
+            Quarterly Compliances
+          </li>
+          <li
+            style={activeModule == "transactions3" ? active : {}}
+            onClick={() => {
+              return setActiveModule("transactions3");
+            }}
+          >
+            <SwapHorizIcon style={{ marginRight: "1.5rem" }} />
+            Annual Compliances
           </li>
           <li
             style={activeModule == "other" ? active : {}}

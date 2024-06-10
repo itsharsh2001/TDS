@@ -64,10 +64,10 @@ const Dashboard = ({sidebar}) => {
             <h2>568</h2>
             <p>Total Months Processed</p>
           </span>
-          <span>
+          {/* <span>
             <h2>100</h2>
             <p>Months Pending</p>
-          </span>
+          </span> */}
           <span>
             <h2>37</h2>
             <p>Returns Pending</p>
@@ -155,7 +155,7 @@ const Dashboard = ({sidebar}) => {
         </span>
       </div>
 
-      { (chosenParameters.entity==''|| chosenParameters.group==''|| chosenParameters.tan==''|| chosenParameters.financial=='' )&&<div style={{position:'relative', top:'0', zIndex:'51'}} className={classes.selects}>
+      {(chosenParameters.entity==''|| chosenParameters.group==''|| chosenParameters.tan==''|| chosenParameters.financial=='' )&&<div style={{position:'relative', top:'0', zIndex:'51'}} className={classes.selects}>
         <div style={!visibleFields.group ? opacityStyle : {}}>
           <span>
             <SearchIcon />{" "}
@@ -372,16 +372,16 @@ const Dashboard = ({sidebar}) => {
             <img src="/Top5Vendors.png" alt="" />
           </main>
           {/* <img className={classes.img} src="/tds.png" alt="" /> */}
-          <img className={classes.img} src="/Monthly Challan Summary.png" alt="" />
+          <img className={classes.img} src="/Monthly TDS Summary.png" alt="" />
           <main className={classes.main}>
               <img style={{width:'66%'}} src="/Variance in TDS.png" alt="" />
-              <img src="/TDS Distribution.png" alt="" />
+              <img src="/VendorStatus.png" alt="" />
           </main>
           <main className={classes.main}>
               <img src="/Top 5 Vendors.png" alt="" />
               <img style={{width:'66%'}} src="/Top 10 LDC nearing full uitilization.png" alt="" />
           </main>
-          <img className={classes.img} src="/Monthly Challan Summary.png" alt="" />
+          <img className={classes.img} src="/Monthly_Challan_Summary.png" alt="" />
           
         </>
       )}

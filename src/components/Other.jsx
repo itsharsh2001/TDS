@@ -386,6 +386,10 @@ function Other() {
             </section>
             <section>
               <span
+              style={{
+                border: "2px solid var(--yellow-60, #FFDA8B)",
+                background: "#FFE7B1"
+              }}  
                 onClick={() => {
                   return setLdcValidations(true);
                 }}

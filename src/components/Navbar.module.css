@@ -41,6 +41,7 @@
     /* object-fit: cover; */
     background-color: #ccc;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 
@@ -51,4 +52,5 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
 }

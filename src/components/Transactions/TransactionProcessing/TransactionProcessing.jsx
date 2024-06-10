@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
@@ -14,8 +14,9 @@ const TransactionProcessing = (props) => {
   const [activeMonth, setActiveMonth] = useState("");
 
   const [monthClicked, setMonthClicked] = useState(false);
-  
-  const [justProcessedTransactions, setJustProcessedTransactions] = useState(false);
+
+  const [justProcessedTransactions, setJustProcessedTransactions] =
+    useState(false);
 
   const [monthColor, setmonthColor] = useState("");
 
@@ -34,9 +35,12 @@ const TransactionProcessing = (props) => {
   };
   const redClassIcon = {
     color: "#c24100",
+    
   };
   const redBorder = {
-    border: "2px solid #c24100",
+    backgroundColor: "#F3D9CC",
+    border: "0.25px solid #A3A3A3",
+    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.05)",
   };
   const greenClassDiv = {
     backgroundColor: "#9bd7326b",
@@ -45,7 +49,9 @@ const TransactionProcessing = (props) => {
     color: "#9bd732",
   };
   const greenBorder = {
-    border: "2px solid #9bd732",
+    border: "0.25px solid #A3A3A3",
+    background: "#EBF7D6",
+    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.05)",
   };
   const grayClassDiv = {
     backgroundColor: "#b9abcc6b",
@@ -54,7 +60,9 @@ const TransactionProcessing = (props) => {
     color: "#b9abcc",
   };
   const grayBorder = {
-    border: "2px solid #b9abcc",
+    border: "0.25px solid #A3A3A3",
+    background: "#FFF",
+    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.05)",
   };
   const grey = {
     border: "2px solid #B3B3B3",
@@ -65,35 +73,40 @@ const TransactionProcessing = (props) => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
-  
+      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch file');
+        throw new Error("Failed to fetch file");
       }
-     
+
       // Use the response object to get the file content
-      const fileContent = await response.blob({ type: 'application/xlsx' });
+      const fileContent = await response.blob({ type: "application/xlsx" });
 
       // Now you can process the file content as needed
-      console.log('File content:', fileContent);
+      console.log("File content:", fileContent);
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = 'downloadedFiless.xlsx';
+      link.download = "downloadedFiless.xlsx";
 
       // Trigger the click event
       link.click();
     } catch (error) {
-        console.error('Error fetching file:', error);
+      console.error("Error fetching file:", error);
     }
   };
 
   return (
     <>
-    {( popup || warningpopup ) && <div className={classes.overlay} onClick={()=>{
-      setPopup(false);
-      return setWarningpopup(false);
-    }}></div>}
+      {(popup || warningpopup) && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            setPopup(false);
+            return setWarningpopup(false);
+          }}
+        ></div>
+      )}
       {popup && (
         <div className={classes.popup}>
           <h2>
@@ -405,6 +418,8 @@ const TransactionProcessing = (props) => {
               </a>
             </>
           )}
+
+          {activeMonth == "" && <button disabled>Move to Next F.Y.</button>}
         </span>
 
         {!monthClicked && (
@@ -429,7 +444,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={redClassIcon}>April</h1>
                 <div style={redClassDiv}>
-                  <CalendarTodayIcon style={redClassIcon} />
+                  <ChevronRightIcon style={redClassIcon} />
                 </div>
               </section>
               <section
@@ -442,7 +457,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={redClassIcon}>May</h1>
                 <div style={redClassDiv}>
-                  <CalendarTodayIcon style={redClassIcon} />
+                  <ChevronRightIcon style={redClassIcon} />
                 </div>
               </section>
               <section
@@ -462,7 +477,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={redClassIcon}>June</h1>
                 <div style={redClassDiv}>
-                  <CalendarTodayIcon style={redClassIcon} />
+                  <ChevronRightIcon style={redClassIcon} />
                 </div>
               </section>
               <section
@@ -476,7 +491,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={greenClassIcon}>July</h1>
                 <div style={greenClassDiv}>
-                  <CalendarTodayIcon style={greenClassIcon} />
+                  <ChevronRightIcon style={greenClassIcon} />
                 </div>
               </section>
               <section
@@ -487,7 +502,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>August</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -498,7 +513,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>September</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -509,7 +524,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>October</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -520,7 +535,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>November</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -531,7 +546,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>December</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -542,7 +557,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>January</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -553,7 +568,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>February</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
               <section
@@ -564,7 +579,7 @@ const TransactionProcessing = (props) => {
               >
                 <h1 style={grayClassIcon}>March</h1>
                 <div style={grayClassDiv}>
-                  <CalendarTodayIcon style={grayClassIcon} />
+                  <ChevronRightIcon style={grayClassIcon} />
                 </div>
               </section>
             </main>
@@ -580,14 +595,21 @@ const TransactionProcessing = (props) => {
                 }
                 return setStatus("Reverse Processed");
               }}
-              customStyle={(justProcessedTransactions && status!=='Reverse Processed') ? {} : grey}
+              customStyle={
+                justProcessedTransactions && status !== "Reverse Processed"
+                  ? {}
+                  : grey
+              }
             >
               Reverse Compute Process
             </PurpleButton>
 
             <PurpleButton
               customStyle={
-                ((monthColor == "red" || justProcessedTransactions ) && status!=='Reverse Processed') ? grey : {}
+                (monthColor == "red" || justProcessedTransactions) &&
+                status !== "Reverse Processed"
+                  ? grey
+                  : {}
               }
               onClick={() => {
                 return setPopup(true);
@@ -652,77 +674,79 @@ const TransactionProcessing = (props) => {
                 </tr>
                 )
               } */}
-              {(justProcessedTransactions && props.clientIdentity=='ABC Consultancy Limited') && (
-                <tr>
-                  {" "}
-                  {/* <td>1.</td> */}
-                  <td>06-08-2023</td>
-                  <td>Ganesh Gupta</td>
-                  <td>99753</td>
-                  <td>{status == "" ? "Processed" : status}</td>
-                  <td>
-                    {/* <PurpleButton>
+              {justProcessedTransactions &&
+                props.clientIdentity == "ABC Consultancy Limited" && (
+                  <tr>
+                    {" "}
+                    {/* <td>1.</td> */}
+                    <td>06-08-2023</td>
+                    <td>Ganesh Gupta</td>
+                    <td>99753</td>
+                    <td>{status == "" ? "Processed" : status}</td>
+                    <td>
+                      {/* <PurpleButton>
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                    <select onChange={handleDownload} name="" id="">
-                      <option value="">Download Reports</option>
-                      <option value="">All Reports</option>
-                      <option value="">
-                        Cancellation Adjustment Report-Consolidated
-                      </option>
-                      <option value="">
-                        Cancellation Adjustment Report-Detailed
-                      </option>
-                      <option value="">Reversal Adjustment Report</option>
-                      <option value="">Credit Note Adjustment Report</option>
-                      <option value="">Provision Adjustment Report</option>
-                      <option value="">Advance Adjustment Report</option>
-                      <option value="">
-                        Vendor-Section Threshold Consumption Report
-                      </option>
-                      <option value="">LDC Consumption Report</option>
-                      <option value="">Monthly-Liability Report</option>
-                    </select>
-                  </td>
-                </tr>
-              )}
+                      <select onChange={handleDownload} name="" id="">
+                        <option value="">Download Reports</option>
+                        <option value="">All Reports</option>
+                        <option value="">
+                          Cancellation Adjustment Report-Consolidated
+                        </option>
+                        <option value="">
+                          Cancellation Adjustment Report-Detailed
+                        </option>
+                        <option value="">Reversal Adjustment Report</option>
+                        <option value="">Credit Note Adjustment Report</option>
+                        <option value="">Provision Adjustment Report</option>
+                        <option value="">Advance Adjustment Report</option>
+                        <option value="">
+                          Vendor-Section Threshold Consumption Report
+                        </option>
+                        <option value="">LDC Consumption Report</option>
+                        <option value="">Monthly-Liability Report</option>
+                      </select>
+                    </td>
+                  </tr>
+                )}
 
-              {(justProcessedTransactions && props.clientIdentity=='ABC Motors Limited') && (
-                <tr>
-                  {" "}
-                  {/* <td>1.</td> */}
-                  <td>06-08-2023</td>
-                  <td>Pranav Kapoor</td>
-                  <td>29753</td>
-                  <td>{status == "" ? "Processed" : status}</td>
-                  <td>
-                    {/* <PurpleButton>
+              {justProcessedTransactions &&
+                props.clientIdentity == "ABC Motors Limited" && (
+                  <tr>
+                    {" "}
+                    {/* <td>1.</td> */}
+                    <td>06-08-2023</td>
+                    <td>Pranav Kapoor</td>
+                    <td>29753</td>
+                    <td>{status == "" ? "Processed" : status}</td>
+                    <td>
+                      {/* <PurpleButton>
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                    <select onChange={handleDownload} name="" id="">
-                      <option value="">Download Reports</option>
-                      <option value="">All Reports</option>
-                      <option value="">
-                        Cancellation Adjustment Report-Consolidated
-                      </option>
-                      <option value="">
-                        Cancellation Adjustment Report-Detailed
-                      </option>
-                      <option value="">Reversal Adjustment Report</option>
-                      <option value="">Credit Note Adjustment Report</option>
-                      <option value="">Provision Adjustment Report</option>
-                      <option value="">Advance Adjustment Report</option>
-                      <option value="">
-                        Vendor-Section Threshold Consumption Report
-                      </option>
-                      <option value="">LDC Consumption Report</option>
-                      <option value="">Monthly-Liability Report</option>
-                    </select>
-                  </td>
-                </tr>
-              )}
+                      <select onChange={handleDownload} name="" id="">
+                        <option value="">Download Reports</option>
+                        <option value="">All Reports</option>
+                        <option value="">
+                          Cancellation Adjustment Report-Consolidated
+                        </option>
+                        <option value="">
+                          Cancellation Adjustment Report-Detailed
+                        </option>
+                        <option value="">Reversal Adjustment Report</option>
+                        <option value="">Credit Note Adjustment Report</option>
+                        <option value="">Provision Adjustment Report</option>
+                        <option value="">Advance Adjustment Report</option>
+                        <option value="">
+                          Vendor-Section Threshold Consumption Report
+                        </option>
+                        <option value="">LDC Consumption Report</option>
+                        <option value="">Monthly-Liability Report</option>
+                      </select>
+                    </td>
+                  </tr>
+                )}
 
               {arr.map((val, idx) => {
                 return (
@@ -733,7 +757,9 @@ const TransactionProcessing = (props) => {
                     <td>99753</td>
                     <td>Processed</td>
                     <td>
-                      <PurpleButton onClick={handleDownload}>Download Reports</PurpleButton>
+                      <PurpleButton onClick={handleDownload}>
+                        Download Reports
+                      </PurpleButton>
                     </td>
                   </tr>
                 );
@@ -764,7 +790,7 @@ const TransactionProcessing = (props) => {
                 <th>Actions</th>
               </tr>
 
-              {props.clientIdentity=='ABC Consultancy Limited' &&
+              {props.clientIdentity == "ABC Consultancy Limited" && (
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
@@ -798,9 +824,9 @@ const TransactionProcessing = (props) => {
                     </select>
                   </td>
                 </tr>
-              }
+              )}
 
-              {props.clientIdentity=='ABC Motors Limited' &&
+              {props.clientIdentity == "ABC Motors Limited" && (
                 <tr>
                   {" "}
                   {/* <td>1.</td> */}
@@ -834,75 +860,79 @@ const TransactionProcessing = (props) => {
                     </select>
                   </td>
                 </tr>
-              }
+              )}
 
-              {props.clientIdentity=='ABC Consultancy Limited' && <tr>
-                {" "}
-                {/* <td>1.</td> */}
-                <td>04-06-2023</td>
-                <td>Ganesh Gupta</td>
-                <td>99753</td>
-                <td>{status == "" ? "Reverse Processed" : status}</td>
-                <td>
-                  {/* <PurpleButton>
+              {props.clientIdentity == "ABC Consultancy Limited" && (
+                <tr>
+                  {" "}
+                  {/* <td>1.</td> */}
+                  <td>04-06-2023</td>
+                  <td>Ganesh Gupta</td>
+                  <td>99753</td>
+                  <td>{status == "" ? "Reverse Processed" : status}</td>
+                  <td>
+                    {/* <PurpleButton>
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                  <select onChange={handleDownload} name="" id="">
-                    <option value="">Download Reports</option>
-                    <option value="">All Reports</option>
-                    <option value="">
-                      Cancellation Adjustment Report-Consolidated
-                    </option>
-                    <option value="">
-                      Cancellation Adjustment Report-Detailed
-                    </option>
-                    <option value="">Reversal Adjustment Report</option>
-                    <option value="">Credit Note Adjustment Report</option>
-                    <option value="">Provision Adjustment Report</option>
-                    <option value="">Advance Adjustment Report</option>
-                    <option value="">
-                      Vendor-Section Threshold Consumption Report
-                    </option>
-                    <option value="">LDC Consumption Report</option>
-                    <option value="">Monthly-Liability Report</option>
-                  </select>
-                </td>
-              </tr>}
+                    <select onChange={handleDownload} name="" id="">
+                      <option value="">Download Reports</option>
+                      <option value="">All Reports</option>
+                      <option value="">
+                        Cancellation Adjustment Report-Consolidated
+                      </option>
+                      <option value="">
+                        Cancellation Adjustment Report-Detailed
+                      </option>
+                      <option value="">Reversal Adjustment Report</option>
+                      <option value="">Credit Note Adjustment Report</option>
+                      <option value="">Provision Adjustment Report</option>
+                      <option value="">Advance Adjustment Report</option>
+                      <option value="">
+                        Vendor-Section Threshold Consumption Report
+                      </option>
+                      <option value="">LDC Consumption Report</option>
+                      <option value="">Monthly-Liability Report</option>
+                    </select>
+                  </td>
+                </tr>
+              )}
 
-              {props.clientIdentity=='ABC Motors Limited' && <tr>
-                {" "}
-                {/* <td>1.</td> */}
-                <td>04-06-2023</td>
-                <td>Pranav Kapoor</td>
-                <td>59753</td>
-                <td>{status == "" ? "Reverse Processed" : status}</td>
-                <td>
-                  {/* <PurpleButton>
+              {props.clientIdentity == "ABC Motors Limited" && (
+                <tr>
+                  {" "}
+                  {/* <td>1.</td> */}
+                  <td>04-06-2023</td>
+                  <td>Pranav Kapoor</td>
+                  <td>59753</td>
+                  <td>{status == "" ? "Reverse Processed" : status}</td>
+                  <td>
+                    {/* <PurpleButton>
                       Download Reports
                       <KeyboardArrowDownIcon className={classes.down} />
                     </PurpleButton> */}
-                  <select onChange={handleDownload} name="" id="">
-                    <option value="">Download Reports</option>
-                    <option value="">All Reports</option>
-                    <option value="">
-                      Cancellation Adjustment Report-Consolidated
-                    </option>
-                    <option value="">
-                      Cancellation Adjustment Report-Detailed
-                    </option>
-                    <option value="">Reversal Adjustment Report</option>
-                    <option value="">Credit Note Adjustment Report</option>
-                    <option value="">Provision Adjustment Report</option>
-                    <option value="">Advance Adjustment Report</option>
-                    <option value="">
-                      Vendor-Section Threshold Consumption Report
-                    </option>
-                    <option value="">LDC Consumption Report</option>
-                    <option value="">Monthly-Liability Report</option>
-                  </select>
-                </td>
-              </tr>}
+                    <select onChange={handleDownload} name="" id="">
+                      <option value="">Download Reports</option>
+                      <option value="">All Reports</option>
+                      <option value="">
+                        Cancellation Adjustment Report-Consolidated
+                      </option>
+                      <option value="">
+                        Cancellation Adjustment Report-Detailed
+                      </option>
+                      <option value="">Reversal Adjustment Report</option>
+                      <option value="">Credit Note Adjustment Report</option>
+                      <option value="">Provision Adjustment Report</option>
+                      <option value="">Advance Adjustment Report</option>
+                      <option value="">
+                        Vendor-Section Threshold Consumption Report
+                      </option>
+                      <option value="">LDC Consumption Report</option>
+                      <option value="">Monthly-Liability Report</option>
+                    </select>
+                  </td>
+                </tr>
+              )}
 
               {arr.map((val, idx) => {
                 return (
@@ -913,7 +943,9 @@ const TransactionProcessing = (props) => {
                     <td>99753</td>
                     <td>Processed</td>
                     <td>
-                      <PurpleButton onChange={handleDownload}>Download Reports</PurpleButton>
+                      <PurpleButton onChange={handleDownload}>
+                        Download Reports
+                      </PurpleButton>
                     </td>
                   </tr>
                 );

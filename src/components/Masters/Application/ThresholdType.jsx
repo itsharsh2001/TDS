@@ -145,10 +145,10 @@ const ThresholdType = (props) => {
         <a onClick={(e)=>{e.preventDefault();}} href="">Threshold Type & Value Masters</a>
       </span>
       <section>
-        {/* <button>
+        <button>
           <FileUploadOutlinedIcon className={classes.buttonicon} />
-          Upload Template File
-        </button> */}
+          Upload Masters
+        </button>
         <button onClick={handleDownload}>
           <FileDownloadOutlinedIcon className={classes.buttonicon} />
           Download Masters

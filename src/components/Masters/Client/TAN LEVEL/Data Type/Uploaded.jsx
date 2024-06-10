@@ -21,20 +21,20 @@ const Uploaded = ({ type }) => {
 
   const templateUploadMapping = [
     {
-      File_Name: 'Mapping Template 1',
-      Created_By: 'Deepak Dhawan',
-      Created_On: '5/3/2023'
+      File_Name: "Mapping Template 1",
+      Created_By: "Deepak Dhawan",
+      Created_On: "5/3/2023",
     },
     {
-      File_Name: 'Mapping Template 2',
-      Created_By: 'Harshad Hariharan',
-      Created_On: '5/5/2023'
+      File_Name: "Mapping Template 2",
+      Created_By: "Harshad Hariharan",
+      Created_On: "5/5/2023",
     },
     {
-      File_Name: 'Mapping Template 3',
-      Created_By: 'Deepak Dhawan',
-      Created_On: '6/2/2023'
-    }
+      File_Name: "Mapping Template 3",
+      Created_By: "Deepak Dhawan",
+      Created_On: "6/2/2023",
+    },
   ];
 
   const loginData = [
@@ -102,6 +102,17 @@ const Uploaded = ({ type }) => {
     },
   ];
 
+  const sectionmappingData = [
+    {
+      File_Name: "Section_Mapping_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1219723065,
+      No_of_Records: 50,
+      Processed_Records: 50,
+      Error_Records: 0,
+    },
+  ];
+
   const glData = [
     {
       File_Name: "GL_Master_Onboarding.xlsx",
@@ -145,6 +156,17 @@ const Uploaded = ({ type }) => {
     },
   ];
 
+  const documentSupply = [
+    {
+      File_Name: "Login_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1857296430,
+      No_of_Records: 16246,
+      Processed_Records: 16246,
+      Error_Records: 0,
+    },
+  ];
+
   let arr = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
@@ -179,26 +201,26 @@ const Uploaded = ({ type }) => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
-  
+      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch file');
+        throw new Error("Failed to fetch file");
       }
-     
+
       // Use the response object to get the file content
-      const fileContent = await response.blob({ type: 'application/xlsx' });
+      const fileContent = await response.blob({ type: "application/xlsx" });
 
       // Now you can process the file content as needed
-      console.log('File content:', fileContent);
+      console.log("File content:", fileContent);
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = 'downloadedFiless.xlsx';
+      link.download = "downloadedFiless.xlsx";
 
       // Trigger the click event
       link.click();
     } catch (error) {
-        console.error('Error fetching file:', error);
+      console.error("Error fetching file:", error);
     }
   };
 
@@ -251,7 +273,9 @@ const Uploaded = ({ type }) => {
             {!mappingManual && (
               <>
                 Download pre-existing template or Upload template to map data
-                <FileDownloadOutlinedIcon className={classes.downloadicon} />{" "}
+                <FileDownloadOutlinedIcon
+                  className={classes.downloadicon}
+                />{" "}
                 <b> Download Sample Template</b>
               </>
             )}
@@ -504,7 +528,6 @@ const Uploaded = ({ type }) => {
                   <option value="">User Data Field 9</option>
                   <option value="">User Data Field 10</option>
                 </select>
-                
               </div>
             </section>
           )}
@@ -547,7 +570,7 @@ const Uploaded = ({ type }) => {
                     <th>Created On</th>
                     <th>Download</th>
                   </tr>
-                  
+
                   {templateUploadMapping.map((val, idx) => {
                     return (
                       <tr
@@ -564,7 +587,9 @@ const Uploaded = ({ type }) => {
                         <td>{val.Created_By}</td>
                         <td>{val.Created_On}</td>
                         <td onClick={handleDownload}>
-                          <FileDownloadOutlinedIcon style={{cursor:'pointer',fontSize:'2.5rem'}}/>
+                          <FileDownloadOutlinedIcon
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
                         </td>
                       </tr>
                     );
@@ -575,9 +600,15 @@ const Uploaded = ({ type }) => {
           )}
 
           <span>
-            {mappingManual && <PurpleButton onClick={() => {
-                return setFileUpload(false);
-              }}>Save As Template</PurpleButton>}
+            {mappingManual && (
+              <PurpleButton
+                onClick={() => {
+                  return setFileUpload(false);
+                }}
+              >
+                Save As Template
+              </PurpleButton>
+            )}
             <PurpleButton
               onClick={() => {
                 return setFileUpload(false);
@@ -595,12 +626,16 @@ const Uploaded = ({ type }) => {
           </span>
         </div>
       )}
-      {( fileUpload ) && <div className={classes.overlay} onClick={()=>{
-      
-      return setFileUpload(false);
-    }}></div>}
+      {fileUpload && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            return setFileUpload(false);
+          }}
+        ></div>
+      )}
       <div className={classes.uploaded}>
-        <div>
+        {/* <div>
           <input
             onClick={() => {
               return setTemplateFileUpload(false);
@@ -633,9 +668,9 @@ const Uploaded = ({ type }) => {
           >
             Template File Upload
           </label>
-        </div>
+        </div> */}
         <span>
-          <label
+          {/* <label
             onClick={() => {
               if(!templateFileUpload){
                 return setFileUpload(true);}
@@ -664,11 +699,23 @@ const Uploaded = ({ type }) => {
               <FileDownloadOutlinedIcon className={classes.downloadicon} />
               Download Template
             </button>
-          )}
-          <button onClick={handleDownload}>
+          )} */}
+          {/* <PurpleButton>
+            <FileUploadOutlinedIcon className={classes.downloadicon} />
+            Edit Master 
+          </PurpleButton> */}
+          <PurpleButton>
+            <FileUploadOutlinedIcon className={classes.downloadicon} />
+            Upload Master Data
+          </PurpleButton>
+          <PurpleButton onClick={handleDownload}>
             <FileDownloadOutlinedIcon className={classes.downloadicon} />
-            Download Consolidated Reports
-          </button>
+            Download Template File
+          </PurpleButton>
+          <PurpleButton onClick={handleDownload}>
+            <FileDownloadOutlinedIcon className={classes.downloadicon} />
+            Download Consolidated Error Reports
+          </PurpleButton>
         </span>
 
         <table className={classes.table}>
@@ -722,14 +769,22 @@ const Uploaded = ({ type }) => {
                     <td>{val.No_of_Records}</td>
                     <td>{val.Processed_Records}</td>
                     <td>{val.Error_Records}</td>
-                    <th style={{
+                    <th
+                      style={{
                         display: "grid",
                         gridTemplateRows: "1fr 1fr",
                         gridTemplateColumns: "1fr 1fr",
-                      }}>
-                      <FileDownloadOutlinedIcon onClick={handleDownload} style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <FileDownloadOutlinedIcon onClick={handleDownload} style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <p onClick={handleDownload}>File</p> 
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p onClick={handleDownload}>File</p>
                       <p onClick={handleDownload}>Error</p>
                     </th>
                   </tr>
@@ -749,14 +804,20 @@ const Uploaded = ({ type }) => {
                     <td>{val.No_of_Records}</td>
                     <td>{val.Processed_Records}</td>
                     <td>{val.Error_Records}</td>
-                    <th style={{
+                    <th
+                      style={{
                         display: "grid",
                         gridTemplateRows: "1fr 1fr",
                         gridTemplateColumns: "1fr 1fr",
-                      }}>
-                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <p>File</p> 
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
                       <p>Error</p>
                     </th>
                   </tr>
@@ -775,14 +836,20 @@ const Uploaded = ({ type }) => {
                     <td>{val.No_of_Records}</td>
                     <td>{val.Processed_Records}</td>
                     <td>{val.Error_Records}</td>
-                    <th style={{
+                    <th
+                      style={{
                         display: "grid",
                         gridTemplateRows: "1fr 1fr",
                         gridTemplateColumns: "1fr 1fr",
-                      }}>
-                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <p>File</p> 
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
                       <p>Error</p>
                     </th>
                   </tr>
@@ -801,14 +868,86 @@ const Uploaded = ({ type }) => {
                     <td>{val.No_of_Records}</td>
                     <td>{val.Processed_Records}</td>
                     <td>{val.Error_Records}</td>
-                    <th style={{
+                    <th
+                      style={{
                         display: "grid",
                         gridTemplateRows: "1fr 1fr",
                         gridTemplateColumns: "1fr 1fr",
-                      }}>
-                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <FileDownloadOutlinedIcon style={{ margin: "auto", fontSize: "2.5rem" }}/>
-                      <p>File</p> 
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+            {type == "DocumentSupply" &&
+              documentSupply.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+              {type == "SectionMapping" &&
+              sectionmappingData.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
                       <p>Error</p>
                     </th>
                   </tr>

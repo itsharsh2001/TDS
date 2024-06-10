@@ -12,8 +12,42 @@ import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 
 import PurpleButton from "../UI/PurpleButton";
 import WhiteButton from "../UI/WhiteButton";
+import { Switch } from "@mui/material";
+import { blue, red } from "@mui/material/colors";
+// import { blue, red } from '@mui/material/colors';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { styled } from "@mui/system";
+// import { Height } from "@mui/icons-material";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+
+// Custom theme with primary (blue) and secondary (red) colors
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: blue[500],
+    },
+    secondary: {
+      main: red[500],
+    },
+  },
+});
+
+// Custom styled Switch component
+const CustomSwitch = styled(Switch)(({ theme, checked }) => ({
+  "& .MuiSwitch-switchBase.Mui-checked": {
+    color: checked ? blue[500] : red[500], // Blue color when switched on, red color when switched off
+  },
+  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+    backgroundColor: checked ? blue[500] : red[500], // Blue color for the track when switched on, red color when switched off
+  },
+  "& .MuiSwitch-switchBase.Mui-checked:hover": {
+    backgroundColor: checked ? blue[700] : red[700], // Lighter blue on hover when switched on, lighter red on hover when switched off
+  },
+}));
 
 const UserManagement = () => {
+  // const styles = useStyles();
+
   let arr = [1, 2, 3, 4, 5, 6];
   const [addUser, setAddUser] = useState(false);
   const [updateUser, setUpdateUser] = useState(false);
@@ -21,6 +55,7 @@ const UserManagement = () => {
 
   const [clientsToShow, setClientsToShow] = useState([]);
   const [rolesToShow, setRolesToShow] = useState([]);
+  const [branchToShow, setBranchToShow] = useState([]);
 
   const users = [
     {
@@ -88,18 +123,31 @@ const UserManagement = () => {
   const [newRoleAdding, setNewRoleAdding] = useState(false);
   const [newRoleCreated, setNewRoleCreated] = useState(false);
 
+  const [addedUser, setAddedUser] = useState(false);
+
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleSwitch = () => {
+    setIsOn(!isOn);
+  };
+
   // const [overlay, setOverlay] = useState(false);
   return (
     <>
-    {( addUser || updateUser || viewUser || roleManagement ) && <div className={classes.overlay} onClick={()=>{
-      setAddUser(false);
-      setViewUser(false);
-      setRoleManagement(false);
-      return setUpdateUser(false);
-    }}></div>}
+      {(addUser || updateUser || viewUser || roleManagement) && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            setAddUser(false);
+            setViewUser(false);
+            setRoleManagement(false);
+            return setUpdateUser(false);
+          }}
+        ></div>
+      )}
       {addUser && (
         <div className={classes.popup}>
-          <h5>Add User Details</h5>
+          <h5>Add User</h5>
           <section>
             <span>
               <label htmlFor="">Name</label>
@@ -131,7 +179,7 @@ const UserManagement = () => {
                 id=""
               />
             </span>
-            <span>
+            {/* <span style={{ opacity: "0", pointerEvents: "none" }}>
               <label htmlFor="">Phone Number</label>
               <input
                 onChange={(e) => {
@@ -145,7 +193,7 @@ const UserManagement = () => {
                 name=""
                 id=""
               />
-            </span>
+            </span> */}
             {/* <span>
               <label htmlFor="">Designation</label>
               <select name="" id="">
@@ -204,23 +252,6 @@ const UserManagement = () => {
                 </option>
               </select>
             </span>
-            <span
-              style={{
-                flexDirection: "row",
-                justifyContent: "left",
-                alignItems: "flex-end",
-              }}
-            >
-              {clientsToShow.length > 0
-                ? clientsToShow.map((val, idx) => {
-                    return <p id={idx}>{val}</p>;
-                  })
-                : ""}
-            </span>
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
-            </span>
             <span>
               <label htmlFor="">Role Assigned</label>
               <select
@@ -257,7 +288,66 @@ const UserManagement = () => {
                 </option>
               </select>
             </span>
-            <span
+            {/* <span
+              style={{
+                flexDirection: "row",
+                justifyContent: "left",
+                alignItems: "flex-end",
+              }}
+            >
+              {clientsToShow.length > 0
+                ? clientsToShow.map((val, idx) => {
+                    return <p id={idx}>{val}</p>;
+                  })
+                : ""}
+            </span> */}
+            <span>
+              <label htmlFor="">Branch Assigned</label>
+              <select
+                onChange={(e) => {
+                  return setBranchToShow([...branchToShow, e.target.value]);
+                }}
+                name=""
+                id=""
+              >
+                <option value="">Select Branch</option>
+                <option
+                  onClick={(e) => {
+                    return setBranchToShow([...branchToShow, e.target.value]);
+                  }}
+                  value="Head Office"
+                >
+                  Head Office
+                </option>
+                <option
+                  onClick={(e) => {
+                    return setBranchToShow([...branchToShow, e.target.value]);
+                  }}
+                  value="Sahibabad Office"
+                >
+                  Sahibabad Office
+                </option>
+                <option
+                  onClick={(e) => {
+                    return setBranchToShow([...branchToShow, e.target.value]);
+                  }}
+                  value="Faridabad Office"
+                >
+                  Faridabad Office
+                </option>
+              </select>
+            </span>
+
+            <PurpleButton
+              onClick={() => {
+                return setAddedUser(true);
+              }}
+              style={{ height: "4rem!important" }}
+            >
+              Submit
+            </PurpleButton>
+
+            {/* <span
               style={{
                 flexDirection: "row",
                 justifyContent: "left",
@@ -273,19 +363,43 @@ const UserManagement = () => {
             <span style={{ opacity: "0", pointerEvents: "none" }}>
               <label htmlFor="">----</label>
               <input type="text" placeholder="----" name="" id="" />
-            </span>
+            </span> */}
           </section>
+
+          {addedUser && (
+            <table className={classes.table}>
+              <tbody>
+                <tr>
+                  <th>Client</th>
+                  <th>Branch</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>ABC Motors</td>
+                  <td>Mumbai</td>
+                  <td>Manager</td>
+                  <td>
+                    <CloseOutlinedIcon style={{ color: "red" }} />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          )}
+
           <span>
             <PurpleButton
               onClick={() => {
                 setNewUserRow(true);
+                setAddedUser(false);
                 setAddUser(false);
               }}
             >
-              Create
+              Save
             </PurpleButton>
             <WhiteButton
               onClick={() => {
+                setAddedUser(false);
                 setAddUser(false);
               }}
             >
@@ -296,44 +410,68 @@ const UserManagement = () => {
       )}
       {updateUser && (
         <div className={classes.popup}>
-          <h5>Update User Details</h5>
-          <section>
+          <h5>Edit User</h5>
+          <section style={{gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
             <span>
               <label htmlFor="">Name</label>
-              <input type="text" placeholder="Harsh" name="" id="" />
-            </span>
-            <span>
-              <label htmlFor="">Email</label>
-              <input type="text" placeholder="accounts@abc.com" name="" id="" />
-            </span>
-            <span>
-              <label htmlFor="">Phone Number</label>
-              <input type="text" placeholder="1234567890" name="" id="" />
-            </span>
-            {/* <span>
-              <label htmlFor="">Designation</label>
-              <select name="" id="">
-                <option value="">Admin</option>
-                <option value="">Designation 1</option>
-                <option value="">Designation 2</option>
-                <option value="">Designation 3</option>
-              </select>
-            </span>
-            <span>
-              <label htmlFor="">Organization</label>
               <input
-              disabled
+                onChange={(e) => {
+                  return setNewUser((prevState) => ({
+                    ...prevState,
+                    name: e.target.value,
+                  }));
+                }}
                 type="text"
-                placeholder="TCS"
+                placeholder="Ganesh Gupta"
                 name=""
                 id=""
               />
             </span>
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
-            </span> */}
-
+            <span>
+              <label htmlFor="">Email</label>
+              <input
+                onChange={(e) => {
+                  return setNewUser((prevState) => ({
+                    ...prevState,
+                    email: e.target.value,
+                  }));
+                }}
+                type="text"
+                placeholder="ganesh.gupta@in.gt.com"
+                name=""
+                id=""
+              />
+            </span>
+            <span style={{display:'grid', gridTemplateRows:'1fr 1fr', gridTemplateColumns:'0.33fr 0.33fr', gridColumn:'span 2'}}>
+              {/* <h6>Admin/\</h6> */}
+              <label htmlFor="">Admin</label>
+              <label htmlFor=""></label>
+              <label
+                style={{ display: "inline-flex", alignItems: "center",  }}
+                htmlFor="Yes"
+              >
+                <input
+                  style={{ marginRight: "0.75rem" }}
+                  type="radio"
+                  name="Yes"
+                  id="Yes"
+                />
+                Yes
+              </label>
+              <label
+                style={{ display: "inline-flex", alignItems: "center" }}
+                htmlFor="No"
+              >
+                <input
+                  checked
+                  style={{ marginRight: "0.75rem" }}
+                  type="radio"
+                  name="No"
+                  id="No"
+                />
+                No
+              </label>
+            </span>
             <span>
               <label htmlFor="">Client Assigned</label>
               <select
@@ -370,24 +508,6 @@ const UserManagement = () => {
                 </option>
               </select>
             </span>
-            <span
-              style={{
-                flexDirection: "row",
-                justifyContent: "left",
-                alignItems: "flex-end",
-              }}
-            >
-              {clientsToShow.length > 0
-                ? clientsToShow.map((val, idx) => {
-                    return <p id={idx}>{val}</p>;
-                  })
-                : ""}
-              <p>DEF_Total_Gas_Ltd</p>
-            </span>
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
-            </span>
             <span>
               <label htmlFor="">Role Assigned</label>
               <select
@@ -424,36 +544,96 @@ const UserManagement = () => {
                 </option>
               </select>
             </span>
-            <span
-              style={{
-                flexDirection: "row",
-                justifyContent: "left",
-                alignItems: "flex-end",
+            <span>
+              <label htmlFor="">Branch Assigned</label>
+              <select
+                onChange={(e) => {
+                  return setBranchToShow([...branchToShow, e.target.value]);
+                }}
+                name=""
+                id=""
+              >
+                <option value="">Select Branch</option>
+                <option
+                  onClick={(e) => {
+                    return setBranchToShow([...branchToShow, e.target.value]);
+                  }}
+                  value="Head Office"
+                >
+                  Head Office
+                </option>
+                <option
+                  onClick={(e) => {
+                    return setBranchToShow([...branchToShow, e.target.value]);
+                  }}
+                  value="Sahibabad Office"
+                >
+                  Sahibabad Office
+                </option>
+                <option
+                  onClick={(e) => {
+                    return setBranchToShow([...branchToShow, e.target.value]);
+                  }}
+                  value="Faridabad Office"
+                >
+                  Faridabad Office
+                </option>
+              </select>
+            </span>
+
+            <PurpleButton
+              onClick={() => {
+                return setAddedUser(true);
               }}
+              style={{ height: "4rem!important" }}
             >
-              {rolesToShow.length > 0
-                ? rolesToShow.map((val, idx) => {
-                    return <p id={idx}>{val}</p>;
-                  })
-                : ""}
-              <p>Admin</p>
-            </span>
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
-            </span>
+              Submit
+            </PurpleButton>
           </section>
+
+          {
+            <table className={classes.table}>
+              <tbody>
+                <tr>
+                  <th>Client</th>
+                  <th>Branch</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>ABC Motors</td>
+                  <td>Mumbai</td>
+                  <td>Manager</td>
+                  <td>
+                    <CloseOutlinedIcon style={{ color: "red" }} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>ABC Chemical</td>
+                  <td>Mumbai</td>
+                  <td>Manager</td>
+                  <td>
+                    <CloseOutlinedIcon style={{ color: "red" }} />
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          }
+
           <span>
             <PurpleButton
               onClick={() => {
-                return setUpdateUser(false);
+                setNewUserRow(true);
+                // setAddUser(false);
+                setUpdateUser(false);
               }}
             >
-              Update
+              Submit
             </PurpleButton>
             <WhiteButton
               onClick={() => {
-                return setUpdateUser(false);
+                setUpdateUser(false);
               }}
             >
               Close
@@ -463,120 +643,120 @@ const UserManagement = () => {
       )}
       {viewUser && (
         <div className={classes.popup}>
-          <h5>View User Details</h5>
+          <h5>View User</h5>
           <section>
             <span>
               <label htmlFor="">Name</label>
-              <input disabled type="text" placeholder="Harsh" name="" id="" />
+              <input
+                onChange={(e) => {
+                  return setNewUser((prevState) => ({
+                    ...prevState,
+                    name: e.target.value,
+                  }));
+                }}
+                type="text"
+                placeholder="Ganesh Gupta"
+                name=""
+                id=""
+                disabled
+              />
             </span>
             <span>
               <label htmlFor="">Email</label>
               <input
+                onChange={(e) => {
+                  return setNewUser((prevState) => ({
+                    ...prevState,
+                    email: e.target.value,
+                  }));
+                }}
+                type="text"
+                placeholder="ganesh.gupta@in.gt.com"
+                name=""
+                id=""
                 disabled
-                type="text"
-                placeholder="accounts@abc.com"
-                name=""
-                id=""
               />
             </span>
-            <span>
-              <label htmlFor="">Phone Number</label>
-              <input
-                disabled
-                type="text"
-                placeholder="1234567890"
-                name=""
-                id=""
-              />
-            </span>
-            {/* <span>
-              <label htmlFor="">Designation</label>
-              <select disabled name="" id="">
-                <option value="">Admin</option>
-                <option value="">Designation 1</option>
-                <option value="">Designation 2</option>
-                <option value="">Designation 3</option>
-              </select>
-            </span>
-            <span>
-              <label htmlFor="">Organization</label>
-              <input
-              disabled
-                type="text"
-                placeholder="TCS"
-                name=""
-                id=""
-              />
-            </span>
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
-            </span> */}
-
-            <span>
-              <label htmlFor="">Client Assigned</label>
-              <select disabled name="" id="">
-                <option value="">Select Client</option>
-                <option value="">Client 1</option>
-                <option value="">Client 2</option>
-                <option value="">Client 3</option>
-              </select>
-            </span>
-
-            <span
-              style={{
-                flexDirection: "row",
-                justifyContent: "left",
-                alignItems: "flex-end",
-              }}
-            >
-              <p>ABC_Chemicals_Limited</p>
-              <p>DEF_Ports_Limited</p>
-              <p>DEF_Enterprises</p>
-            </span>
-
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
-            </span>
-
-            <span>
-              <label htmlFor="">Role Assigned</label>
-              <select disabled name="" id="">
-                <option value="">Select Role</option>
-                <option value="">Role 1</option>
-                <option value="">Role 2</option>
-                <option value="">Role 3</option>
-              </select>
-            </span>
-            <span
-              style={{
-                flexDirection: "row",
-                justifyContent: "left",
-                alignItems: "flex-end",
-              }}
-            >
-              <p>COP_Executive</p>
-              <p>Admin</p>
-              <p>Business_User</p>
-            </span>
-            <span style={{ opacity: "0", pointerEvents: "none" }}>
-              <label htmlFor="">----</label>
-              <input type="text" placeholder="----" name="" id="" />
+            <span style={{display:'grid', gridTemplateRows:'1fr 1fr', gridTemplateColumns:'0.33fr 0.33fr'}}>
+              {/* <h6>Admin/\</h6> */}
+              <label htmlFor="">Admin</label>
+              <label htmlFor=""></label>
+              <label
+                style={{ display: "inline-flex", alignItems: "center" }}
+                htmlFor="Yes"
+              >
+                <input
+                  style={{ marginRight: "0.75rem" }}
+                  type="radio"
+                  name="Yes"
+                  id="Yes"
+                />
+                Yes
+              </label>
+              <label
+                style={{ display: "inline-flex", alignItems: "center" }}
+                htmlFor="No"
+              >
+                <input
+                  checked
+                  style={{ marginRight: "0.75rem" }}
+                  type="radio"
+                  name="No"
+                  id="No"
+                />
+                No
+              </label>
             </span>
           </section>
+
+          {
+            <table className={classes.table}>
+              <tbody>
+                <tr>
+                  <th>Client</th>
+                  <th>Branch</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>ABC Motors</td>
+                  <td>Mumbai</td>
+                  <td>Manager</td>
+                  <td>
+                    <CloseOutlinedIcon style={{ color: "red" }} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>ABC Chemical</td>
+                  <td>Mumbai</td>
+                  <td>Manager</td>
+                  <td>
+                    <CloseOutlinedIcon style={{ color: "red" }} />
+                  </td>
+                </tr>
+                {/* <tr>
+            <td>ABC Motors</td>
+            <td>Mumbai</td>
+            <td>Manager</td>
+            <td><CloseOutlinedIcon style={{color:'red'}}/></td>
+          </tr> */}
+              </tbody>
+            </table>
+          }
+
           <span>
-            <PurpleButton
-              customStyle={{ opacity: "0.5" }}
-              onClick={() => {
-                return setViewUser(false);
-              }}
-            >
-              Update
-            </PurpleButton>
+            {/* <PurpleButton
+            onClick={() => {
+              setNewUserRow(true);
+              // setAddUser(false);
+              setUpdateUser(false)
+            }}
+          >
+            Submit
+          </PurpleButton> */}
             <WhiteButton
               onClick={() => {
-                return setViewUser(false);
+                setViewUser(false);
               }}
             >
               Close
@@ -585,12 +765,10 @@ const UserManagement = () => {
         </div>
       )}
 
-      <div
+      {/* <div
         style={roleManagement ? { right: "55%" } : { right: "0" }}
         onClick={() => {
-          // setOverlay((prevState) => {
-          //   return !prevState;
-          // });
+          
           return setRoleManagement((prevState) => {
             return !prevState;
           });
@@ -602,7 +780,7 @@ const UserManagement = () => {
         ) : (
           <KeyboardDoubleArrowLeftIcon />
         )}
-      </div>
+      </div> */}
 
       <div
         style={
@@ -695,9 +873,14 @@ const UserManagement = () => {
               {arr.map((val, idx) => {
                 return (
                   <tr id={idx}>
-                    <td>{val==1 && "Dashboard"}{val==2 && "Clients"}
-                    {val==3 && "User Management"}{val==4 && "Masters"}
-                    {val==5 && "Transactions"}{val==6 && "Others"}</td>
+                    <td>
+                      {val == 1 && "Dashboard"}
+                      {val == 2 && "Clients"}
+                      {val == 3 && "User Management"}
+                      {val == 4 && "Masters"}
+                      {val == 5 && "Transactions"}
+                      {val == 6 && "Others"}
+                    </td>
                     <td>
                       <input type="checkbox" checked name="" id="" />
                     </td>
@@ -778,7 +961,9 @@ const UserManagement = () => {
                     }}
                     style={{ cursor: "pointer", color: "#FFBB59" }}
                   />
-                  <DeleteForeverIcon style={{ cursor: "pointer", color: "red" }}/>
+                  <DeleteForeverIcon
+                    style={{ cursor: "pointer", color: "red" }}
+                  />
                   {/* <DeleteForeverIcon
                       style={{ cursor: "pointer", color: "#C24200" }}
                     /> */}
@@ -798,7 +983,7 @@ const UserManagement = () => {
                         setUpdateUser(false);
                         return setViewUser(true);
                       }}
-                      style={{ cursor: "pointer", color: "#00ADA3" }}
+                      style={{ cursor: "pointer", color: "#4f2d7f" }}
                     />
                     <EditIcon
                       onClick={() => {
@@ -808,8 +993,19 @@ const UserManagement = () => {
                       }}
                       style={{ cursor: "pointer", color: "#FFBB59" }}
                     />
-                    <DeleteForeverIcon style={{ cursor: "pointer", color: "red" }}/>
-                  
+                    {/* <DeleteForeverIcon style={{ cursor: "pointer", color: "red" }}/> */}
+                    {/* <ThemeProvider theme={theme}> */}
+                    {/* <CustomSwitch checked={isOn} onChange={toggleSwitch} /> */}
+                    {/* <Switch
+                        checked={isOn}
+                        onChange={toggleSwitch}
+                        className={styles.root}
+                        // color={isOn ? "primary" : "secondary"}
+                      /> */}
+                    {/* <span style={{ color: isOn ? blue[500] : red[500] }}>
+                      {isOn ? "ON" : "OFF"}
+                    </span> */}
+                    {/* </ThemeProvider> */}
                     {/* <DeleteForeverIcon
                       style={{ cursor: "pointer", color: "#C24200" }}
                     /> */}

@@ -1096,7 +1096,7 @@ const ClientPositionReport = (props) => {
             return setViewData(true);
           }}
         >
-          View Data
+          Review Data
         </li>
         {/* <li>Annual Compliances</li> */}
       </ul>
@@ -1338,119 +1338,120 @@ const ClientPositionReport = (props) => {
                   "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
               }}
             >
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].VendorCode}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].VendorName}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].PostingDate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].DocumentNumber}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].DocumentDate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].LineNumber}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].OriginalDocumentNumber}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].OriginalDocumentDate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].DocumentType}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].SupplyType}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].HSN_SAC_Code}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].Description}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].GLAccountCode}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].GLAccountName}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].PONumber}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].PODescription}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].TaxableValue}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].CGSTRate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].SGSTRate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].IGSTRate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].CGSTAmount}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].SGSTAmount}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].IGSTAmount}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].TotalGST}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].InvoiceValue}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].TDSTaxCodeERP}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].TDSRate}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].TDSAmount}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].HSN_SAC_Code}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].Vendor}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].InvoiceDescription}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].PODescription}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].GLCode}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].SystemDeterminedSection}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {viewDataTable[6].SectionMismatch}
               </td>
 
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 <select
                   onChange={(e) => {
                     setSelectedAction(e.target.value);
                     setActivateReason(true);
                     return setRowColor(true);
                   }}
+                  style={rowColor ? { color: "#00A7B5" } : {}}
                   name=""
                   id=""
                 >
@@ -1469,16 +1470,16 @@ const ClientPositionReport = (props) => {
                   </option>
                 </select>
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {activateReason ? (
-                  <input placeholder="Type Reason" type="text" name="" id="" />
+                  <input  style={rowColor ? { color: "#00A7B5" } : {}} placeholder="Type Reason" type="text" name="" id="" />
                 ) : (
                   "--"
                 )}
               </td>
-              <td style={rowColor ? { background: "#B9ABCC" } : {}}>
+              <td style={rowColor ? { color: "#00A7B5" } : {}}>
                 {selectedAction == "modify" ? (
-                  <select name="" id="">
+                  <select style={rowColor ? { color: "#00A7B5" } : {}} name="" id="">
                     <option value="">Select Modification</option>
                     <option value="">
                       <input type="radio" name="" id="" />

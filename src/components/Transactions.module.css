@@ -1,25 +1,13 @@
 .transactions {
-  /* width: 76.5%; */
   height: 95%;
   width: 100%;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  /* border-radius: 8px; */
   background: #fff;
   transition: width 0.3s;
-  /* padding-top: 1%;W */
-  /* padding-bottom: 1%; */
-  /* padding-left: 1%; */
-  /* padding: 1%; */
-
-  /* margin-right: 1%; */
   margin-top: 1%;
-  /* margin-bottom: 2.5%; */
-  /* width: 90%;  */
-  /* height: 95%;  */
   overflow-y: scroll;
   scroll-behavior: smooth;
-  /* background-color: aqua; */
   transition: flex 0.5s;
 }
 
@@ -45,7 +33,7 @@
   font-size: 1.8rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
   list-style: none;
   height: 100%;
   display: flex;
@@ -53,7 +41,6 @@
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  /* padding: 0.5rem; */
   cursor: pointer;
 }
 
@@ -67,16 +54,12 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* padding-left: 2rem; */
-  /* padding-top: 2rem; */
   padding-bottom: 2rem;
-  /* margin-bottom: 4rem; */
   height: 60px;
   background: #f9f5ff;
 }
 
 .transactions > div select {
-  /* border-radius: 5px 5px 0px 0px; */
   height: 100%;
   background: #fff;
   color: #b3b3b3;
@@ -85,7 +68,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 20px;
   border: none;
   outline: none;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
@@ -95,9 +78,7 @@
 
 .transactions section {
   width: 96%;
-  /* margin: auto; */
   height: 140px;
-  /* padding: 1%; */
   margin-top: 1%;
   margin-left: 2rem;
   margin-bottom: 3%;
@@ -117,11 +98,11 @@
   border: 2px solid var(--GT-Purple, #4f2d7f);
   padding: 5.5%;
   cursor: pointer;
-  /* margin-bottom: 2%; */
 }
 
 .transactions section span p {
-  color: var(--GT-Purple, #4f2d7f);
+  /* color: var(--GT-Purple, #4f2d7f); */
+  color: white;
   font-feature-settings: "clig" off, "liga" off;
   font-family: "GT-Walsheim-Pro-Regular";
   font-size: 2.25rem;
@@ -132,9 +113,9 @@
 }
 
 .icon {
+  border-radius: 50%;
+  padding: 0.5rem;
   color: #4f2d7f;
-  font-size: 3.5rem !important;
-  /* height: 3rem!important; */
-  /* width: 3rem!important; */
-  /* margin-right: 5%; */
+  background-color: white;
+  font-size: 4rem !important;
 }

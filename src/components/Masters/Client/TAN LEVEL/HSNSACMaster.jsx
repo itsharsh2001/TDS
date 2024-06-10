@@ -17,10 +17,10 @@ const HSNSACMaster = (props) => {
        <span>
         {/* <a onClick={(e)=>{e.preventDefault(); return props.tanLevelMasterTypeSetter('none')}} href="">Client Level Master</a>
         <ChevronRightIcon className={classes.righticon}/> */}
-        <a onClick={(e)=>{e.preventDefault(); return props.tanLevelMasterTypeSetter('none')}} href="">TAN Level Masters</a>
+        <a onClick={(e)=>{e.preventDefault(); return props.tanLevelMasterTypeSetter('none')}} href="">Client Masters</a>
         <ChevronRightIcon className={classes.righticon} />
-        <a onClick={(e)=>{e.preventDefault(); return props.tanLevelMasterTypeSetter('')}} href="">Head Office</a>
-        <ChevronRightIcon className={classes.righticon} />
+        {/* <a onClick={(e)=>{e.preventDefault(); return props.tanLevelMasterTypeSetter('')}} href="">Head Office</a> */}
+        {/* <ChevronRightIcon className={classes.righticon} /> */}
         <a onClick={(e)=>{e.preventDefault();}} href="">HSN/SAC Master</a>
       </span>
       <ul>

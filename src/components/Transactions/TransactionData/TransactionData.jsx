@@ -807,7 +807,8 @@ const TransactionData = (props) => {
                   );
                 })
               ) : (
-                <div className={classes.emptyDiv}>No Deleted Records</div>
+                <img src="/DeletedRecords.png" alt="" />
+                // <div className={classes.emptyDiv}>No Deleted Records</div>
               )}
 
               {(datatype == "invoice" && props.clientIdentity=='ABC Motors Limited') ? (
@@ -845,7 +846,8 @@ const TransactionData = (props) => {
                   );
                 })
               ) : (
-                <div className={classes.emptyDiv}>No Deleted Records</div>
+                <img src="/DeletedRecords.png" alt="" />
+                // <div className={classes.emptyDiv}>No Deleted Records</div>
               )}
             </tbody>
           </table>
@@ -1528,13 +1530,13 @@ const TransactionData = (props) => {
                       >
                         <FileDownloadOutlinedIcon
                         onClick={handleDownload}
-                          style={{ margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
+                          style={{color:'#00A7B5', margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
-                          style={{ margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
+                          style={{color:'#00A7B5', margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
                         />{" "}
                         <DeleteForeverIcon
-                          style={{ margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
+                          style={{color:'#00A7B5', margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
                         />
                         <p onClick={handleDownload}>Report</p>
                         <p>Reprocess</p>
@@ -1673,25 +1675,25 @@ const TransactionData = (props) => {
                     <EditIcon className={classes.icon2} />
                   </td> */}
                       <td
-                        // style={{
-                        //   display: "grid",
-                        //   gridTemplateRows: "1fr 1fr",
-                        //   gridTemplateColumns: "1fr 1fr 1fr",
-                        // }}
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr",
+                        }}
                       >
                         <FileDownloadOutlinedIcon
                         onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        {/* <FileDownloadOutlinedIcon
+                        <FileDownloadOutlinedIcon onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
-                        <DeleteForeverIcon
+                        {/* <DeleteForeverIcon
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         /> */}
+                        <p onClick={handleDownload}>File</p>
                         <p onClick={handleDownload}>Report</p>
-                        {/* <p>Reprocess</p>
-                        <p>Delete</p> */}
+                        {/* <p>Delete</p> */}
                       </td>
                     </tr>
                   );

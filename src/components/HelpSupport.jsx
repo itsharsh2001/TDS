@@ -23,32 +23,30 @@ function HelpSupport({sidebar}) {
           <h5>
             Frequently Asked Questions <a onClick={(e)=>{e.preventDefault()}} href="">View All</a>{" "}
           </h5>
-          <FAQ />
-          <FAQ />
-          <FAQ />
-          <FAQ />
-          <FAQ />
-          <FAQ />
-          <FAQ />
-          <FAQ />
+          <FAQ title='What is Tax Position Master' description='Ans: Tax Position Master is a TAN Level Master that contains all the relevant tax positions basis which critical functionality such as section determination, tax liability determination, etc., of the application shall be determined.' />
+          <FAQ title='How to upload Vendor Master' description='Ans: Tax Position Master is a TAN Level Master that contains all the relevant tax positions basis which critical functionality such as section determination, tax liability determination, etc., of the application shall be determined.' />
+          <FAQ title='How to upload PO Master' description='Ans: Tax Position Master is a TAN Level Master that contains all the relevant tax positions basis which critical functionality such as section determination, tax liability determination, etc., of the application shall be determined.' />
+          <FAQ title='How to upload GL Master' description='Ans: Tax Position Master is a TAN Level Master that contains all the relevant tax positions basis which critical functionality such as section determination, tax liability determination, etc., of the application shall be determined.' />
+          <FAQ title='How to upload HSN SAC Master' description='Ans: Tax Position Master is a TAN Level Master that contains all the relevant tax positions basis which critical functionality such as section determination, tax liability determination, etc., of the application shall be determined.' />
+          <FAQ title='How to update Tax Position Master' description='Ans: Tax Position Master is a TAN Level Master that contains all the relevant tax positions basis which critical functionality such as section determination, tax liability determination, etc., of the application shall be determined.' />
         </section>
         <span>
           <h5>
             Templates <a onClick={(e)=>{e.preventDefault()}} href="">View All</a>{" "}
           </h5>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>Vendor Master</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>PO Master</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>GL Master</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>Keyword Master</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>Document Master</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>HSN/SAC Master</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>Nature of Payment Master</h4>
+          {/* <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
           <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
           <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
           <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
           <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
-          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4>
+          <h4><SystemUpdateAltIcon className={classes.icon}/>Lorem ipsum dolor sit amet?</h4> */}
         </span>
       </div>
     </div>

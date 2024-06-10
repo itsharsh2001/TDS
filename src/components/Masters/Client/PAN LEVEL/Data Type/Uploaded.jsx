@@ -567,7 +567,7 @@ const Uploaded = ({ type }) => {
       return setFileUpload(false);
     }}></div>}
       <div className={classes.uploaded}>
-        <div>
+        {/* <div>
           <input onClick={() => {
               return setTemplateFileUpload(false);
             }} type="radio" name="fileupload" id="custom" />
@@ -580,9 +580,9 @@ const Uploaded = ({ type }) => {
           <label onClick={() => {
               return setTemplateFileUpload(true);
             }} htmlFor="template">Template File Upload</label>
-        </div>
+        </div> */}
         <span>
-          <label
+          {/* <label
             onClick={() => {
               if(!templateFileUpload){
                 setFileUpload(true);
@@ -600,12 +600,10 @@ const Uploaded = ({ type }) => {
               name=""
               id=""
             />
-          </label>
-          {templateFileUpload && (
+          </label> */}
+          {/* {templateFileUpload && (
             <button
               style={{
-                // marginRight: "-15rem",
-                // marginLeft: "auto",
               }}
               className={classes.leftbutton}
               onClick={handleDownload}
@@ -613,7 +611,15 @@ const Uploaded = ({ type }) => {
               <FileDownloadOutlinedIcon className={classes.downloadicon} />
               Download Template
             </button>
-          )}
+          )} */}
+          <button>
+            <FileUploadOutlinedIcon className={classes.downloadicon}/>
+            Upload Template File
+          </button>
+          <button onClick={handleDownload}>
+            <FileDownloadOutlinedIcon className={classes.downloadicon} />
+            Download Template File
+          </button>
           <button onClick={handleDownload}>
             <FileDownloadOutlinedIcon className={classes.downloadicon} />
             Download Consolidated Reports

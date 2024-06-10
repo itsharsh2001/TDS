@@ -1,25 +1,425 @@
-.admin{
-    /* min-height: 100vh; */
-    /* width: auto; */
-    /* height: auto; */
-    /* padding-left: 7.5%; */
-    /* padding-right: 7.5%; */
-    display: flex;
-    /* grid-template-columns: 50% 50%; */
-    /* grid-template-rows: 50% 50%; */
-    flex-direction: column;
-    justify-content: space-between;
-    /* background-color: #f0f0f0; */
-    /* grid-template-columns: 20% 80%; */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  animation: pop-in 0.3s ease-in-out;
 }
 
-.admin span{
-    /* width: 100%; */
-    /* padding-left: 7.5%; */
-    /* padding-right: 7.5%; */
-    display: flex;
-    /* grid-template-columns: 50% 50%; */
-    /* grid-template-rows: 50% 50%; */
-    flex-direction: row;
-    /* height: 90%; */
+.admin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background: url("../../public/Taxbro.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+}
+
+.admin > img {
+  height: 450px;
+}
+
+.admin section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(79, 45, 127, 0.4);
+  height: 520px;
+  width: 450px;
+  border-radius: 1.5rem;
+  padding: 2rem;
+}
+
+.admin section img {
+  height: 5rem;
+}
+
+.admin section h1 {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 2rem;
+}
+
+.admin section h2 {
+  color: #fff;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 41px; 
+  letter-spacing: 0.374px;
+  margin-top: 2rem;
+}
+
+.admin section h3 {
+  color: #fff;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; 
+  letter-spacing: -0.24px;
+  margin-top: 2rem;
+}
+
+.admin section button {
+  width: 80%;
+  height: 4rem;
+  color: var(--White, #fff);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  margin-top: 2rem;
+}
+
+.admin section > input {
+  width: 80%;
+  height: 4rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f9f5ff;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  color: #747474;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.admin section > input::placeholder {
+  color: #747474;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.admin section div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.admin section div label {
+  color: #fff;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 27.5%;
+}
+
+.admin section div label input {
+  
+}
+
+.admin section div p {
+  color: #fff;
+  text-align: right;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.24px;
+  cursor: pointer;
+}
+
+.otherbutton {
+  border-radius: 8px;
+  border: 2px solid #725799;
+
+  background: #725799;
+}
+
+.otherbutton img {
+  height: 70% !important;
+  margin-right: 1rem;
+}
+
+.popup {
+  position: fixed;
+  left: 32.5%;
+  width: 35%;
+  height: 540px;
+  top: calc((100% - 540px) / 2);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  justify-content: space-between;
+  --shadow-color: 0deg 0% 59%;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
+  box-shadow: 0 0 500px 500px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: #fff;
+  animation: pop-in 0.3s ease-in-out;
+}
+
+.normalimg {
+  display: block;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.logoimg{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    /* height: 4rem; */
+}
+/* 
+.popup img:nth-child(0) {
+    display: block;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  } */
+
+.popup h4 {
+  color: var(--GT-Purple, #4f2d7f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.popup section {
+  border-radius: 5px;
+  background: #f9f5ff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.popup h6 {
+  color: var(--GT-Purple, #4f2d7f);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.popup div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.popup div span {
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.popup div span label {
+  color: var(--shades-of-gray-jet, #333);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.popup div span input {
+  height: 15px;
+  width: 15px;
+  margin-right: 1rem;
+}
+
+.popup input {
+  border: none;
+  outline: none;
+  padding: 1.5rem;
+  border-radius: 8px;
+ 
+  width: 80%;
+  height: 3rem;
+  
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+
+  border-radius: 5px 5px 0px 0px;
+  border: 0.5px solid #a7a7a7;
+  background: #f2f5ff;
+  color: var(--Primary-Colors-Eerie-Black, #222020);
+ 
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.popup button {
+  border-radius: 8px;
+  background: var(--GT-Purple, #4f2d7f);
+  width: 80%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border: none;
+  outline: none;
+
+  color: var(--White, #fff);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; 
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.popup div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.popup div button {
+  border-radius: 8px;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  border: none;
+  outline: none;
+
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup div button:nth-child(1) {
+  background: var(--GT-Purple, #4f2d7f);
+  color: white;
+}
+
+.popup div button:nth-child(2) {
+  background: white;
+  color: #4f2d7f;
+}
+
+.popup h5 {
+  color: #00a7b5;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup h1 {
+  color: #a5a5a5;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+}
+
+.lefticon {
+  font-size: 2.5rem;
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

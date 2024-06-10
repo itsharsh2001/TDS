@@ -632,7 +632,7 @@ const ViewMaster = ({ type, clientIdentity }) => {
           Download Master Data
         </button>
 
-        {(type == "Vendor" || type == "LDC") && (
+        {/* {(type == "Vendor" || type == "LDC") && (
           <button
             onClick={() => {
               return setOthersPopup(true);
@@ -642,7 +642,7 @@ const ViewMaster = ({ type, clientIdentity }) => {
             {type == "Vendor" && "Specified Person Check"}
             {type == "LDC" && "LDC Validations"}
           </button>
-        )}
+        )} */}
         <table className={classes.table}>
           <tbody>
             <tr style={rowStyle}>

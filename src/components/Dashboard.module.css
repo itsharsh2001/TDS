@@ -32,7 +32,7 @@
 .dashboard section span {
   width: 90%;
   /* border-radius: 4px; */
-  background: #fff;
+  /* background: #fff; */
   /* elevation/bottom-center */
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
@@ -42,10 +42,51 @@
   flex-direction: column;
   /* justify-content: space-between; */
   padding: 5%;
+  /* color: #fff; */
+  border-radius: 5px;
+}
+
+.dashboard section span:nth-child(1){
+  background:url('../../public/blue.png');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dashboard section span:nth-child(2){
+  background:url('../../public/green.png');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+.dashboard section span:nth-child(3){
+  background:url('../../public/red.png');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dashboard section span:nth-child(4){
+  background:url('../../public/orange.png');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dashboard section span:nth-child(5){
+  background:url('../../public/gray.png');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dashboard section span:nth-child(6){
+  background:url('../../public/purple.png');
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .dashboard section span h2 {
-  color: #1e375c;
+  /* color: #1e375c; */
+  color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: 'GT-Walsheim-Pro-Regular';
   font-size: 2rem;
@@ -55,7 +96,7 @@
 }
 
 .dashboard section span p {
-  color: #000;
+  color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: 'GT-Walsheim-Pro-Regular';
   font-size: 1.2rem;
@@ -563,4 +604,9 @@
 
 .sidebardiv > div::-webkit-scrollbar {
   display: none;
+}
+
+
+.cardbackground{
+  /* background: url('../../public/purple.png'); */
 }

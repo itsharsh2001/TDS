@@ -14,8 +14,8 @@ const Navbar = ({sidebarToggler,setActiveModule}) => {
            <img onClick={()=>{return setActiveModule('dashboard')}} src="/Logo.png" alt="" srcSet="" /> 
         </div>
         <section>
-            <img src="/user.png" alt="" srcSet="" />
-            <h4>Ganesh Gupta</h4>
+            <img onClick={()=>{return setActiveModule('profile')}} src="/user.png" alt="" srcSet="" />
+            <h4 onClick={()=>{return setActiveModule('profile')}}>Ganesh Gupta</h4>
             <LoginOutlinedIcon style={{fontSize:'4rem',color:'#ffffff',padding:'0.75rem', background:'#4F2D7F', borderRadius:'50%'}}/>
         </section>
     </nav>
