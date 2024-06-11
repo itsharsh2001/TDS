@@ -79,7 +79,7 @@ const Dashboard = ({sidebar}) => {
         </section>
       )}
 
-      {editing && (
+      {/* {editing && (
         <section style={editing ? customStyle : {}}>
           <span>
             <p>No. of Clients</p>
@@ -106,7 +106,7 @@ const Dashboard = ({sidebar}) => {
             <h2>189</h2>
           </span>
         </section>
-      )}
+      )} */}
 
       <div className={classes.selects}>
         <span onClick={()=>{
