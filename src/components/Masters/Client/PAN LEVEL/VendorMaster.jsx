@@ -30,7 +30,7 @@ const VendorMaster = (props) => {
         <li style={dataType=='specified'?hoverStyle:{}} onClick={()=>setDataType('specified')}>Specified Person Check</li>
       </ul>
 
-      {dataType=='uploaded' && <Uploaded type = 'Vendor' />}
+      {dataType=='uploaded' && <Uploaded clientIdentity={props.clientIdentity} type = 'Vendor' />}
       {dataType=='viewmaster' && <ViewMaster clientIdentity={props.clientIdentity} type = 'Vendor'/>}
       {dataType=='specified' && <Specified clientIdentity={props.clientIdentity} type = 'Vendor'/>}
     </div>

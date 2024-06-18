@@ -12,30 +12,101 @@ import classes from "./Uploaded.module.css";
 import PurpleButton from "../../../../UI/PurpleButton";
 import WhiteButton from "../../../../UI/WhiteButton";
 
-const Uploaded = ({ type }) => {
+const Uploaded = ({ type, clientIdentity }) => {
+
+  console.log('type',type);
+  console.log('client identity', clientIdentity);
   const [fileUpload, setFileUpload] = useState(false);
   const [mappingManual, setMappingManual] = useState(true);
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
 
   const templateUploadMapping = [
     {
-      File_Name: 'Mapping Template 1',
-      Created_By: 'Deepak Dhawan',
-      Created_On: '5/3/2023'
+      File_Name: "Mapping Template 1",
+      Created_By: "Deepak Dhawan",
+      Created_On: "5/3/2023",
     },
     {
-      File_Name: 'Mapping Template 2',
-      Created_By: 'Harshad Hariharan',
-      Created_On: '5/5/2023'
+      File_Name: "Mapping Template 2",
+      Created_By: "Harshad Hariharan",
+      Created_On: "5/5/2023",
     },
     {
-      File_Name: 'Mapping Template 3',
-      Created_By: 'Deepak Dhawan',
-      Created_On: '6/2/2023'
-    }
+      File_Name: "Mapping Template 3",
+      Created_By: "Deepak Dhawan",
+      Created_On: "6/2/2023",
+    },
+  ];
+
+  const templateUploadMapping2 = [
+    {
+      File_Name: "Mapping Template 1",
+      Created_By: "Deepak Dhawan",
+      Created_On: "5/3/2023",
+    },
+    {
+      File_Name: "Mapping Template 2",
+      Created_By: "Harshad Hariharan",
+      Created_On: "5/5/2023",
+    },
+    {
+      File_Name: "Mapping Template 3",
+      Created_By: "Deepak Dhawan",
+      Created_On: "6/2/2023",
+    },
   ];
 
   const vendorData = [
+    {
+      File_Name: "Vendor_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1857296430,
+      No_of_Records: 16246,
+      Processed_Records: 16246,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_Vendors_Apr.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1475368029,
+      No_of_Records: 37,
+      Processed_Records: 30,
+      Error_Records: 7,
+    },
+    {
+      File_Name: "Additional_Vendors_Apr1.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1475368029,
+      No_of_Records: 7,
+      Processed_Records: 7,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_Vendors_May.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 2590718463,
+      No_of_Records: 44,
+      Processed_Records: 35,
+      Error_Records: 9,
+    },
+    {
+      File_Name: "Additional_Vendors_Jun.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 6931478205,
+      No_of_Records: 38,
+      Processed_Records: 29,
+      Error_Records: 9,
+    },
+    {
+      File_Name: "Additional_Vendors_Jul.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 4829567310,
+      No_of_Records: 93,
+      Processed_Records: 89,
+      Error_Records: 4,
+    },
+  ];
+  const vendorData2 = [
     {
       File_Name: "Vendor_Master_Onboarding.xlsx",
       Uploaded_By: "Ganesh Gupta",
@@ -104,6 +175,24 @@ const Uploaded = ({ type }) => {
       Error_Records: 0,
     },
   ];
+  const ldcData2 = [
+    {
+      File_Name: "LDC_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 3765148092,
+      No_of_Records: 2,
+      Processed_Records: 2,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_LDC_May.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 4102897653,
+      No_of_Records: 1,
+      Processed_Records: 1,
+      Error_Records: 0,
+    },
+  ];
 
   const keywordData = [
     {
@@ -115,10 +204,15 @@ const Uploaded = ({ type }) => {
       Error_Records: 0,
     },
   ];
-
-  let arr = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
+  const keywordData2 = [
+    {
+      File_Name: "Keyword_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 5396274810,
+      No_of_Records: 4,
+      Processed_Records: 4,
+      Error_Records: 0,
+    },
   ];
 
   let rowStyle = {};
@@ -146,26 +240,26 @@ const Uploaded = ({ type }) => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
-  
+      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch file');
+        throw new Error("Failed to fetch file");
       }
-     
+
       // Use the response object to get the file content
-      const fileContent = await response.blob({ type: 'application/xlsx' });
+      const fileContent = await response.blob({ type: "application/xlsx" });
 
       // Now you can process the file content as needed
-      console.log('File content:', fileContent);
+      console.log("File content:", fileContent);
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = 'downloadedFiless.xlsx';
+      link.download = "downloadedFiless.xlsx";
 
       // Trigger the click event
       link.click();
     } catch (error) {
-        console.error('Error fetching file:', error);
+      console.error("Error fetching file:", error);
     }
   };
   return (
@@ -217,7 +311,9 @@ const Uploaded = ({ type }) => {
             {!mappingManual && (
               <>
                 Download pre-existing template or Upload template to map data
-                <FileDownloadOutlinedIcon className={classes.downloadicon} />{" "}
+                <FileDownloadOutlinedIcon
+                  className={classes.downloadicon}
+                />{" "}
                 <b> Download Sample Template</b>
               </>
             )}
@@ -470,7 +566,6 @@ const Uploaded = ({ type }) => {
                   <option value="">User Data Field 9</option>
                   <option value="">User Data Field 10</option>
                 </select>
-                
               </div>
             </section>
           )}
@@ -501,11 +596,10 @@ const Uploaded = ({ type }) => {
                 </div>
               </label>
               <table className={classes.table}>
-                <tbody style={{width:'60vw!important'}}>
+                <tbody style={{ width: "60vw!important" }}>
                   <tr
                     style={{
                       gridTemplateColumns: "26.5% 26.5% 26.5% 19%",
-                      
                     }}
                   >
                     {/* <th></th> */}
@@ -514,7 +608,7 @@ const Uploaded = ({ type }) => {
                     <th>Created On</th>
                     <th>Download</th>
                   </tr>
-                  
+
                   {templateUploadMapping.map((val, idx) => {
                     return (
                       <tr
@@ -531,7 +625,9 @@ const Uploaded = ({ type }) => {
                         <td>{val.Created_By}</td>
                         <td>{val.Created_On}</td>
                         <td onClick={handleDownload}>
-                          <FileDownloadOutlinedIcon style={{cursor:'pointer',fontSize:'2.5rem'}}/>
+                          <FileDownloadOutlinedIcon
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
                         </td>
                       </tr>
                     );
@@ -542,9 +638,15 @@ const Uploaded = ({ type }) => {
           )}
 
           <span>
-            {mappingManual && <PurpleButton onClick={() => {
-                return setFileUpload(false);
-              }}>Save As Template</PurpleButton>}
+            {mappingManual && (
+              <PurpleButton
+                onClick={() => {
+                  return setFileUpload(false);
+                }}
+              >
+                Save As Template
+              </PurpleButton>
+            )}
             <PurpleButton
               onClick={() => {
                 return setFileUpload(false);
@@ -562,10 +664,14 @@ const Uploaded = ({ type }) => {
           </span>
         </div>
       )}
-      {( fileUpload ) && <div className={classes.overlay} onClick={()=>{
-      
-      return setFileUpload(false);
-    }}></div>}
+      {fileUpload && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            return setFileUpload(false);
+          }}
+        ></div>
+      )}
       <div className={classes.uploaded}>
         {/* <div>
           <input onClick={() => {
@@ -613,7 +719,7 @@ const Uploaded = ({ type }) => {
             </button>
           )} */}
           <button>
-            <FileUploadOutlinedIcon className={classes.downloadicon}/>
+            <FileUploadOutlinedIcon className={classes.downloadicon} />
             Upload Template File
           </button>
           <button onClick={handleDownload}>
@@ -642,7 +748,7 @@ const Uploaded = ({ type }) => {
               <th>Actions</th>
             </tr>
 
-            {type=='LDC' &&
+            {type == "LDC" && clientIdentity == "ABC Consultancy Limited" &&
               ldcData.map((val, idx) => {
                 return (
                   <tr id={idx}>
@@ -664,11 +770,11 @@ const Uploaded = ({ type }) => {
                       }}
                     >
                       <FileDownloadOutlinedIcon
-                      onClick={handleDownload}
+                        onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />
                       <FileDownloadOutlinedIcon
-                      onClick={handleDownload}
+                        onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />{" "}
                       <p onClick={handleDownload}>File</p>
@@ -677,12 +783,13 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-            {type=='Vendor' &&
-              vendorData.map((val, idx) => {
+
+            {type == "LDC" && clientIdentity == "ABC Motors Limited" &&
+              ldcData2.map((val, idx) => {
                 return (
                   <tr id={idx}>
                     <td>
-                      <input type="checkbox" name="" id=""  style={{ margin: "auto", fontSize: "2.5rem" }}/>
+                      <input type="checkbox" name="" id="" />
                     </td>
                     <td>{val.File_Name}</td>
                     <td>{val.Uploaded_By}</td>
@@ -699,11 +806,11 @@ const Uploaded = ({ type }) => {
                       }}
                     >
                       <FileDownloadOutlinedIcon
-                      onClick={handleDownload}
+                        onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />
                       <FileDownloadOutlinedIcon
-                      onClick={handleDownload}
+                        onClick={handleDownload}
                         style={{ margin: "auto", fontSize: "2.5rem" }}
                       />{" "}
                       <p onClick={handleDownload}>File</p>
@@ -712,8 +819,123 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-            {type=='Keyword' &&
+            {type == "Vendor" && clientIdentity == "ABC Consultancy Limited" &&
+              vendorData.map((val, idx) => {
+                return (
+                  <tr id={idx}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        name=""
+                        id=""
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+
+                    <td>{val.Error_Records}</td>
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
+                    </td>
+                  </tr>
+                );
+              })}
+            {type == "Vendor" && clientIdentity == "ABC Motors Limited" &&
+              vendorData2.map((val, idx) => {
+                return (
+                  <tr id={idx}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        name=""
+                        id=""
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+
+                    <td>{val.Error_Records}</td>
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
+                    </td>
+                  </tr>
+                );
+              })}
+            {type == "Keyword" && clientIdentity == "ABC Consultancy Limited" &&
               keywordData.map((val, idx) => {
+                return (
+                  <tr id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+
+                    <td>{val.Error_Records}</td>
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
+                    </td>
+                  </tr>
+                );
+              })}
+            {type == "Keyword" && clientIdentity == "ABC Motors Limited" &&
+              keywordData2.map((val, idx) => {
                 return (
                   <tr id={idx}>
                     <td>

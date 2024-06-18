@@ -31,7 +31,7 @@ const LDC = (props) => {
         <li style={dataType=='utilization'?hoverStyle:{}} onClick={()=>setDataType('utilization')}>LDC Utilization</li>
       </ul>
 
-      {dataType=='uploaded' && <Uploaded type = 'LDC' />}
+      {dataType=='uploaded' && <Uploaded clientIdentity={props.clientIdentity} type = 'LDC' />}
       {dataType=='viewmaster' && <ViewMaster clientIdentity={props.clientIdentity} type = 'LDC'/>}
       {dataType=='utilization' && <Specified clientIdentity={props.clientIdentity} type = 'LDC'/>}
     </div>

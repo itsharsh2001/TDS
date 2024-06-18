@@ -12,40 +12,38 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import classes from "../Clients.module.css";
 
-const TanLevel = ({ sidebar }) => {
+const TanLevel = ({ sidebar, tanLevelSetter }) => {
+  const [newGroup, setNewGroup] = useState({
+    branch_name: "",
+    tan: "",
+    onboarding: "June-2024",
+    created_on: "17-06-2024 15:45PM",
+  });
+
+  const [addedGroup, setAddedGroup] = useState(false);
+
   const [addClientStep1, setAddClientStep1] = useState(true);
   const [addClientStep2, setAddClientStep2] = useState(false);
   const [addClientStep3, setAddClientStep3] = useState(false);
 
   const clientData = [
     {
-      Branch_Name: "Pune Branch",
+      Branch_Name: "Head Office",
       TAN: "BKICA9561K",
       Onboarding_Month: "April-2024",
       Created_On: "30-03-2023 11:46PM",
     },
     {
-      Branch_Name: "Mumbai Branch",
+      Branch_Name: "Faridabad Office",
       TAN: "BKICA8561L",
       Onboarding_Month: "May-2024",
       Created_On: "30-04-2023 01:46PM",
     },
   ];
-
-  const [tanFieldCount, setTanFieldCount] = useState(3);
-
-  const [reversalRecord, setReversalRecord] = useState(false);
-  const [provisionInvoice, setProvisionInvoice] = useState(false);
-  const [advanceInvoice, setAdvanceInvoice] = useState(false);
-  const [thresholdApplicable, setThresholdApplicable] = useState(false);
-
-  const [parameterSelect, setParameterSelect] = useState(false);
-  const [parameterSelect2, setParameterSelect2] = useState(false);
-  const [tanSelect, setTanSelect] = useState(false);
-  const [tanSelect2, setTanSelect2] = useState(false);
 
   const customNumberStyle = {
     backgroundColor: "#00A7B5",
@@ -55,8 +53,6 @@ const TanLevel = ({ sidebar }) => {
   const [popup, setPopup] = useState(false);
   const [viewClientPopup, setViewClientPopup] = useState(false);
   const [updateClientPopup, setUpdateClientPopup] = useState(false);
-
-  const [clientIdentity, setClientIdentity] = useState(2);
 
   const nextButtonHandler = () => {
     if (!popup && !updateClientPopup) {
@@ -75,6 +71,7 @@ const TanLevel = ({ sidebar }) => {
         setUpdateClientPopup(false);
         setViewClientPopup(false);
         setViewClientPopup(false);
+        setAddedGroup(true);
       }
     } else {
       if (addClientStep1) {
@@ -165,8 +162,7 @@ const TanLevel = ({ sidebar }) => {
               2
             </p>
           </span>
-          {/* <h1 className={classes.heading}>Add Client</h1> */}
-          {/* {addClientStep1 && <h5>Add Group & Client Details</h5>} */}
+
           {addClientStep2 && (
             <table className={classes.accessmanagementtable}>
               <tbody>
@@ -240,12 +236,24 @@ const TanLevel = ({ sidebar }) => {
                 {addClientStep2 && <h6>Branch/TAN Details</h6>}
                 <div>
                   <input
+                    onChange={(e) => {
+                      return setNewGroup((prevState) => ({
+                        ...prevState,
+                        branch_name: e.target.value,
+                      }));
+                    }}
                     placeholder="Type Branch Name"
                     type="text"
                     name=""
                     id=""
                   />
                   <input
+                    onChange={(e) => {
+                      return setNewGroup((prevState) => ({
+                        ...prevState,
+                        tan: e.target.value,
+                      }));
+                    }}
                     placeholder="Type TAN Name"
                     type="text"
                     name=""
@@ -257,35 +265,7 @@ const TanLevel = ({ sidebar }) => {
                     name=""
                     id=""
                   />
-                  {/* <select name="" id="">
-                    <option value="">Select Group</option>
-                    <option value="">ABC</option>
-                    <option value="">DEF</option>
-                    <option value="">GHI</option>
-                  </select> */}
-                  {/* <p
-                    style={{ cursor: "pointer" }}
-                    onClick={() => {
-                      return setAddNewGroup(true);
-                    }}
-                  >
-                    <AddIcon /> Add New Group
-                  </p> */}
                 </div>
-                {/* {addNewGroup && (
-                  <div>
-                    <input
-                      placeholder="Type Group Name"
-                      type="text"
-                      name=""
-                      id=""
-                      onChange={(e) => {
-                        return setNewGroupValue(e.target.value);
-                      }}
-                    />
-                    <button>Create</button>
-                  </div>
-                )} */}
               </section>
 
               <section>
@@ -339,12 +319,26 @@ const TanLevel = ({ sidebar }) => {
             </main>
           )}
           <div>
-            <button onClick={nextButtonHandler} className={classes.button}>
-              {addClientStep2 ? "Submit" : "Next"}
-            </button>
-            {/* <button onClick={cancelButtonHandler} className={classes.button}>
-              Submit
-            </button> */}
+            {addClientStep1 && (
+              <button onClick={nextButtonHandler} className={classes.button}>
+                {/* {addClientStep2 ? "Submit" : "Next"} */}
+                Next
+              </button>
+            )}
+            {addClientStep2 && (
+              <button
+                onClick={() => {
+                  setAddClientStep1(true);
+                  setAddClientStep2(false);
+                  setAddClientStep3(false);
+                  setAddedGroup(true);
+                  return setPopup(false);
+                }}
+                className={classes.button}
+              >
+                Submit
+              </button>
+            )}
             <button onClick={cancelButtonHandler} className={classes.button1}>
               Close
             </button>
@@ -373,13 +367,7 @@ const TanLevel = ({ sidebar }) => {
             >
               1
             </p>
-            <hr
-              style={
-                addClientStep2 || addClientStep3
-                  ? customHrStyle
-                  : {  }
-              }
-            />
+            <hr style={addClientStep2 || addClientStep3 ? customHrStyle : {}} />
             <p
               onClick={() => {
                 setAddClientStep1(false);
@@ -474,7 +462,6 @@ const TanLevel = ({ sidebar }) => {
 
           {addClientStep3 && (
             <>
-              
               <table className={classes.step3table}>
                 <tbody>
                   <tr>
@@ -490,7 +477,7 @@ const TanLevel = ({ sidebar }) => {
                     <td>GT Manager</td>
                   </tr>
                   <tr>
-                    <td>Dhruv Jain</td>
+                    <td>Abhishek</td>
                     <td>GT Executive</td>
                   </tr>
                   <tr>
@@ -499,7 +486,6 @@ const TanLevel = ({ sidebar }) => {
                   </tr>
                 </tbody>
               </table>
-              
             </>
           )}
 
@@ -838,6 +824,26 @@ const TanLevel = ({ sidebar }) => {
         style={sidebar ? { width: "77.5%" } : { width: "100%" }}
         className={classes.clients}
       >
+        <span>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              return tanLevelSetter();
+            }}
+            href=""
+          >
+            Clients
+          </a>
+          <ChevronRightIcon className={classes.righticon} />
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            href=""
+          >
+            ABC Consultancy Limited
+          </a>
+        </span>
         <div>
           <section>
             <input type="text" placeholder="Search Branch" />
@@ -862,6 +868,40 @@ const TanLevel = ({ sidebar }) => {
               <th>Created On</th>
               <th>Actions</th>
             </tr>
+            {addedGroup && (
+              <tr style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr" }}>
+                <td>{newGroup.branch_name}</td>
+                <td>{newGroup.tan}</td>
+                <td>{newGroup.onboarding}</td>
+                <td>{newGroup.created_on}</td>
+
+                <td>
+                  <VisibilityIcon
+                    onClick={() => {
+                      return setViewClientPopup(true);
+                    }}
+                    style={{
+                      cursor: "pointer",
+                      color: "#00ADA3",
+                      fontSize: "2.5rem",
+                      marginRight: "1.5rem",
+                    }}
+                  />
+                  <EditIcon
+                    onClick={() => {
+                      return setUpdateClientPopup(true);
+                    }}
+                    style={{
+                      cursor: "pointer",
+                      marginLeft: "1.5rem",
+                      // marginRight: "1.5rem",
+                      color: "#FFBB59",
+                      fontSize: "2.5rem",
+                    }}
+                  />
+                </td>
+              </tr>
+            )}
 
             {clientData.map((val, idx) => {
               return (

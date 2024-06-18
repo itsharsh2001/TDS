@@ -11,6 +11,7 @@ import GLReconciliations from "./Transactions/GLReconciliations/GLReconciliation
 import DataTransformationModule from "./Transactions/DataTransformationModule/DataTransformationModule";
 
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import Dumpyard from "./Transactions/Dumpyard/Dumpyard";
 
 const Transactions = () => {
   const [monthly, setMonthly] = useState(true);
@@ -116,7 +117,7 @@ const Transactions = () => {
           {/* <option value="">FY 2022-23</option> */}
           {/* <option value="">FY 2021-22</option> */}
         </select>
-        {activeModule == "transactiondata" && (
+        {(activeModule == "transactiondata" || activeModule=="clientpositionreport") && (
           <select
             onChange={() => {
               return setMonthSelected(true);
@@ -264,6 +265,19 @@ const Transactions = () => {
                 <p>Challans</p>
                 <PeopleIcon className={classes.icon} />
               </span>
+
+              <span
+                style={{
+                  border: "2px solid var(--core-purple-60, #9581B2)",
+                  background: "var(--core-purple-40, #B9ABCC)",
+                }}
+                onClick={() => {
+                  return activeModuleSetter("dumpyard");
+                }}
+              >
+                <p>Data Dump Yard</p>
+                <PeopleIcon className={classes.icon} />
+              </span>
             </section>
           </>
         )}
@@ -272,6 +286,13 @@ const Transactions = () => {
         <TransactionData
           clientIdentity={clientIdentity}
           monthSelected={monthSelected}
+          compliancesSetter={compliancesSetter}
+          transactionHomeScreen={activeModuleSetter}
+        />
+      )}
+      {activeModule == "dumpyard" && (
+        <Dumpyard
+          clientIdentity={clientIdentity}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
@@ -293,6 +314,7 @@ const Transactions = () => {
       {activeModule == "clientpositionreport" && (
         <ClientPositionReport
           clientIdentity={clientIdentity}
+          monthSelected={monthSelected}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />

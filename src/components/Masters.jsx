@@ -1,21 +1,12 @@
 import React, { useState } from "react";
-import PeopleIcon from "@mui/icons-material/People";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-import NaturePayment from "./Masters/Application/NaturePayment";
-import SectionTDS from "./Masters/Application/SectionTDS";
-import InterestPenalty from "./Masters/Application/InterestPenalty";
-import ThresholdType from "./Masters/Application/ThresholdType";
-import HSNSAC from "./Masters/Application/HSNSAC";
-// import DocumentSupply from "./Masters/Application/DocumentSupply";
-
 import classes from "./Masters.module.css";
-import TanLevelMasters from "./Masters/Client/TAN LEVEL/TanLevelMasters";
+
+import PeopleIcon from "@mui/icons-material/People";
 import KeywordOverriding from "./Masters/Client/TAN LEVEL/KeywordOverriding";
 import GLMaster from "./Masters/Client/TAN LEVEL/GLMaster";
 import HSNSACMaster from "./Masters/Client/TAN LEVEL/HSNSACMaster";
 import PO from "./Masters/Client/TAN LEVEL/PO";
-import DocumentSupply from "./Masters/Client/TAN LEVEL/DocumentSupply"
+import DocumentSupply from "./Masters/Client/TAN LEVEL/DocumentSupply";
 
 import VendorMaster from "./Masters/Client/PAN LEVEL/VendorMaster";
 import LDC from "./Masters/Client/PAN LEVEL/LDC";
@@ -25,32 +16,10 @@ import TaxPosition from "./Masters/Client/TAN LEVEL/TaxPosition";
 import TransactionBalance from "./Masters/Client/TAN LEVEL/TransactionBalance";
 
 function Masters({ sidebar }) {
-  const tanBranchData = [
-    { TAN_Number: "PDMS01068F", Branch_Name: "Head Office" },
-    { TAN_Number: "BFES03018Z", Branch_Name: "Sahibabad Office" },
-    { TAN_Number: "RSEX13028F", Branch_Name: "Faridabad Office" },
-  ];
-
-  const tanBranchData2 = [
-    { TAN_Number: "AVMS01248W", Branch_Name: "Head Office" },
-  ];
-
-  const [templateFileUpload, setTemplateFileUpload] = useState(false);
-
   const [panLevelMasters, setPanLevelMasters] = useState(0);
   const [clientMasters, setClientMasters] = useState(true);
-  const [applicationMasters, setApplicationMasters] = useState(true);
-
-  const [tanLevelMasters, setTanLevelMasters] = useState(false);
 
   const [showEverything, setShowEverything] = useState(false);
-
-  const [app1, setApp1] = useState(false);
-  const [app2, setApp2] = useState(false);
-  const [app3, setApp3] = useState(false);
-  const [app4, setApp4] = useState(false);
-  const [app5, setApp5] = useState(false);
-  const [app6, setApp6] = useState(false);
 
   const [tanLevelMasterType, setTanLevelMasterType] = useState("none");
 
@@ -59,48 +28,6 @@ function Masters({ sidebar }) {
     client: "",
     branch: "",
   });
-
-  let arr = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
-  ];
-
-  const hoverStyle = {
-    color: "var(--GT-Purple, #4f2d7f)",
-    borderBottom: "2px solid #4f2d7f",
-  };
-
-  const activeAppMasterSetter = () => {
-    setApp1(false);
-    setApp2(false);
-    setApp3(false);
-    setApp4(false);
-    setApp5(false);
-    setApp6(false);
-    setApplicationMasters(true);
-  };
-
-  const superMastersTypeToggler = (module) => {
-    setApp1(false);
-    setApp2(false);
-    setApp3(false);
-    setApp4(false);
-    setApp5(false);
-    setApp6(false);
-    setTanLevelMasters(false);
-    setTanLevelMasterType("none");
-    setPanLevelMasters(0);
-
-    if (module == "client") {
-      setClientMasters(true);
-      setApplicationMasters(false);
-    }
-
-    if (module == "application") {
-      setClientMasters(false);
-      setApplicationMasters(true);
-    }
-  };
 
   const tanLevelMasterTypeSetter = (module) => {
     setTanLevelMasterType(() => {
@@ -213,26 +140,13 @@ function Masters({ sidebar }) {
               >
                 Head Office
               </option>
-              <option
-                // selected={
-                //   visibleFields.client == "ABC Consultancy Limited"
-                //     ? true
-                //     : false
-                // }
-                value="Sahibabad Office"
-              >
-                Sahibabad Office
-              </option>
-              <option
-                // selected={
-                //   visibleFields.client == "ABC Consultancy Limited"
-                //     ? true
-                //     : false
-                // }
-                value="Faridabad Office"
-              >
-                Faridabad Office
-              </option>
+              {
+                visibleFields.client=='ABC Consultancy Limited' &&
+                <>
+                  <option value="Sahibabad Office">Sahibabad Office</option>
+                  <option value="Faridabad Office">Faridabad Office</option>
+                </>
+              }
             </select>
             <button
               onClick={() => {
@@ -274,7 +188,7 @@ function Masters({ sidebar }) {
                     return panMasterSetter(2);
                   }}
                 >
-                  <p>Keyword Repository</p>
+                  <p>Keyword Master</p>
                   <PeopleIcon className={classes.icon} />
                 </span>
                 <span
@@ -397,7 +311,7 @@ function Masters({ sidebar }) {
                     return tanLevelMasterTypeSetter("transactionbalance");
                   }}
                 >
-                  <p>Transaction Balance Master</p>
+                  <p>Transition Balance Master</p>
                   <PeopleIcon className={classes.icon} />
                 </span>
               </section>
@@ -491,30 +405,32 @@ function Masters({ sidebar }) {
       )}
 
       {tanLevelMasterType == "keyword" && (
-        <KeywordOverriding
+        <KeywordOverriding clientIdentity={clientIdentity}
           tanLevelMasterTypeSetter={tanLevelMasterTypeSetter}
         />
       )}
       {tanLevelMasterType == "gl" && (
-        <GLMaster tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <GLMaster clientIdentity={clientIdentity} tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
       {tanLevelMasterType == "hsnsac" && (
-        <HSNSACMaster tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <HSNSACMaster clientIdentity={clientIdentity} tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
       {tanLevelMasterType == "po" && (
-        <PO tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <PO clientIdentity={clientIdentity} tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
       {tanLevelMasterType == "documentsupply" && (
-        <DocumentSupply tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <DocumentSupply clientIdentity={clientIdentity} tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
       {tanLevelMasterType == "sectionmapping" && (
-        <SectionMapping tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <SectionMapping clientIdentity={clientIdentity} tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
       {tanLevelMasterType == "taxposition" && (
-        <TaxPosition tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <TaxPosition clientIdentity={clientIdentity} tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
       )}
       {tanLevelMasterType == "transactionbalance" && (
-        <TransactionBalance tanLevelMasterTypeSetter={tanLevelMasterTypeSetter} />
+        <TransactionBalance clientIdentity={clientIdentity}
+          tanLevelMasterTypeSetter={tanLevelMasterTypeSetter}
+        />
       )}
     </div>
   );

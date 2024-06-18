@@ -10,7 +10,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 import classes from "./TransactionData.module.css";
 import PurpleButton from "../../UI/PurpleButton";
@@ -26,6 +26,164 @@ const TransactionData = (props) => {
   const [reportType, setReportType] = useState(false);
   const [datatype, setDatatype] = useState("invoice");
 
+  const invoice_columns = [
+    { column_header: "Vendor Code", datatype: "STRING" },
+    { column_header: "Vendor Name", datatype: "STRING" },
+    { column_header: "Vendor PAN", datatype: "STRING" },
+    { column_header: "Vendor GSTIN", datatype: "STRING" },
+    { column_header: "Document Type", datatype: "STRING" },
+    { column_header: "Supply Type", datatype: "STRING" },
+    { column_header: "Special G/L Indicator", datatype: "STRING" },
+    { column_header: "Document Date", datatype: "DATE (DD-MM-YYYY)" },
+    { column_header: "Document Number", datatype: "STRING" },
+    { column_header: "Line Number", datatype: "INTEGER" },
+    { column_header: "Posting Date", datatype: "DATE (DD-MM-YYYY)" },
+    { column_header: "Inv/Adv/Prov Description", datatype: "STRING" },
+    { column_header: "HSN SAC Code", datatype: "STRING" },
+    { column_header: "HSN SAC Description", datatype: "STRING" },
+    { column_header: "GL Code", datatype: "STRING" },
+    { column_header: "GL Description", datatype: "STRING" },
+    { column_header: "Debit(S)/Credit(H) Indicator", datatype: "STRING" },
+    { column_header: "PO Number", datatype: "STRING" },
+    { column_header: "PO Line Number", datatype: "INTEGER" },
+    { column_header: "PO Date", datatype: "DATE (DD-MM-YYYY)" },
+    { column_header: "PO Description", datatype: "STRING" },
+    { column_header: "Tax Base Amount", datatype: "DECIMAL" },
+    { column_header: "IGST Rate", datatype: "DECIMAL" },
+    { column_header: "IGST Amount", datatype: "DECIMAL" },
+    { column_header: "CGST Rate", datatype: "DECIMAL" },
+    { column_header: "CGST Amount", datatype: "DECIMAL" },
+    { column_header: "SGST Rate", datatype: "DECIMAL" },
+    { column_header: "SGST Amount", datatype: "DECIMAL" },
+    { column_header: "CESS Rate", datatype: "DECIMAL" },
+    { column_header: "CESS Amount", datatype: "DECIMAL" },
+    { column_header: "Discount", datatype: "DECIMAL" },
+    { column_header: "Invoice Value", datatype: "DECIMAL" },
+    { column_header: "TDS Section", datatype: "STRING" },
+    { column_header: "TDS Rate", datatype: "DECIMAL" },
+    { column_header: "TDS Amount", datatype: "DECIMAL" },
+    { column_header: "Vendor TDS Section Code", datatype: "STRING" },
+    { column_header: "Advance Link Indicator", datatype: "STRING" },
+    { column_header: "Provision Link Indicator", datatype: "STRING" },
+    { column_header: "Credit Note Link Indicator", datatype: "STRING" },
+    { column_header: "Original Document Number", datatype: "STRING" },
+    { column_header: "Original Document Date", datatype: "DATE (DD-MM-YYYY)" },
+    { column_header: "MIGO Number", datatype: "STRING" },
+    { column_header: "MIRO Number", datatype: "STRING" },
+    { column_header: "Business Place", datatype: "STRING" },
+    { column_header: "Business Area", datatype: "STRING" },
+    { column_header: "Plant", datatype: "STRING" },
+    { column_header: "Profit Center", datatype: "STRING" },
+    { column_header: "Cost Center", datatype: "STRING" },
+    { column_header: "POS", datatype: "STRING" },
+    { column_header: "User Name", datatype: "STRING" },
+    { column_header: "Invoice UDF 1", datatype: "STRING" },
+    { column_header: "Invoice UDF 2", datatype: "STRING" },
+    { column_header: "Invoice UDF 3", datatype: "STRING" },
+    { column_header: "Invoice UDF 4", datatype: "STRING" },
+    { column_header: "Invoice UDF 5", datatype: "STRING" },
+  ];
+
+  const advance_columns = [
+    { "column_header": "Vendor Code", "datatype": "STRING" },
+    { "column_header": "Vendor Name", "datatype": "STRING" },
+    { "column_header": "Vendor PAN", "datatype": "STRING" },
+    { "column_header": "Vendor GSTIN", "datatype": "STRING" },
+    { "column_header": "Document Type", "datatype": "STRING" },
+    { "column_header": "Supply Type", "datatype": "STRING" },
+    { "column_header": "Special G/L Indicator", "datatype": "STRING" },
+    { "column_header": "Document Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Document Number", "datatype": "STRING" },
+    { "column_header": "Line Number", "datatype": "INTEGER" },
+    { "column_header": "Posting Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Payment Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Inv/Adv/Prov Description", "datatype": "STRING" },
+    { "column_header": "HSN SAC Code", "datatype": "STRING" },
+    { "column_header": "HSN SAC Description", "datatype": "STRING" },
+    { "column_header": "GL Code", "datatype": "STRING" },
+    { "column_header": "GL Description", "datatype": "STRING" },
+    { "column_header": "Debit(S)/Credit(H) Indicator", "datatype": "STRING" },
+    { "column_header": "PO Number", "datatype": "STRING" },
+    { "column_header": "PO Line Number", "datatype": "INTEGER" },
+    { "column_header": "PO Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "PO Description", "datatype": "STRING" },
+    { "column_header": "Tax Base Amount", "datatype": "DECIMAL" },
+    { "column_header": "IGST Rate", "datatype": "DECIMAL" },
+    { "column_header": "IGST Amount", "datatype": "DECIMAL" },
+    { "column_header": "CGST Rate", "datatype": "DECIMAL" },
+    { "column_header": "CGST Amount", "datatype": "DECIMAL" },
+    { "column_header": "SGST Rate", "datatype": "DECIMAL" },
+    { "column_header": "SGST Amount", "datatype": "DECIMAL" },
+    { "column_header": "CESS Rate", "datatype": "DECIMAL" },
+    { "column_header": "CESS Amount", "datatype": "DECIMAL" },
+    { "column_header": "Discount", "datatype": "DECIMAL" },
+    { "column_header": "Invoice Value", "datatype": "DECIMAL" },
+    { "column_header": "TDS Section", "datatype": "STRING" },
+    { "column_header": "TDS Rate", "datatype": "DECIMAL" },
+    { "column_header": "TDS Amount", "datatype": "DECIMAL" },
+    { "column_header": "Vendor TDS Section Code", "datatype": "STRING" },
+    { "column_header": "Original Document Number", "datatype": "STRING" },
+    { "column_header": "Original Document Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "MIGO Number", "datatype": "STRING" },
+    { "column_header": "MIRO Number", "datatype": "STRING" },
+    { "column_header": "Business Place", "datatype": "STRING" },
+    { "column_header": "Business Area", "datatype": "STRING" },
+    { "column_header": "Plant", "datatype": "STRING" },
+    { "column_header": "Profit Center", "datatype": "STRING" },
+    { "column_header": "Cost Center", "datatype": "STRING" },
+    { "column_header": "POS", "datatype": "STRING" },
+    { "column_header": "User Name", "datatype": "STRING" },
+    { "column_header": "Advance UDF 1", "datatype": "STRING" },
+    { "column_header": "Advance UDF 2", "datatype": "STRING" },
+    { "column_header": "Advance UDF 3", "datatype": "STRING" },
+    { "column_header": "Advance UDF 4", "datatype": "STRING" },
+    { "column_header": "Advance UDF 5", "datatype": "STRING" }
+  ];
+
+  const provision_columns = [
+    { "column_header": "Vendor Code", "datatype": "STRING" },
+    { "column_header": "Vendor Name", "datatype": "STRING" },
+    { "column_header": "Vendor PAN", "datatype": "STRING" },
+    { "column_header": "Vendor GSTIN", "datatype": "STRING" },
+    { "column_header": "Document Type", "datatype": "STRING" },
+    { "column_header": "Supply Type", "datatype": "STRING" },
+    { "column_header": "Special G/L Indicator", "datatype": "STRING" },
+    { "column_header": "Document Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Document Number", "datatype": "STRING" },
+    { "column_header": "Line Number", "datatype": "INTEGER" },
+    { "column_header": "Posting Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Inv/Adv/Prov Description", "datatype": "STRING" },
+    { "column_header": "HSN or SAC Code", "datatype": "STRING" },
+    { "column_header": "HSN or SAC Description", "datatype": "STRING" },
+    { "column_header": "GL Code", "datatype": "STRING" },
+    { "column_header": "GL Description", "datatype": "STRING" },
+    { "column_header": "Debit(S)/Credit(H) Indicator", "datatype": "STRING" },
+    { "column_header": "PO Number", "datatype": "STRING" },
+    { "column_header": "PO Line Number", "datatype": "INTEGER" },
+    { "column_header": "PO Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "PO Description", "datatype": "STRING" },
+    { "column_header": "Tax Base Amount", "datatype": "DECIMAL" },
+    { "column_header": "TDS Section", "datatype": "STRING" },
+    { "column_header": "TDS Rate", "datatype": "DECIMAL" },
+    { "column_header": "TDS Amount", "datatype": "DECIMAL" },
+    { "column_header": "Vendor TDS Section Code", "datatype": "STRING" },
+    { "column_header": "Challan Paid Flag", "datatype": "STRING" },
+    { "column_header": "Challan Processing Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Original Document Number", "datatype": "STRING" },
+    { "column_header": "Original Document Date", "datatype": "DATE (DD-MM-YYYY)" },
+    { "column_header": "Business Place", "datatype": "STRING" },
+    { "column_header": "Business Area", "datatype": "STRING" },
+    { "column_header": "Plant", "datatype": "STRING" },
+    { "column_header": "Profit Center", "datatype": "STRING" },
+    { "column_header": "Cost Center", "datatype": "STRING" },
+    { "column_header": "User Name", "datatype": "STRING" },
+    { "column_header": "Provision UDF 1", "datatype": "STRING" },
+    { "column_header": "Provision UDF 2", "datatype": "STRING" },
+    { "column_header": "Provision UDF 3", "datatype": "STRING" },
+    { "column_header": "Provision UDF 4", "datatype": "STRING" },
+    { "column_header": "Provision UDF 5", "datatype": "STRING" }
+  ];
+  
 
   const invoiceData = [
     {
@@ -708,6 +866,36 @@ const TransactionData = (props) => {
     },
   ];
 
+  const dateFormats = [
+    "YYYYMMDD",
+    "YYYY/MM/DD",
+    "YYYY-MM-DD",
+    "DD/MM/YYYY",
+    "DD-MM-YYYY",
+    "MM/DD/YYYY",
+    "MM-DD-YYYY",
+    "D/M/YY",
+    "D-M/YY",
+    "M/D/YY",
+    "M-D/YY",
+    "D/M/YYYY",
+    "D-M-YYYY",
+    "M/D/YYYY",
+    "M-D-YYYY",
+    "DD/Mon/YYYY",
+    "DD-Mon-YYYY",
+    "DD/Month/YYYY",
+    "DD-Month-YYYY",
+    "YYYY/Mon/DD",
+    "YYYY-Mon-DD",
+    "YYYY/Month/DD",
+    "YYYY-Month-DD",
+    "Mon/DD/YYYY",
+    "Mon-DD-YYYY",
+    "Month/DD/YYYY",
+    "Month-DD-YYYY",
+  ];
+
   const hoverStyle = {
     color: "var(--GT-Purple, #4f2d7f)",
     borderBottom: "2px solid #4f2d7f",
@@ -720,26 +908,26 @@ const TransactionData = (props) => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
-  
+      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch file');
+        throw new Error("Failed to fetch file");
       }
-     
+
       // Use the response object to get the file content
-      const fileContent = await response.blob({ type: 'application/xlsx' });
+      const fileContent = await response.blob({ type: "application/xlsx" });
 
       // Now you can process the file content as needed
-      console.log('File content:', fileContent);
+      console.log("File content:", fileContent);
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = 'downloadedFiless.xlsx';
+      link.download = "downloadedFiless.xlsx";
 
       // Trigger the click event
       link.click();
     } catch (error) {
-        console.error('Error fetching file:', error);
+      console.error("Error fetching file:", error);
     }
   };
 
@@ -772,82 +960,91 @@ const TransactionData = (props) => {
                 <th>Actions</th>
               </tr>
 
-              {(datatype == "invoice" && props.clientIdentity=='ABC Consultancy Limited') ? (
-                deletedInvoice.map((val, idx) => {
-                  return (
-                    <tr id={idx}>
-                      <td>{val.File_Name}</td>
-                      <td>{val.Uploaded_By}</td>
-                      <td>{val.Batch_ID}</td>
-                      <td>{val.No_of_Records}</td>
-                      <td>{val.Processed_Records}</td>
+              {
+                datatype == "invoice" &&
+                  props.clientIdentity == "ABC Consultancy Limited" &&
+                  deletedInvoice.map((val, idx) => {
+                    return (
+                      <tr id={idx}>
+                        <td>{val.File_Name}</td>
+                        <td>{val.Uploaded_By}</td>
+                        <td>{val.Batch_ID}</td>
+                        <td>{val.No_of_Records}</td>
+                        <td>{val.Processed_Records}</td>
 
-                      <td>{val.Error_Records}</td>
-                      <td>{val.Mismatch_Records}</td>
-                      <td>{val.Out_of_TDS_Scope_Records}</td>
-                      <td
-                        style={{
-                          display: "grid",
-                          gridTemplateRows: "1fr 1fr",
-                          gridTemplateColumns: "1fr 1fr",
-                        }}
-                      >
-                        <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
-                        />
-                        <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
-                        />{" "}
-                        <p onClick={handleDownload}>File</p>
-                        <p onClick={handleDownload}>Report</p>
-                      </td>
-                    </tr>
-                  );
-                })
-              ) : (
+                        <td>{val.Error_Records}</td>
+                        <td>{val.Mismatch_Records}</td>
+                        <td>{val.Out_of_TDS_Scope_Records}</td>
+                        <td
+                          style={{
+                            display: "grid",
+                            gridTemplateRows: "1fr 1fr",
+                            gridTemplateColumns: "1fr 1fr",
+                          }}
+                        >
+                          <FileDownloadOutlinedIcon
+                            onClick={handleDownload}
+                            style={{ margin: "auto", fontSize: "2.5rem" }}
+                          />
+                          <FileDownloadOutlinedIcon
+                            onClick={handleDownload}
+                            style={{ margin: "auto", fontSize: "2.5rem" }}
+                          />{" "}
+                          <p onClick={handleDownload}>File</p>
+                          <p onClick={handleDownload}>Report</p>
+                        </td>
+                      </tr>
+                    );
+                  })
+                // : (
+                //   <img src="/DeletedRecords.png" alt="" />
+
+                // )
+              }
+
+              {
+                datatype == "invoice" &&
+                  props.clientIdentity == "ABC Motors Limited" &&
+                  deletedInvoice2.map((val, idx) => {
+                    return (
+                      <tr id={idx}>
+                        <td>{val.File_Name}</td>
+                        <td>{val.Uploaded_By}</td>
+                        <td>{val.Batch_ID}</td>
+                        <td>{val.No_of_Records}</td>
+                        <td>{val.Processed_Records}</td>
+
+                        <td>{val.Error_Records}</td>
+                        <td>{val.Mismatch_Records}</td>
+                        <td>{val.Out_of_TDS_Scope_Records}</td>
+                        <td
+                          style={{
+                            display: "grid",
+                            gridTemplateRows: "1fr 1fr",
+                            gridTemplateColumns: "1fr 1fr",
+                          }}
+                        >
+                          <FileDownloadOutlinedIcon
+                            onClick={handleDownload}
+                            style={{ margin: "auto", fontSize: "2.5rem" }}
+                          />
+                          <FileDownloadOutlinedIcon
+                            onClick={handleDownload}
+                            style={{ margin: "auto", fontSize: "2.5rem" }}
+                          />{" "}
+                          <p onClick={handleDownload}>File</p>
+                          <p onClick={handleDownload}>Report</p>
+                        </td>
+                      </tr>
+                    );
+                  })
+                //  : (
+                //   <img src="/DeletedRecords.png" alt="" />
+                //   // <div className={classes.emptyDiv}>No Deleted Records</div>
+                // )
+              }
+              {datatype != "invoice" && (
                 <img src="/DeletedRecords.png" alt="" />
-                // <div className={classes.emptyDiv}>No Deleted Records</div>
-              )}
-
-              {(datatype == "invoice" && props.clientIdentity=='ABC Motors Limited') ? (
-                deletedInvoice2.map((val, idx) => {
-                  return (
-                    <tr id={idx}>
-                      <td>{val.File_Name}</td>
-                      <td>{val.Uploaded_By}</td>
-                      <td>{val.Batch_ID}</td>
-                      <td>{val.No_of_Records}</td>
-                      <td>{val.Processed_Records}</td>
-
-                      <td>{val.Error_Records}</td>
-                      <td>{val.Mismatch_Records}</td>
-                      <td>{val.Out_of_TDS_Scope_Records}</td>
-                      <td
-                        style={{
-                          display: "grid",
-                          gridTemplateRows: "1fr 1fr",
-                          gridTemplateColumns: "1fr 1fr",
-                        }}
-                      >
-                        <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
-                        />
-                        <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem" }}
-                        />{" "}
-                        <p onClick={handleDownload}>File</p>
-                        <p onClick={handleDownload}>Report</p>
-                      </td>
-                    </tr>
-                  );
-                })
-              ) : (
-                <img src="/DeletedRecords.png" alt="" />
-                // <div className={classes.emptyDiv}>No Deleted Records</div>
               )}
             </tbody>
           </table>
@@ -891,6 +1088,15 @@ const TransactionData = (props) => {
             >
               Template Upload Mapping
             </label>
+
+            {mappingManual && <select className={classes.mappingselect} style={{marginLeft:'auto'}} name="" id="">
+              <option value="">Select Date Format</option>
+              {dateFormats.map((format, index) => (
+                <option key={index} value={format}>
+                  {format}
+                </option>
+              ))}
+            </select>}
           </div>
           <p>
             <PriorityHighIcon className={classes.highicon} />
@@ -903,7 +1109,9 @@ const TransactionData = (props) => {
                 <FileDownloadOutlinedIcon
                   className={classes.downloadicon}
                 />{" "}
-                <b> Download Sample Template</b>
+                <b style={{display:'flex',alignItems:'center'}}><FileDownloadOutlinedIcon
+                   style={{fontSize:'2rem', marginRight:'1rem'}}
+                /> Download Sample Template</b>
               </>
             )}
           </p>
@@ -912,249 +1120,131 @@ const TransactionData = (props) => {
             <section>
               <div>
                 <h2>System Defined Field</h2>
-                <select name="" id="">
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 9</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">System Defined Field 10</option>
-                  <option value="">System Defined Field 1</option>
-                  <option value="">System Defined Field 2</option>
-                  <option value="">System Defined Field 3</option>
-                  <option value="">System Defined Field 4</option>
-                  <option value="">System Defined Field 5</option>
-                  <option value="">System Defined Field 6</option>
-                  <option value="">System Defined Field 7</option>
-                  <option value="">System Defined Field 8</option>
-                  <option value="">System Defined Field 9</option>
-                </select>
+
+                {/* {datatype == "invoice" &&
+                  invoice_columns.map((value, index) => (
+                    <select disabled key={index} name="" id="">
+                      <option value={value.column_header}>
+                        
+                          {value.column_header}
+                        {value.datatype}
+                      </option>
+                    </select>
+                  ))} */}
+                {datatype == "invoice" &&
+                  invoice_columns.map((value, index) => (
+                    <div
+                      className={classes.mappingdiv}
+                      disabled
+                      key={index}
+                      name=""
+                      id=""
+                    >
+                      <p>{value.column_header}</p>
+                      <p
+                        style={{
+                          display: "inline!important",
+                          width: "unset",
+                          marginLeft: "auto",
+                        }}
+                      >
+                        {value.datatype}
+                      </p>
+                    </div>
+                  ))}
+
+                {datatype == "advance" &&
+                  advance_columns.map((value, index) => (
+                    <div
+                      className={classes.mappingdiv}
+                      disabled
+                      key={index}
+                      name=""
+                      id=""
+                    >
+                      <p>{value.column_header}</p>
+                      <p
+                        style={{
+                          display: "inline!important",
+                          width: "unset",
+                          marginLeft: "auto",
+                        }}
+                      >
+                        {value.datatype}
+                      </p>
+                    </div>
+                  ))}
+
+                {datatype == "provision" &&
+                  provision_columns.map((value, index) => (
+                    <div
+                      className={classes.mappingdiv}
+                      disabled
+                      key={index}
+                      name=""
+                      id=""
+                    >
+                      <p>{value.column_header}</p>
+                      <p
+                        style={{
+                          display: "inline!important",
+                          width: "unset",
+                          marginLeft: "auto",
+                        }}
+                      >
+                        {value.datatype}
+                      </p>
+                    </div>
+                  ))}   
               </div>
               <div>
                 <h2>User Data Field</h2>
-                <select name="" id="">
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 10</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
-                <select name="" id="">
-                  <option value="">User Data Field 3</option>
-                  <option value="">User Data Field 1</option>
-                  <option value="">User Data Field 2</option>
-                  <option value="">User Data Field 4</option>
-                  <option value="">User Data Field 5</option>
-                  <option value="">User Data Field 6</option>
-                  <option value="">User Data Field 7</option>
-                  <option value="">User Data Field 8</option>
-                  <option value="">User Data Field 9</option>
-                  <option value="">User Data Field 10</option>
-                </select>
+                {datatype == "invoice" &&
+                  invoice_columns.map((value, index) => (
+                    <select name="" id="">
+                      <option value="">Select</option>
+                      <option value="">User Data Field {index + 1}</option>
+                      <option value="">User Data Field 2</option>
+                      <option value="">User Data Field 4</option>
+                      <option value="">User Data Field 5</option>
+                      <option value="">User Data Field 6</option>
+                      <option value="">User Data Field 7</option>
+                      <option value="">User Data Field 8</option>
+                      <option value="">User Data Field 9</option>
+                      <option value="">User Data Field 10</option>
+                    </select>
+                  ))}
+
+                {datatype == "advance" &&
+                  advance_columns.map((value, index) => (
+                    <select name="" id="">
+                      <option value="">Select</option>
+                      <option value="">User Data Field {index + 1}</option>
+                      <option value="">User Data Field 2</option>
+                      <option value="">User Data Field 4</option>
+                      <option value="">User Data Field 5</option>
+                      <option value="">User Data Field 6</option>
+                      <option value="">User Data Field 7</option>
+                      <option value="">User Data Field 8</option>
+                      <option value="">User Data Field 9</option>
+                      <option value="">User Data Field 10</option>
+                    </select>
+                  ))}
+                {datatype == "provision" &&
+                  provision_columns.map((value, index) => (
+                    <select name="" id="">
+                      <option value="">Select</option>
+                      <option value="">User Data Field {index + 1}</option>
+                      <option value="">User Data Field 2</option>
+                      <option value="">User Data Field 4</option>
+                      <option value="">User Data Field 5</option>
+                      <option value="">User Data Field 6</option>
+                      <option value="">User Data Field 7</option>
+                      <option value="">User Data Field 8</option>
+                      <option value="">User Data Field 9</option>
+                      <option value="">User Data Field 10</option>
+                    </select>
+                  ))}
               </div>
             </section>
           )}
@@ -1198,54 +1288,56 @@ const TransactionData = (props) => {
                     <th>Download</th>
                   </tr>
 
-                  {props.clientIdentity=='ABC Consultancy Limited' && templateUploadMapping.map((val, idx) => {
-                    return (
-                      <tr
-                        style={{
-                          gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
-                        }}
-                        id={idx}
-                      >
-                        <td>
-                          {/* <input type="checkbox" name="" id="" /> */}
-                          <input type="radio" name="" id="" />
-                        </td>
-                        <td>{val.File_Name}</td>
-                        <td>{val.Created_By}</td>
-                        <td>{val.Created_On}</td>
-                        <td>
-                          <FileDownloadOutlinedIcon
-                          onClick={handleDownload}
-                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
-                          />
-                        </td>
-                      </tr>
-                    );
-                  })}
-                  {props.clientIdentity=='ABC Motors Limited' && templateUploadMapping2.map((val, idx) => {
-                    return (
-                      <tr
-                        style={{
-                          gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
-                        }}
-                        id={idx}
-                      >
-                        <td>
-                          {/* <input type="checkbox" name="" id="" /> */}
-                          <input type="radio" name="" id="" />
-                        </td>
-                        <td>{val.File_Name}</td>
-                        <td>{val.Created_By}</td>
-                        <td>{val.Created_On}</td>
-                        <td>
-                          <FileDownloadOutlinedIcon
-                          onClick={handleDownload}
-                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
-                          />
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {props.clientIdentity == "ABC Consultancy Limited" &&
+                    templateUploadMapping.map((val, idx) => {
+                      return (
+                        <tr
+                          style={{
+                            gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
+                          }}
+                          id={idx}
+                        >
+                          <td>
+                            {/* <input type="checkbox" name="" id="" /> */}
+                            <input type="radio" name="" id="" />
+                          </td>
+                          <td>{val.File_Name}</td>
+                          <td>{val.Created_By}</td>
+                          <td>{val.Created_On}</td>
+                          <td>
+                            <FileDownloadOutlinedIcon
+                              onClick={handleDownload}
+                              style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  {props.clientIdentity == "ABC Motors Limited" &&
+                    templateUploadMapping2.map((val, idx) => {
+                      return (
+                        <tr
+                          style={{
+                            gridTemplateColumns: "6% 24.5% 24.5% 24.5% 20.5%",
+                          }}
+                          id={idx}
+                        >
+                          <td>
+                            {/* <input type="checkbox" name="" id="" /> */}
+                            <input type="radio" name="" id="" />
+                          </td>
+                          <td>{val.File_Name}</td>
+                          <td>{val.Created_By}</td>
+                          <td>{val.Created_On}</td>
+                          <td>
+                            <FileDownloadOutlinedIcon
+                              onClick={handleDownload}
+                              style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </>
@@ -1279,10 +1371,15 @@ const TransactionData = (props) => {
         </div>
       )}
 
-      {( deletedRecords || fileUpload ) && <div className={classes.overlay} onClick={()=>{
-      setDeletedRecords(false);
-      return setFileUpload(false);
-      }}></div>}
+      {(deletedRecords || fileUpload) && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            setDeletedRecords(false);
+            return setFileUpload(false);
+          }}
+        ></div>
+      )}
       {props.monthSelected && (
         <div className={classes.transactiondata}>
           <span>
@@ -1339,127 +1436,163 @@ const TransactionData = (props) => {
               Data Enrichment
             </li>
           </ul>
-          {datatype!='enrichment' && <><div>
-            <input
-              onClick={() => {
-                return setTemplateFileUpload(false);
-              }}
-              checked={!templateFileUpload}
-              type="radio"
-              name="fileupload"
-              id="custom"
-            />
-            <label
-              onClick={() => {
-                return setTemplateFileUpload(false);
-              }}
-              htmlFor="custom"
-            >
-              Custom File Upload
-            </label>
-            <input
-              onClick={() => {
-                return setTemplateFileUpload(true);
-              }}
-              checked={templateFileUpload}
-              type="radio"
-              name="fileupload"
-              id="template"
-            />
-            <label
-              onClick={() => {
-                return setTemplateFileUpload(true);
-              }}
-              htmlFor="template"
-            >
-              Template File Upload
-            </label>
+          {datatype != "enrichment" && (
+            <>
+              <div>
+                <input
+                  onClick={() => {
+                    return setTemplateFileUpload(false);
+                  }}
+                  checked={!templateFileUpload}
+                  type="radio"
+                  name="fileupload"
+                  id="custom"
+                />
+                <label
+                  onClick={() => {
+                    return setTemplateFileUpload(false);
+                  }}
+                  htmlFor="custom"
+                >
+                  Custom File Upload
+                </label>
+                <input
+                  onClick={() => {
+                    return setTemplateFileUpload(true);
+                  }}
+                  checked={templateFileUpload}
+                  type="radio"
+                  name="fileupload"
+                  id="template"
+                />
+                <label
+                  onClick={() => {
+                    return setTemplateFileUpload(true);
+                  }}
+                  htmlFor="template"
+                >
+                  Template File Upload
+                </label>
 
-            <button
-              onClick={() => {
-                return setDeletedRecords(true);
-              }}
-            >
-              View Deleted Records
-            </button>
-          </div>
-          <main>
-            <label
-              onClick={() => {
-                if (!templateFileUpload) {
-                  console.log('Hello Custom File Upload')
-                  setFileUpload(true);
-                  return console.log(fileUpload, 'fileupload ki value');
-                }
-              }}
-              htmlFor=""
-            >
-              <input
-                onClick={() => {
-                  if (!templateFileUpload) {
-                    console.log('Hello Custom File Upload')
-                    setFileUpload(true);
-                    return console.log(fileUpload, 'fileupload ki value');
-                  }
-                }}
-                type="file"
-                name=""
-                id=""
-              />
-            </label>
+                <button
+                  onClick={() => {
+                    return setDeletedRecords(true);
+                  }}
+                >
+                  View Deleted Records
+                </button>
+              </div>
+              <main>
+                <label
+                  onClick={() => {
+                    if (!templateFileUpload) {
+                      console.log("Hello Custom File Upload");
+                      setFileUpload(true);
+                      return console.log(fileUpload, "fileupload ki value");
+                    }
+                  }}
+                  htmlFor=""
+                >
+                  <input
+                    onClick={() => {
+                      if (!templateFileUpload) {
+                        console.log("Hello Custom File Upload");
+                        setFileUpload(true);
+                        return console.log(fileUpload, "fileupload ki value");
+                      }
+                    }}
+                    type="file"
+                    name=""
+                    id=""
+                  />
+                </label>
 
-            {templateFileUpload && (
-              <button
-                style={{
-                  marginRight: "-15rem",
-                  marginLeft: "auto",
+                {templateFileUpload && (
+                  <button
+                    style={{
+                      marginRight: "-15rem",
+                      marginLeft: "auto",
+                    }}
+                    className={classes.leftbutton}
+                    onClick={handleDownload}
+                  >
+                    <FileDownloadOutlinedIcon
+                      className={classes.downloadicon}
+                    />
+                    Download Template
+                  </button>
+                )}
+
+                <button
+                  onClick={() => {
+                    return setReportType((prevState) => {
+                      return !prevState;
+                    });
+                  }}
+                  style={{ marginLeft: "auto" }}
+                >
+                  <FileDownloadOutlinedIcon className={classes.downloadicon} />
+                  Download Reports
+                  <KeyboardArrowDownIcon
+                    style={{ borderLeft: "1px solid white" }}
+                    className={classes.downloadicon}
+                  />
+                </button>
+              </main>
+            </>
+          )}
+
+          {datatype == "enrichment" && (
+            <section>
+              <PurpleButton
+                customStyle={{
+                  fontWeight: "700",
+                  fontSize: "1.5rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "4rem",
                 }}
-                className={classes.leftbutton}
+              >
+                <FileUploadOutlinedIcon
+                  style={{ marginRight: "1rem", fontSize: "2.5rem" }}
+                />
+                Upload Enrichment Template
+              </PurpleButton>
+              <PurpleButton
                 onClick={handleDownload}
+                customStyle={{
+                  fontWeight: "700",
+                  fontSize: "1.5rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "4rem",
+                }}
+              >
+                <FileDownloadOutlinedIcon
+                  style={{ marginRight: "1rem", fontSize: "2.5rem" }}
+                />
+                Download Common Pool
+              </PurpleButton>
+              <button
+                className={classes.reports}
+                onClick={() => {
+                  return setReportType((prevState) => {
+                    return !prevState;
+                  });
+                }}
+                style={{ marginLeft: "auto" }}
               >
                 <FileDownloadOutlinedIcon className={classes.downloadicon} />
-                Download Template
-              </button>
-            )}
-
-            <button
-              onClick={() => {
-                return setReportType((prevState) => {
-                  return !prevState;
-                });
-              }}
-              style={{ marginLeft: "auto" }}
-            >
-              <FileDownloadOutlinedIcon className={classes.downloadicon} />
-              Download Reports
-              <KeyboardArrowDownIcon
-                style={{ borderLeft: "1px solid white" }}
-                className={classes.downloadicon}
-              />
-            </button>
-          </main></>}
-
-          {datatype=='enrichment' && <section>
-            <PurpleButton customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileUploadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}}/>
-             Upload Enrichment Template</PurpleButton>
-            <PurpleButton onClick={handleDownload} customStyle={{fontWeight: '700',fontSize:'1.5rem',display:'flex',justifyContent:'center',alignItems:'center',height:'4rem'}}><FileDownloadOutlinedIcon style={{marginRight:'1rem',fontSize:'2.5rem'}} />
-             Download Common Pool</PurpleButton>
-            <button
-            className={classes.reports}
-              onClick={() => {
-                return setReportType((prevState) => {
-                  return !prevState;
-                });
-              }}
-              style={{ marginLeft: "auto" }}
-            >
-              <FileDownloadOutlinedIcon className={classes.downloadicon} />
-              Download Reports
-              <KeyboardArrowDownIcon
-                style={{ borderLeft: "1px solid white" }}
-                className={classes.downloadicon}
-              />
-            </button> </section>}
+                Download Reports
+                <KeyboardArrowDownIcon
+                  style={{ borderLeft: "1px solid white" }}
+                  className={classes.downloadicon}
+                />
+              </button>{" "}
+            </section>
+          )}
 
           {reportType && (
             <section className={classes.specialsection}>
@@ -1469,18 +1602,22 @@ const TransactionData = (props) => {
                   style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
                 />{" "}
               </p>
-              {datatype!=='enrichment' && <><p onClick={handleDownload}>
-                Section Mismatch Report{" "}
-                <FileDownloadOutlinedIcon
-                  style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
-                />{" "}
-              </p>
-              <p onClick={handleDownload}>
-                Out of TDS Scope Report{" "}
-                <FileDownloadOutlinedIcon
-                  style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
-                />{" "}
-              </p></>}
+              {datatype !== "enrichment" && (
+                <>
+                  <p onClick={handleDownload}>
+                    Section Mismatch Report{" "}
+                    <FileDownloadOutlinedIcon
+                      style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
+                    />{" "}
+                  </p>
+                  <p onClick={handleDownload}>
+                    Out of TDS Scope Report{" "}
+                    <FileDownloadOutlinedIcon
+                      style={{ fontSize: "2.5rem", color: "#4F2D7F" }}
+                    />{" "}
+                  </p>
+                </>
+              )}
             </section>
           )}
 
@@ -1489,7 +1626,16 @@ const TransactionData = (props) => {
             className={classes.table}
           >
             <tbody>
-              <tr style={datatype=='enrichment'?{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}:{}}>
+              <tr
+                style={
+                  datatype == "enrichment"
+                    ? {
+                        gridTemplateColumns:
+                          "10% 15% 15% 15% 15% 15% 15% 15% 15%",
+                      }
+                    : {}
+                }
+              >
                 <th>Select</th>
                 <th>File Name</th>
                 <th>Uploaded By</th>
@@ -1497,15 +1643,20 @@ const TransactionData = (props) => {
                 <th>No. of Records</th>
                 <th>Processed Records</th>
                 <th>Error Records</th>
-                {datatype!='enrichment' && <><th>Mismatch Records</th>
-                <th>Out of TDS Scope Records</th></>}
+                {datatype != "enrichment" && (
+                  <>
+                    <th>Mismatch Records</th>
+                    <th>Out of TDS Scope Records</th>
+                  </>
+                )}
                 <th>Actions</th>
                 {/* <th>Report Download</th>
               <th>Type</th>
               <th>Actions</th> */}
               </tr>
 
-              {datatype == "invoice" && props.clientIdentity == "ABC Consultancy Limited" &&
+              {datatype == "invoice" &&
+                props.clientIdentity == "ABC Consultancy Limited" &&
                 invoiceData.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1529,14 +1680,29 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{color:'#00A7B5', margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
+                          onClick={handleDownload}
+                          style={{
+                            color: "#00A7B5",
+                            margin: "auto",
+                            cursor: "pointer",
+                            fontSize: "2.5rem",
+                          }}
                         />
                         <RestartAltIcon
-                          style={{color:'#00A7B5', margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
+                          style={{
+                            color: "#00A7B5",
+                            margin: "auto",
+                            cursor: "pointer",
+                            fontSize: "2.5rem",
+                          }}
                         />{" "}
                         <DeleteForeverIcon
-                          style={{color:'#00A7B5', margin: "auto",cursor:'pointer', fontSize: "2.5rem" }}
+                          style={{
+                            color: "#00A7B5",
+                            margin: "auto",
+                            cursor: "pointer",
+                            fontSize: "2.5rem",
+                          }}
                         />
                         <p onClick={handleDownload}>Report</p>
                         <p>Reprocess</p>
@@ -1553,7 +1719,8 @@ const TransactionData = (props) => {
                     </tr>
                   );
                 })}
-              {datatype == "advance" && props.clientIdentity == "ABC Consultancy Limited" &&
+              {datatype == "advance" &&
+                props.clientIdentity == "ABC Consultancy Limited" &&
                 advanceData.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1585,7 +1752,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
@@ -1601,7 +1768,8 @@ const TransactionData = (props) => {
                     </tr>
                   );
                 })}
-              {datatype == "provision" && props.clientIdentity == "ABC Consultancy Limited" &&
+              {datatype == "provision" &&
+                props.clientIdentity == "ABC Consultancy Limited" &&
                 provisionData.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1633,7 +1801,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
@@ -1650,10 +1818,17 @@ const TransactionData = (props) => {
                   );
                 })}
 
-              {datatype == "enrichment" && props.clientIdentity == "ABC Consultancy Limited" &&
+              {datatype == "enrichment" &&
+                props.clientIdentity == "ABC Consultancy Limited" &&
                 enrichmentData.map((val, idx) => {
                   return (
-                    <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}} id={idx}>
+                    <tr
+                      style={{
+                        gridTemplateColumns:
+                          "10% 15% 15% 15% 15% 15% 15% 15% 15%",
+                      }}
+                      id={idx}
+                    >
                       <td>
                         <input type="checkbox" name="" id="" />
                       </td>
@@ -1682,10 +1857,11 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
-                        <FileDownloadOutlinedIcon onClick={handleDownload}
+                        <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />{" "}
                         {/* <DeleteForeverIcon
@@ -1699,8 +1875,8 @@ const TransactionData = (props) => {
                   );
                 })}
 
-
-              {datatype == "invoice" && props.clientIdentity == "ABC Motors Limited" &&
+              {datatype == "invoice" &&
+                props.clientIdentity == "ABC Motors Limited" &&
                 invoiceData2.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1724,7 +1900,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
@@ -1748,7 +1924,8 @@ const TransactionData = (props) => {
                     </tr>
                   );
                 })}
-              {datatype == "advance" && props.clientIdentity == "ABC Motors Limited" &&
+              {datatype == "advance" &&
+                props.clientIdentity == "ABC Motors Limited" &&
                 advanceData2.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1780,7 +1957,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
@@ -1796,7 +1973,8 @@ const TransactionData = (props) => {
                     </tr>
                   );
                 })}
-              {datatype == "provision" && props.clientIdentity == "ABC Motors Limited" &&
+              {datatype == "provision" &&
+                props.clientIdentity == "ABC Motors Limited" &&
                 provisionData2.map((val, idx) => {
                   return (
                     <tr id={idx}>
@@ -1828,7 +2006,7 @@ const TransactionData = (props) => {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         <RestartAltIcon
@@ -1845,10 +2023,17 @@ const TransactionData = (props) => {
                   );
                 })}
 
-              {datatype == "enrichment" && props.clientIdentity == "ABC Motors Limited" &&
+              {datatype == "enrichment" &&
+                props.clientIdentity == "ABC Motors Limited" &&
                 enrichmentData2.map((val, idx) => {
                   return (
-                    <tr style={{gridTemplateColumns: '10% 15% 15% 15% 15% 15% 15% 15% 15%'}} id={idx}>
+                    <tr
+                      style={{
+                        gridTemplateColumns:
+                          "10% 15% 15% 15% 15% 15% 15% 15% 15%",
+                      }}
+                      id={idx}
+                    >
                       <td>
                         <input type="checkbox" name="" id="" />
                       </td>
@@ -1870,14 +2055,14 @@ const TransactionData = (props) => {
                     <EditIcon className={classes.icon2} />
                   </td> */}
                       <td
-                        // style={{
-                        //   display: "grid",
-                        //   gridTemplateRows: "1fr 1fr",
-                        //   gridTemplateColumns: "1fr 1fr 1fr",
-                        // }}
+                      // style={{
+                      //   display: "grid",
+                      //   gridTemplateRows: "1fr 1fr",
+                      //   gridTemplateColumns: "1fr 1fr 1fr",
+                      // }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
+                          onClick={handleDownload}
                           style={{ margin: "auto", fontSize: "2.5rem" }}
                         />
                         {/* <FileDownloadOutlinedIcon

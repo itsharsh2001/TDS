@@ -12,6 +12,7 @@ import DocumentSupply from "./Masters/Application/DocumentSupply";
 import classes from "./Masters.module.css";
 import BaseNature from "./Masters/Application/BaseNature";
 import SubNature from "./Masters/Application/SubNature";
+import Keyword from "./Masters/Application/Keyword";
 
 export const Masters2 = ({ sidebar }) => {
   const [masterType, setMasterType] = useState("application");
@@ -94,7 +95,7 @@ export const Masters2 = ({ sidebar }) => {
                 return setMasterType("");
               }}
             >
-              <p>Nature of Payment-To-Section Master</p>
+              <p>Nature of Payment Rate & Threshold Master</p>
               <PeopleIcon className={classes.icon} />
             </span>
             <span
@@ -107,7 +108,7 @@ export const Masters2 = ({ sidebar }) => {
                 return setMasterType("");
               }}
             >
-              <p>Section-To-TDS Rate</p>
+              <p>Keyword Master</p>
               <PeopleIcon className={classes.icon} />
             </span>
             <span
@@ -195,7 +196,7 @@ export const Masters2 = ({ sidebar }) => {
                 return setMasterType("");
               }}
             >
-              <p>SubBase Nature of Master</p>
+              <p>Sub Base Nature of Master</p>
               <PeopleIcon className={classes.icon} />
             </span>
           </section>
@@ -203,7 +204,7 @@ export const Masters2 = ({ sidebar }) => {
       )}
 
       {app1 && <NaturePayment transactionHomeScreen={activeAppMasterSetter} />}
-      {app2 && <SectionTDS transactionHomeScreen={activeAppMasterSetter} />}
+      {app2 && <Keyword transactionHomeScreen={activeAppMasterSetter} />}
       {app3 && (
         <InterestPenalty transactionHomeScreen={activeAppMasterSetter} />
       )}

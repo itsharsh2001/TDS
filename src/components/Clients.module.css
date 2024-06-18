@@ -1,17 +1,10 @@
 .clients {
   width: 77.5%;
-  /* width: 100%; */
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   height: 100%;
-  /* background-color: yellow; */
-  /* transition: width 0.3s; */
   padding-top: 1.1%;
   padding-bottom: 1.1%;
-  /* padding-left: 1%; */
-  /* padding-right: 1%; */
-  /* width: 90%;  */
-  /* height: 95%;  */
   overflow-y: scroll;
   scroll-behavior: smooth;
   transition: width 0.5s ease-in-out;
@@ -35,14 +28,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* width: auto; */
   height: 40px;
   margin: 0;
   border-radius: 8px;
   background: #fff;
   padding-left: 1rem;
   padding-right: 1rem;
-
   border: 0.5px solid #a3a3a3;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
   background: #fff;
@@ -50,7 +41,6 @@
 
 .clients div section input {
   height: 100%;
-  /* width: 200px; */
   outline: none;
   border: none;
   color: #747474;
@@ -59,7 +49,7 @@
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 20px; 
 }
 
 .clients div section svg {
@@ -84,7 +74,7 @@
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 16px; /* 100% */
+  line-height: 16px; 
   background-color: white;
 }
 
@@ -100,19 +90,7 @@
 }
 
 .clients table {
-  /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 7.5%;
-    margin-right: 7.5%;
-    margin-top: 3.5rem;
-    border: 2px solid black;
-    height: 400px;
-    overflow-y: scroll;
-    background-color: white; */
   width: 100%;
-  /* margin-left: 1%; */
-  /* margin-right: 1%; */
   margin-bottom: 3rem;
 }
 
@@ -120,28 +98,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
-
   margin-top: 3.5rem;
-  /* border: 2px solid #522398; */
-  /* height: 350px; */
   height: calc(84vh - 14rem) !important;
-  /* width: 900px; */
   width: 100%;
   overflow-y: scroll;
-  /* background-color: white; */
   overflow-x: scroll;
-
-  /* --shadow-color: 0deg 0% 59%;
-    box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
-    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
-    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
-    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
-    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
-    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
-    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
-    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
-    border-radius: 2rem; */
 }
 
 .clients table tbody::-webkit-scrollbar {
@@ -150,60 +111,41 @@
 
 .clients table tr {
   width: 100%;
-  /* width: 1100px; */
   display: grid;
-  /* grid-template-columns: min-content fit-content(100%); */
-  /* grid-auto-columns: minmax(1, 1fr); */
   grid-auto-flow: column;
-  /* grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px; */
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  /* border-bottom: 1px solid #ccc; */
-  /* background-color: white; */
   margin-bottom: 1rem;
-
   border-radius: 8px;
   border: 0.5px solid #a3a3a3;
-
   background: #fff;
-
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 }
 
 .clients table tr th {
   z-index: 50 !important;
-  /* background-color: #ccc; */
-  /* background-color: white; */
   font-weight: 700 !important;
   color: var(--GT-Purple, #4f2d7f);
 }
 
 .clients table tr td {
   z-index: 25 !important;
-  /* background-color: white; */
-  /* line-height: 1rem!important; */
   word-break: break-all;
   color: #464255;
 }
 
 .clients table tr td,
 .clients table tr th {
-  /* border: 1px solid black; */
-  /* width: 90%; */
-  /* height: 90%; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  /* font-size: 1.5rem; */
   text-align: center;
-
   font-feature-settings: "clig" off, "liga" off;
   font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
-  /* line-height: 1rem; */
 }
 
 .clients table tr:nth-child(1) {
@@ -219,19 +161,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* height: 40px!important; */
   height: 40px !important;
   background-color: transparent !important;
 }
 
 .pagination > p {
   color: var(--Secondary-Text, #717579);
-  /* font-family: GT Walsheim Pro; */
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  /* width: 100px; */
 }
 
 .pagination div {
@@ -240,7 +179,6 @@
   justify-content: space-between;
   align-items: center;
   width: 40%;
-  /* height: 40px; */
 }
 
 .pagination div > p {
@@ -258,12 +196,9 @@
 .pagination div > p:active {
   background-color: #00a7b5;
   color: white;
-  /* border-radius: 5px; */
 }
 
 .pagination div p {
-  /* color: var(--GT-Purple, #4f2d7f); */
-  /* font-family: GT Walsheim Pro; */
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
@@ -277,7 +212,6 @@
   grid-template-columns: 25% 25% 25% 25%;
   justify-content: space-between;
   align-items: center;
-  /* width: 300px!important; */
   height: 100%;
   border-radius: 7px;
   border: 1px solid var(--GT-Purple, #00a7b5);
@@ -309,31 +243,23 @@
     0,
     0,
     0.5
-  ); /* Adjust the alpha value for transparency */
-  z-index: 99; /* Ensure the overlay is above other content */
+  ); 
+  z-index: 99; 
   animation: pop-in 0.5s ease-in-out;
 }
 
 .popup {
   position: fixed;
-  /* top: 12.5%; */
-  /* margin-top: auto; */
-  /* margin-bottom: auto; */
-  /* top: 50%; 
-  transform: translateY(-50%);  */
   top: 7.5%;
   left: 20%;
   width: 60%;
   height: 75%;
   max-height: 75%;
-  /* background-color: whitesmoke; */
-  /* box-shadow: 2px 4px 4px 2px #00000016; */
   z-index: 100;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   justify-content: space-between;
-
   --shadow-color: 0deg 0% 59%;
   box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
     1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
@@ -343,10 +269,8 @@
     11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
     17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
     25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
-  /* border-radius: 2rem; */
   flex-shrink: 0;
   box-shadow: 0 0 500px 500px rgba(0, 0, 0, 0.5);
-
   border-radius: 6px;
   background: #fff;
   animation: pop-in 0.5s ease-in-out;
@@ -355,7 +279,6 @@
 .popup > span {
   display: flex;
   flex-direction: row;
-  /* justify-content: left!important; */
   justify-content: space-between;
   align-items: center;
   max-width: 60%;
@@ -370,11 +293,10 @@
   color: #a7a7a7;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
-  /* font-family: GT Walsheim Pro; */
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 16px; /* 88.889% */
+  line-height: 16px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -388,12 +310,9 @@
 }
 
 .popup span hr {
-  /* opacity: 0.1; */
   background: #e8ebef;
   fill: #e8ebef;
-  /* min-width: 40%; */
   width: 40%;
-  /* width: auto; */
   height: 4px;
   border: none;
   outline: none;
@@ -521,7 +440,6 @@
   width: 175px;
   width: 20%;
   color: var(--GT-Purple, #4f2d7f);
-  /* color: #00A7B5; */
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 14px;
@@ -546,7 +464,6 @@
   margin-right: 2rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-
   border-radius: 5px 5px 0px 0px;
   background: #f2f5ff;
 }
@@ -703,7 +620,6 @@
 
 .accessmanagementtable {
   width: 100%;
-  /* margin-bottom: 3rem; */
 }
 
 .accessmanagementtable tbody {
@@ -711,7 +627,6 @@
   flex-direction: column;
   align-items: center;
   margin-top: 3.5rem;
-  /* height: calc(84vh - 14rem) !important; */
   width: 100%;
   overflow-y: scroll;
   overflow-x: scroll;
@@ -735,21 +650,16 @@
 
 .accessmanagementtable tr th {
   z-index: 50 !important;
-  /* background-color: #ccc; */
-  /* background-color: white; */
   font-weight: 700 !important;
   color: #000;
 }
 
 .accessmanagementtable tr td {
   z-index: 25 !important;
-  /* background-color: white; */
-  /* line-height: 1rem!important; */
   word-break: break-all;
   color: #000;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 .accessmanagementtable tr td p{
@@ -760,29 +670,21 @@
   height: 2rem;
   width: 2rem;
   margin-bottom: 1rem;
-  /* background-color: #4f2d7f; */
-  /* color: #4f2d7f; */
 }
 
 .accessmanagementtable tr td,
 .accessmanagementtable tr th {
-  /* border: 1px solid black; */
-  /* width: 90%; */
-  /* height: 90%; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  /* font-size: 1.5rem; */
   text-align: center;
-
   font-feature-settings: "clig" off, "liga" off;
   font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
-  /* line-height: 1rem; */
 }
 
 .accessmanagementtable tr:nth-child(1) {
@@ -802,15 +704,12 @@
 
 .step3table {
   width: 100%;
-  /* margin-bottom: 3rem; */
 }
 
 .step3table tbody {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-top: 3.5rem; */
-  /* height: calc(84vh - 14rem) !important; */
   width: 100%;
   overflow-y: scroll;
   overflow-x: scroll;
@@ -834,21 +733,16 @@
 
 .step3table tr th {
   z-index: 50 !important;
-  /* background-color: #ccc; */
-  /* background-color: white; */
   font-weight: 700 !important;
   color: #000;
 }
 
 .step3table tr td {
   z-index: 25 !important;
-  /* background-color: white; */
-  /* line-height: 1rem!important; */
   word-break: break-all;
   color: #000;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 .step3table tr td p{
@@ -859,29 +753,21 @@
   height: 2rem;
   width: 2rem;
   margin-bottom: 1rem;
-  /* background-color: #4f2d7f; */
-  /* color: #4f2d7f; */
 }
 
 .step3table tr td,
 .step3table tr th {
-  /* border: 1px solid black; */
-  /* width: 90%; */
-  /* height: 90%; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  /* font-size: 1.5rem; */
   text-align: center;
-
   font-feature-settings: "clig" off, "liga" off;
   font-family: "GT-Walsheim-Pro-Regular";
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
-  /* line-height: 1rem; */
 }
 
 .step3table tr:nth-child(1) {
@@ -890,6 +776,33 @@
   background-color: white;
   z-index: 50;
 }
+
+.clients >span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 4rem;
+  color: #4f2d7f;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "GT-Walsheim-Pro-Regular";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  list-style: none;
+  background-color: transparent;
+  height: 6rem;
+  padding-right: 2rem;
+  cursor: pointer;
+  padding-top: 3rem;
+}
+
+.righticon {
+  font-size: 2.1rem !important;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
 
 @keyframes pop-in {
   0% {

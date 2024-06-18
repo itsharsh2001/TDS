@@ -22,14 +22,14 @@ const KeywordRepository = (props) => {
         <ChevronRightIcon className={classes.righticon} /> */}
         <a onClick={(e)=>{e.preventDefault(); return props.panMasterSetter(0)}} href="">Client Masters</a>
         <ChevronRightIcon className={classes.righticon} />
-        <a onClick={(e)=>{e.preventDefault();}} href="">Keyword Repository Master</a>
+        <a onClick={(e)=>{e.preventDefault();}} href="">Keyword Master</a>
       </span>
       <ul>
         <li style={!viewData?hoverStyle:{}} onClick={()=>setViewData(false)}>Uploaded Data</li>
         <li style={viewData?hoverStyle:{}} onClick={()=>setViewData(true)}>View Master Data</li>
       </ul>
 
-      {!viewData && <Uploaded type = 'Keyword' />}
+      {!viewData && <Uploaded clientIdentity={props.clientIdentity} type = 'Keyword' />}
       {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'Keyword'/>}
     </div>
     </>

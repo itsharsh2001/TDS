@@ -28,8 +28,8 @@ const DocumentSupply = (props) => {
         <li style={viewData?hoverStyle:{}} onClick={()=>setViewData(true)}>View Master Data</li>
       </ul>
 
-      {!viewData && <Uploaded type = 'DocumentSupply'/>}
-      {viewData && <ViewMaster type = 'DocumentSupply'/>}
+      {!viewData && <Uploaded clientIdentity={props.clientIdentity} type = 'DocumentSupply'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'DocumentSupply'/>}
     </div>
   )
 }

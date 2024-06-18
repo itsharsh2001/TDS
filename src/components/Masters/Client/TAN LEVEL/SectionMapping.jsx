@@ -28,8 +28,8 @@ const SectionMapping = (props) => {
         <li style={viewData?hoverStyle:{}} onClick={()=>setViewData(true)}>View Master Data</li>
       </ul>
 
-      {!viewData && <Uploaded type = 'SectionMapping'/>}
-      {viewData && <ViewMaster type = 'SectionMapping'/>}
+      {!viewData && <Uploaded clientIdentity={props.clientIdentity} type = 'SectionMapping'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'SectionMapping'/>}
     </div>
   )
 }

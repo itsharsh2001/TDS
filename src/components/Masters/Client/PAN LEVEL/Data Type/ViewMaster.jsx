@@ -597,8 +597,8 @@ const ViewMaster = ({ type, clientIdentity }) => {
             {type == "LDC" && "LDC Validation"}
           </h4>
           <section>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
+            <input type="text" placeholder="********" />
+            <input type="password" placeholder="********" />
             <img src="/Captha.png" alt="" />
             <input type="text" placeholder="Enter Captcha" />
             <button

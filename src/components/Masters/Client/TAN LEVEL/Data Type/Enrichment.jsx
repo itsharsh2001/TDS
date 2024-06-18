@@ -12,20 +12,26 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import classes from "./Enrichment.module.css";
 
-const Enrichment = ({ type }) => {
+const Enrichment = ({ type, clientIdentity }) => {
   const [popup, setPopup] = useState(false);
-  let arr = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
-  ];
+  
 
   let rowStyle = {};
-  const [templateFileUpload, setTemplateFileUpload] = useState(false);
   rowStyle = {
     gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
   };
 
   let enrichmentData = [
+    {
+      File_Name: "Enrichment_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: "1823456790",
+      No_of_Records: "1264",
+      Status: "Processed",
+    },
+  ];
+
+  let enrichmentData2 = [
     {
       File_Name: "Enrichment_Master_Onboarding.xlsx",
       Uploaded_By: "Ganesh Gupta",
@@ -146,7 +152,39 @@ const Enrichment = ({ type }) => {
               <th>Actions</th>
             </tr>
 
-            {enrichmentData.map((val, idx) => {
+            {
+              clientIdentity == "ABC Consultancy Limited" && enrichmentData.map((val, idx) => {
+              return (
+                <tr style={rowStyle} id={idx}>
+                  <td>{val.File_Name}</td>
+                  <td>{val.Uploaded_By}</td>
+                  <td>{val.Batch_ID}</td>
+                  <td>{val.No_of_Records}</td>
+                  <td>{val.Status}</td>
+                  <td
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr 1fr",
+                      gridTemplateRows: "1fr 1fr",
+                    }}
+                  >
+                    <FileDownloadOutlinedIcon
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />
+                    <FileDownloadOutlinedIcon
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />
+                    <DeleteOutlinedIcon
+                      style={{ margin: "auto", fontSize: "2.5rem" }}
+                    />
+                    <p>File</p>
+                    <p>Error</p>
+                    <p>Delete</p>
+                  </td>
+                </tr>
+              );
+            })}
+            {clientIdentity == "ABC Motors Limited" && enrichmentData2.map((val, idx) => {
               return (
                 <tr style={rowStyle} id={idx}>
                   <td>{val.File_Name}</td>

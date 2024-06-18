@@ -67,6 +67,16 @@ const Uploaded = ({ type }) => {
       Error_Records: 0,
     },
   ];
+  const Keyword = [
+    {
+      File_Name: "Keyword_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1857274810,
+      No_of_Records: 16246,
+      Processed_Records: 16246,
+      Error_Records: 0,
+    },
+  ];
   const DocumentSupply = [
     {
       File_Name: "Document_Supply_Master_Onboarding.xlsx",
@@ -99,41 +109,45 @@ const Uploaded = ({ type }) => {
   ];
   const Payment = [
     {
-      File_Name: "Payment_Master_Onboarding.xlsx",
+      File_Name: "NOP_Master_Onboarding.xlsx",
       Uploaded_By: "Ganesh Gupta",
       Batch_ID: 9596274810,
-      No_of_Records: 16246,
-      Processed_Records: 16246,
+      No_of_Records: 1500,
+      Processed_Records: 1500,
       Error_Records: 0,
     },
   ];
 
-  let arr = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
-  ];
-
-  let rowStyle = {};
-
-  // switch (type) {
-  //   case "BaseNature":
-  //     rowStyle = {
-  //       gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-  //     };
-  //     break;
-  //   case "SubBase":
-  //     rowStyle = {
-  //       gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-  //     };
-  //     break;
-  //   // Add more cases for other values as needed
-  //   default:
-  //     break;
-  // }
-
   const handleDownload = async () => {
     try {
-      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+      let response = ''
+
+      switch (type) {
+        case "BaseNature":
+          response = await fetch("/assets/Application Masters/Base Nature of Payment Master Template.xlsx");
+          break;
+        case "SubBase":
+          response = await fetch("/assets/Application Masters/Sub Nature of Payment Master Template.xlsx");
+          break;
+        case "HSNSAC":
+          response = await fetch("/assets/Application Masters/HSN SAC Master Template.xlsx");
+          break;
+        case "DocumentSupply":
+          response = await fetch("/assets/Application Masters/Document and Supply Type Master Template.xlsx");
+          break;
+        case "Penalty":
+          response = await fetch("/assets/Application Masters/Interest and Penalty Master Template.xlsx");
+          break;
+        case "NaturePayment":
+          response = await fetch("/assets/Application Masters/Nature of Payment - Rate and Threshold Master Template.xlsx");
+          break;
+        case "Keyword":
+          response = await fetch("/assets/Application Masters/Keyword Master Template.xlsx");
+          break;
+        // Add more cases for other values as needed
+        default:
+          break;
+      }
 
       if (!response.ok) {
         throw new Error("Failed to fetch file");
@@ -147,7 +161,7 @@ const Uploaded = ({ type }) => {
 
       const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = "downloadedFiless.xlsx";
+      link.download = "downloadedFiles.xlsx";
 
       // Trigger the click event
       link.click();
@@ -611,17 +625,16 @@ const Uploaded = ({ type }) => {
               Download Template
             </button>
           )} */}
+          <button onClick={handleDownload}>
+            <FileDownloadOutlinedIcon className={classes.downloadicon} />
+            Download Template File
+          </button>
           <button>
             <FileUploadOutlinedIcon className={classes.downloadicon} />
             Upload Template File
           </button>
-          {/* <button onClick={handleDownload}>
-            <FileDownloadOutlinedIcon className={classes.downloadicon} />
-            Download Template File
-          </button> */}
-          <button onClick={handleDownload}>
+          <button >
             <FileUploadOutlinedIcon className={classes.downloadicon} />
-            {/* Download Consolidated Reports */}
             Edit Master Data
           </button>
         </span>
@@ -785,7 +798,7 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-              {type == "DocumentSupply" &&
+              {/* {type == "DocumentSupply" &&
               Penalty.map((val, idx) => {
                 return (
                   <tr id={idx}>
@@ -819,7 +832,7 @@ const Uploaded = ({ type }) => {
                     </td>
                   </tr>
                 );
-              })}
+              })} */}
               {type == "Penalty" &&
               Penalty.map((val, idx) => {
                 return (
@@ -892,6 +905,42 @@ const Uploaded = ({ type }) => {
               })}
               {type == "NaturePayment" &&
               Payment.map((val, idx) => {
+                return (
+                  <tr id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+
+                    <td>{val.Error_Records}</td>
+                    <td
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />{" "}
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
+                    </td>
+                  </tr>
+                );
+              })}
+
+              {type == "Keyword" &&
+              Keyword.map((val, idx) => {
                 return (
                   <tr id={idx}>
                     <td>

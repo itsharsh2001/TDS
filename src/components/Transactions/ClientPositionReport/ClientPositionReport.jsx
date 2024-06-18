@@ -928,42 +928,42 @@ const ClientPositionReport = (props) => {
   ];
 
   const uploadedData = [
-    {
-      Batch_ID: 7596048123,
-      File_Name: "Apr_CPR.xlsx",
-      Username: "Ganesh Gupta",
-      Date: "5/5/2023",
-      Total_No_of_Records: 24,
-      Error_Records: 1,
-      Processed_Records: 23,
-    },
-    {
-      Batch_ID: 7596048363,
-      File_Name: "Apr_CPR1.xlsx",
-      Username: "Ganesh Gupta",
-      Date: "5/6/2023",
-      Total_No_of_Records: 1,
-      Error_Records: 0,
-      Processed_Records: 1,
-    },
-    {
-      Batch_ID: 3826715904,
-      File_Name: "May_CPR.xlsx",
-      Username: "Ganesh Gupta",
-      Date: "6/5/2023",
-      Total_No_of_Records: 6,
-      Error_Records: 0,
-      Processed_Records: 6,
-    },
-    {
-      Batch_ID: 9463851270,
-      File_Name: "Jun_CPR.xlsx",
-      Username: "Ganesh Gupta",
-      Date: "7/5/2023",
-      Total_No_of_Records: 13,
-      Error_Records: 0,
-      Processed_Records: 13,
-    },
+    // {
+    //   Batch_ID: 7596048123,
+    //   File_Name: "Apr_CPR.xlsx",
+    //   Username: "Ganesh Gupta",
+    //   Date: "5/5/2023",
+    //   Total_No_of_Records: 24,
+    //   Error_Records: 1,
+    //   Processed_Records: 23,
+    // },
+    // {
+    //   Batch_ID: 7596048363,
+    //   File_Name: "Apr_CPR1.xlsx",
+    //   Username: "Ganesh Gupta",
+    //   Date: "5/6/2023",
+    //   Total_No_of_Records: 1,
+    //   Error_Records: 0,
+    //   Processed_Records: 1,
+    // },
+    // {
+    //   Batch_ID: 3826715904,
+    //   File_Name: "May_CPR.xlsx",
+    //   Username: "Ganesh Gupta",
+    //   Date: "6/5/2023",
+    //   Total_No_of_Records: 6,
+    //   Error_Records: 0,
+    //   Processed_Records: 6,
+    // },
+    // {
+    //   Batch_ID: 9463851270,
+    //   File_Name: "Jun_CPR.xlsx",
+    //   Username: "Ganesh Gupta",
+    //   Date: "7/5/2023",
+    //   Total_No_of_Records: 13,
+    //   Error_Records: 0,
+    //   Processed_Records: 13,
+    // },
     {
       Batch_ID: 5201498376,
       File_Name: "Jul_CPR.xlsx",
@@ -976,42 +976,42 @@ const ClientPositionReport = (props) => {
   ];
 
   const uploadedData2 = [
-    {
-      Batch_ID: 7596048123,
-      File_Name: "Apr_CPR.xlsx",
-      Username: "Alok Anand",
-      Date: "5/5/2023",
-      Total_No_of_Records: 28,
-      Error_Records: 5,
-      Processed_Records: 23,
-    },
-    {
-      Batch_ID: 7596048363,
-      File_Name: "Apr_CPR1.xlsx",
-      Username: "Alok Anand",
-      Date: "5/6/2023",
-      Total_No_of_Records: 11,
-      Error_Records: 10,
-      Processed_Records: 1,
-    },
-    {
-      Batch_ID: 3826715904,
-      File_Name: "May_CPR.xlsx",
-      Username: "Alok Anand",
-      Date: "6/5/2023",
-      Total_No_of_Records: 16,
-      Error_Records: 0,
-      Processed_Records: 16,
-    },
-    {
-      Batch_ID: 9463851270,
-      File_Name: "Jun_CPR.xlsx",
-      Username: "Alok Anand",
-      Date: "7/5/2023",
-      Total_No_of_Records: 3,
-      Error_Records: 0,
-      Processed_Records: 3,
-    },
+    // {
+    //   Batch_ID: 7596048123,
+    //   File_Name: "Apr_CPR.xlsx",
+    //   Username: "Alok Anand",
+    //   Date: "5/5/2023",
+    //   Total_No_of_Records: 28,
+    //   Error_Records: 5,
+    //   Processed_Records: 23,
+    // },
+    // {
+    //   Batch_ID: 7596048363,
+    //   File_Name: "Apr_CPR1.xlsx",
+    //   Username: "Alok Anand",
+    //   Date: "5/6/2023",
+    //   Total_No_of_Records: 11,
+    //   Error_Records: 10,
+    //   Processed_Records: 1,
+    // },
+    // {
+    //   Batch_ID: 3826715904,
+    //   File_Name: "May_CPR.xlsx",
+    //   Username: "Alok Anand",
+    //   Date: "6/5/2023",
+    //   Total_No_of_Records: 16,
+    //   Error_Records: 0,
+    //   Processed_Records: 16,
+    // },
+    // {
+    //   Batch_ID: 9463851270,
+    //   File_Name: "Jun_CPR.xlsx",
+    //   Username: "Alok Anand",
+    //   Date: "7/5/2023",
+    //   Total_No_of_Records: 3,
+    //   Error_Records: 0,
+    //   Processed_Records: 3,
+    // },
     {
       Batch_ID: 5201498376,
       File_Name: "Jul_CPR.xlsx",
@@ -1030,167 +1030,134 @@ const ClientPositionReport = (props) => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
-  
+      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch file');
+        throw new Error("Failed to fetch file");
       }
-     
+
       // Use the response object to get the file content
-      const fileContent = await response.blob({ type: 'application/xlsx' });
+      const fileContent = await response.blob({ type: "application/xlsx" });
 
       // Now you can process the file content as needed
-      console.log('File content:', fileContent);
+      console.log("File content:", fileContent);
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = 'downloadedFiless.xlsx';
+      link.download = "downloadedFiless.xlsx";
 
       // Trigger the click event
       link.click();
     } catch (error) {
-        console.error('Error fetching file:', error);
+      console.error("Error fetching file:", error);
     }
   };
 
-  console.log(classes.grey, "custom style");
   return (
-    <div className={classes.clientposition}>
-      <span>
-        <a
-          onClick={(e) => {
-            e.preventDefault();
-            return props.transactionHomeScreen("");
-          }}
-          href=""
-        >
-          Monthly Compliance
-        </a>
-        <ChevronRightIcon className={classes.righticon} />
-        <a
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-          href=""
-        >
-          Client Position Report
-        </a>
+    <>
+      {props.monthSelected && (
+        <div className={classes.clientposition}>
+          <span>
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                return props.transactionHomeScreen("");
+              }}
+              href=""
+            >
+              Monthly Compliance
+            </a>
+            <ChevronRightIcon className={classes.righticon} />
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              href=""
+            >
+              Client Position Report
+            </a>
 
-        {/* <PurpleButton>
+            {/* <PurpleButton>
           <DownloadIcon /> Upload Template
         </PurpleButton> */}
-      </span>
+          </span>
 
-      <ul>
-        <li
-          style={!viewData ? hoverStyle : {}}
-          onClick={() => {
-            return setViewData(false);
-          }}
-        >
-          Uploaded Data
-        </li>
-        <li
-          style={viewData ? hoverStyle : {}}
-          onClick={() => {
-            return setViewData(true);
-          }}
-        >
-          Review Data
-        </li>
-        {/* <li>Annual Compliances</li> */}
-      </ul>
-
-      <div>
-        <PurpleButton
-          onClick={() => {
-            console.log("hello dbsar");
-            if (viewData) {
-              setExtraRow(false);
-            }
-          }}
-          customStyle={viewData && !activateReason ? grey : {}}
-        >
-          {!viewData && (
-            <>
-              <FileUploadOutlinedIcon />
-              Upload Response
-            </>
-          )}
-          {viewData && "Submit Response"}
-        </PurpleButton>
-
-        <PurpleButton onClick={handleDownload}>
-          <FileDownloadOutlinedIcon />
-          Downlaod Report
-        </PurpleButton>
-      </div>
-
-      <table className={classes.table}>
-        <tbody>
-          {!viewData && (
-            <tr
-              style={{ gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%" }}
+          <ul>
+            <li
+              style={!viewData ? hoverStyle : {}}
+              onClick={() => {
+                return setViewData(false);
+              }}
             >
-              <th>Batch ID</th>
-              <th>File Name</th>
-              <th>Username</th>
-              <th>Date</th>
-              <th>Total No. of Records</th>
-              <th>Error Records</th>
-              <th>Process Records</th>
-              <th>Actions</th>
-            </tr>
-          )}
-          {!viewData && !extraRow && (
-            <tr
-              style={{ gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%" }}
+              Uploaded Data
+            </li>
+            <li
+              style={viewData ? hoverStyle : {}}
+              onClick={() => {
+                return setViewData(true);
+              }}
             >
-              <td>5436271828</td>
-              <td>CPR_Frontend_UI_1.xlsx</td>
-              <td>Ganesh Gupta</td>
-              <td>{formattedDate}</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
-              <td
-                style={{
-                  display: "grid",
-                  gridTemplateRows: "1fr 1fr",
-                  gridTemplateColumns: "1fr 1fr",
-                }}
-              >
-                <FileDownloadOutlinedIcon
-                onClick={handleDownload}
-                  style={{ margin: "auto", fontSize: "2.5rem" }}
-                />
-                <FileDownloadOutlinedIcon
-                onClick={handleDownload}
-                  style={{ margin: "auto", fontSize: "2.5rem" }}
-                />{" "}
-                <p onClick={handleDownload}>File</p>
-                <p onClick={handleDownload}>Error</p>
-              </td>
-            </tr>
-          )}
+              Review Data
+            </li>
+            {/* <li>Annual Compliances</li> */}
+          </ul>
 
+          <div>
+            <PurpleButton
+              onClick={() => {
+                console.log("hello dbsar");
+                if (viewData) {
+                  setExtraRow(false);
+                }
+              }}
+              customStyle={viewData && !activateReason ? grey : {}}
+            >
+              {!viewData && (
+                <>
+                  <FileUploadOutlinedIcon />
+                  Upload Response
+                </>
+              )}
+              {viewData && "Submit Response"}
+            </PurpleButton>
 
-          {(!viewData && props.clientIdentity=='ABC Consultancy Limited') &&
-            uploadedData.map((val, idx) => {
-              return (
+            <PurpleButton onClick={handleDownload}>
+              <FileDownloadOutlinedIcon />
+              Downlaod Report
+            </PurpleButton>
+          </div>
+
+          <table className={classes.table}>
+            <tbody>
+              {!viewData && (
                 <tr
                   style={{
                     gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
                   }}
-                  id={idx}
                 >
-                  <td>{val.Batch_ID}</td>
-                  <td>{val.File_Name}</td>
-                  <td>{val.Username}</td>
-                  <td>{val.Date}</td>
-                  <td>{val.Total_No_of_Records}</td>
-                  <td>{val.Error_Records}</td>
-                  <td>{val.Processed_Records}</td>
+                  <th>Batch ID</th>
+                  <th>File Name</th>
+                  <th>Username</th>
+                  <th>Date</th>
+                  <th>Total No. of Records</th>
+                  <th>Error Records</th>
+                  <th>Process Records</th>
+                  <th>Actions</th>
+                </tr>
+              )}
+              {!viewData && !extraRow && (
+                <tr
+                  style={{
+                    gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
+                  }}
+                >
+                  <td>5436271828</td>
+                  <td>CPR_Frontend_UI_1.xlsx</td>
+                  <td>Ganesh Gupta</td>
+                  <td>{formattedDate}</td>
+                  <td>1</td>
+                  <td>0</td>
+                  <td>1</td>
                   <td
                     style={{
                       display: "grid",
@@ -1199,17 +1166,55 @@ const ClientPositionReport = (props) => {
                     }}
                   >
                     <FileDownloadOutlinedIcon
-                    onClick={handleDownload}
+                      onClick={handleDownload}
                       style={{ margin: "auto", fontSize: "2.5rem" }}
                     />
                     <FileDownloadOutlinedIcon
-                    onClick={handleDownload}
+                      onClick={handleDownload}
                       style={{ margin: "auto", fontSize: "2.5rem" }}
                     />{" "}
                     <p onClick={handleDownload}>File</p>
                     <p onClick={handleDownload}>Error</p>
                   </td>
-                  {/* <td>20</td>
+                </tr>
+              )}
+
+              {!viewData &&
+                props.clientIdentity == "ABC Consultancy Limited" &&
+                uploadedData.map((val, idx) => {
+                  return (
+                    <tr
+                      style={{
+                        gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
+                      }}
+                      id={idx}
+                    >
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Username}</td>
+                      <td>{val.Date}</td>
+                      <td>{val.Total_No_of_Records}</td>
+                      <td>{val.Error_Records}</td>
+                      <td>{val.Processed_Records}</td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <p onClick={handleDownload}>File</p>
+                        <p onClick={handleDownload}>Error</p>
+                      </td>
+                      {/* <td>20</td>
                 <td>140</td>
                 <td>40</td>
 
@@ -1225,45 +1230,46 @@ const ClientPositionReport = (props) => {
                   <RemoveRedEyeIcon className={classes.icon2} />
                   <EditIcon className={classes.icon2} />
                 </td> */}
-                </tr>
-              );
-            })}
+                    </tr>
+                  );
+                })}
 
-          {(!viewData && props.clientIdentity=='ABC Motors Limited') &&
-            uploadedData2.map((val, idx) => {
-              return (
-                <tr
-                  style={{
-                    gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
-                  }}
-                  id={idx}
-                >
-                  <td>{val.Batch_ID}</td>
-                  <td>{val.File_Name}</td>
-                  <td>{val.Username}</td>
-                  <td>{val.Date}</td>
-                  <td>{val.Total_No_of_Records}</td>
-                  <td>{val.Error_Records}</td>
-                  <td>{val.Processed_Records}</td>
-                  <td
-                    style={{
-                      display: "grid",
-                      gridTemplateRows: "1fr 1fr",
-                      gridTemplateColumns: "1fr 1fr",
-                    }}
-                  >
-                    <FileDownloadOutlinedIcon
-                    onClick={handleDownload}
-                      style={{ margin: "auto", fontSize: "2.5rem" }}
-                    />
-                    <FileDownloadOutlinedIcon
-                    onClick={handleDownload}
-                      style={{ margin: "auto", fontSize: "2.5rem" }}
-                    />{" "}
-                    <p onClick={handleDownload}>File</p>
-                    <p onClick={handleDownload}>Error</p>
-                  </td>
-                  {/* <td>20</td>
+              {!viewData &&
+                props.clientIdentity == "ABC Motors Limited" &&
+                uploadedData2.map((val, idx) => {
+                  return (
+                    <tr
+                      style={{
+                        gridTemplateColumns: "14% 14% 14% 14% 14% 14% 14% 14%",
+                      }}
+                      id={idx}
+                    >
+                      <td>{val.Batch_ID}</td>
+                      <td>{val.File_Name}</td>
+                      <td>{val.Username}</td>
+                      <td>{val.Date}</td>
+                      <td>{val.Total_No_of_Records}</td>
+                      <td>{val.Error_Records}</td>
+                      <td>{val.Processed_Records}</td>
+                      <td
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: "1fr 1fr",
+                          gridTemplateColumns: "1fr 1fr",
+                        }}
+                      >
+                        <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />
+                        <FileDownloadOutlinedIcon
+                          onClick={handleDownload}
+                          style={{ margin: "auto", fontSize: "2.5rem" }}
+                        />{" "}
+                        <p onClick={handleDownload}>File</p>
+                        <p onClick={handleDownload}>Error</p>
+                      </td>
+                      {/* <td>20</td>
                 <td>140</td>
                 <td>40</td>
 
@@ -1279,410 +1285,422 @@ const ClientPositionReport = (props) => {
                   <RemoveRedEyeIcon className={classes.icon2} />
                   <EditIcon className={classes.icon2} />
                 </td> */}
-                </tr>
-              );
-            })}
+                    </tr>
+                  );
+                })}
 
-          {viewData && (
-            <tr
-              style={{
-                gridTemplateColumns:
-                  "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
-              }}
-            >
-              <th>Posting Date</th>
-              <th>Vendor Code</th>
-              <th>Vendor Name</th>
-              <th>Document Number</th>
-              <th>Document Date</th>
-              <th>Line Number</th>
-              <th>Original Document Number</th>
-              <th>Original Document Date</th>
-              <th>Document Type</th>
-              <th>Supply Type</th>
-              <th>HSNorSAC</th>
-              <th>Description</th>
-              <th>GLAccountCode</th>
-              <th>GLAccountName</th>
-              <th>PONumber</th>
-              <th>PODescription</th>
-              <th>Taxable Value</th>
-              <th>CSST Rate</th>
-              <th>SGST Rate</th>
-              <th>IGST Rate</th>
-              <th>CGST Amount</th>
-              <th>SGST Amount</th>
-              <th>IGST Amount</th>
-              <th>Total GST</th>
-              <th>Invoice Value</th>
-              <th>TDS Tax Code ERP</th>
-              <th>TDS Rate</th>
-              <th>TDS Amount</th>
-              <th>HSN/SAC Code</th>
-              <th>Vendor</th>
-              <th>Invoice Decription</th>
-              <th>PO Description</th>
-              <th>GL Code</th>
-              <th>System Determined Section</th>
-              <th>Section Mismatch</th>
-              <th>Action</th>
-              <th>Reason</th>
-              <th>Modified TDS Section</th>
-            </tr>
-          )}
-
-          {viewData && extraRow && (
-            <tr
-              style={{
-                gridTemplateColumns:
-                  "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
-              }}
-            >
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].VendorCode}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].VendorName}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].PostingDate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].DocumentNumber}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].DocumentDate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].LineNumber}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].OriginalDocumentNumber}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].OriginalDocumentDate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].DocumentType}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].SupplyType}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].HSN_SAC_Code}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].Description}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].GLAccountCode}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].GLAccountName}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].PONumber}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].PODescription}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].TaxableValue}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].CGSTRate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].SGSTRate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].IGSTRate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].CGSTAmount}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].SGSTAmount}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].IGSTAmount}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].TotalGST}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].InvoiceValue}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].TDSTaxCodeERP}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].TDSRate}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].TDSAmount}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].HSN_SAC_Code}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].Vendor}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].InvoiceDescription}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].PODescription}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].GLCode}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].SystemDeterminedSection}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {viewDataTable[6].SectionMismatch}
-              </td>
-
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                <select
-                  onChange={(e) => {
-                    setSelectedAction(e.target.value);
-                    setActivateReason(true);
-                    return setRowColor(true);
-                  }}
-                  style={rowColor ? { color: "#00A7B5" } : {}}
-                  name=""
-                  id=""
-                >
-                  <option value="">Select Action</option>
-                  <option value="accept">
-                    <input type="radio" name="" id="" />
-                    Accept
-                  </option>
-                  <option value="reject">
-                    <input type="radio" name="" id="" />
-                    Reject
-                  </option>
-                  <option value="modify">
-                    <input type="radio" name="" id="" />
-                    Modify
-                  </option>
-                </select>
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {activateReason ? (
-                  <input  style={rowColor ? { color: "#00A7B5" } : {}} placeholder="Type Reason" type="text" name="" id="" />
-                ) : (
-                  "--"
-                )}
-              </td>
-              <td style={rowColor ? { color: "#00A7B5" } : {}}>
-                {selectedAction == "modify" ? (
-                  <select style={rowColor ? { color: "#00A7B5" } : {}} name="" id="">
-                    <option value="">Select Modification</option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194Q
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194C
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      192A
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194I(A)
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194I(B)
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194G
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194H
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      194O
-                    </option>
-                    <option value="">
-                      <input type="radio" name="" id="" />
-                      193
-                    </option>
-                  </select>
-                ) : (
-                  "--"
-                )}
-              </td>
-            </tr>
-          )}
-
-
-
-          {(viewData && props.clientIdentity=='ABC Consultancy Limited') &&
-            viewDataTable.map((val, idx) => {
-              return (
+              {viewData && (
                 <tr
                   style={{
                     gridTemplateColumns:
                       "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
                   }}
-                  id={idx}
                 >
-                  <td>{val.VendorCode}</td>
-                  <td>{val.VendorName}</td>
-                  <td>{val.PostingDate}</td>
-                  <td>{val.DocumentNumber}</td>
-                  <td>{val.DocumentDate}</td>
-                  <td>{val.LineNumber}</td>
-                  <td>{val.OriginalDocumentNumber}</td>
-                  <td>{val.OriginalDocumentDate}</td>
-                  <td>{val.DocumentType}</td>
-                  <td>{val.SupplyType}</td>
-                  <td>{val.HSN_SAC_Code}</td>
-                  <td>{val.Description}</td>
-                  <td>{val.GLAccountCode}</td>
-                  <td>{val.GLAccountName}</td>
-                  <td>{val.PONumber}</td>
-                  <td>{val.PODescription}</td>
-                  <td>{val.TaxableValue}</td>
-                  <td>{val.CGSTRate}</td>
-                  <td>{val.SGSTRate}</td>
-                  <td>{val.IGSTRate}</td>
-                  <td>{val.CGSTAmount}</td>
-                  <td>{val.SGSTAmount}</td>
-                  <td>{val.IGSTAmount}</td>
-                  <td>{val.TotalGST}</td>
-                  <td>{val.InvoiceValue}</td>
-                  <td>{val.TDSTaxCodeERP}</td>
-                  <td>{val.TDSRate}</td>
-                  <td>{val.TDSAmount}</td>
-                  <td>{val.HSN_SAC_Code}</td>
-                  <td>{val.Vendor}</td>
-                  <td>{val.InvoiceDescription}</td>
-                  <td>{val.PODescription}</td>
-                  <td>{val.GLCode}</td>
-                  <td>{val.SystemDeterminedSection}</td>
-                  <td>{val.SectionMismatch}</td>
-
-                  <td>
-                    <select
-                      onChange={() => {
-                        return setRowColor(true);
-                      }}
-                      name=""
-                      id=""
-                    >
-                      <option value="">Select Action</option>
-                      <option value="">
-                        <input type="radio" name="" id="" />
-                        Accept
-                      </option>
-                      <option value="">
-                        <input type="radio" name="" id="" />
-                        Reject
-                      </option>
-                      <option value="">
-                        <input type="radio" name="" id="" />
-                        Modify
-                      </option>
-                    </select>
-                  </td>
-                  <td>{val.Reason}</td>
-                  <td>--</td>
+                  <th>Posting Date</th>
+                  <th>Vendor Code</th>
+                  <th>Vendor Name</th>
+                  <th>Document Number</th>
+                  <th>Document Date</th>
+                  <th>Line Number</th>
+                  <th>Original Document Number</th>
+                  <th>Original Document Date</th>
+                  <th>Document Type</th>
+                  <th>Supply Type</th>
+                  <th>HSNorSAC</th>
+                  <th>Description</th>
+                  <th>GLAccountCode</th>
+                  <th>GLAccountName</th>
+                  <th>PONumber</th>
+                  <th>PODescription</th>
+                  <th>Taxable Value</th>
+                  <th>CSST Rate</th>
+                  <th>SGST Rate</th>
+                  <th>IGST Rate</th>
+                  <th>CGST Amount</th>
+                  <th>SGST Amount</th>
+                  <th>IGST Amount</th>
+                  <th>Total GST</th>
+                  <th>Invoice Value</th>
+                  <th>TDS Tax Code ERP</th>
+                  <th>TDS Rate</th>
+                  <th>TDS Amount</th>
+                  <th>HSN/SAC Code</th>
+                  <th>Vendor</th>
+                  <th>Invoice Decription</th>
+                  <th>PO Description</th>
+                  <th>GL Code</th>
+                  <th>System Determined Section</th>
+                  <th>Section Mismatch</th>
+                  <th>Action</th>
+                  <th>Reason</th>
+                  <th>Modified TDS Section</th>
                 </tr>
-              );
-            })}
+              )}
 
-          {(viewData && props.clientIdentity=='ABC Motors Limited') &&
-            viewDataTable2.map((val, idx) => {
-              return (
+              {viewData && extraRow && (
                 <tr
                   style={{
                     gridTemplateColumns:
                       "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
                   }}
-                  id={idx}
                 >
-                  <td>{val.VendorCode}</td>
-                  <td>{val.VendorName}</td>
-                  <td>{val.PostingDate}</td>
-                  <td>{val.DocumentNumber}</td>
-                  <td>{val.DocumentDate}</td>
-                  <td>{val.LineNumber}</td>
-                  <td>{val.OriginalDocumentNumber}</td>
-                  <td>{val.OriginalDocumentDate}</td>
-                  <td>{val.DocumentType}</td>
-                  <td>{val.SupplyType}</td>
-                  <td>{val.HSN_SAC_Code}</td>
-                  <td>{val.Description}</td>
-                  <td>{val.GLAccountCode}</td>
-                  <td>{val.GLAccountName}</td>
-                  <td>{val.PONumber}</td>
-                  <td>{val.PODescription}</td>
-                  <td>{val.TaxableValue}</td>
-                  <td>{val.CGSTRate}</td>
-                  <td>{val.SGSTRate}</td>
-                  <td>{val.IGSTRate}</td>
-                  <td>{val.CGSTAmount}</td>
-                  <td>{val.SGSTAmount}</td>
-                  <td>{val.IGSTAmount}</td>
-                  <td>{val.TotalGST}</td>
-                  <td>{val.InvoiceValue}</td>
-                  <td>{val.TDSTaxCodeERP}</td>
-                  <td>{val.TDSRate}</td>
-                  <td>{val.TDSAmount}</td>
-                  <td>{val.HSN_SAC_Code}</td>
-                  <td>{val.Vendor}</td>
-                  <td>{val.InvoiceDescription}</td>
-                  <td>{val.PODescription}</td>
-                  <td>{val.GLCode}</td>
-                  <td>{val.SystemDeterminedSection}</td>
-                  <td>{val.SectionMismatch}</td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].VendorCode}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].VendorName}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].PostingDate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].DocumentNumber}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].DocumentDate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].LineNumber}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].OriginalDocumentNumber}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].OriginalDocumentDate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].DocumentType}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].SupplyType}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].HSN_SAC_Code}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].Description}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].GLAccountCode}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].GLAccountName}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].PONumber}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].PODescription}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].TaxableValue}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].CGSTRate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].SGSTRate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].IGSTRate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].CGSTAmount}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].SGSTAmount}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].IGSTAmount}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].TotalGST}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].InvoiceValue}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].TDSTaxCodeERP}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].TDSRate}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].TDSAmount}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].HSN_SAC_Code}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].Vendor}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].InvoiceDescription}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].PODescription}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].GLCode}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].SystemDeterminedSection}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {viewDataTable[6].SectionMismatch}
+                  </td>
 
-                  <td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
                     <select
-                      onChange={() => {
+                      onChange={(e) => {
+                        setSelectedAction(e.target.value);
+                        setActivateReason(true);
                         return setRowColor(true);
                       }}
+                      style={rowColor ? { color: "#00A7B5" } : {}}
                       name=""
                       id=""
                     >
                       <option value="">Select Action</option>
-                      <option value="">
+                      <option value="accept">
                         <input type="radio" name="" id="" />
                         Accept
                       </option>
-                      <option value="">
+                      <option value="reject">
                         <input type="radio" name="" id="" />
                         Reject
                       </option>
-                      <option value="">
+                      <option value="modify">
                         <input type="radio" name="" id="" />
                         Modify
                       </option>
                     </select>
                   </td>
-                  <td>{val.Reason}</td>
-                  <td>--</td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {activateReason ? (
+                      <input
+                        style={rowColor ? { color: "#00A7B5" } : {}}
+                        placeholder="Type Reason"
+                        type="text"
+                        name=""
+                        id=""
+                      />
+                    ) : (
+                      "--"
+                    )}
+                  </td>
+                  <td style={rowColor ? { color: "#00A7B5" } : {}}>
+                    {selectedAction == "modify" ? (
+                      <select
+                        style={rowColor ? { color: "#00A7B5" } : {}}
+                        name=""
+                        id=""
+                      >
+                        <option value="">Select Modification</option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194Q
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194C
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          192A
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194I(A)
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194I(B)
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194G
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194H
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          194O
+                        </option>
+                        <option value="">
+                          <input type="radio" name="" id="" />
+                          193
+                        </option>
+                      </select>
+                    ) : (
+                      "--"
+                    )}
+                  </td>
                 </tr>
-              );
-            })}
-        </tbody>
-      </table>
-    </div>
+              )}
+
+              {viewData &&
+                props.clientIdentity == "ABC Consultancy Limited" &&
+                viewDataTable.map((val, idx) => {
+                  return (
+                    <tr
+                      style={{
+                        gridTemplateColumns:
+                          "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
+                      }}
+                      id={idx}
+                    >
+                      <td>{val.VendorCode}</td>
+                      <td>{val.VendorName}</td>
+                      <td>{val.PostingDate}</td>
+                      <td>{val.DocumentNumber}</td>
+                      <td>{val.DocumentDate}</td>
+                      <td>{val.LineNumber}</td>
+                      <td>{val.OriginalDocumentNumber}</td>
+                      <td>{val.OriginalDocumentDate}</td>
+                      <td>{val.DocumentType}</td>
+                      <td>{val.SupplyType}</td>
+                      <td>{val.HSN_SAC_Code}</td>
+                      <td>{val.Description}</td>
+                      <td>{val.GLAccountCode}</td>
+                      <td>{val.GLAccountName}</td>
+                      <td>{val.PONumber}</td>
+                      <td>{val.PODescription}</td>
+                      <td>{val.TaxableValue}</td>
+                      <td>{val.CGSTRate}</td>
+                      <td>{val.SGSTRate}</td>
+                      <td>{val.IGSTRate}</td>
+                      <td>{val.CGSTAmount}</td>
+                      <td>{val.SGSTAmount}</td>
+                      <td>{val.IGSTAmount}</td>
+                      <td>{val.TotalGST}</td>
+                      <td>{val.InvoiceValue}</td>
+                      <td>{val.TDSTaxCodeERP}</td>
+                      <td>{val.TDSRate}</td>
+                      <td>{val.TDSAmount}</td>
+                      <td>{val.HSN_SAC_Code}</td>
+                      <td>{val.Vendor}</td>
+                      <td>{val.InvoiceDescription}</td>
+                      <td>{val.PODescription}</td>
+                      <td>{val.GLCode}</td>
+                      <td>{val.SystemDeterminedSection}</td>
+                      <td>{val.SectionMismatch}</td>
+
+                      <td>
+                        <select
+                          onChange={() => {
+                            return setRowColor(true);
+                          }}
+                          name=""
+                          id=""
+                        >
+                          <option value="">Select Action</option>
+                          <option value="">
+                            <input type="radio" name="" id="" />
+                            Accept
+                          </option>
+                          <option value="">
+                            <input type="radio" name="" id="" />
+                            Reject
+                          </option>
+                          <option value="">
+                            <input type="radio" name="" id="" />
+                            Modify
+                          </option>
+                        </select>
+                      </td>
+                      <td>{val.Reason}</td>
+                      <td>--</td>
+                    </tr>
+                  );
+                })}
+
+              {viewData &&
+                props.clientIdentity == "ABC Motors Limited" &&
+                viewDataTable2.map((val, idx) => {
+                  return (
+                    <tr
+                      style={{
+                        gridTemplateColumns:
+                          "14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14%",
+                      }}
+                      id={idx}
+                    >
+                      <td>{val.VendorCode}</td>
+                      <td>{val.VendorName}</td>
+                      <td>{val.PostingDate}</td>
+                      <td>{val.DocumentNumber}</td>
+                      <td>{val.DocumentDate}</td>
+                      <td>{val.LineNumber}</td>
+                      <td>{val.OriginalDocumentNumber}</td>
+                      <td>{val.OriginalDocumentDate}</td>
+                      <td>{val.DocumentType}</td>
+                      <td>{val.SupplyType}</td>
+                      <td>{val.HSN_SAC_Code}</td>
+                      <td>{val.Description}</td>
+                      <td>{val.GLAccountCode}</td>
+                      <td>{val.GLAccountName}</td>
+                      <td>{val.PONumber}</td>
+                      <td>{val.PODescription}</td>
+                      <td>{val.TaxableValue}</td>
+                      <td>{val.CGSTRate}</td>
+                      <td>{val.SGSTRate}</td>
+                      <td>{val.IGSTRate}</td>
+                      <td>{val.CGSTAmount}</td>
+                      <td>{val.SGSTAmount}</td>
+                      <td>{val.IGSTAmount}</td>
+                      <td>{val.TotalGST}</td>
+                      <td>{val.InvoiceValue}</td>
+                      <td>{val.TDSTaxCodeERP}</td>
+                      <td>{val.TDSRate}</td>
+                      <td>{val.TDSAmount}</td>
+                      <td>{val.HSN_SAC_Code}</td>
+                      <td>{val.Vendor}</td>
+                      <td>{val.InvoiceDescription}</td>
+                      <td>{val.PODescription}</td>
+                      <td>{val.GLCode}</td>
+                      <td>{val.SystemDeterminedSection}</td>
+                      <td>{val.SectionMismatch}</td>
+
+                      <td>
+                        <select
+                          onChange={() => {
+                            return setRowColor(true);
+                          }}
+                          name=""
+                          id=""
+                        >
+                          <option value="">Select Action</option>
+                          <option value="">
+                            <input type="radio" name="" id="" />
+                            Accept
+                          </option>
+                          <option value="">
+                            <input type="radio" name="" id="" />
+                            Reject
+                          </option>
+                          <option value="">
+                            <input type="radio" name="" id="" />
+                            Modify
+                          </option>
+                        </select>
+                      </td>
+                      <td>{val.Reason}</td>
+                      <td>--</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 };
 

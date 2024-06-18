@@ -14,7 +14,7 @@ import classes from "./Uploaded.module.css";
 import PurpleButton from "../../../../UI/PurpleButton";
 import WhiteButton from "../../../../UI/WhiteButton";
 
-const Uploaded = ({ type }) => {
+const Uploaded = ({ type, clientIdentity }) => {
   const [fileUpload, setFileUpload] = useState(false);
   const [mappingManual, setMappingManual] = useState(true);
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
@@ -37,7 +37,36 @@ const Uploaded = ({ type }) => {
     },
   ];
 
+  const templateUploadMapping2 = [
+    {
+      File_Name: "Mapping Template 1",
+      Created_By: "Deepak Dhawan",
+      Created_On: "5/3/2023",
+    },
+    {
+      File_Name: "Mapping Template 2",
+      Created_By: "Harshad Hariharan",
+      Created_On: "5/5/2023",
+    },
+    {
+      File_Name: "Mapping Template 3",
+      Created_By: "Deepak Dhawan",
+      Created_On: "6/2/2023",
+    },
+  ];
+
   const loginData = [
+    {
+      File_Name: "Login_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 8347612950,
+      No_of_Records: 3,
+      Processed_Records: 3,
+      Error_Records: 0,
+    },
+  ];
+
+  const loginData2 = [
     {
       File_Name: "Login_Master_Onboarding.xlsx",
       Uploaded_By: "Ganesh Gupta",
@@ -91,6 +120,49 @@ const Uploaded = ({ type }) => {
     },
   ];
 
+  const poData2 = [
+    {
+      File_Name: "PO_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 5276341809,
+      No_of_Records: 19763,
+      Processed_Records: 19763,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_Apr.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1436098572,
+      No_of_Records: 9286,
+      Processed_Records: 9286,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_May.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9703186245,
+      No_of_Records: 2456,
+      Processed_Records: 2456,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_Jun.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1253769480,
+      No_of_Records: 1247,
+      Processed_Records: 1247,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_PO_Jul.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 6942180375,
+      No_of_Records: 4513,
+      Processed_Records: 4513,
+      Error_Records: 0,
+    },
+  ];
+
   const hsnData = [
     {
       File_Name: "HSN_Master_Onboarding.xlsx",
@@ -102,7 +174,29 @@ const Uploaded = ({ type }) => {
     },
   ];
 
+  const hsnData2 = [
+    {
+      File_Name: "HSN_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 4819723065,
+      No_of_Records: 11,
+      Processed_Records: 11,
+      Error_Records: 0,
+    },
+  ];
+
   const sectionmappingData = [
+    {
+      File_Name: "Section_Mapping_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1219723065,
+      No_of_Records: 50,
+      Processed_Records: 50,
+      Error_Records: 0,
+    },
+  ];
+
+  const sectionmappingData2 = [
     {
       File_Name: "Section_Mapping_Master_Onboarding.xlsx",
       Uploaded_By: "Ganesh Gupta",
@@ -155,8 +249,61 @@ const Uploaded = ({ type }) => {
       Error_Records: 0,
     },
   ];
+  const glData2 = [
+    {
+      File_Name: "GL_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 7326149805,
+      No_of_Records: 19763,
+      Processed_Records: 19763,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_Apr.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 7384912065,
+      No_of_Records: 20,
+      Processed_Records: 20,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_May.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 3625087149,
+      No_of_Records: 14,
+      Processed_Records: 14,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_Jun.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1573029468,
+      No_of_Records: 12,
+      Processed_Records: 12,
+      Error_Records: 0,
+    },
+    {
+      File_Name: "Additional_GL_Jul.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 9630412578,
+      No_of_Records: 19,
+      Processed_Records: 19,
+      Error_Records: 0,
+    },
+  ];
 
   const documentSupply = [
+    {
+      File_Name: "Login_Master_Onboarding.xlsx",
+      Uploaded_By: "Ganesh Gupta",
+      Batch_ID: 1857296430,
+      No_of_Records: 16246,
+      Processed_Records: 16246,
+      Error_Records: 0,
+    },
+  ];
+
+  const documentSupply2 = [
     {
       File_Name: "Login_Master_Onboarding.xlsx",
       Uploaded_By: "Ganesh Gupta",
@@ -756,6 +903,7 @@ const Uploaded = ({ type }) => {
             </tr>
 
             {type == "Po" &&
+              clientIdentity == "ABC Consultancy Limited" &&
               poData.map((val, idx) => {
                 return (
                   <tr style={rowStyle} id={idx}>
@@ -790,7 +938,44 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
+            {type == "Po" &&
+              clientIdentity == "ABC Motors Limited" &&
+              poData2.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        onClick={handleDownload}
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p onClick={handleDownload}>File</p>
+                      <p onClick={handleDownload}>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
             {type == "Hsnsac" &&
+              clientIdentity == "ABC Consultancy Limited" &&
               hsnData.map((val, idx) => {
                 return (
                   <tr style={rowStyle} id={idx}>
@@ -823,7 +1008,44 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
+
+            {type == "Hsnsac" &&
+              clientIdentity == "ABC Motors Limited" &&
+              hsnData2.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+
             {type == "GLmaster" &&
+              clientIdentity == "ABC Consultancy Limited" &&
               glData.map((val, idx) => {
                 return (
                   <tr style={rowStyle} id={idx}>
@@ -855,7 +1077,43 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
+
+            {type == "GLmaster" &&
+              clientIdentity == "ABC Motors Limited" &&
+              glData2.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+
             {type == "Keyword" &&
+              clientIdentity == "ABC Consultancy Limited" &&
               loginData.map((val, idx) => {
                 return (
                   <tr style={rowStyle} id={idx}>
@@ -887,7 +1145,43 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
+
+            {type == "Keyword" &&
+              clientIdentity == "ABC Motors Limited" &&
+              loginData2.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+
             {type == "DocumentSupply" &&
+              clientIdentity == "ABC Consultancy Limited" &&
               documentSupply.map((val, idx) => {
                 return (
                   <tr style={rowStyle} id={idx}>
@@ -920,8 +1214,79 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-              {type == "SectionMapping" &&
+            {type == "DocumentSupply" &&
+              clientIdentity == "ABC Motors Limited" &&
+              documentSupply2.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+
+            {type == "SectionMapping" &&
+              clientIdentity == "ABC Consultancy Limited" &&
               sectionmappingData.map((val, idx) => {
+                return (
+                  <tr style={rowStyle} id={idx}>
+                    <td>
+                      <input type="checkbox" name="" id="" />
+                    </td>
+
+                    <td>{val.File_Name}</td>
+                    <td>{val.Uploaded_By}</td>
+                    <td>{val.Batch_ID}</td>
+                    <td>{val.No_of_Records}</td>
+                    <td>{val.Processed_Records}</td>
+                    <td>{val.Error_Records}</td>
+                    <th
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: "1fr 1fr",
+                        gridTemplateColumns: "1fr 1fr",
+                      }}
+                    >
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <FileDownloadOutlinedIcon
+                        style={{ margin: "auto", fontSize: "2.5rem" }}
+                      />
+                      <p>File</p>
+                      <p>Error</p>
+                    </th>
+                  </tr>
+                );
+              })}
+
+            {type == "SectionMapping" &&
+              clientIdentity == "ABC Motors Limited" &&
+              sectionmappingData2.map((val, idx) => {
                 return (
                   <tr style={rowStyle} id={idx}>
                     <td>

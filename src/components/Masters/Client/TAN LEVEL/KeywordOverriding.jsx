@@ -30,7 +30,7 @@ const KeywordOverriding = (props) => {
       </ul> */}
 
       {/* {!viewData&&<Uploaded type = 'Keyword'/>} */}
-      {viewData && <ViewMaster type = 'Keyword'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'Keyword'/>}
     </div>
   )
 }

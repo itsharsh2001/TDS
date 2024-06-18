@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-// import AdminPanel from './pages/AdminPanel';
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
@@ -56,7 +55,7 @@ let App = () => {
           )}
           {activeModule == "other" && <Other sidebar={sidebar} />}
           {activeModule == "masters" && <Masters sidebar={sidebar} />}
-          {activeModule == "masters2" && <Masters2 sidebar={sidebar}/>}  
+          {activeModule == "masters2" && <Masters2 sidebar={sidebar} />}
           {activeModule == "transactions" && <Transactions sidebar={sidebar} />}
           {activeModule == "transactions2" && (
             <Transactions2 sidebar={sidebar} />

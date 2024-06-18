@@ -28,8 +28,8 @@ const HSNSACMaster = (props) => {
         <li style={viewData?hoverStyle:{}} onClick={()=>setViewData(true)}>View Master Data</li>
       </ul>
 
-      {!viewData && <Uploaded type = 'Hsnsac'/>}
-      {viewData && <ViewMaster type = 'Hsnsac'/>}
+      {!viewData && <Uploaded clientIdentity={props.clientIdentity} type = 'Hsnsac'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'Hsnsac'/>}
     </div>
   )
 }

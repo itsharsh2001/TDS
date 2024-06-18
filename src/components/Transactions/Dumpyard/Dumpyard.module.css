@@ -1,0 +1,76 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for transparency */
+    z-index: 99; /* Ensure the overlay is above other content */
+    animation: pop-in 0.3s ease-in-out;
+  }
+  .dumpyard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+  }
+  
+  .dumpyard >span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2rem;
+    /* padding-top: 4rem; */
+    padding-bottom: 4rem;
+    color: #4f2d7f;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "GT-Walsheim-Pro-Regular";
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    list-style: none;
+    background-color: white;
+    height: 100%;
+    padding-right: 2rem;
+    cursor: pointer;
+    padding-top: 3rem;
+  }
+  
+  .righticon {
+    font-size: 2.1rem !important;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .dumpyard >section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .dumpyard>main{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dumpyard>main>div{
+    
+    height: 250px;
+  }
+
+  .dumpyard>main>div>span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: unset;
+  }
+
+  .dumpyard>main>div>span img{
+    width: 40%;
+  }

@@ -29,8 +29,8 @@ const GLMaster = (props) => {
         <li style={viewData?hoverStyle:{}} onClick={()=>setViewData(true)}>View Master Data</li>
       </ul>
 
-      {!viewData && <Uploaded type = 'GLmaster'/>}
-      {viewData && <ViewMaster type = 'GLmaster'/>}
+      {!viewData && <Uploaded clientIdentity={props.clientIdentity} type = 'GLmaster'/>}
+      {viewData && <ViewMaster clientIdentity={props.clientIdentity} type = 'GLmaster'/>}
     </div>
   )
 }

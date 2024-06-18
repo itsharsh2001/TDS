@@ -205,3 +205,45 @@
   cursor: pointer;
   color: #4f2d7f;
 }
+
+.headerspan{
+  height: 5rem!important;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between!important;
+  margin-bottom: 1rem;
+}
+
+.headerspan div{
+  height: 5rem;
+  width: 35%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  /* border: 1px solid #a3a3a3; */
+  border-radius: 15px;
+  height: 80%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.headerspan div input{
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a3a3a3;
+}
+
+.headerspan div input::placeholder{
+  /* border: none; */
+  /* outline: none; */
+  font-size: 14px;
+  font-weight: 500;
+  color: #a3a3a3;
+}
+

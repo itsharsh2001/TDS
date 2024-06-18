@@ -13,10 +13,15 @@ import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import classes from "./Other.module.css";
 
 function Other() {
+  const [pageNotFound, setPageNotFound] = useState(false);
+  const [pageName, setPageName] = useState('')
+  
   const [panValidation, setPanValidation] = useState(false);
   const [specifiedPerson, setSpecifiedPerson] = useState(false);
   const [gstin, setGstin] = useState(false);
   const [ldcValidations, setLdcValidations] = useState(false);
+
+
 
   const specifiedPersonData = [
     {
@@ -69,7 +74,7 @@ function Other() {
       Creation_Date: "10-08-2023",
       Creation_Time: "09:40:27",
       Portal: "TRACES",
-      Request_Status: "Request Created",
+      Request_Status: "Request Processed",
     },
     {
       Tracking_ID: 7018264935,
@@ -180,35 +185,40 @@ function Other() {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('/assets/Excel101ExtraPractice01.xlsx');
-  
+      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+
       if (!response.ok) {
-        throw new Error('Failed to fetch file');
+        throw new Error("Failed to fetch file");
       }
-     
+
       // Use the response object to get the file content
-      const fileContent = await response.blob({ type: 'application/xlsx' });
+      const fileContent = await response.blob({ type: "application/xlsx" });
 
       // Now you can process the file content as needed
-      console.log('File content:', fileContent);
+      console.log("File content:", fileContent);
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(fileContent);
-      link.download = 'downloadedFiless.xlsx';
+      link.download = "downloadedFiless.xlsx";
 
       // Trigger the click event
       link.click();
     } catch (error) {
-        console.error('Error fetching file:', error);
+      console.error("Error fetching file:", error);
     }
   };
 
   return (
     <>
-    {( othersPopup || newPopup ) && <div className={classes.overlay} onClick={()=>{
-      setNewPopup(false);
-      return setOthersPopup(false);
-    }}></div>}
+      {(othersPopup || newPopup) && (
+        <div
+          className={classes.overlay}
+          onClick={() => {
+            setNewPopup(false);
+            return setOthersPopup(false);
+          }}
+        ></div>
+      )}
       {othersPopup && (
         <div className={classes.popup}>
           <CloseIcon
@@ -227,6 +237,7 @@ function Other() {
             {panValidation && "New Request"}
             {specifiedPerson && "Specified Person Check"}
             {gstin && "GSTIN Check"}
+            {ldcValidations && "LDC Validation"}
           </h4>
           <section>
             {panValidation && (
@@ -284,7 +295,7 @@ function Other() {
         </div>
       )}
       {newPopup && (
-        <div style={{justifyContent:'unset'}} className={classes.popup}>
+        <div style={{ justifyContent: "unset" }} className={classes.popup}>
           <CloseIcon
             onClick={() => {
               return setNewPopup(false);
@@ -297,7 +308,7 @@ function Other() {
               cursor: "pointer",
             }}
           />
-          <h4 style={{marginBottom:'3rem'}}>Request Status</h4>
+          <h4 style={{ marginBottom: "3rem" }}>Request Status</h4>
           <section>
             {panValidation && (
               <>
@@ -355,7 +366,7 @@ function Other() {
         </div>
       )}
       <div className={classes.other}>
-        {!panValidation && !specifiedPerson && !gstin && !ldcValidations && (
+        {!pageNotFound&&!panValidation && !specifiedPerson && !gstin && !ldcValidations && (
           <main>
             <h5>Validations</h5>
             <section>
@@ -386,10 +397,10 @@ function Other() {
             </section>
             <section>
               <span
-              style={{
-                border: "2px solid var(--yellow-60, #FFDA8B)",
-                background: "#FFE7B1"
-              }}  
+                style={{
+                  border: "2px solid var(--yellow-60, #FFDA8B)",
+                  background: "#FFE7B1",
+                }}
                 onClick={() => {
                   return setLdcValidations(true);
                 }}
@@ -400,26 +411,31 @@ function Other() {
             </section>
             <h5>MIS</h5>
             <section>
-              <span>
+              <span onClick={()=>{setPageName('Control Center')
+                 return setPageNotFound(true)}}>
                 <p>Control Center</p>
                 <PeopleIcon className={classes.icon} />
               </span>
-              <span>
+              <span onClick={()=>{setPageName('Other Reports')
+                return setPageNotFound(true)}}>
                 <p>Other Reports</p>
                 <PeopleIcon className={classes.icon} />
               </span>
             </section>
             <h5>Other Services</h5>
             <section>
-              <span>
+              <span onClick={()=>{setPageName('Form 16A/27D')
+                return setPageNotFound(true)}}>
                 <p>Form 16A/27D</p>
                 <PeopleIcon className={classes.icon} />
               </span>
-              <span>
+              <span onClick={()=>{setPageName('Form 15 CA/CB')
+                return setPageNotFound(true)}}>
                 <p>Form 15 CA/CB</p>
                 <PeopleIcon className={classes.icon} />
               </span>
-              <span>
+              <span onClick={()=>{setPageName('NR Services')
+                return setPageNotFound(true)}}>
                 <p>NR Services</p>
                 <PeopleIcon className={classes.icon} />
               </span>
@@ -433,7 +449,7 @@ function Other() {
               <a
                 onClick={(e) => {
                   e.preventDefault();
-                  setLdcValidations(false)
+                  setLdcValidations(false);
                   setGstin(false);
                   setSpecifiedPerson(false);
                   return setPanValidation(false);
@@ -456,6 +472,16 @@ function Other() {
               </a>
             </section>
 
+            {specifiedPerson && <button
+            style={{marginLeft:'auto',marginRight:'2rem', width:'20%'}}
+              onClick={() => {
+                return setOthersPopup(true);
+              }}
+            >
+              {/* <AddIcon style={{ fontSize: "3rem" }} /> */}
+              Fetch Status
+            </button>}
+
             <button
               onClick={() => {
                 return setOthersPopup(true);
@@ -475,8 +501,8 @@ function Other() {
                   <input type="checkbox" name="" id="" />
                 </th> */}
                 <th>Tracking ID</th>
-                <th>Creation Date</th>
-                <th>Creation Time</th>
+                <th>Creation Date & Time</th>
+                {/* <th>Creation Time</th> */}
                 <th>Portal</th>
                 <th>Request Status</th>
                 <th>Actions</th>
@@ -487,8 +513,10 @@ function Other() {
                   return (
                     <tr id={idx}>
                       <td>{val.Tracking_ID}</td>
-                      <td>{val.Creation_Date}</td>
-                      <td>{val.Creation_Time}</td>
+                      <td>
+                        {val.Creation_Date} {"\t"} {val.Creation_Time}
+                      </td>
+                      {/* <td>{val.Creation_Time}</td> */}
                       <td>{val.Portal}</td>
                       <td>{val.Request_Status}</td>
                       <td
@@ -500,7 +528,11 @@ function Other() {
                       >
                         <FileDownloadOutlinedIcon
                           onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -521,7 +553,9 @@ function Other() {
                             return handleDownload;
                           }}
                         >
-                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
+                          {val.Request_Status == "Request Created"
+                            ? "File"
+                            : "Report"}
                         </p>
                       </td>
                     </tr>
@@ -532,8 +566,11 @@ function Other() {
                   return (
                     <tr id={idx}>
                       <td>{val.Tracking_ID}</td>
-                      <td>{val.Creation_Date}</td>
-                      <td>{val.Creation_Time}</td>
+                      <td>
+                        {val.Creation_Date} {"\t"}
+                        {val.Creation_Time}
+                      </td>
+                      {/* <td>{val.Creation_Time}</td> */}
                       <td>{val.Portal}</td>
                       <td>{val.Request_Status}</td>
                       <td
@@ -544,8 +581,12 @@ function Other() {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
+                          onClick={handleDownload}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -566,7 +607,9 @@ function Other() {
                             return handleDownload;
                           }}
                         >
-                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
+                          {val.Request_Status == "Request Created"
+                            ? "File"
+                            : "Report"}
                         </p>
                       </td>
                     </tr>
@@ -577,8 +620,11 @@ function Other() {
                   return (
                     <tr id={idx}>
                       <td>{val.Tracking_ID}</td>
-                      <td>{val.Creation_Date}</td>
-                      <td>{val.Creation_Time}</td>
+                      <td>
+                        {val.Creation_Date} {"\t"}
+                        {val.Creation_Time}
+                      </td>
+                      {/* <td>{val.Creation_Time}</td> */}
                       <td>{val.Portal}</td>
                       <td>{val.Request_Status}</td>
                       <td
@@ -589,8 +635,12 @@ function Other() {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
+                          onClick={handleDownload}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -611,7 +661,9 @@ function Other() {
                             return handleDownload;
                           }}
                         >
-                          {val.Request_Status=='Request Created' ? 'File' : 'Report'}
+                          {val.Request_Status == "Request Created"
+                            ? "File"
+                            : "Report"}
                         </p>
                       </td>
                     </tr>
@@ -622,8 +674,11 @@ function Other() {
                   return (
                     <tr id={idx}>
                       <td>{val.Tracking_ID}</td>
-                      <td>{val.Creation_Date}</td>
-                      <td>{val.Creation_Time}</td>
+                      <td>
+                        {val.Creation_Date} {"\t"}
+                        {val.Creation_Time}
+                      </td>
+                      {/* <td>{val.Creation_Time}</td> */}
                       <td>{val.Portal}</td>
                       <td>{val.Request_Status}</td>
                       <td
@@ -634,8 +689,12 @@ function Other() {
                         }}
                       >
                         <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                          style={{ margin: "auto", fontSize: "2.5rem", cursor:'pointer' }}
+                          onClick={handleDownload}
+                          style={{
+                            margin: "auto",
+                            fontSize: "2.5rem",
+                            cursor: "pointer",
+                          }}
                         />
                         <FileDownloadOutlinedIcon
                           onClick={() => {
@@ -656,7 +715,9 @@ function Other() {
                             return handleDownload;
                           }}
                         >
-                          {val.Request_Status=='Request Created' ? 'Check Status' : 'Report'}
+                          {val.Request_Status == "Request Created"
+                            ? "Check Status"
+                            : "Report"}
                         </p>
                       </td>
                     </tr>
@@ -664,6 +725,37 @@ function Other() {
                 })}
             </tbody>
           </table>
+        )}
+        {pageNotFound && (
+          <><div className={classes.gl}>
+            <section className={classes.section}>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  return setPageNotFound(false);
+                }}
+                href=""
+              >
+                Monthly Compliance
+              </a>
+              <ChevronRightIcon className={classes.righticon} />
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+                href=""
+              >
+                {pageName}
+              </a>
+
+              {/* <PurpleButton>
+          <DownloadIcon /> Upload Template
+        </PurpleButton> */}
+            </section>
+
+            <img className={classes.img} src="/comingsoon.png" alt="" />
+            </div>
+          </>
         )}
       </div>
     </>

@@ -29,8 +29,8 @@ const PO = (props) => {
         <li style={viewData?hoverStyle:{}} onClick={()=>setViewData(true)}>View Master Data</li>
       </ul>
 
-      {!viewData&&<Uploaded type = 'Po'/>}
-      {viewData&&<ViewMaster type = 'Po'/>}
+      {!viewData&&<Uploaded clientIdentity={props.clientIdentity} type = 'Po'/>}
+      {viewData&&<ViewMaster clientIdentity={props.clientIdentity} type = 'Po'/>}
     </div>
   )
 }

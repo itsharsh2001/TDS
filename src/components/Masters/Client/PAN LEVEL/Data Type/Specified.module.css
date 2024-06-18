@@ -172,8 +172,8 @@
     left: 32.5%;
     width: 35%;
     /* height: 90%; */
-    height: 540px;
-    top: calc((100% - 540px) / 2);
+    height: 440px;
+    top: calc((100% - 440px) / 2);
     /* top: 5%; */
     /* max-height: 85%; */
   
