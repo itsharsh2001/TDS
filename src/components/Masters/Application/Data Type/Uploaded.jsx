@@ -119,55 +119,48 @@ const Uploaded = ({ type }) => {
   ];
 
   const handleDownload = async () => {
-    try {
-      let response = ''
-
-      switch (type) {
-        case "BaseNature":
-          response = await fetch("/assets/Application Masters/Base Nature of Payment Master Template.xlsx");
-          break;
-        case "SubBase":
-          response = await fetch("/assets/Application Masters/Sub Nature of Payment Master Template.xlsx");
-          break;
-        case "HSNSAC":
-          response = await fetch("/assets/Application Masters/HSN SAC Master Template.xlsx");
-          break;
-        case "DocumentSupply":
-          response = await fetch("/assets/Application Masters/Document and Supply Type Master Template.xlsx");
-          break;
-        case "Penalty":
-          response = await fetch("/assets/Application Masters/Interest and Penalty Master Template.xlsx");
-          break;
-        case "NaturePayment":
-          response = await fetch("/assets/Application Masters/Nature of Payment - Rate and Threshold Master Template.xlsx");
-          break;
-        case "Keyword":
-          response = await fetch("/assets/Application Masters/Keyword Master Template.xlsx");
-          break;
-        // Add more cases for other values as needed
-        default:
-          break;
-      }
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch file");
-      }
-
-      // Use the response object to get the file content
-      const fileContent = await response.blob({ type: "application/xlsx" });
-
-      // Now you can process the file content as needed
-      console.log("File content:", fileContent);
-
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(fileContent);
-      link.download = "downloadedFiles.xlsx";
-
-      // Trigger the click event
-      link.click();
-    } catch (error) {
-      console.error("Error fetching file:", error);
+    let fileUrl = "";
+    switch (type) {
+      case "BaseNature":
+        fileUrl = "/Base Nature of Payment Master Template.xlsx";
+        break;
+      case "SubBase":
+        fileUrl = "/Sub Nature of Payment Master Template.xlsx";
+        break;
+      case "HSNSAC":
+        fileUrl = "/HSN SAC Master Template.xlsx";
+        break;
+      case "DocumentSupply":
+        fileUrl = "/Document And Supply Type Master Template.xlsx";
+        break;
+      case "Penalty":
+        fileUrl = "/Interest and Penalty Master Template.xlsx";
+        break;
+      case "NaturePayment":
+        fileUrl =
+          "/Nature of Payment - Rate and Threshold Master Template.xlsx";
+        break;
+      case "Keyword":
+        fileUrl = "/Keyword Master Template.xlsx";
+        break;
+      // Add more cases for other values as needed
+      default:
+        break;
     }
+
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", fileUrl); // Set the file name here
+
+    // Append the link to the body
+    document.body.appendChild(link);
+
+    // Programmatically click the link to trigger the download
+    link.click();
+
+    // Clean up: remove the link from the body
+    document.body.removeChild(link);
   };
   return (
     <>
@@ -580,51 +573,7 @@ const Uploaded = ({ type }) => {
         ></div>
       )}
       <div className={classes.uploaded}>
-        {/* <div>
-          <input onClick={() => {
-              return setTemplateFileUpload(false);
-            }} type="radio" name="fileupload" id="custom" />
-          <label onClick={() => {
-              return setTemplateFileUpload(false);
-            }} htmlFor="custom">Custom File Upload</label>
-          <input onClick={() => {
-              return setTemplateFileUpload(true);
-            }} type="radio" name="fileupload" id="template" />
-          <label onClick={() => {
-              return setTemplateFileUpload(true);
-            }} htmlFor="template">Template File Upload</label>
-        </div> */}
         <span>
-          {/* <label
-            onClick={() => {
-              if(!templateFileUpload){
-                setFileUpload(true);
-                return console.log(fileUpload, 'fileupload ki value');}
-            }}
-            htmlFor=""
-          >
-            <input
-              onClick={() => {
-                if(!templateFileUpload){
-                  setFileUpload(true);
-                  return console.log(fileUpload, 'fileupload ki value');}
-              }}
-              type="file"
-              name=""
-              id=""
-            />
-          </label> */}
-          {/* {templateFileUpload && (
-            <button
-              style={{
-              }}
-              className={classes.leftbutton}
-              onClick={handleDownload}
-            >
-              <FileDownloadOutlinedIcon className={classes.downloadicon} />
-              Download Template
-            </button>
-          )} */}
           <button onClick={handleDownload}>
             <FileDownloadOutlinedIcon className={classes.downloadicon} />
             Download Template File
@@ -633,7 +582,7 @@ const Uploaded = ({ type }) => {
             <FileUploadOutlinedIcon className={classes.downloadicon} />
             Upload Template File
           </button>
-          <button >
+          <button>
             <FileUploadOutlinedIcon className={classes.downloadicon} />
             Edit Master Data
           </button>
@@ -642,10 +591,7 @@ const Uploaded = ({ type }) => {
         <table className={classes.table}>
           <tbody>
             <tr>
-              <th>
-                Select
-                {/* <input type="checkbox" name="" id="" /> */}
-              </th>
+              <th>Select</th>
               <th>File Name</th>
               <th>Uploaded By</th>
               <th>Batch ID</th>
@@ -798,42 +744,8 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-              {/* {type == "DocumentSupply" &&
-              Penalty.map((val, idx) => {
-                return (
-                  <tr id={idx}>
-                    <td>
-                      <input type="checkbox" name="" id="" />
-                    </td>
-                    <td>{val.File_Name}</td>
-                    <td>{val.Uploaded_By}</td>
-                    <td>{val.Batch_ID}</td>
-                    <td>{val.No_of_Records}</td>
-                    <td>{val.Processed_Records}</td>
 
-                    <td>{val.Error_Records}</td>
-                    <td
-                      style={{
-                        display: "grid",
-                        gridTemplateRows: "1fr 1fr",
-                        gridTemplateColumns: "1fr 1fr",
-                      }}
-                    >
-                      <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                        style={{ margin: "auto", fontSize: "2.5rem" }}
-                      />
-                      <FileDownloadOutlinedIcon
-                        onClick={handleDownload}
-                        style={{ margin: "auto", fontSize: "2.5rem" }}
-                      />{" "}
-                      <p onClick={handleDownload}>File</p>
-                      <p onClick={handleDownload}>Error</p>
-                    </td>
-                  </tr>
-                );
-              })} */}
-              {type == "Penalty" &&
+            {type == "Penalty" &&
               Penalty.map((val, idx) => {
                 return (
                   <tr id={idx}>
@@ -868,7 +780,7 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-              {type == "Section" &&
+            {type == "Section" &&
               Section.map((val, idx) => {
                 return (
                   <tr id={idx}>
@@ -903,7 +815,7 @@ const Uploaded = ({ type }) => {
                   </tr>
                 );
               })}
-              {type == "NaturePayment" &&
+            {type == "NaturePayment" &&
               Payment.map((val, idx) => {
                 return (
                   <tr id={idx}>
@@ -939,7 +851,7 @@ const Uploaded = ({ type }) => {
                 );
               })}
 
-              {type == "Keyword" &&
+            {type == "Keyword" &&
               Keyword.map((val, idx) => {
                 return (
                   <tr id={idx}>

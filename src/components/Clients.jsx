@@ -288,9 +288,9 @@ const Clients = ({ sidebar }) => {
                       }));
                     }} name="" id="">
                     <option value="">Deductor's Name</option>
-                    <option value="Harsh">Harsh</option>
-                    <option value="Dhruv">Dhruv</option>
-                    <option value="Abhishek">Abhishek</option>
+                    <option value="ABC Motors">ABC Motors</option>
+                    <option value="ABC Consultancy">ABC Consultancy</option>
+                    <option value="ABC Steel">ABC Steel</option>
                   </select>
                   <input
                     onChange={(e) => {
@@ -306,8 +306,8 @@ const Clients = ({ sidebar }) => {
                   />
                   <select name="" id="">
                     <option value="">Select Residential Status</option>
-                    <option value="Residential">Residential</option>
-                    <option value="NonResidential">NonResidential</option>
+                    <option value="Resident">Resident</option>
+                    <option value="Non-Resident">Non-Resident</option>
                   </select>
                   {/* <input
                     placeholder="Residential Status"

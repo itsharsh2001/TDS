@@ -98,18 +98,21 @@
   border: 2px solid var(--GT-Purple, #4f2d7f);
   padding: 5.5%;
   cursor: pointer;
+
 }
 
 .transactions section span p {
   /* color: var(--GT-Purple, #4f2d7f); */
-  color: white;
+  /* color: white; */
   font-feature-settings: "clig" off, "liga" off;
   font-family: "GT-Walsheim-Pro-Regular";
   font-size: 2.25rem;
   font-style: normal;
-  font-weight: 600;
+  /* font-weight: 600; */
   line-height: normal;
   width: 69%;
+  color: black;
+
 }
 
 .icon {

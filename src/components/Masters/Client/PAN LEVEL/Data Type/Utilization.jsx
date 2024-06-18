@@ -124,28 +124,36 @@ function Utilization({ type, clientIdentity }) {
   ];
 
   const handleDownload = async () => {
-    try {
-      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch file");
-      }
-
-      // Use the response object to get the file content
-      const fileContent = await response.blob({ type: "application/xlsx" });
-
-      // Now you can process the file content as needed
-      console.log("File content:", fileContent);
-
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(fileContent);
-      link.download = "downloadedFiless.xlsx";
-
-      // Trigger the click event
-      link.click();
-    } catch (error) {
-      console.error("Error fetching file:", error);
+    let fileUrl = "";
+    switch (type) {
+      case "Keyword":
+        fileUrl = "/Keyword_Master_V1.2.xlsx";
+        break;
+      case "Vendor":
+        fileUrl = "/Vendor_Master_V1.2.xlsx";
+        break;
+      case "LDC":
+        fileUrl = "/LDC_Master_V1.3.xlsx";
+        break;
+      
+      // Add more cases for other values as needed
+      default:
+        break;
     }
+
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", fileUrl); // Set the file name here
+
+    // Append the link to the body
+    document.body.appendChild(link);
+
+    // Programmatically click the link to trigger the download
+    link.click();
+
+    // Clean up: remove the link from the body
+    document.body.removeChild(link);
   };
 
   return (<>

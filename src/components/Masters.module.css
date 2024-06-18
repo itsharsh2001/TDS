@@ -127,7 +127,9 @@
   border: 2px solid var(--GT-Purple, #4f2d7f);
   padding: 5.5%;
   cursor: pointer;
-  color: #fff;
+  /* color: #fff; */
+  color: black;
+  font-weight: 400!important;
 }
 
 .masters section span p {
@@ -136,7 +138,7 @@
   font-family: 'GT-Walsheim-Pro-Regular';
   font-size: 2rem;
   font-style: normal;
-  font-weight: 600;
+  /* font-weight: 600; */
   line-height: normal;
   width: 69%;
 }

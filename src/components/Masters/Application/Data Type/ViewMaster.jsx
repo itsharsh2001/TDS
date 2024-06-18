@@ -638,71 +638,48 @@ const ViewMaster = ({ type }) => {
   };
 
   const handleDownload = async () => {
-    try {
-      let response = "";
-
-      switch (type) {
-        case "BaseNature":
-          response = await fetch(
-            "/assets/Application Masters/Base Nature of Payment Master.xlsx"
-          );
-          break;
-        case "SubBase":
-          response = await fetch(
-            "/assets/Application Masters/Sub Nature of Payment Master.xlsx"
-          );
-          break;
-        case "HSNSAC":
-          response = await fetch(
-            "/assets/Application Masters/HSN SAC Master.xlsx"
-          );
-          break;
-        case "DocumentSupply":
-          response = await fetch(
-            "/assets/Application Masters/Document and Supply Type Master.xlsx"
-          );
-          break;
-        case "Penalty":
-          response = await fetch(
-            "/assets/Application Masters/Interest and Penalty Master.xlsx"
-          );
-          break;
-        case "NaturePayment":
-          response = await fetch(
-            "/assets/Application Masters/Nature of Payment - Rate and Threshold Master.xlsx"
-          );
-          break;
-        case "Keyword":
-          response = await fetch(
-            "/assets/Application Masters/Keyword Master.xlsx"
-          );
-          break;
-        // Add more cases for other values as needed
-        default:
-          break;
-      }
-
-      // const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch file");
-      }
-
-      // Use the response object to get the file content
-      const fileContent = await response.blob({ type: "application/xlsx" });
-
-      // Now you can process the file content as needed
-      console.log("File content:", fileContent);
-
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(fileContent);
-      link.download = "downloadedFiless.xlsx";
-
-      // Trigger the click event
-      link.click();
-    } catch (error) {
-      console.error("Error fetching file:", error);
+    let fileUrl = "";
+    switch (type) {
+      case "BaseNature":
+        fileUrl = "/Base Nature of Payment Master.xlsx";
+        break;
+      case "SubBase":
+        fileUrl = "/Sub Nature of Payment Master.xlsx";
+        break;
+      case "HSNSAC":
+        fileUrl = "/HSN SAC Master.xlsx";
+        break;
+      case "DocumentSupply":
+        fileUrl = "/Document And Supply Type Master.xlsx";
+        break;
+      case "Penalty":
+        fileUrl = "/Interest and Penalty Master.xlsx";
+        break;
+      case "NaturePayment":
+        fileUrl =
+          "/Nature of Payment - Rate and Threshold Master.xlsx";
+        break;
+      case "Keyword":
+        fileUrl = "/Keyword Master.xlsx";
+        break;
+      // Add more cases for other values as needed
+      default:
+        break;
     }
+
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", fileUrl); // Set the file name here
+
+    // Append the link to the body
+    document.body.appendChild(link);
+
+    // Programmatically click the link to trigger the download
+    link.click();
+
+    // Clean up: remove the link from the body
+    document.body.removeChild(link);
   };
 
   return (
