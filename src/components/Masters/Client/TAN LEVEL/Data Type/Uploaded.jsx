@@ -355,17 +355,17 @@ const Uploaded = ({ type, clientIdentity }) => {
       case "Po":
         fileUrl = "/PO_Master_V1.3.xlsx";
         break;
-      case "GLMaster":
+      case "GLmaster":
         fileUrl = "/GL_Master_V1.2.xlsx";
         break;
       case "Hsnsac":
-        fileUrl = "/HSN_SAC_Master_V1.2";
+        fileUrl = "/HSN_SAC_Master_V1.2.xlsx";
         break;
       case "SectionMapping":
-        fileUrl = "TDS_Section_Mapping_Master_V1.1";
+        fileUrl = "TDS_Section_Mapping_Master_V1.1.xlsx";
         break;
       case "DocumentSupply":
-        fileUrl = "Document_and_Supply_Type_Mapping_Master_V1.1";
+        fileUrl = "Document_and_Supply_Type_Mapping_Master_V1.1.xlsx";
         break;
       // Add more cases for other values as needed
       default:
@@ -879,6 +879,10 @@ const Uploaded = ({ type, clientIdentity }) => {
             <FileDownloadOutlinedIcon className={classes.downloadicon} />
             Download Consolidated Error Reports
           </PurpleButton>
+          <button>
+            <FileUploadOutlinedIcon className={classes.downloadicon} />
+            Edit Master Data
+          </button>
         </span>
 
         <table className={classes.table}>

@@ -54,7 +54,7 @@ const Balance = ({ type, clientIdentity }) => {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch("/assets/Excel101ExtraPractice01.xlsx");
+      const response = await fetch("/Transition_Balance_Master_Lumspsum_V1.0.xlsx");
 
       if (!response.ok) {
         throw new Error("Failed to fetch file");
@@ -124,12 +124,12 @@ const Balance = ({ type, clientIdentity }) => {
       )}
       <div className={classes.balance}>
         <button>
-          <FileDownloadOutlinedIcon className={classes.downloadicon} />
-          Enrichment Template
+          <FileDownloadOutlinedIcon onClick={handleDownload} className={classes.downloadicon} />
+          Lumpsum Template
         </button>
         <button>
           <FileUploadOutlinedIcon className={classes.downloadicon} />
-          Enrichment
+          Lumpsum
         </button>
 
         <button onClick={buttonToggler}>

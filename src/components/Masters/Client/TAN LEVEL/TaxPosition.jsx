@@ -19,6 +19,9 @@ function TaxPosition(props) {
   const [popup, setPopup] = useState(false);
   const [cardScreen, setCardScreen] = useState(true);
 
+  const [approved, setApproved] = useState(false);
+  const [rejected, setRejected] = useState(false);
+
   const hoverStyle = {
     color: "var(--GT-Purple, #4f2d7f)",
     borderBottom: "2px solid #4f2d7f",
@@ -43,7 +46,7 @@ function TaxPosition(props) {
           />
           {props.clientIdentity == "ABC Consultancy Limited" && (
             <main>
-              <div
+              {/* <div
                 className={classes.div}
                 style={{
                   display: "flex",
@@ -67,7 +70,7 @@ function TaxPosition(props) {
                   />
                   Print
                 </PurpleButton>
-              </div>
+              </div> */}
               <h6>
                 Select the parameters for determining TDS section along with
                 their priority
@@ -1323,33 +1326,100 @@ function TaxPosition(props) {
                     <th>Applicable From & To</th>
                     <th>Action</th>
                   </tr>
-                  <tr>
-                    <td>10-09-2023 16:45</td>
-                    <td>Courtney Henry</td>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>
-                      <RemoveRedEyeOutlinedIcon
-                        onClick={() => {
-                          return setPopup(true);
-                        }}
-                        style={{ cursor: "pointer", fontSize: "2.5rem" }}
-                      />
-                      <button>Approve</button>
-                      <button>Reject</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>10-08-2023 16:45</td>
-                    <td>Theresa Webb</td>
-                    <td>Cameron Williamson</td>
-                    <td>10-08-2023 -- (--)</td>
-                    <td>
-                      <RemoveRedEyeOutlinedIcon
-                        style={{ cursor: "pointer", fontSize: "2.5rem" }}
-                      />
-                    </td>
-                  </tr>
+
+                  {!approved && !rejected &&
+                    <>
+                      <tr>
+                        <td>10-09-2023 16:45</td>
+                        <td>Courtney Henry</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>
+                          <RemoveRedEyeOutlinedIcon
+                            onClick={() => {
+                              return setPopup(true);
+                            }}
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                          <button onClick={()=>{return setApproved(true)}}>Approve</button>
+                          <button onClick={()=>{return setRejected(true)}}>Reject</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>10-08-2023 16:45</td>
+                        <td>Theresa Webb</td>
+                        <td>Cameron Williamson</td>
+                        <td>10-08-2023 -- (--)</td>
+                        <td>
+                          <RemoveRedEyeOutlinedIcon
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                        </td>
+                      </tr>
+                    </>
+                  }
+
+                  {approved &&
+                    <>
+                      <tr>
+                        <td>10-09-2023 16:45</td>
+                        <td>Courtney Henry</td>
+                        <td>Cameron Williamson</td>
+                        <td>12-09-2023 -- (--)</td>
+                        <td>
+                          <RemoveRedEyeOutlinedIcon
+                            onClick={() => {
+                              return setPopup(true);
+                            }}
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                          
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>10-08-2023 16:45</td>
+                        <td>Theresa Webb</td>
+                        <td>Cameron Williamson</td>
+                        <td>10-08-2023 -- 12-09-2024</td>
+                        <td>
+                          <RemoveRedEyeOutlinedIcon
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                        </td>
+                      </tr>
+                    </>
+                  }
+                  {rejected &&
+                    <>
+                      <tr>
+                        <td>10-09-2023 16:45</td>
+                        <td>Courtney Henry</td>
+                        <td>Cameron Williamson</td>
+                        <td>12-09-2023 -- (--)</td>
+                        <td>
+                          <RemoveRedEyeOutlinedIcon
+                            onClick={() => {
+                              return setPopup(true);
+                            }}
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                          
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>10-08-2023 16:45</td>
+                        <td>Theresa Webb</td>
+                        <td>Cameron Williamson</td>
+                        <td>10-08-2023 -- 12-09-2024</td>
+                        <td>
+                          <RemoveRedEyeOutlinedIcon
+                            style={{ cursor: "pointer", fontSize: "2.5rem" }}
+                          />
+                        </td>
+                      </tr>
+                    </>
+                  }
+
                   <tr>
                     <td>10-07-2023 16:45</td>
                     <td>Kethryn Murphy</td>

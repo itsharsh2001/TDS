@@ -23,6 +23,7 @@ const TransactionData = (props) => {
   const [mappingManual, setMappingManual] = useState(true);
   const [templateFileUpload, setTemplateFileUpload] = useState(false);
 
+  const [monthSelected, setMonthSelected] = useState(false)
   const [reportType, setReportType] = useState(false);
   const [datatype, setDatatype] = useState("invoice");
 
@@ -1380,7 +1381,7 @@ const TransactionData = (props) => {
           }}
         ></div>
       )}
-      {props.monthSelected && (
+      {/* {props.monthSelected && ( */}
         <div className={classes.transactiondata}>
           <span>
             <a
@@ -1401,8 +1402,24 @@ const TransactionData = (props) => {
             >
               Transaction Data
             </a>
+
+            <select
+            style={{height:'unset', marginLeft:'auto', paddingTop:'0.5rem', paddingBottom:'0.5rem',}}
+            onChange={() => {
+              return setMonthSelected(true);
+            }}
+            name=""
+            id=""
+          >
+            <option value="">Select Month</option>
+            <option value="">July(Current Month)</option>
+            <option value="">June</option>
+            <option value="">May</option>
+            <option value="">April</option>
+          </select>
           </span>
-          <ul>
+
+          {monthSelected && <><ul>
             <li
               style={datatype == "invoice" ? hoverStyle : {}}
               onClick={() => {
@@ -2079,9 +2096,9 @@ const TransactionData = (props) => {
                   );
                 })}
             </tbody>
-          </table>
+          </table></>}
         </div>
-      )}
+      {/* )} */}
     </>
   );
 };

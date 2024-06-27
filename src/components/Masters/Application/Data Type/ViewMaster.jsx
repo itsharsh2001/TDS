@@ -488,9 +488,10 @@ const ViewMaster = ({ type }) => {
 
   const paymentData = [
     {
-      Nature_Of_Payment: "Interest other than interest on securities",
-      Section: "194A",
+      Nature_Of_Payment: "Payment of contractors and sub-contractors",
+      Section: "194C",
     },
+    
     {
       Nature_Of_Payment: "Payment of accumulated balance due to an employee ",
       Section: "192A",
@@ -527,8 +528,8 @@ const ViewMaster = ({ type }) => {
       Section: "194BB",
     },
     {
-      Nature_Of_Payment: "Payment of contractors and sub-contractors",
-      Section: "194C",
+      Nature_Of_Payment: "Interest other than interest on securities",
+      Section: "194A",
     },
     {
       Nature_Of_Payment: "Insurance Commission",

@@ -738,6 +738,10 @@ const Uploaded = ({ type, clientIdentity }) => {
             <FileDownloadOutlinedIcon className={classes.downloadicon} />
             Download Consolidated Reports
           </button>
+          <button>
+            <FileUploadOutlinedIcon className={classes.downloadicon} />
+            Edit Master Data
+          </button>
         </span>
 
         <table className={classes.table}>

@@ -339,10 +339,11 @@
 
   .specialtable tbody tr{
     /* margin-bottom: 0!important; */
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 
   .specialtable tbody td,
   .specialtable tbody th{
     font-size: 1rem!important;
-    
   }

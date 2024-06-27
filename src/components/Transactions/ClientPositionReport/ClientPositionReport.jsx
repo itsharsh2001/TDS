@@ -27,6 +27,8 @@ const ClientPositionReport = (props) => {
 
   const [extraRow, setExtraRow] = useState(true);
 
+  const [monthSelected, setMonthSelected] = useState(false)
+
   const hoverStyle = {
     color: "var(--GT-Purple, #4f2d7f)",
     borderBottom: "2px solid #4f2d7f",
@@ -1055,7 +1057,7 @@ const ClientPositionReport = (props) => {
 
   return (
     <>
-      {props.monthSelected && (
+      
         <div className={classes.clientposition}>
           <span>
             <a
@@ -1076,13 +1078,27 @@ const ClientPositionReport = (props) => {
             >
               Client Position Report
             </a>
+            <select
+            style={{height:'unset', marginLeft:'auto', paddingTop:'0.5rem', paddingBottom:'0.5rem',}}
+            onChange={() => {
+              return setMonthSelected(true);
+            }}
+            name=""
+            id=""
+          >
+            <option value="">Select Month</option>
+            <option value="">July(Current Month)</option>
+            <option value="">June</option>
+            <option value="">May</option>
+            <option value="">April</option>
+          </select>
 
             {/* <PurpleButton>
           <DownloadIcon /> Upload Template
         </PurpleButton> */}
           </span>
 
-          <ul>
+          {monthSelected && <><ul>
             <li
               style={!viewData ? hoverStyle : {}}
               onClick={() => {
@@ -1697,9 +1713,9 @@ const ClientPositionReport = (props) => {
                   );
                 })}
             </tbody>
-          </table>
+          </table></>}
         </div>
-      )}
+      
     </>
   );
 };

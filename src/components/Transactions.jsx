@@ -62,7 +62,7 @@ const Transactions = () => {
 
   return (
     <div className={classes.transactions}>
-      <div>
+     {activeModule=='' && <div>
         <select
           onChange={(e) => {
             setClientIdentity(e.target.value);
@@ -117,7 +117,8 @@ const Transactions = () => {
           {/* <option value="">FY 2022-23</option> */}
           {/* <option value="">FY 2021-22</option> */}
         </select>
-        {(activeModule == "transactiondata" || activeModule=="clientpositionreport") && (
+        {(activeModule == "transactiondata" ||
+          activeModule == "clientpositionreport") && (
           <select
             onChange={() => {
               return setMonthSelected(true);
@@ -132,44 +133,7 @@ const Transactions = () => {
             <option value="">April</option>
           </select>
         )}
-        {/* {activeModule == "bireport" && (
-          <select name="" id="">
-            <option value="">July</option>
-          </select>
-        )} */}
-      </div>
-
-      {/* {(monthly||quarterly||annually) && 
-      } */}
-      {/* {( visibleFields.client && visibleFields.tan && visibleFields.financial )&&<ul>
-        <li
-          style={monthly ? hoverStyle : {}}
-          onClick={() => {
-            setActiveModule("");
-            return compliancesSetter("monthly");
-          }}
-        >
-          Monthly Compliances
-        </li>
-        <li
-          style={quarterly ? hoverStyle : {}}
-          onClick={() => {
-            setActiveModule("");
-            return compliancesSetter("quarterly");
-          }}
-        >
-          Quarterly Compliances
-        </li>
-        <li
-          style={annually ? hoverStyle : {}}
-          onClick={() => {
-            setActiveModule("");
-            return compliancesSetter("annually");
-          }}
-        >
-          Annual Compliances
-        </li>
-      </ul>} */}
+      </div>}
 
       {visibleFields.client &&
         visibleFields.tan &&
@@ -285,7 +249,7 @@ const Transactions = () => {
       {activeModule == "transactiondata" && (
         <TransactionData
           clientIdentity={clientIdentity}
-          monthSelected={monthSelected}
+          // monthSelected={monthSelected}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
@@ -314,7 +278,7 @@ const Transactions = () => {
       {activeModule == "clientpositionreport" && (
         <ClientPositionReport
           clientIdentity={clientIdentity}
-          monthSelected={monthSelected}
+          // monthSelected={monthSelected}
           compliancesSetter={compliancesSetter}
           transactionHomeScreen={activeModuleSetter}
         />
